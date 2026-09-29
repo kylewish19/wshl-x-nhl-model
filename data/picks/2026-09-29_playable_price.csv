@@ -1,0 +1,18 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-09-29,1,MTL@TOR,anytime_goal,Teddy Blueger,0.5,0.1474,1100,0.0833,0.0641,0.7688,transition_ml,PLAYABLE
+2026-09-29,2,VAN@EDM,goalie_saves,Tristan Jarry Over,20.5,0.7793,-130,0.5652,0.2141,0.3788,goalie_transition_ml,PLAYABLE
+2026-09-29,3,CHI@VGK,goalie_saves,Carter Hart Over,20.5,0.6796,-110,0.5238,0.1558,0.2974,goalie_transition_ml,PLAYABLE
+2026-09-29,4,CHI@VGK,point_2plus,Jack Eichel,2,0.4078,210,0.3226,0.0853,0.2643,transition_ml,PLAYABLE
+2026-09-29,5,MTL@TOR,goalie_saves,Sergei Bobrovsky Under,25.5,0.6734,-118,0.5413,0.1321,0.2441,goalie_transition_ml,PLAYABLE
+2026-09-29,6,CHI@VGK,anytime_assist,Anton Frondell,0.5,0.3572,230,0.3030,0.0542,0.1787,rookie_projection_fallback,PLAYABLE
+2026-09-29,7,VAN@EDM,moneyline,Vancouver Canucks,,0.3351,245,0.2899,0.0452,0.1559,team_goal_hybrid,PLAYABLE
+2026-09-29,8,VAN@EDM,spread,Vancouver Canucks,+1.5,0.5883,-105,0.5122,0.0761,0.1486,team_goal_hybrid,PLAYABLE
+2026-09-29,9,CHI@VGK,point_1plus,Anton Frondell,1,0.5164,122,0.4505,0.0660,0.1464,rookie_projection_fallback,PLAYABLE
+2026-09-29,10,CHI@VGK,moneyline,Chicago Blackhawks,,0.3638,215,0.3175,0.0464,0.1460,team_goal_hybrid,PLAYABLE
+2026-09-29,11,CHI@VGK,spread,Chicago Blackhawks,+1.5,0.6200,-122,0.5495,0.0704,0.1281,team_goal_hybrid,PLAYABLE
+2026-09-29,12,CHI@VGK,anytime_assist,Jack Eichel,0.5,0.6012,-118,0.5413,0.0599,0.1106,transition_ml,PLAYABLE
+2026-09-29,13,FLA@CAR,goalie_saves,Brandon Bussi Over,22.5,0.5979,-120,0.5455,0.0524,0.0961,goalie_transition_ml,PLAYABLE
+2026-09-29,14,VAN@EDM,goalie_saves,Kevin Lankinen Under,27.5,0.6191,-130,0.5652,0.0539,0.0953,goalie_transition_ml,PLAYABLE
+2026-09-29,15,CHI@VGK,point_1plus,Tyler Bertuzzi,1,0.4870,124,0.4464,0.0406,0.0909,transition_ml,PLAYABLE
+2026-09-29,16,NYR@BOS,goalie_saves,Igor Shesterkin Over,23.5,0.5871,-118,0.5413,0.0459,0.0847,goalie_transition_ml,PLAYABLE
+2026-09-29,17,NYR@BOS,moneyline,Boston Bruins,,0.5504,-106,0.5146,0.0358,0.0696,team_goal_hybrid,PLAYABLE
