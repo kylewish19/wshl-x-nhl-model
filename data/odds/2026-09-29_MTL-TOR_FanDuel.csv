@@ -1,0 +1,95 @@
+date,game,market,selection,line,odds_american
+2026-09-29,MTL@TOR,spread,Montreal Canadiens,-1.5,210
+2026-09-29,MTL@TOR,spread,Toronto Maple Leafs,+1.5,-265
+2026-09-29,MTL@TOR,moneyline,Montreal Canadiens,,-110
+2026-09-29,MTL@TOR,moneyline,Toronto Maple Leafs,,-110
+2026-09-29,MTL@TOR,total,Over,6.5,-110
+2026-09-29,MTL@TOR,total,Under,6.5,-110
+2026-09-29,MTL@TOR,anytime_goal,Cole Caufield,0.5,130
+2026-09-29,MTL@TOR,anytime_goal,Auston Matthews,0.5,145
+2026-09-29,MTL@TOR,anytime_goal,William Nylander,0.5,180
+2026-09-29,MTL@TOR,anytime_goal,Nick Suzuki,0.5,195
+2026-09-29,MTL@TOR,anytime_goal,Kirill Marchenko,0.5,210
+2026-09-29,MTL@TOR,anytime_goal,Juraj Slafkovsky,0.5,220
+2026-09-29,MTL@TOR,anytime_goal,John Tavares,0.5,220
+2026-09-29,MTL@TOR,anytime_goal,Ivan Demidov,0.5,260
+2026-09-29,MTL@TOR,anytime_goal,Gavin McKenna,0.5,280
+2026-09-29,MTL@TOR,anytime_goal,Chris Kreider,0.5,290
+2026-09-29,MTL@TOR,anytime_goal,Jack Roslovic,0.5,290
+2026-09-29,MTL@TOR,anytime_goal,Alex Newhook,0.5,320
+2026-09-29,MTL@TOR,anytime_goal,Easton Cowan,0.5,390
+2026-09-29,MTL@TOR,anytime_goal,Nicholas Paul,0.5,430
+2026-09-29,MTL@TOR,anytime_goal,Darren Raddysh,0.5,440
+2026-09-29,MTL@TOR,anytime_goal,Kirby Dach,0.5,500
+2026-09-29,MTL@TOR,anytime_goal,Lane Hutson,0.5,525
+2026-09-29,MTL@TOR,anytime_goal,Zachary Bolduc,0.5,550
+2026-09-29,MTL@TOR,anytime_goal,Alexandre Texier,0.5,550
+2026-09-29,MTL@TOR,anytime_goal,Josh Anderson,0.5,600
+2026-09-29,MTL@TOR,anytime_goal,Morgan Rielly,0.5,750
+2026-09-29,MTL@TOR,anytime_goal,Jake Evans,0.5,750
+2026-09-29,MTL@TOR,anytime_goal,Noah Dobson,0.5,750
+2026-09-29,MTL@TOR,anytime_goal,Phillip Danault,0.5,800
+2026-09-29,MTL@TOR,anytime_goal,Colton Sissons,0.5,800
+2026-09-29,MTL@TOR,anytime_goal,Oliver Ekman-Larsson,0.5,950
+2026-09-29,MTL@TOR,anytime_goal,Brandon Duhaime,0.5,1000
+2026-09-29,MTL@TOR,anytime_goal,Teddy Blueger,0.5,1100
+2026-09-29,MTL@TOR,anytime_goal,Mike Matheson,0.5,1200
+2026-09-29,MTL@TOR,anytime_goal,Alexandre Carrier,0.5,1800
+2026-09-29,MTL@TOR,anytime_goal,Jake McCabe,0.5,2000
+2026-09-29,MTL@TOR,anytime_goal,Jayden Struble,0.5,2000
+2026-09-29,MTL@TOR,anytime_goal,Chris Tanev,0.5,2100
+2026-09-29,MTL@TOR,point_1plus,Nick Suzuki,1,-260
+2026-09-29,MTL@TOR,point_1plus,Auston Matthews,1,-245
+2026-09-29,MTL@TOR,point_1plus,William Nylander,1,-210
+2026-09-29,MTL@TOR,point_1plus,Cole Caufield,1,-205
+2026-09-29,MTL@TOR,point_1plus,Lane Hutson,1,-184
+2026-09-29,MTL@TOR,point_1plus,John Tavares,1,-164
+2026-09-29,MTL@TOR,point_1plus,Kirill Marchenko,1,-160
+2026-09-29,MTL@TOR,point_1plus,Juraj Slafkovsky,1,-140
+2026-09-29,MTL@TOR,point_1plus,Ivan Demidov,1,-122
+2026-09-29,MTL@TOR,point_1plus,Darren Raddysh,1,-120
+2026-09-29,MTL@TOR,point_1plus,Alex Newhook,1,-115
+2026-09-29,MTL@TOR,point_1plus,Gavin McKenna,1,-106
+2026-09-29,MTL@TOR,point_1plus,Chris Kreider,1,120
+2026-09-29,MTL@TOR,point_1plus,Morgan Rielly,1,146
+2026-09-29,MTL@TOR,point_1plus,Noah Dobson,1,158
+2026-09-29,MTL@TOR,point_1plus,Mike Matheson,1,162
+2026-09-29,MTL@TOR,point_1plus,Oliver Ekman-Larsson,1,190
+2026-09-29,MTL@TOR,point_2plus,Nick Suzuki,2,196
+2026-09-29,MTL@TOR,point_2plus,Auston Matthews,2,215
+2026-09-29,MTL@TOR,point_2plus,William Nylander,2,250
+2026-09-29,MTL@TOR,point_2plus,Cole Caufield,2,250
+2026-09-29,MTL@TOR,point_2plus,Lane Hutson,2,280
+2026-09-29,MTL@TOR,point_2plus,John Tavares,2,320
+2026-09-29,MTL@TOR,point_2plus,Kirill Marchenko,2,330
+2026-09-29,MTL@TOR,point_2plus,Juraj Slafkovsky,2,370
+2026-09-29,MTL@TOR,point_2plus,Alex Newhook,2,440
+2026-09-29,MTL@TOR,point_2plus,Darren Raddysh,2,450
+2026-09-29,MTL@TOR,point_2plus,Ivan Demidov,2,450
+2026-09-29,MTL@TOR,point_2plus,Gavin McKenna,2,500
+2026-09-29,MTL@TOR,point_2plus,Chris Kreider,2,630
+2026-09-29,MTL@TOR,point_2plus,Morgan Rielly,2,870
+2026-09-29,MTL@TOR,point_2plus,Mike Matheson,2,900
+2026-09-29,MTL@TOR,point_2plus,Noah Dobson,2,900
+2026-09-29,MTL@TOR,point_2plus,Oliver Ekman-Larsson,2,1100
+2026-09-29,MTL@TOR,anytime_assist,Lane Hutson,0.5,-138
+2026-09-29,MTL@TOR,anytime_assist,Nick Suzuki,0.5,-130
+2026-09-29,MTL@TOR,anytime_assist,Auston Matthews,0.5,106
+2026-09-29,MTL@TOR,anytime_assist,William Nylander,0.5,108
+2026-09-29,MTL@TOR,anytime_assist,Darren Raddysh,0.5,128
+2026-09-29,MTL@TOR,anytime_assist,John Tavares,0.5,130
+2026-09-29,MTL@TOR,anytime_assist,Cole Caufield,0.5,144
+2026-09-29,MTL@TOR,anytime_assist,Kirill Marchenko,0.5,140
+2026-09-29,MTL@TOR,anytime_assist,Alex Newhook,0.5,146
+2026-09-29,MTL@TOR,anytime_assist,Juraj Slafkovsky,0.5,158
+2026-09-29,MTL@TOR,anytime_assist,Ivan Demidov,0.5,164
+2026-09-29,MTL@TOR,anytime_assist,Gavin McKenna,0.5,190
+2026-09-29,MTL@TOR,anytime_assist,Mike Matheson,0.5,196
+2026-09-29,MTL@TOR,anytime_assist,Morgan Rielly,0.5,200
+2026-09-29,MTL@TOR,anytime_assist,Noah Dobson,0.5,220
+2026-09-29,MTL@TOR,anytime_assist,Oliver Ekman-Larsson,0.5,250
+2026-09-29,MTL@TOR,anytime_assist,Chris Kreider,0.5,250
+2026-09-29,MTL@TOR,goalie_saves,Sergei Bobrovsky Over,25.5,-112
+2026-09-29,MTL@TOR,goalie_saves,Sergei Bobrovsky Under,25.5,-118
+2026-09-29,MTL@TOR,goalie_saves,Jakub Dobes Over,24.5,-108
+2026-09-29,MTL@TOR,goalie_saves,Jakub Dobes Under,24.5,-122
