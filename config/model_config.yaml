@@ -1,0 +1,34 @@
+season:
+  training_seasons: [20212022, 20222023, 20232024, 20242025, 20252026]
+  current_season: 20262027
+  game_type: 2
+
+training:
+  recency_half_life_days: 730
+  random_state: 42
+  validation_fraction: 0.20
+  min_train_rows: 500
+  n_estimators_hint: 300
+
+simulation:
+  game_runs: 20000
+  max_goals_per_team: 12
+
+selection:
+  top_n_probability: 10
+  playable:
+    min_expected_roi: 0.05
+    min_edge:
+      moneyline: 0.03
+      spread: 0.03
+      total: 0.03
+      anytime_goal: 0.05
+      anytime_assist: 0.04
+      goalie_saves: 0.04
+      point_1plus: 0.04
+      point_2plus: 0.05
+
+eligibility:
+  goalie_save_requires_confirmed_starter: true
+  player_requires_active: true
+  max_missing_feature_fraction: 0.15
