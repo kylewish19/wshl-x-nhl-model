@@ -1,0 +1,74 @@
+date,game,market,selection,line,odds_american
+2026-09-29,FLA@CAR,spread,Florida Panthers,+1.5,-225
+2026-09-29,FLA@CAR,spread,Carolina Hurricanes,-1.5,180
+2026-09-29,FLA@CAR,moneyline,Florida Panthers,,108
+2026-09-29,FLA@CAR,moneyline,Carolina Hurricanes,,-130
+2026-09-29,FLA@CAR,total,Over,6.5,104
+2026-09-29,FLA@CAR,total,Under,6.5,-128
+2026-09-29,FLA@CAR,anytime_goal,Brady Tkachuk,0.5,180
+2026-09-29,FLA@CAR,anytime_goal,Andrei Svechnikov,0.5,190
+2026-09-29,FLA@CAR,anytime_goal,Sebastian Aho,0.5,200
+2026-09-29,FLA@CAR,anytime_goal,Sam Reinhart,0.5,210
+2026-09-29,FLA@CAR,anytime_goal,Matthew Tkachuk,0.5,210
+2026-09-29,FLA@CAR,anytime_goal,Logan Stankoven,0.5,230
+2026-09-29,FLA@CAR,anytime_goal,Jackson Blake,0.5,230
+2026-09-29,FLA@CAR,anytime_goal,Nikolaj Ehlers,0.5,250
+2026-09-29,FLA@CAR,anytime_goal,Sam Bennett,0.5,260
+2026-09-29,FLA@CAR,anytime_goal,Aleksander Barkov,0.5,270
+2026-09-29,FLA@CAR,anytime_goal,Carter Verhaeghe,0.5,275
+2026-09-29,FLA@CAR,anytime_goal,Taylor Hall,0.5,275
+2026-09-29,FLA@CAR,anytime_goal,Jordan Staal,0.5,290
+2026-09-29,FLA@CAR,anytime_goal,Anton Lundell,0.5,400
+2026-09-29,FLA@CAR,anytime_goal,Eric Robinson,0.5,430
+2026-09-29,FLA@CAR,anytime_goal,Jordan Martinook,0.5,450
+2026-09-29,FLA@CAR,anytime_goal,Eetu Luostarinen,0.5,470
+2026-09-29,FLA@CAR,anytime_goal,Shayne Gostisbehere,0.5,575
+2026-09-29,FLA@CAR,anytime_goal,Seth Jones,0.5,700
+2026-09-29,FLA@CAR,anytime_goal,K'Andre Miller,0.5,750
+2026-09-29,FLA@CAR,anytime_goal,Mark Jankowski,0.5,750
+2026-09-29,FLA@CAR,anytime_goal,Aaron Ekblad,0.5,850
+2026-09-29,FLA@CAR,anytime_goal,Sean Walker,0.5,900
+2026-09-29,FLA@CAR,anytime_goal,Sandis Vilmanis,0.5,1000
+2026-09-29,FLA@CAR,anytime_goal,William Carrier,0.5,1000
+2026-09-29,FLA@CAR,anytime_goal,Gustav Forsling,0.5,1000
+2026-09-29,FLA@CAR,anytime_goal,Lars Eller,0.5,1100
+2026-09-29,FLA@CAR,anytime_goal,Jaccob Slavin,0.5,1300
+2026-09-29,FLA@CAR,anytime_goal,Jalen Chatfield,0.5,1300
+2026-09-29,FLA@CAR,anytime_goal,Niko Mikkola,0.5,1300
+2026-09-29,FLA@CAR,anytime_goal,Bokondji Imama,0.5,1300
+2026-09-29,FLA@CAR,anytime_goal,Radko Gudas,0.5,2000
+2026-09-29,FLA@CAR,anytime_goal,Dmitry Kulikov,0.5,2100
+2026-09-29,FLA@CAR,point_1plus,Sebastian Aho,1,-186
+2026-09-29,FLA@CAR,point_1plus,Matthew Tkachuk,1,-174
+2026-09-29,FLA@CAR,point_1plus,Aleksander Barkov,1,-170
+2026-09-29,FLA@CAR,point_1plus,Sam Reinhart,1,-166
+2026-09-29,FLA@CAR,point_1plus,Brady Tkachuk,1,-158
+2026-09-29,FLA@CAR,point_1plus,Andrei Svechnikov,1,-154
+2026-09-29,FLA@CAR,point_1plus,Jackson Blake,1,-140
+2026-09-29,FLA@CAR,point_1plus,Nikolaj Ehlers,1,-136
+2026-09-29,FLA@CAR,point_1plus,Shayne Gostisbehere,1,-113
+2026-09-29,FLA@CAR,point_1plus,Seth Jones,1,-108
+2026-09-29,FLA@CAR,point_2plus,Matthew Tkachuk,2,285
+2026-09-29,FLA@CAR,point_2plus,Sebastian Aho,2,280
+2026-09-29,FLA@CAR,point_2plus,Aleksander Barkov,2,290
+2026-09-29,FLA@CAR,point_2plus,Sam Reinhart,2,300
+2026-09-29,FLA@CAR,point_2plus,Andrei Svechnikov,2,330
+2026-09-29,FLA@CAR,point_2plus,Brady Tkachuk,2,330
+2026-09-29,FLA@CAR,point_2plus,Jackson Blake,2,360
+2026-09-29,FLA@CAR,point_2plus,Nikolaj Ehlers,2,370
+2026-09-29,FLA@CAR,point_2plus,Shayne Gostisbehere,2,470
+2026-09-29,FLA@CAR,point_2plus,Seth Jones,2,500
+2026-09-29,FLA@CAR,goalie_saves,Jacob Markstrom Over,25.5,-120
+2026-09-29,FLA@CAR,goalie_saves,Jacob Markstrom Under,25.5,-110
+2026-09-29,FLA@CAR,goalie_saves,Brandon Bussi Over,22.5,-120
+2026-09-29,FLA@CAR,goalie_saves,Brandon Bussi Under,22.5,-110
+2026-09-29,FLA@CAR,anytime_assist,Aleksander Barkov,0.5,102
+2026-09-29,FLA@CAR,anytime_assist,Sebastian Aho,0.5,114
+2026-09-29,FLA@CAR,anytime_assist,Shayne Gostisbehere,0.5,124
+2026-09-29,FLA@CAR,anytime_assist,Matthew Tkachuk,0.5,124
+2026-09-29,FLA@CAR,anytime_assist,Seth Jones,0.5,124
+2026-09-29,FLA@CAR,anytime_assist,Sam Reinhart,0.5,128
+2026-09-29,FLA@CAR,anytime_assist,Nikolaj Ehlers,0.5,148
+2026-09-29,FLA@CAR,anytime_assist,Jackson Blake,0.5,154
+2026-09-29,FLA@CAR,anytime_assist,Andrei Svechnikov,0.5,158
+2026-09-29,FLA@CAR,anytime_assist,Brady Tkachuk,0.5,164
