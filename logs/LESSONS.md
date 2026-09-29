@@ -9,6 +9,14 @@
 - Chronological validation only.
 - Use role, PP usage, injuries and starting goalies as current-context inputs.
 
+### Opening-day pre-lock QA
+- The first dry run exposed a full-team-name vs abbreviation mapping error in game-market candidate resolution.
+- Example failure mode: a selection like "Vancouver Canucks +1.5" was not recognized as VAN, so it could be evaluated as the home side.
+- The dry run was discarded before any official card was locked.
+- Added canonical team-name mapping in `src/wshlx_nhl/team_aliases.py`.
+- Re-ran the full slate after the fix, then locked the Top 10 before applying sportsbook prices.
+- This is an implementation fix, not a post-result model adjustment, so the version remains v0.1.0.
+
 ### Hypotheses to test prospectively
 - Player role/PP changes will be especially important in October.
 - Goalie-save accuracy should improve by modeling expected opponent shot volume separately from goalie save skill.
