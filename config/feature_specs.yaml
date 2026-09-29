@@ -1,0 +1,103 @@
+# These columns are the initial v0.1 feature targets after raw-data preparation.
+# Exact source mappings can evolve as the MoneyPuck/NHL ingestion table is finalized.
+game_goals:
+  categorical: [team, opponent]
+  numeric:
+    - is_home
+    - days_rest
+    - back_to_back
+    - goals_for_r5
+    - goals_for_r10
+    - goals_against_r5
+    - goals_against_r10
+    - shots_for_r5
+    - shots_against_r5
+    - xgoals_for_r5
+    - xgoals_against_r5
+    - pp_xgoals_for_r10
+    - pk_xgoals_against_r10
+    - starter_save_pct_r10
+    - starter_gsax_r10
+    - opponent_starter_save_pct_r10
+    - opponent_starter_gsax_r10
+    - roster_continuity
+    - injury_impact
+
+player_goals:
+  categorical: [player_id, team, opponent, position]
+  numeric:
+    - is_home
+    - days_rest
+    - toi_r5
+    - toi_r10
+    - pp_toi_r5
+    - shots_r5
+    - shots_r10
+    - ixg_r5
+    - ixg_r10
+    - goals_r10
+    - shooting_pct_shrunk
+    - line_number
+    - pp_unit
+    - team_xgoals_for_r5
+    - opponent_xgoals_against_r5
+    - opponent_starter_save_pct_r10
+    - opponent_starter_gsax_r10
+
+player_assists:
+  categorical: [player_id, team, opponent, position]
+  numeric:
+    - is_home
+    - days_rest
+    - toi_r5
+    - toi_r10
+    - pp_toi_r5
+    - assists_r5
+    - assists_r10
+    - points_r10
+    - onice_xgoals_for_r5
+    - line_xgoals_for_r5
+    - linemate_finishing_r10
+    - line_number
+    - pp_unit
+    - team_xgoals_for_r5
+    - opponent_xgoals_against_r5
+    - opponent_pk_xgoals_against_r10
+
+player_points:
+  categorical: [player_id, team, opponent, position]
+  numeric:
+    - is_home
+    - days_rest
+    - toi_r5
+    - toi_r10
+    - pp_toi_r5
+    - shots_r5
+    - ixg_r5
+    - assists_r5
+    - points_r5
+    - points_r10
+    - onice_xgoals_for_r5
+    - line_xgoals_for_r5
+    - line_number
+    - pp_unit
+    - team_xgoals_for_r5
+    - opponent_xgoals_against_r5
+
+goalie_saves:
+  categorical: [goalie_id, team, opponent]
+  numeric:
+    - is_home
+    - days_rest
+    - starts_last_7d
+    - saves_r5
+    - shots_against_r5
+    - shots_against_r10
+    - save_pct_r10
+    - gsax_r10
+    - rebound_control_proxy
+    - opponent_shots_for_r5
+    - opponent_shots_for_r10
+    - opponent_xgoals_for_r5
+    - team_xgoals_against_r5
+    - team_penalty_rate_r10
