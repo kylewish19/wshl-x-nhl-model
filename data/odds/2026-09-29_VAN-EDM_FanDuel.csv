@@ -1,0 +1,76 @@
+date,game,market,selection,line,odds_american
+2026-09-29,VAN@EDM,spread,Vancouver Canucks,+1.5,-105
+2026-09-29,VAN@EDM,spread,Edmonton Oilers,-1.5,124
+2026-09-29,VAN@EDM,moneyline,Vancouver Canucks,,245
+2026-09-29,VAN@EDM,moneyline,Edmonton Oilers,,-310
+2026-09-29,VAN@EDM,total,Over,6.5,-118
+2026-09-29,VAN@EDM,total,Under,6.5,-104
+2026-09-29,VAN@EDM,anytime_goal,Connor McDavid,0.5,-110
+2026-09-29,VAN@EDM,anytime_goal,Leon Draisaitl,0.5,-105
+2026-09-29,VAN@EDM,anytime_goal,Zach Hyman,0.5,140
+2026-09-29,VAN@EDM,anytime_goal,Vasily Podkolzin,0.5,195
+2026-09-29,VAN@EDM,anytime_goal,Evan Bouchard,0.5,260
+2026-09-29,VAN@EDM,anytime_goal,Brock Boeser,0.5,270
+2026-09-29,VAN@EDM,anytime_goal,Isaac Howard,0.5,270
+2026-09-29,VAN@EDM,anytime_goal,Kasperi Kapanen,0.5,275
+2026-09-29,VAN@EDM,anytime_goal,Jake DeBrusk,0.5,300
+2026-09-29,VAN@EDM,anytime_goal,Elias Pettersson #40,0.5,330
+2026-09-29,VAN@EDM,anytime_goal,Marco Rossi,0.5,400
+2026-09-29,VAN@EDM,anytime_goal,Linus Karlsson,0.5,420
+2026-09-29,VAN@EDM,anytime_goal,Jonathan Lekkerimaki,0.5,430
+2026-09-29,VAN@EDM,anytime_goal,Liam Ohgren,0.5,480
+2026-09-29,VAN@EDM,anytime_goal,Drew O'Connor,0.5,525
+2026-09-29,VAN@EDM,anytime_goal,Max Sasson,0.5,600
+2026-09-29,VAN@EDM,anytime_goal,Filip Hronek,0.5,600
+2026-09-29,VAN@EDM,anytime_goal,Jake Walman,0.5,600
+2026-09-29,VAN@EDM,anytime_goal,Owen Michaels,0.5,600
+2026-09-29,VAN@EDM,anytime_goal,Trent Frederic,0.5,650
+2026-09-29,VAN@EDM,anytime_goal,Zeev Buium,0.5,700
+2026-09-29,VAN@EDM,anytime_goal,Colton Dach,0.5,750
+2026-09-29,VAN@EDM,anytime_goal,Alex Formenton,0.5,800
+2026-09-29,VAN@EDM,anytime_goal,Brendan Gallagher,0.5,850
+2026-09-29,VAN@EDM,anytime_goal,Mattias Ekholm,0.5,900
+2026-09-29,VAN@EDM,anytime_goal,Ryan Shea,0.5,900
+2026-09-29,VAN@EDM,anytime_goal,Mathieu Joseph,0.5,900
+2026-09-29,VAN@EDM,anytime_goal,Connor Murphy,0.5,950
+2026-09-29,VAN@EDM,anytime_goal,Aatu Raty,0.5,1000
+2026-09-29,VAN@EDM,anytime_goal,Tom Willander,0.5,1000
+2026-09-29,VAN@EDM,anytime_goal,Paul Cotter,0.5,1100
+2026-09-29,VAN@EDM,anytime_goal,Shakir Mukhamadullin,0.5,1500
+2026-09-29,VAN@EDM,anytime_goal,Elias Pettersson #25,0.5,2000
+2026-09-29,VAN@EDM,anytime_goal,Luke Schenn,0.5,2100
+2026-09-29,VAN@EDM,anytime_goal,Jamie Oleksiak,0.5,2200
+2026-09-29,VAN@EDM,point_1plus,Connor McDavid,1,-900
+2026-09-29,VAN@EDM,point_1plus,Leon Draisaitl,1,-590
+2026-09-29,VAN@EDM,point_1plus,Evan Bouchard,1,-400
+2026-09-29,VAN@EDM,point_1plus,Vasily Podkolzin,1,-180
+2026-09-29,VAN@EDM,point_1plus,Zach Hyman,1,-174
+2026-09-29,VAN@EDM,point_1plus,Brock Boeser,1,-104
+2026-09-29,VAN@EDM,point_1plus,Elias Pettersson #40,1,100
+2026-09-29,VAN@EDM,point_1plus,Marco Rossi,1,102
+2026-09-29,VAN@EDM,point_1plus,Jake DeBrusk,1,118
+2026-09-29,VAN@EDM,point_1plus,Zeev Buium,1,190
+2026-09-29,VAN@EDM,point_2plus,Connor McDavid,2,-170
+2026-09-29,VAN@EDM,point_2plus,Leon Draisaitl,2,-115
+2026-09-29,VAN@EDM,point_2plus,Evan Bouchard,2,126
+2026-09-29,VAN@EDM,point_2plus,Zach Hyman,2,285
+2026-09-29,VAN@EDM,point_2plus,Vasily Podkolzin,2,280
+2026-09-29,VAN@EDM,point_2plus,Brock Boeser,2,500
+2026-09-29,VAN@EDM,point_2plus,Marco Rossi,2,520
+2026-09-29,VAN@EDM,point_2plus,Elias Pettersson #40,2,520
+2026-09-29,VAN@EDM,point_2plus,Jake DeBrusk,2,630
+2026-09-29,VAN@EDM,point_2plus,Zeev Buium,2,1060
+2026-09-29,VAN@EDM,anytime_assist,Connor McDavid,0.5,-340
+2026-09-29,VAN@EDM,anytime_assist,Evan Bouchard,0.5,-250
+2026-09-29,VAN@EDM,anytime_assist,Leon Draisaitl,0.5,-215
+2026-09-29,VAN@EDM,anytime_assist,Vasily Podkolzin,0.5,124
+2026-09-29,VAN@EDM,anytime_assist,Marco Rossi,0.5,164
+2026-09-29,VAN@EDM,anytime_assist,Elias Pettersson #40,0.5,176
+2026-09-29,VAN@EDM,anytime_assist,Zach Hyman,0.5,172
+2026-09-29,VAN@EDM,anytime_assist,Brock Boeser,0.5,200
+2026-09-29,VAN@EDM,anytime_assist,Jake DeBrusk,0.5,235
+2026-09-29,VAN@EDM,anytime_assist,Zeev Buium,0.5,280
+2026-09-29,VAN@EDM,goalie_saves,Tristan Jarry Over,20.5,-130
+2026-09-29,VAN@EDM,goalie_saves,Tristan Jarry Under,20.5,102
+2026-09-29,VAN@EDM,goalie_saves,Kevin Lankinen Over,27.5,102
+2026-09-29,VAN@EDM,goalie_saves,Kevin Lankinen Under,27.5,-130
