@@ -1,0 +1,77 @@
+date,game,market,selection,line,odds_american
+2026-09-29,NYR@BOS,spread,New York Rangers,-1.5,220
+2026-09-29,NYR@BOS,spread,Boston Bruins,+1.5,-280
+2026-09-29,NYR@BOS,moneyline,New York Rangers,,-113
+2026-09-29,NYR@BOS,moneyline,Boston Bruins,,-106
+2026-09-29,NYR@BOS,total,Over,5.5,-128
+2026-09-29,NYR@BOS,total,Under,5.5,104
+2026-09-29,NYR@BOS,anytime_goal,David Pastrnak,0.5,150
+2026-09-29,NYR@BOS,anytime_goal,Pavel Dorofeyev,0.5,170
+2026-09-29,NYR@BOS,anytime_goal,Mika Zibanejad,0.5,195
+2026-09-29,NYR@BOS,anytime_goal,Morgan Geekie,0.5,210
+2026-09-29,NYR@BOS,anytime_goal,JJ Peterka,0.5,230
+2026-09-29,NYR@BOS,anytime_goal,Alexis Lafreniere,0.5,260
+2026-09-29,NYR@BOS,anytime_goal,Pavel Zacha,0.5,280
+2026-09-29,NYR@BOS,anytime_goal,J.T. Miller,0.5,290
+2026-09-29,NYR@BOS,anytime_goal,Will Cuylle,0.5,320
+2026-09-29,NYR@BOS,anytime_goal,Fraser Minten,0.5,340
+2026-09-29,NYR@BOS,anytime_goal,Gabe Perreault,0.5,350
+2026-09-29,NYR@BOS,anytime_goal,Elias Lindholm,0.5,410
+2026-09-29,NYR@BOS,anytime_goal,Eeli Tolvanen,0.5,410
+2026-09-29,NYR@BOS,anytime_goal,James Hagens,0.5,420
+2026-09-29,NYR@BOS,anytime_goal,Oliver Bjorkstrand,0.5,440
+2026-09-29,NYR@BOS,anytime_goal,Casey Mittelstadt,0.5,470
+2026-09-29,NYR@BOS,anytime_goal,Adam Fox,0.5,490
+2026-09-29,NYR@BOS,anytime_goal,Mark Kastelic,0.5,650
+2026-09-29,NYR@BOS,anytime_goal,Noah Laba,0.5,700
+2026-09-29,NYR@BOS,anytime_goal,Marat Khusnutdinov,0.5,700
+2026-09-29,NYR@BOS,anytime_goal,Hampus Lindholm,0.5,800
+2026-09-29,NYR@BOS,anytime_goal,Tye Kartye,0.5,900
+2026-09-29,NYR@BOS,anytime_goal,Mason Lohrei,0.5,900
+2026-09-29,NYR@BOS,anytime_goal,Tanner Jeannot,0.5,900
+2026-09-29,NYR@BOS,anytime_goal,Sean Durzi,0.5,1000
+2026-09-29,NYR@BOS,anytime_goal,Vladislav Gavrikov,0.5,1100
+2026-09-29,NYR@BOS,anytime_goal,Joe Veleno,0.5,1200
+2026-09-29,NYR@BOS,anytime_goal,Sean Kuraly,0.5,1200
+2026-09-29,NYR@BOS,anytime_goal,Matt Rempe,0.5,1300
+2026-09-29,NYR@BOS,anytime_goal,Alberts Smits,0.5,1300
+2026-09-29,NYR@BOS,anytime_goal,Will Borgen,0.5,1700
+2026-09-29,NYR@BOS,anytime_goal,Braden Schneider,0.5,1700
+2026-09-29,NYR@BOS,anytime_goal,Marcus Pettersson,0.5,1800
+2026-09-29,NYR@BOS,anytime_goal,Jonathan Aspirot,0.5,1900
+2026-09-29,NYR@BOS,anytime_goal,Nikita Zadorov,0.5,2200
+2026-09-29,NYR@BOS,anytime_goal,Connor Clifton,0.5,2300
+2026-09-29,NYR@BOS,point_1plus,David Pastrnak,1,-295
+2026-09-29,NYR@BOS,point_1plus,Mika Zibanejad,1,-172
+2026-09-29,NYR@BOS,point_1plus,Adam Fox,1,-158
+2026-09-29,NYR@BOS,point_1plus,Pavel Dorofeyev,1,-146
+2026-09-29,NYR@BOS,point_1plus,J.T. Miller,1,-136
+2026-09-29,NYR@BOS,point_1plus,Morgan Geekie,1,-128
+2026-09-29,NYR@BOS,point_1plus,JJ Peterka,1,-128
+2026-09-29,NYR@BOS,point_1plus,Alexis Lafreniere,1,-118
+2026-09-29,NYR@BOS,point_1plus,Pavel Zacha,1,-111
+2026-09-29,NYR@BOS,point_1plus,Hampus Lindholm,1,114
+2026-09-29,NYR@BOS,point_2plus,David Pastrnak,2,172
+2026-09-29,NYR@BOS,point_2plus,Mika Zibanejad,2,300
+2026-09-29,NYR@BOS,point_2plus,Adam Fox,2,320
+2026-09-29,NYR@BOS,point_2plus,Pavel Dorofeyev,2,350
+2026-09-29,NYR@BOS,point_2plus,J.T. Miller,2,390
+2026-09-29,NYR@BOS,point_2plus,Morgan Geekie,2,400
+2026-09-29,NYR@BOS,point_2plus,JJ Peterka,2,420
+2026-09-29,NYR@BOS,point_2plus,Alexis Lafreniere,2,440
+2026-09-29,NYR@BOS,point_2plus,Pavel Zacha,2,470
+2026-09-29,NYR@BOS,point_2plus,Hampus Lindholm,2,630
+2026-09-29,NYR@BOS,anytime_assist,David Pastrnak,0.5,-128
+2026-09-29,NYR@BOS,anytime_assist,Adam Fox,0.5,-113
+2026-09-29,NYR@BOS,anytime_assist,Mika Zibanejad,0.5,132
+2026-09-29,NYR@BOS,anytime_assist,J.T. Miller,0.5,134
+2026-09-29,NYR@BOS,anytime_assist,Hampus Lindholm,0.5,148
+2026-09-29,NYR@BOS,anytime_assist,Alexis Lafreniere,0.5,172
+2026-09-29,NYR@BOS,anytime_assist,Pavel Zacha,0.5,176
+2026-09-29,NYR@BOS,anytime_assist,JJ Peterka,0.5,176
+2026-09-29,NYR@BOS,anytime_assist,Morgan Geekie,0.5,190
+2026-09-29,NYR@BOS,anytime_assist,Pavel Dorofeyev,0.5,200
+2026-09-29,NYR@BOS,goalie_saves,Jeremy Swayman Over,23.5,-118
+2026-09-29,NYR@BOS,goalie_saves,Jeremy Swayman Under,23.5,-112
+2026-09-29,NYR@BOS,goalie_saves,Igor Shesterkin Over,23.5,-118
+2026-09-29,NYR@BOS,goalie_saves,Igor Shesterkin Under,23.5,-112
