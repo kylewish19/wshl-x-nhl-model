@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-29",
+  "version": "0.1.0",
+  "stage": "opening_day_bootstrap",
+  "odds_used_in_probability_stage": false,
+  "training_window": ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"],
+  "skater_transition_rows": 2594,
+  "skater_validation_rows": 640,
+  "validation": {
+    "goals_per_game_mae": 0.0574039676,
+    "assists_per_game_mae": 0.0761330040,
+    "points_per_game_mae": 0.1124879661,
+    "goalie_saves_per_start_mae": 1.8479217971
+  },
+  "selected_ridge_alpha": {
+    "goals": 10.0,
+    "assists": 0.3,
+    "points": 0.3,
+    "goalie_saves": 0.3
+  },
+  "game_expected_goals": {
+    "FLA@CAR": {"FLA": 2.9479, "CAR": 3.4696},
+    "MTL@TOR": {"MTL": 3.4532, "TOR": 3.1863},
+    "NYR@BOS": {"NYR": 2.9249, "BOS": 3.2266},
+    "VAN@EDM": {"VAN": 2.8096, "EDM": 3.7769},
+    "CHI@VGK": {"CHI": 2.6549, "VGK": 3.4431}
+  },
+  "notes": [
+    "Opening-day player and goalie models use supervised season-to-season transition learning because no 2026-27 regular-season game history exists yet.",
+    "Current NHL lineup/goalie context and NHL season projections are used as bounded context features/blends; FanDuel price is excluded from probability estimation.",
+    "Game moneyline/spread/total probabilities are v0.1 team-goal hybrid probabilities. They will transition toward trained rolling game-level models as 2026-27 observations accumulate.",
+    "A pre-lock full-team-name/abbreviation mapping bug was detected and corrected. The discarded run was never official."
+  ]
+}
