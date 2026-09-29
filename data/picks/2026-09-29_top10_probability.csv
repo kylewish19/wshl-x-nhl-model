@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,odds_used,status
+2026-09-29,1,VAN@EDM,point_1plus,Connor McDavid,1,0.8914,false,LOCKED
+2026-09-29,2,VAN@EDM,point_1plus,Leon Draisaitl,1,0.8094,false,LOCKED
+2026-09-29,3,VAN@EDM,goalie_saves,Tristan Jarry Over,20.5,0.7793,false,LOCKED
+2026-09-29,4,VAN@EDM,anytime_assist,Connor McDavid,0.5,0.7714,false,LOCKED
+2026-09-29,5,NYR@BOS,spread,Boston Bruins,+1.5,0.7714,false,LOCKED
+2026-09-29,6,CHI@VGK,point_1plus,Jack Eichel,1,0.7532,false,LOCKED
+2026-09-29,7,NYR@BOS,point_1plus,David Pastrnak,1,0.7474,false,LOCKED
+2026-09-29,8,MTL@TOR,point_1plus,Nick Suzuki,1,0.7082,false,LOCKED
+2026-09-29,9,MTL@TOR,spread,Toronto Maple Leafs,+1.5,0.6890,false,LOCKED
+2026-09-29,10,CHI@VGK,goalie_saves,Carter Hart Over,20.5,0.6796,false,LOCKED
