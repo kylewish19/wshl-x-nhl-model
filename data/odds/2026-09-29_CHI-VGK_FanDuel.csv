@@ -1,0 +1,74 @@
+date,game,market,selection,line,odds_american
+2026-09-29,CHI@VGK,spread,Chicago Blackhawks,+1.5,-122
+2026-09-29,CHI@VGK,spread,Vegas Golden Knights,-1.5,100
+2026-09-29,CHI@VGK,moneyline,Chicago Blackhawks,,215
+2026-09-29,CHI@VGK,moneyline,Vegas Golden Knights,,-265
+2026-09-29,CHI@VGK,total,Over,5.5,-134
+2026-09-29,CHI@VGK,total,Under,5.5,110
+2026-09-29,CHI@VGK,anytime_goal,Mark Stone,0.5,165
+2026-09-29,CHI@VGK,anytime_goal,Jack Eichel,0.5,175
+2026-09-29,CHI@VGK,anytime_goal,Mitchell Marner,0.5,170
+2026-09-29,CHI@VGK,anytime_goal,Brett Howden,0.5,240
+2026-09-29,CHI@VGK,anytime_goal,Ivan Barbashev,0.5,250
+2026-09-29,CHI@VGK,anytime_goal,Tomas Hertl,0.5,260
+2026-09-29,CHI@VGK,anytime_goal,William Karlsson,0.5,280
+2026-09-29,CHI@VGK,anytime_goal,Victor Olofsson,0.5,320
+2026-09-29,CHI@VGK,anytime_goal,Tyler Bertuzzi,0.5,320
+2026-09-29,CHI@VGK,anytime_goal,Frank Nazar,0.5,340
+2026-09-29,CHI@VGK,anytime_goal,Patrick Kane,0.5,340
+2026-09-29,CHI@VGK,anytime_goal,Anton Frondell,0.5,350
+2026-09-29,CHI@VGK,anytime_goal,Roman Kantserov,0.5,370
+2026-09-29,CHI@VGK,anytime_goal,Trevor Connelly,0.5,440
+2026-09-29,CHI@VGK,anytime_goal,Ryan Donato,0.5,450
+2026-09-29,CHI@VGK,anytime_goal,Nick Lardis,0.5,480
+2026-09-29,CHI@VGK,anytime_goal,Shea Theodore,0.5,480
+2026-09-29,CHI@VGK,anytime_goal,Oliver Moore,0.5,490
+2026-09-29,CHI@VGK,anytime_goal,Braeden Bowman,0.5,500
+2026-09-29,CHI@VGK,anytime_goal,Rasmus Andersson,0.5,625
+2026-09-29,CHI@VGK,anytime_goal,Andrew Mangiapane,0.5,700
+2026-09-29,CHI@VGK,anytime_goal,Bowen Byram,0.5,725
+2026-09-29,CHI@VGK,anytime_goal,Marc Gatcomb,0.5,750
+2026-09-29,CHI@VGK,anytime_goal,Ryan Greene,0.5,750
+2026-09-29,CHI@VGK,anytime_goal,Nic Dowd,0.5,850
+2026-09-29,CHI@VGK,anytime_goal,Cole Smith,0.5,1100
+2026-09-29,CHI@VGK,anytime_goal,Jordan Greenway,0.5,1200
+2026-09-29,CHI@VGK,anytime_goal,Parker Wotherspoon,0.5,1200
+2026-09-29,CHI@VGK,anytime_goal,Alex Vlasic,0.5,1300
+2026-09-29,CHI@VGK,anytime_goal,Sam Rinzel,0.5,1300
+2026-09-29,CHI@VGK,anytime_goal,Brayden McNabb,0.5,1400
+2026-09-29,CHI@VGK,anytime_goal,Artyom Levshunov,0.5,1500
+2026-09-29,CHI@VGK,anytime_goal,Wyatt Kaiser,0.5,1700
+2026-09-29,CHI@VGK,point_1plus,Jack Eichel,1,-260
+2026-09-29,CHI@VGK,point_1plus,Mitchell Marner,1,-220
+2026-09-29,CHI@VGK,point_1plus,Mark Stone,1,-205
+2026-09-29,CHI@VGK,point_1plus,Shea Theodore,1,-125
+2026-09-29,CHI@VGK,point_1plus,Tomas Hertl,1,-125
+2026-09-29,CHI@VGK,point_1plus,Patrick Kane,1,-120
+2026-09-29,CHI@VGK,point_1plus,Anton Frondell,1,122
+2026-09-29,CHI@VGK,point_1plus,Tyler Bertuzzi,1,124
+2026-09-29,CHI@VGK,point_1plus,Roman Kantserov,1,132
+2026-09-29,CHI@VGK,point_1plus,Bowen Byram,1,140
+2026-09-29,CHI@VGK,point_2plus,Jack Eichel,2,210
+2026-09-29,CHI@VGK,point_2plus,Mitchell Marner,2,230
+2026-09-29,CHI@VGK,point_2plus,Mark Stone,2,265
+2026-09-29,CHI@VGK,point_2plus,Tomas Hertl,2,430
+2026-09-29,CHI@VGK,point_2plus,Patrick Kane,2,440
+2026-09-29,CHI@VGK,point_2plus,Shea Theodore,2,440
+2026-09-29,CHI@VGK,point_2plus,Tyler Bertuzzi,2,680
+2026-09-29,CHI@VGK,point_2plus,Anton Frondell,2,680
+2026-09-29,CHI@VGK,point_2plus,Bowen Byram,2,750
+2026-09-29,CHI@VGK,point_2plus,Roman Kantserov,2,750
+2026-09-29,CHI@VGK,anytime_assist,Jack Eichel,0.5,-118
+2026-09-29,CHI@VGK,anytime_assist,Mitchell Marner,0.5,102
+2026-09-29,CHI@VGK,anytime_assist,Shea Theodore,0.5,118
+2026-09-29,CHI@VGK,anytime_assist,Mark Stone,0.5,126
+2026-09-29,CHI@VGK,anytime_assist,Patrick Kane,0.5,144
+2026-09-29,CHI@VGK,anytime_assist,Tomas Hertl,0.5,162
+2026-09-29,CHI@VGK,anytime_assist,Bowen Byram,0.5,190
+2026-09-29,CHI@VGK,anytime_assist,Anton Frondell,0.5,230
+2026-09-29,CHI@VGK,anytime_assist,Roman Kantserov,0.5,240
+2026-09-29,CHI@VGK,anytime_assist,Tyler Bertuzzi,0.5,255
+2026-09-29,CHI@VGK,goalie_saves,Spencer Knight Over,25.5,-118
+2026-09-29,CHI@VGK,goalie_saves,Spencer Knight Under,25.5,-112
+2026-09-29,CHI@VGK,goalie_saves,Carter Hart Over,20.5,-110
+2026-09-29,CHI@VGK,goalie_saves,Carter Hart Under,20.5,-120
