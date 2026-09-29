@@ -1,0 +1,4 @@
+date,game_id,market,selection,line,model_probability,odds_american,active,starter_confirmed,notes
+2026-09-29,example,moneyline,HOME,,0.600,,1,1,
+2026-09-29,example,total,OVER,5.5,0.550,,1,1,
+2026-09-29,example,anytime_goal,Player Name,0.5,0.300,,1,1,
