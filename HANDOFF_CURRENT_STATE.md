@@ -6,9 +6,8 @@ Repository: kylewish19/wshl-x-nhl-model
 
 ## Repository status
 - GitHub repository created and initialized on 2026-09-29.
-- v0.1.0 source, configs, tests, CI, grading pipeline, selection pipeline, and lessons log are on `main`.
-- Local scaffold tests passed 7/7 before the initial push.
-- Opening-day bootstrap ML code, canonical team aliases, run metadata, locked Top 10, and priced playable card are committed.
+- v0.1.0 source, configs, tests, CI, grading pipeline, selection pipeline, lessons log, opening-day bootstrap ML, and team aliases are on `main`.
+- First slate (2026-09-29) has been fully graded and saved.
 
 ## Locked project rules
 - Use games supplied by the user for the daily slate.
@@ -20,11 +19,13 @@ Repository: kylewish19/wshl-x-nhl-model
 - Structural model changes require evidence and are logged; one bad slate alone does not justify overfitting.
 - Never retroactively alter locked picks.
 
-## 2026-09-29 locked outputs
-- Top 10 Probability Card: `data/picks/2026-09-29_top10_probability.csv`
-- Playable Price Card: `data/picks/2026-09-29_playable_price.csv`
-- Model run metadata: `data/model_runs/2026-09-29_v0.1.0.json`
-- A team-name mapping bug was found during the pre-lock dry run, corrected, logged, and the invalid dry run was discarded before any official picks were locked.
+## 2026-09-29 results
+- Top 10 Probability Card: 7-3 (70.0%), Brier 0.2080.
+- Playable Price Card: 7-10 (41.2%), -0.9502u, -5.59% ROI, Brier 0.2586.
+- Results files: `data/results/2026-09-29_top10_graded.csv` and `data/results/2026-09-29_playable_graded.csv`.
+- Cumulative tracker: `data/results/season_summary.csv`.
+- Lessons logged in `logs/LESSONS.md`.
+- No structural model change was made after one slate. Goalie-save calibration and rookie-fallback props are flagged for continued monitoring.
 
 ## Exact current task
-Let the 2026-09-29 slate play. On the next grading request, collect final game/player/goalie results, grade the locked Top 10 and Playable Price cohorts separately, update cumulative W-L/hit rate/Brier/ROI, diagnose misses, append lessons, and change code only when evidence supports it.
+Prepare the next user-supplied NHL slate using v0.1.0 plus the logged opening-night lessons. Continue tracking Top 10 and Playable Price cards separately. Revisit code changes only when a repeatable error pattern is supported by a larger prospective sample.
