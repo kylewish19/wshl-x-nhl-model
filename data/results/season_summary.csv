@@ -1,0 +1,3 @@
+date,cohort,wins,losses,hit_rate,expected_wins,brier,profit_units,roi
+2026-09-29,TOP10_PROBABILITY,7,3,0.7000,7.6003,0.2080,,
+2026-09-29,PLAYABLE_PRICE,7,10,0.4118,8.9110,0.2586,-0.9502,-0.0559
