@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-09-30,1,LAK@COL,point_1plus,Nathan MacKinnon,1,0.8313,transition_ml,false,LOCKED
+2026-09-30,2,NYI@TOR,spread,New York Islanders,+1.5,0.7394,team_goal_hybrid,false,LOCKED
+2026-09-30,3,PIT@PHI,spread,Pittsburgh Penguins,+1.5,0.7339,team_goal_hybrid,false,LOCKED
+2026-09-30,4,LAK@COL,point_1plus,Martin Necas,1,0.6919,transition_ml,false,LOCKED
+2026-09-30,5,LAK@COL,moneyline,Colorado Avalanche,,0.6728,team_goal_hybrid,false,LOCKED
+2026-09-30,6,LAK@COL,anytime_assist,Nathan MacKinnon,0.5,0.6503,transition_ml,false,LOCKED
+2026-09-30,7,LAK@COL,point_1plus,Artemi Panarin,1,0.6466,transition_ml,false,LOCKED
+2026-09-30,8,NYI@TOR,point_1plus,William Nylander,1,0.6462,transition_ml,false,LOCKED
+2026-09-30,9,NYI@TOR,point_1plus,Auston Matthews,1,0.6431,transition_ml,false,LOCKED
+2026-09-30,10,PIT@PHI,point_1plus,Porter Martone,1,0.6223,rookie_projection_fallback,false,LOCKED
