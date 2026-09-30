@@ -11,10 +11,11 @@ Repository: kylewish19/wshl-x-nhl-model
 
 ## Locked project rules
 - Use games supplied by the user for the daily slate.
-- Produce a pre-odds Top 10 Probability Card.
+- Produce a pre-odds Top 10 Probability Card consisting of exactly the 10 highest-probability eligible bets across the full slate.
 - Odds must never influence or rewrite the locked Top 10 Probability Card.
-- After FanDuel prices are supplied, create a separate Playable Price Card using model edge and expected value.
-- Grade both cohorts independently the next day.
+- After FanDuel prices are supplied, create a separate **Official Playable Price Card** from the full eligible slate using model probability, market-specific edge, and expected-value gates.
+- The Official Playable Price Card is not capped at 10; its size is determined only by which bets satisfy the documented price gates.
+- Grade both official cohorts independently after every slate, then collect lessons and make code changes only when the prospective evidence justifies them.
 - Append completed 2026-27 games to the dataset and rolling features.
 - Structural model changes require evidence and are logged; one bad slate alone does not justify overfitting.
 - Never retroactively alter locked picks.
