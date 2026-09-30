@@ -47,18 +47,21 @@ All validation is chronological. Random train/test splits are prohibited because
 
 ### Top 10 Probability Card
 
-- Odds are invisible to this stage.
-- Rank all eligible candidate picks by calibrated probability.
-- Lock exactly 10 when at least 10 eligible markets exist.
-- A pick remains in this cohort even if the later price is awful.
-- Track W-L/hit rate and probability quality separately from betting ROI.
+- This is always the **10 highest-probability eligible bets produced by the models across the entire slate**.
+- Odds are completely invisible to this stage.
+- Rank all eligible candidate picks by calibrated model probability and lock exactly 10 when at least 10 eligible markets exist.
+- Do not diversify by market or game unless a future documented rule explicitly changes this; pure probability rank controls selection.
+- A pick remains in this cohort even if its later sportsbook price is poor.
+- Track W-L, hit rate, Brier/calibration, and performance by market/probability band.
 
-### Playable Price Card
+### Official Playable Price Card
 
-- Created only after odds arrive.
+- Created only **after** the Top 10 Probability Card is locked and FanDuel odds are supplied.
+- Evaluate the **full eligible slate**, not only the Top 10.
 - Model probabilities never change because of odds.
-- Default gate: positive expected value plus a market-specific minimum edge over implied probability.
-- Track W-L, hit rate, units/ROI and closing-line value when available.
+- Include every candidate that clears the documented market-specific probability edge and expected-value gates; the card is **not forced to exactly 10 picks**.
+- Track this cohort independently: W-L, hit rate, units/ROI, edge calibration, market splits, and closing-line value when available.
+- Grade both official cards after every slate and use the growing prospective evidence to decide whether lessons or code changes are justified.
 
 ## Important slate rules
 
