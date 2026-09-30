@@ -1,0 +1,86 @@
+date,game,market,selection,line,odds_american
+2026-09-30,LAK@COL,spread,Los Angeles Kings,+1.5,-162
+2026-09-30,LAK@COL,spread,Colorado Avalanche,-1.5,130
+2026-09-30,LAK@COL,moneyline,Los Angeles Kings,,162
+2026-09-30,LAK@COL,moneyline,Colorado Avalanche,,-196
+2026-09-30,LAK@COL,total,Over,6.5,104
+2026-09-30,LAK@COL,total,Under,6.5,-128
+2026-09-30,LAK@COL,anytime_goal,Nathan MacKinnon,0.5,120
+2026-09-30,LAK@COL,anytime_goal,Martin Necas,0.5,170
+2026-09-30,LAK@COL,anytime_goal,Adrian Kempe,0.5,230
+2026-09-30,LAK@COL,anytime_goal,Brock Nelson,0.5,230
+2026-09-30,LAK@COL,anytime_goal,Artemi Panarin,0.5,240
+2026-09-30,LAK@COL,anytime_goal,Gabriel Landeskog,0.5,240
+2026-09-30,LAK@COL,anytime_goal,Nazem Kadri,0.5,270
+2026-09-30,LAK@COL,anytime_goal,Artturi Lehkonen,0.5,275
+2026-09-30,LAK@COL,anytime_goal,Quinton Byfield,0.5,275
+2026-09-30,LAK@COL,anytime_goal,Cale Makar,0.5,330
+2026-09-30,LAK@COL,anytime_goal,Alex Laferriere,0.5,350
+2026-09-30,LAK@COL,anytime_goal,Jaden Schwartz,0.5,360
+2026-09-30,LAK@COL,anytime_goal,Mats Zuccarello,0.5,380
+2026-09-30,LAK@COL,anytime_goal,T.J. Hughes,0.5,390
+2026-09-30,LAK@COL,anytime_goal,Trevor Moore,0.5,400
+2026-09-30,LAK@COL,anytime_goal,Scott Laughton,0.5,490
+2026-09-30,LAK@COL,anytime_goal,Alex Turcotte,0.5,500
+2026-09-30,LAK@COL,anytime_goal,Nicolas Roy,0.5,500
+2026-09-30,LAK@COL,anytime_goal,Brandt Clarke,0.5,575
+2026-09-30,LAK@COL,anytime_goal,Erik Haula,0.5,575
+2026-09-30,LAK@COL,anytime_goal,Fedor Svechkov,0.5,650
+2026-09-30,LAK@COL,anytime_goal,Devon Toews,0.5,700
+2026-09-30,LAK@COL,anytime_goal,Drew Doughty,0.5,700
+2026-09-30,LAK@COL,anytime_goal,Parker Kelly,0.5,750
+2026-09-30,LAK@COL,anytime_goal,Joel Armia,0.5,800
+2026-09-30,LAK@COL,anytime_goal,Andre Lee,0.5,800
+2026-09-30,LAK@COL,anytime_goal,Brent Burns,0.5,850
+2026-09-30,LAK@COL,anytime_goal,Sam Malinski,0.5,900
+2026-09-30,LAK@COL,anytime_goal,Samuel Helenius,0.5,1100
+2026-09-30,LAK@COL,anytime_goal,Mikey Anderson,0.5,1400
+2026-09-30,LAK@COL,anytime_goal,Brett Kulak,0.5,1700
+2026-09-30,LAK@COL,anytime_goal,Brian Dumoulin,0.5,2100
+2026-09-30,LAK@COL,anytime_goal,Cody Ceci,0.5,2400
+2026-09-30,LAK@COL,point_1plus,Nathan MacKinnon,1,-560
+2026-09-30,LAK@COL,point_1plus,Martin Necas,1,-290
+2026-09-30,LAK@COL,point_1plus,Cale Makar,1,-260
+2026-09-30,LAK@COL,point_1plus,Artemi Panarin,1,-184
+2026-09-30,LAK@COL,point_1plus,Adrian Kempe,1,-154
+2026-09-30,LAK@COL,point_1plus,Gabriel Landeskog,1,-132
+2026-09-30,LAK@COL,point_1plus,Quinton Byfield,1,-122
+2026-09-30,LAK@COL,point_1plus,Artturi Lehkonen,1,-122
+2026-09-30,LAK@COL,point_1plus,Brandt Clarke,1,-115
+2026-09-30,LAK@COL,point_1plus,Nazem Kadri,1,-115
+2026-09-30,LAK@COL,point_1plus,Brock Nelson,1,-104
+2026-09-30,LAK@COL,point_1plus,Mats Zuccarello,1,102
+2026-09-30,LAK@COL,point_1plus,Alex Laferriere,1,126
+2026-09-30,LAK@COL,point_1plus,T.J. Hughes,1,130
+2026-09-30,LAK@COL,point_2plus,Nathan MacKinnon,2,-120
+2026-09-30,LAK@COL,point_2plus,Martin Necas,2,176
+2026-09-30,LAK@COL,point_2plus,Cale Makar,2,196
+2026-09-30,LAK@COL,point_2plus,Artemi Panarin,2,280
+2026-09-30,LAK@COL,point_2plus,Adrian Kempe,2,340
+2026-09-30,LAK@COL,point_2plus,Gabriel Landeskog,2,400
+2026-09-30,LAK@COL,point_2plus,Artturi Lehkonen,2,430
+2026-09-30,LAK@COL,point_2plus,Quinton Byfield,2,430
+2026-09-30,LAK@COL,point_2plus,Brandt Clarke,2,450
+2026-09-30,LAK@COL,point_2plus,Nazem Kadri,2,450
+2026-09-30,LAK@COL,point_2plus,Brock Nelson,2,500
+2026-09-30,LAK@COL,point_2plus,Mats Zuccarello,2,540
+2026-09-30,LAK@COL,point_2plus,Alex Laferriere,2,700
+2026-09-30,LAK@COL,point_2plus,T.J. Hughes,2,750
+2026-09-30,LAK@COL,anytime_assist,Nathan MacKinnon,0.5,-250
+2026-09-30,LAK@COL,anytime_assist,Cale Makar,0.5,-172
+2026-09-30,LAK@COL,anytime_assist,Martin Necas,0.5,-132
+2026-09-30,LAK@COL,anytime_assist,Artemi Panarin,0.5,100
+2026-09-30,LAK@COL,anytime_assist,Brandt Clarke,0.5,118
+2026-09-30,LAK@COL,anytime_assist,Adrian Kempe,0.5,134
+2026-09-30,LAK@COL,anytime_assist,Artturi Lehkonen,0.5,154
+2026-09-30,LAK@COL,anytime_assist,Quinton Byfield,0.5,158
+2026-09-30,LAK@COL,anytime_assist,Gabriel Landeskog,0.5,154
+2026-09-30,LAK@COL,anytime_assist,Nazem Kadri,0.5,172
+2026-09-30,LAK@COL,anytime_assist,Mats Zuccarello,0.5,176
+2026-09-30,LAK@COL,anytime_assist,Brock Nelson,0.5,220
+2026-09-30,LAK@COL,anytime_assist,T.J. Hughes,0.5,230
+2026-09-30,LAK@COL,anytime_assist,Alex Laferriere,0.5,240
+2026-09-30,LAK@COL,goalie_saves,Darcy Kuemper Over,26.5,-130
+2026-09-30,LAK@COL,goalie_saves,Darcy Kuemper Under,26.5,102
+2026-09-30,LAK@COL,goalie_saves,Mackenzie Blackwood Over,23.5,106
+2026-09-30,LAK@COL,goalie_saves,Mackenzie Blackwood Under,23.5,-125
