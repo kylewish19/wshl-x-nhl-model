@@ -1,0 +1,81 @@
+date,game,market,selection,line,odds_american
+2026-09-30,NYI@TOR,spread,New York Islanders,+1.5,-225
+2026-09-30,NYI@TOR,spread,Toronto Maple Leafs,-1.5,180
+2026-09-30,NYI@TOR,moneyline,New York Islanders,,110
+2026-09-30,NYI@TOR,moneyline,Toronto Maple Leafs,,-132
+2026-09-30,NYI@TOR,total,Over,6.5,106
+2026-09-30,NYI@TOR,total,Under,6.5,-130
+2026-09-30,NYI@TOR,anytime_goal,Auston Matthews,0.5,150
+2026-09-30,NYI@TOR,anytime_goal,Bo Horvat,0.5,180
+2026-09-30,NYI@TOR,anytime_goal,William Nylander,0.5,180
+2026-09-30,NYI@TOR,anytime_goal,John Tavares,0.5,210
+2026-09-30,NYI@TOR,anytime_goal,Kirill Marchenko,0.5,230
+2026-09-30,NYI@TOR,anytime_goal,Gavin McKenna,0.5,270
+2026-09-30,NYI@TOR,anytime_goal,Kyle Palmieri,0.5,290
+2026-09-30,NYI@TOR,anytime_goal,Brayden Schenn,0.5,320
+2026-09-30,NYI@TOR,anytime_goal,Easton Cowan,0.5,340
+2026-09-30,NYI@TOR,anytime_goal,Simon Holmstrom,0.5,340
+2026-09-30,NYI@TOR,anytime_goal,Jack Roslovic,0.5,340
+2026-09-30,NYI@TOR,anytime_goal,Matthew Schaefer,0.5,360
+2026-09-30,NYI@TOR,anytime_goal,Matias Maccelli,0.5,360
+2026-09-30,NYI@TOR,anytime_goal,Calum Ritchie,0.5,380
+2026-09-30,NYI@TOR,anytime_goal,Victor Eklund,0.5,390
+2026-09-30,NYI@TOR,anytime_goal,Emil Heineman,0.5,430
+2026-09-30,NYI@TOR,anytime_goal,Darren Raddysh,0.5,440
+2026-09-30,NYI@TOR,anytime_goal,Anthony Duclair,0.5,460
+2026-09-30,NYI@TOR,anytime_goal,Nicholas Paul,0.5,470
+2026-09-30,NYI@TOR,anytime_goal,Jean-Gabriel Pageau,0.5,575
+2026-09-30,NYI@TOR,anytime_goal,Morgan Rielly,0.5,725
+2026-09-30,NYI@TOR,anytime_goal,Colton Sissons,0.5,750
+2026-09-30,NYI@TOR,anytime_goal,Casey Cizikas,0.5,800
+2026-09-30,NYI@TOR,anytime_goal,Ondrej Palat,0.5,850
+2026-09-30,NYI@TOR,anytime_goal,Tony DeAngelo,0.5,850
+2026-09-30,NYI@TOR,anytime_goal,Benoit-Olivier Groulx,0.5,900
+2026-09-30,NYI@TOR,anytime_goal,Brandon Duhaime,0.5,1000
+2026-09-30,NYI@TOR,anytime_goal,Teddy Blueger,0.5,1100
+2026-09-30,NYI@TOR,anytime_goal,Oliver Ekman-Larsson,0.5,1200
+2026-09-30,NYI@TOR,anytime_goal,Ryan Pulock,0.5,1700
+2026-09-30,NYI@TOR,anytime_goal,Jake McCabe,0.5,1700
+2026-09-30,NYI@TOR,anytime_goal,Adam Pelech,0.5,1700
+2026-09-30,NYI@TOR,anytime_goal,Alexander Romanov,0.5,1700
+2026-09-30,NYI@TOR,anytime_goal,Logan Stanley,0.5,1800
+2026-09-30,NYI@TOR,point_1plus,Auston Matthews,1,-215
+2026-09-30,NYI@TOR,point_1plus,William Nylander,1,-186
+2026-09-30,NYI@TOR,point_1plus,Bo Horvat,1,-156
+2026-09-30,NYI@TOR,point_1plus,John Tavares,1,-154
+2026-09-30,NYI@TOR,point_1plus,Kirill Marchenko,1,-156
+2026-09-30,NYI@TOR,point_1plus,Matthew Schaefer,1,-148
+2026-09-30,NYI@TOR,point_1plus,Darren Raddysh,1,-122
+2026-09-30,NYI@TOR,point_1plus,Jack Roslovic,1,-108
+2026-09-30,NYI@TOR,point_1plus,Kyle Palmieri,1,-106
+2026-09-30,NYI@TOR,point_1plus,Gavin McKenna,1,-104
+2026-09-30,NYI@TOR,point_1plus,Brayden Schenn,1,118
+2026-09-30,NYI@TOR,point_1plus,Matias Maccelli,1,114
+2026-09-30,NYI@TOR,point_2plus,Auston Matthews,2,240
+2026-09-30,NYI@TOR,point_2plus,William Nylander,2,280
+2026-09-30,NYI@TOR,point_2plus,Bo Horvat,2,320
+2026-09-30,NYI@TOR,point_2plus,Kirill Marchenko,2,330
+2026-09-30,NYI@TOR,point_2plus,John Tavares,2,340
+2026-09-30,NYI@TOR,point_2plus,Matthew Schaefer,2,360
+2026-09-30,NYI@TOR,point_2plus,Darren Raddysh,2,440
+2026-09-30,NYI@TOR,point_2plus,Jack Roslovic,2,470
+2026-09-30,NYI@TOR,point_2plus,Kyle Palmieri,2,480
+2026-09-30,NYI@TOR,point_2plus,Gavin McKenna,2,520
+2026-09-30,NYI@TOR,point_2plus,Brayden Schenn,2,600
+2026-09-30,NYI@TOR,point_2plus,Matias Maccelli,2,600
+2026-09-30,NYI@TOR,anytime_assist,Matthew Schaefer,0.5,108
+2026-09-30,NYI@TOR,anytime_assist,William Nylander,0.5,124
+2026-09-30,NYI@TOR,anytime_assist,Auston Matthews,0.5,122
+2026-09-30,NYI@TOR,anytime_assist,Darren Raddysh,0.5,126
+2026-09-30,NYI@TOR,anytime_assist,Kirill Marchenko,0.5,136
+2026-09-30,NYI@TOR,anytime_assist,John Tavares,0.5,146
+2026-09-30,NYI@TOR,anytime_assist,Bo Horvat,0.5,164
+2026-09-30,NYI@TOR,anytime_assist,Jack Roslovic,0.5,162
+2026-09-30,NYI@TOR,anytime_assist,Kyle Palmieri,0.5,176
+2026-09-30,NYI@TOR,anytime_assist,Matias Maccelli,0.5,200
+2026-09-30,NYI@TOR,anytime_assist,Gavin McKenna,0.5,200
+2026-09-30,NYI@TOR,anytime_assist,Brayden Schenn,0.5,230
+2026-09-30,NYI@TOR,goalie_saves,Anthony Stolarz Over,25.5,-122
+2026-09-30,NYI@TOR,goalie_saves,Anthony Stolarz Under,25.5,-108
+2026-09-30,NYI@TOR,goalie_saves,Ilya Sorokin Over,24.5,-122
+2026-09-30,NYI@TOR,goalie_saves,Ilya Sorokin Under,24.5,-106
