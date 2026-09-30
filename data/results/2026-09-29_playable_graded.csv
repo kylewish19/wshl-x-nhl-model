@@ -1,0 +1,18 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-09-29,1,MTL@TOR,anytime_goal,Teddy Blueger,0.5,0.1474,1100,LOSS,0 goals,-1.0000
+2026-09-29,2,VAN@EDM,goalie_saves,Tristan Jarry Over,20.5,0.7793,-130,LOSS,17 saves,-1.0000
+2026-09-29,3,CHI@VGK,goalie_saves,Carter Hart Over,20.5,0.6796,-110,WIN,24 saves,0.9091
+2026-09-29,4,CHI@VGK,point_2plus,Jack Eichel,2,0.4078,210,WIN,3 points,2.1000
+2026-09-29,5,MTL@TOR,goalie_saves,Sergei Bobrovsky Under,25.5,0.6734,-118,WIN,21 saves,0.8475
+2026-09-29,6,CHI@VGK,anytime_assist,Anton Frondell,0.5,0.3572,230,LOSS,0 assists,-1.0000
+2026-09-29,7,VAN@EDM,moneyline,Vancouver Canucks,,0.3351,245,WIN,VAN won 6-5 OT,2.4500
+2026-09-29,8,VAN@EDM,spread,Vancouver Canucks,+1.5,0.5883,-105,WIN,VAN won 6-5 OT,0.9524
+2026-09-29,9,CHI@VGK,point_1plus,Anton Frondell,1,0.5164,122,LOSS,0 points,-1.0000
+2026-09-29,10,CHI@VGK,moneyline,Chicago Blackhawks,,0.3638,215,LOSS,CHI lost 5-2,-1.0000
+2026-09-29,11,CHI@VGK,spread,Chicago Blackhawks,+1.5,0.6200,-122,LOSS,CHI lost 5-2,-1.0000
+2026-09-29,12,CHI@VGK,anytime_assist,Jack Eichel,0.5,0.6012,-118,WIN,2 assists,0.8475
+2026-09-29,13,FLA@CAR,goalie_saves,Brandon Bussi Over,22.5,0.5979,-120,LOSS,19 saves,-1.0000
+2026-09-29,14,VAN@EDM,goalie_saves,Kevin Lankinen Under,27.5,0.6191,-130,LOSS,32 saves,-1.0000
+2026-09-29,15,CHI@VGK,point_1plus,Tyler Bertuzzi,1,0.4870,124,LOSS,0 points,-1.0000
+2026-09-29,16,NYR@BOS,goalie_saves,Igor Shesterkin Over,23.5,0.5871,-118,LOSS,20 saves,-1.0000
+2026-09-29,17,NYR@BOS,moneyline,Boston Bruins,,0.5504,-106,WIN,BOS won 3-0,0.9434
