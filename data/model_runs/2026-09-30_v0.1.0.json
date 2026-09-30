@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-30",
+  "version": "0.1.0",
+  "slate_games": ["NYI@TOR","PIT@PHI","LAK@COL"],
+  "odds_used_in_probability_stage": false,
+  "training_window": ["2021-22","2022-23","2023-24","2024-25","2025-26"],
+  "skater_transition_rows": 2594,
+  "skater_validation_rows": 640,
+  "goalie_transition_rows": 265,
+  "goalie_validation_rows": 65,
+  "game_expected_goals": {
+    "NYI@TOR": {"NYI": 3.1689, "TOR": 3.1018},
+    "PIT@PHI": {"PIT": 3.1994, "PHI": 3.1628},
+    "LAK@COL": {"LAK": 2.4445, "COL": 3.4665}
+  },
+  "goalie_expected_saves": {
+    "Anthony Stolarz": 25.7200,
+    "Ilya Sorokin": 24.5386,
+    "Darcy Kuemper": 26.6222,
+    "Mackenzie Blackwood": 24.6039
+  },
+  "notes": [
+    "No structural code changes after 2026-09-29 grading; v0.1.0 retained.",
+    "Top 10 locked before price card commit.",
+    "Porter Martone Top-10 point probability uses rookie projection fallback and remains tagged separately.",
+    "PIT-PHI goalie saves unavailable on FanDuel at lock time and therefore absent from the candidate market."
+  ]
+}
