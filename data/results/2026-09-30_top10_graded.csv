@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,result,actual
+2026-09-30,1,LAK@COL,point_1plus,Nathan MacKinnon,1,0.8313,WIN,2 goals 2 points
+2026-09-30,2,NYI@TOR,spread,New York Islanders,+1.5,0.7394,WIN,NYI lost 2-1
+2026-09-30,3,PIT@PHI,spread,Pittsburgh Penguins,+1.5,0.7339,WIN,PIT won 7-0
+2026-09-30,4,LAK@COL,point_1plus,Martin Necas,1,0.6919,WIN,1 assist
+2026-09-30,5,LAK@COL,moneyline,Colorado Avalanche,,0.6728,WIN,COL won 8-4
+2026-09-30,6,LAK@COL,anytime_assist,Nathan MacKinnon,0.5,0.6503,LOSS,0 assists
+2026-09-30,7,LAK@COL,point_1plus,Artemi Panarin,1,0.6466,WIN,1 goal
+2026-09-30,8,NYI@TOR,point_1plus,William Nylander,1,0.6462,LOSS,0 points
+2026-09-30,9,NYI@TOR,point_1plus,Auston Matthews,1,0.6431,LOSS,0 points
+2026-09-30,10,PIT@PHI,point_1plus,Porter Martone,1,0.6223,LOSS,0 points
