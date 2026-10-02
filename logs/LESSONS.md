@@ -44,3 +44,27 @@
 - The opening-day price gate was more aggressive than the pure probability card. Track whether longshot EV and lower-probability value candidates remain overconfident before changing thresholds.
 - Do not promote rookie-fallback probabilities to the same trust level as veteran transition-model probabilities until we have a meaningful prospective sample.
 - No post-result code changes are made from this slate alone. Continue collecting evidence and change code only when a repeatable error pattern appears.
+
+## 2026-09-30 — Slate 2 grading
+
+### Results
+- Top 10 Probability Card: 6-4 (60.0%). Model probabilities summed to 6.8778 expected wins; Brier score 0.2135.
+- Official Playable Price Card: 6-4 (60.0%), +1.2905 units at 1u flat staking, +12.90% ROI; Brier score 0.1824.
+- Cumulative Top 10: 13-7 (65.0%) through two slates.
+- Cumulative Playable Price: 13-14 (48.15%), +0.3403u, +1.26% ROI through 27 plays.
+
+### Market notes
+- Top-10 puck lines improved to 4-0 cumulatively after NYI +1.5 and PIT +1.5 both won on Slate 2. Keep sample-size caution.
+- Top-10 skater point props went 3-3 on Slate 2: MacKinnon, Necas and Panarin won; Nylander, Matthews and Martone lost.
+- MacKinnon 1+ assist lost despite a two-goal night (2 G, 0 A), a useful reminder that point and assist markets should remain separately calibrated.
+- Playable goalie saves went 1-0 on Slate 2 with Blackwood O23.5 (27 saves), improving the cumulative playable saves cohort to 3-4.
+- Blueger anytime goal at +1100 has now qualified twice and lost twice. Continue tracking low-probability/high-EV longshots as a separate calibration band before changing the gate.
+- Rookie/projection fallback now has another miss with Porter Martone 1+ point; combined early fallback examples remain weak. Continue tagging and consider a stricter gate if this persists over a larger sample.
+- Playable spreads went 2-0, PIT ML won, NYI ML lost, and LAK-COL U6.5 lost badly in an 8-4 game.
+
+### Lessons / actions
+- No structural v0.1.0 code change yet. Two slates are still too small, and the playable card rebounded from -5.59% ROI on Slate 1 to +12.90% on Slate 2, leaving the cumulative price card slightly positive.
+- Preserve the current Top-10 ranking process; 13-7 (65%) is an acceptable early baseline but not enough to claim calibration is solved.
+- Keep three watchlists: goalie-save volume, rookie/fallback props, and low-probability/high-EV longshots.
+- If rookie/fallback or longshot EV cohorts continue underperforming over several more slates, test a higher minimum edge/EV gate for those cohorts rather than changing the veteran model globally.
+- Continue tracking puck-line performance separately; 4-0 is promising but far too small for a weight increase.
