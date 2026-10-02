@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-09-30,1,NYI@TOR,anytime_goal,Teddy Blueger,0.5,0.1479,1100,LOSS,0 goals,-1.0000
+2026-09-30,2,LAK@COL,goalie_saves,Mackenzie Blackwood Over,23.5,0.5754,106,WIN,27 saves,1.0600
+2026-09-30,3,PIT@PHI,anytime_assist,Evgeni Malkin,0.5,0.4189,176,LOSS,0 assists,-1.0000
+2026-09-30,4,LAK@COL,anytime_goal,Nathan MacKinnon,0.5,0.5174,120,WIN,2 goals,1.2000
+2026-09-30,5,PIT@PHI,moneyline,Pittsburgh Penguins,,0.5018,122,WIN,PIT won 7-0,1.2200
+2026-09-30,6,LAK@COL,total,Under,6.5,0.6206,-128,LOSS,12 total goals,-1.0000
+2026-09-30,7,PIT@PHI,point_1plus,Evgeni Malkin,1,0.5699,-111,WIN,1 goal 1 point,0.9009
+2026-09-30,8,PIT@PHI,spread,Pittsburgh Penguins,+1.5,0.7339,-215,WIN,PIT won 7-0,0.4651
+2026-09-30,9,NYI@TOR,spread,New York Islanders,+1.5,0.7394,-225,WIN,NYI lost 2-1,0.4444
+2026-09-30,10,NYI@TOR,moneyline,New York Islanders,,0.5066,110,LOSS,NYI lost 2-1,-1.0000
