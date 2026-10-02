@@ -30,3 +30,11 @@ Repository: kylewish19/wshl-x-nhl-model
 
 ## Exact current task
 Prepare the next user-supplied NHL slate using v0.1.0 plus the logged opening-night lessons. Continue tracking Top 10 and Playable Price cards separately. Revisit code changes only when a repeatable error pattern is supported by a larger prospective sample.
+
+
+## Through 2026-09-30
+- Top 10 Probability cumulative: 13-7 (65.0%).
+- Official Playable Price cumulative: 13-14 (48.15%), +0.3403u, +1.26% ROI.
+- Slate 2: Top 10 6-4; Playable Price 6-4, +1.2905u.
+- Current watchlists: goalie-save volume calibration, rookie/projection fallback props, low-probability/high-EV longshots.
+- No structural model change yet; v0.1.0 remains active pending a larger prospective sample.
