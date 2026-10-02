@@ -1,0 +1,9 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-02,1,WSH@CAR,anytime_goal,Boone Jenner,0.5,0.1678,750,0.1176,0.0502,0.4267,transition_ml,PLAYABLE
+2026-10-02,2,STL@DAL,goalie_saves,Jake Oettinger Over,21.5,0.6410,-112,0.5283,0.1127,0.2133,goalie_transition_ml,PLAYABLE
+2026-10-02,3,BOS@WPG,point_2plus,David Pastrnak,2,0.4005,190,0.3448,0.0557,0.1615,transition_ml,PLAYABLE
+2026-10-02,4,ANA@VGK,moneyline,Anaheim Ducks,,0.4342,162,0.3817,0.0526,0.1377,team_goal_hybrid,PLAYABLE
+2026-10-02,5,ANA@VGK,spread,Anaheim Ducks,+1.5,0.6696,-152,0.6032,0.0664,0.1102,team_goal_hybrid,PLAYABLE
+2026-10-02,6,BOS@WPG,moneyline,Boston Bruins,,0.5617,-104,0.5098,0.0519,0.1018,team_goal_hybrid,PLAYABLE
+2026-10-02,7,BOS@WPG,anytime_assist,David Pastrnak,0.5,0.5716,-108,0.5192,0.0523,0.1008,transition_ml,PLAYABLE
+2026-10-02,8,BOS@WPG,spread,Boston Bruins,+1.5,0.7735,-265,0.7260,0.0475,0.0654,team_goal_hybrid,PLAYABLE
