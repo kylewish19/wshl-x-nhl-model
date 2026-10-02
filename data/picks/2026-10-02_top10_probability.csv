@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-02,1,BOS@WPG,spread,Boston Bruins,+1.5,0.7735,team_goal_hybrid,false,LOCKED
+2026-10-02,2,ANA@VGK,point_1plus,Jack Eichel,1,0.7556,transition_ml,false,LOCKED
+2026-10-02,3,BOS@WPG,point_1plus,David Pastrnak,1,0.7479,transition_ml,false,LOCKED
+2026-10-02,4,NYR@DET,spread,New York Rangers,+1.5,0.7222,team_goal_hybrid,false,LOCKED
+2026-10-02,5,STL@DAL,point_1plus,Jason Robertson,1,0.7181,transition_ml,false,LOCKED
+2026-10-02,6,BOS@WPG,point_1plus,Kyle Connor,1,0.6958,transition_ml,false,LOCKED
+2026-10-02,7,STL@DAL,point_1plus,Mikko Rantanen,1,0.6927,transition_ml,false,LOCKED
+2026-10-02,8,WSH@CAR,spread,Washington Capitals,+1.5,0.6855,team_goal_hybrid,false,LOCKED
+2026-10-02,9,BOS@WPG,point_1plus,Mark Scheifele,1,0.6848,transition_ml,false,LOCKED
+2026-10-02,10,ANA@VGK,spread,Anaheim Ducks,+1.5,0.6696,team_goal_hybrid,false,LOCKED
