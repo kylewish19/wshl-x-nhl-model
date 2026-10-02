@@ -1,0 +1,73 @@
+date,game,market,selection,line,odds_american
+2026-10-02,NYR@DET,spread,New York Rangers,+1.5,-245
+2026-10-02,NYR@DET,spread,Detroit Red Wings,-1.5,190
+2026-10-02,NYR@DET,moneyline,New York Rangers,,105
+2026-10-02,NYR@DET,moneyline,Detroit Red Wings,,-126
+2026-10-02,NYR@DET,total,Over,5.5,-128
+2026-10-02,NYR@DET,total,Under,5.5,104
+2026-10-02,NYR@DET,anytime_goal,Alex DeBrincat,0.5,130
+2026-10-02,NYR@DET,anytime_goal,Pavel Dorofeyev,0.5,195
+2026-10-02,NYR@DET,anytime_goal,Mika Zibanejad,0.5,210
+2026-10-02,NYR@DET,anytime_goal,Viktor Arvidsson,0.5,210
+2026-10-02,NYR@DET,anytime_goal,Lucas Raymond,0.5,230
+2026-10-02,NYR@DET,anytime_goal,Alexis Lafreniere,0.5,260
+2026-10-02,NYR@DET,anytime_goal,J.T. Miller,0.5,275
+2026-10-02,NYR@DET,anytime_goal,Andrew Copp,0.5,290
+2026-10-02,NYR@DET,anytime_goal,Gabe Perreault,0.5,320
+2026-10-02,NYR@DET,anytime_goal,Will Cuylle,0.5,330
+2026-10-02,NYR@DET,anytime_goal,Emmitt Finnie,0.5,350
+2026-10-02,NYR@DET,anytime_goal,Oliver Bjorkstrand,0.5,360
+2026-10-02,NYR@DET,anytime_goal,Marco Kasper,0.5,400
+2026-10-02,NYR@DET,anytime_goal,Eeli Tolvanen,0.5,430
+2026-10-02,NYR@DET,anytime_goal,Moritz Seider,0.5,440
+2026-10-02,NYR@DET,anytime_goal,J.T. Compher,0.5,525
+2026-10-02,NYR@DET,anytime_goal,Adam Fox,0.5,550
+2026-10-02,NYR@DET,anytime_goal,Michael Rasmussen,0.5,575
+2026-10-02,NYR@DET,anytime_goal,Noah Laba,0.5,650
+2026-10-02,NYR@DET,anytime_goal,Justin Faulk,0.5,650
+2026-10-02,NYR@DET,anytime_goal,Mason Appleton,0.5,700
+2026-10-02,NYR@DET,anytime_goal,Michael Brandsegg-Nygard,0.5,800
+2026-10-02,NYR@DET,anytime_goal,Sean Durzi,0.5,800
+2026-10-02,NYR@DET,anytime_goal,Keegan Kolesar,0.5,850
+2026-10-02,NYR@DET,anytime_goal,Tye Kartye,0.5,950
+2026-10-02,NYR@DET,anytime_goal,Nate Danielson,0.5,950
+2026-10-02,NYR@DET,anytime_goal,Axel Sandin-Pellikka,0.5,1100
+2026-10-02,NYR@DET,anytime_goal,Joe Veleno,0.5,1100
+2026-10-02,NYR@DET,anytime_goal,Vladislav Gavrikov,0.5,1100
+2026-10-02,NYR@DET,anytime_goal,Albert Johansson,0.5,1300
+2026-10-02,NYR@DET,anytime_goal,Alberts Smits,0.5,1500
+2026-10-02,NYR@DET,anytime_goal,Ben Chiarot,0.5,1600
+2026-10-02,NYR@DET,anytime_goal,Marcus Pettersson,0.5,2100
+2026-10-02,NYR@DET,point_1plus,Alex DeBrincat,1,-245
+2026-10-02,NYR@DET,point_1plus,Mika Zibanejad,1,-174
+2026-10-02,NYR@DET,point_1plus,Lucas Raymond,1,-172
+2026-10-02,NYR@DET,point_1plus,J.T. Miller,1,-150
+2026-10-02,NYR@DET,point_1plus,Moritz Seider,1,-140
+2026-10-02,NYR@DET,point_1plus,Viktor Arvidsson,1,-132
+2026-10-02,NYR@DET,point_1plus,Pavel Dorofeyev,1,-130
+2026-10-02,NYR@DET,point_1plus,Adam Fox,1,-130
+2026-10-02,NYR@DET,point_1plus,Andrew Copp,1,-128
+2026-10-02,NYR@DET,point_1plus,Alexis Lafreniere,1,-118
+2026-10-02,NYR@DET,point_1plus,Gabe Perreault,1,136
+2026-10-02,NYR@DET,point_2plus,Alex DeBrincat,2,215
+2026-10-02,NYR@DET,point_2plus,Mika Zibanejad,2,285
+2026-10-02,NYR@DET,point_2plus,Lucas Raymond,2,290
+2026-10-02,NYR@DET,point_2plus,J.T. Miller,2,350
+2026-10-02,NYR@DET,point_2plus,Moritz Seider,2,360
+2026-10-02,NYR@DET,point_2plus,Adam Fox,2,390
+2026-10-02,NYR@DET,point_2plus,Viktor Arvidsson,2,400
+2026-10-02,NYR@DET,point_2plus,Andrew Copp,2,400
+2026-10-02,NYR@DET,point_2plus,Pavel Dorofeyev,2,400
+2026-10-02,NYR@DET,point_2plus,Alexis Lafreniere,2,450
+2026-10-02,NYR@DET,point_2plus,Gabe Perreault,2,750
+2026-10-02,NYR@DET,anytime_assist,Moritz Seider,0.5,106
+2026-10-02,NYR@DET,anytime_assist,Adam Fox,0.5,106
+2026-10-02,NYR@DET,anytime_assist,Alex DeBrincat,0.5,118
+2026-10-02,NYR@DET,anytime_assist,Lucas Raymond,0.5,116
+2026-10-02,NYR@DET,anytime_assist,Mika Zibanejad,0.5,122
+2026-10-02,NYR@DET,anytime_assist,J.T. Miller,0.5,122
+2026-10-02,NYR@DET,anytime_assist,Andrew Copp,0.5,144
+2026-10-02,NYR@DET,anytime_assist,Alexis Lafreniere,0.5,172
+2026-10-02,NYR@DET,anytime_assist,Viktor Arvidsson,0.5,180
+2026-10-02,NYR@DET,anytime_assist,Pavel Dorofeyev,0.5,200
+2026-10-02,NYR@DET,anytime_assist,Gabe Perreault,0.5,285
