@@ -1,0 +1,64 @@
+date,game,market,selection,line,odds_american
+2026-10-02,STL@DAL,spread,St. Louis Blues,+1.5,-164
+2026-10-02,STL@DAL,spread,Dallas Stars,-1.5,134
+2026-10-02,STL@DAL,moneyline,St. Louis Blues,,158
+2026-10-02,STL@DAL,moneyline,Dallas Stars,,-192
+2026-10-02,STL@DAL,total,Over,5.5,-130
+2026-10-02,STL@DAL,total,Under,5.5,106
+2026-10-02,STL@DAL,anytime_goal,Jason Robertson,0.5,140
+2026-10-02,STL@DAL,anytime_goal,Wyatt Johnston,0.5,150
+2026-10-02,STL@DAL,anytime_goal,Mikko Rantanen,0.5,160
+2026-10-02,STL@DAL,anytime_goal,Roope Hintz,0.5,200
+2026-10-02,STL@DAL,anytime_goal,Robert Thomas,0.5,270
+2026-10-02,STL@DAL,anytime_goal,Jimmy Snuggerud,0.5,270
+2026-10-02,STL@DAL,anytime_goal,Tyler Seguin,0.5,275
+2026-10-02,STL@DAL,anytime_goal,Dylan Holloway,0.5,280
+2026-10-02,STL@DAL,anytime_goal,Mason McTavish,0.5,290
+2026-10-02,STL@DAL,anytime_goal,Connor McMichael,0.5,310
+2026-10-02,STL@DAL,anytime_goal,Pavel Buchnevich,0.5,310
+2026-10-02,STL@DAL,anytime_goal,Justin Hryckowian,0.5,340
+2026-10-02,STL@DAL,anytime_goal,Jamie Benn,0.5,420
+2026-10-02,STL@DAL,anytime_goal,Jake Neighbours,0.5,440
+2026-10-02,STL@DAL,anytime_goal,Miro Heiskanen,0.5,470
+2026-10-02,STL@DAL,anytime_goal,Sam Steel,0.5,500
+2026-10-02,STL@DAL,anytime_goal,Dalibor Dvorsky,0.5,600
+2026-10-02,STL@DAL,anytime_goal,Thomas Harley,0.5,650
+2026-10-02,STL@DAL,anytime_goal,Arttu Hyry,0.5,725
+2026-10-02,STL@DAL,anytime_goal,Jonatan Berggren,0.5,800
+2026-10-02,STL@DAL,anytime_goal,Radek Faksa,0.5,800
+2026-10-02,STL@DAL,anytime_goal,Pius Suter,0.5,850
+2026-10-02,STL@DAL,anytime_goal,Cam Fowler,0.5,900
+2026-10-02,STL@DAL,anytime_goal,Oskar Back,0.5,950
+2026-10-02,STL@DAL,anytime_goal,Adam Jiricek,0.5,1000
+2026-10-02,STL@DAL,anytime_goal,Alexey Toropchenko,0.5,1200
+2026-10-02,STL@DAL,anytime_goal,Esa Lindell,0.5,1200
+2026-10-02,STL@DAL,anytime_goal,Philip Broberg,0.5,1200
+2026-10-02,STL@DAL,anytime_goal,Colton Parayko,0.5,1300
+2026-10-02,STL@DAL,anytime_goal,Ross Johnston,0.5,1400
+2026-10-02,STL@DAL,anytime_goal,Nils Lundkvist,0.5,1500
+2026-10-02,STL@DAL,anytime_goal,Theo Lindstein,0.5,1600
+2026-10-02,STL@DAL,anytime_goal,Tyler Myers,0.5,1800
+2026-10-02,STL@DAL,point_1plus,Mikko Rantanen,1,-290
+2026-10-02,STL@DAL,point_1plus,Jason Robertson,1,-280
+2026-10-02,STL@DAL,point_1plus,Wyatt Johnston,1,-186
+2026-10-02,STL@DAL,point_1plus,Robert Thomas,1,-162
+2026-10-02,STL@DAL,point_1plus,Mason McTavish,1,-150
+2026-10-02,STL@DAL,point_1plus,Jimmy Snuggerud,1,-128
+2026-10-02,STL@DAL,point_1plus,Dylan Holloway,1,-125
+2026-10-02,STL@DAL,point_1plus,Connor McMichael,1,-106
+2026-10-02,STL@DAL,point_2plus,Mikko Rantanen,2,182
+2026-10-02,STL@DAL,point_2plus,Jason Robertson,2,186
+2026-10-02,STL@DAL,point_2plus,Wyatt Johnston,2,285
+2026-10-02,STL@DAL,point_2plus,Robert Thomas,2,310
+2026-10-02,STL@DAL,point_2plus,Mason McTavish,2,340
+2026-10-02,STL@DAL,point_2plus,Dylan Holloway,2,400
+2026-10-02,STL@DAL,point_2plus,Jimmy Snuggerud,2,420
+2026-10-02,STL@DAL,point_2plus,Connor McMichael,2,500
+2026-10-02,STL@DAL,anytime_assist,Mikko Rantanen,0.5,-128
+2026-10-02,STL@DAL,anytime_assist,Jason Robertson,0.5,-108
+2026-10-02,STL@DAL,anytime_assist,Robert Thomas,0.5,110
+2026-10-02,STL@DAL,anytime_assist,Mason McTavish,0.5,118
+2026-10-02,STL@DAL,anytime_assist,Dylan Holloway,0.5,146
+2026-10-02,STL@DAL,anytime_assist,Wyatt Johnston,0.5,150
+2026-10-02,STL@DAL,anytime_assist,Jimmy Snuggerud,0.5,154
+2026-10-02,STL@DAL,anytime_assist,Connor McMichael,0.5,176
