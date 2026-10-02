@@ -1,0 +1,10 @@
+{
+  "date":"2026-10-02",
+  "version":"0.1.0",
+  "slate_games":["NYR@DET","WSH@CAR","BOS@WPG","STL@DAL","ANA@VGK"],
+  "odds_used_in_probability_stage":false,
+  "name_alias_fix_applied":["Mitchell Marner->Mitch Marner","Alexis Lafreniere->Alexis Lafrenière","Joe Veleno->Joseph Veleno","Michael Brandsegg-Nygard->Michael Brandsegg-Nygård"],
+  "confirmed_goalie_save_eligibility":["Logan Thompson","Brandon Bussi","Jeremy Swayman","Jake Oettinger"],
+  "unconfirmed_goalies_excluded_from_official_save_props":["John Gibson","Dylan Garand","Stuart Skinner","Joel Hofer","Lukas Dostal","Carter Hart"],
+  "notes":["Top 10 locked before playable price card.","No structural v0.1.0 predictive change from prior slate.","Goalie-save hard gate retained: official save props require confirmed starter status."]
+}
