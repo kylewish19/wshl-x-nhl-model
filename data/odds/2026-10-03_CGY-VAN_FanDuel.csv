@@ -1,0 +1,56 @@
+date,game,market,selection,line,odds_american
+2026-10-03,CGY@VAN,spread,Calgary Flames,+1.5,-260
+2026-10-03,CGY@VAN,spread,Vancouver Canucks,-1.5,205
+2026-10-03,CGY@VAN,moneyline,Calgary Flames,,-104
+2026-10-03,CGY@VAN,moneyline,Vancouver Canucks,,-115
+2026-10-03,CGY@VAN,total,Over,6.5,112
+2026-10-03,CGY@VAN,total,Under,6.5,-138
+2026-10-03,CGY@VAN,anytime_goal,Brock Boeser,0.5,190
+2026-10-03,CGY@VAN,anytime_goal,Matt Coronato,0.5,230
+2026-10-03,CGY@VAN,anytime_goal,Elias Pettersson #40,0.5,240
+2026-10-03,CGY@VAN,anytime_goal,Marco Rossi,0.5,250
+2026-10-03,CGY@VAN,anytime_goal,Joel Farabee,0.5,250
+2026-10-03,CGY@VAN,anytime_goal,Morgan Frost,0.5,270
+2026-10-03,CGY@VAN,anytime_goal,Matvei Gridin,0.5,290
+2026-10-03,CGY@VAN,anytime_goal,Linus Karlsson,0.5,310
+2026-10-03,CGY@VAN,anytime_goal,Liam Ohgren,0.5,330
+2026-10-03,CGY@VAN,anytime_goal,Connor Zary,0.5,340
+2026-10-03,CGY@VAN,anytime_goal,Yegor Sharangovich,0.5,350
+2026-10-03,CGY@VAN,anytime_goal,Jonathan Lekkerimaki,0.5,350
+2026-10-03,CGY@VAN,anytime_goal,Ryan Strome,0.5,370
+2026-10-03,CGY@VAN,anytime_goal,Mikael Backlund,0.5,380
+2026-10-03,CGY@VAN,anytime_goal,Filip Hronek,0.5,400
+2026-10-03,CGY@VAN,anytime_goal,Paul Cotter,0.5,410
+2026-10-03,CGY@VAN,anytime_goal,Zayne Parekh,0.5,450
+2026-10-03,CGY@VAN,anytime_goal,Zeev Buium,0.5,450
+2026-10-03,CGY@VAN,anytime_goal,Max Sasson,0.5,460
+2026-10-03,CGY@VAN,anytime_goal,Samuel Honzek,0.5,460
+2026-10-03,CGY@VAN,anytime_goal,Aatu Raty,0.5,550
+2026-10-03,CGY@VAN,anytime_goal,Arshdeep Bains,0.5,550
+2026-10-03,CGY@VAN,anytime_goal,Brendan Gallagher,0.5,575
+2026-10-03,CGY@VAN,anytime_goal,Maxim Tsyplakov,0.5,625
+2026-10-03,CGY@VAN,anytime_goal,Adam Klapka,0.5,700
+2026-10-03,CGY@VAN,anytime_goal,Martin Pospisil,0.5,800
+2026-10-03,CGY@VAN,anytime_goal,Simon Nemec,0.5,800
+2026-10-03,CGY@VAN,anytime_goal,Tom Willander,0.5,800
+2026-10-03,CGY@VAN,anytime_goal,Jamie Oleksiak,0.5,1400
+2026-10-03,CGY@VAN,anytime_goal,Kevin Bahl,0.5,1600
+2026-10-03,CGY@VAN,anytime_goal,Zach Whitecloud,0.5,1600
+2026-10-03,CGY@VAN,anytime_goal,Elias Pettersson #25,0.5,1700
+2026-10-03,CGY@VAN,anytime_goal,Jake Middleton,0.5,1700
+2026-10-03,CGY@VAN,anytime_goal,Luke Schenn,0.5,1700
+2026-10-03,CGY@VAN,point_1plus,Matt Coronato,1,-170
+2026-10-03,CGY@VAN,point_1plus,Morgan Frost,1,-125
+2026-10-03,CGY@VAN,point_1plus,Matvei Gridin,1,-115
+2026-10-03,CGY@VAN,point_1plus,Joel Farabee,1,113
+2026-10-03,CGY@VAN,point_1plus,Zayne Parekh,1,-111
+2026-10-03,CGY@VAN,point_2plus,Matt Coronato,2,300
+2026-10-03,CGY@VAN,point_2plus,Morgan Frost,2,420
+2026-10-03,CGY@VAN,point_2plus,Matvei Gridin,2,450
+2026-10-03,CGY@VAN,point_2plus,Zayne Parekh,2,480
+2026-10-03,CGY@VAN,point_2plus,Joel Farabee,2,480
+2026-10-03,CGY@VAN,anytime_assist,Matt Coronato,0.5,120
+2026-10-03,CGY@VAN,anytime_assist,Zayne Parekh,0.5,140
+2026-10-03,CGY@VAN,anytime_assist,Morgan Frost,0.5,158
+2026-10-03,CGY@VAN,anytime_assist,Matvei Gridin,0.5,162
+2026-10-03,CGY@VAN,anytime_assist,Joel Farabee,0.5,190
