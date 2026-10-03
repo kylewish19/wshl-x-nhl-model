@@ -1,0 +1,84 @@
+date,game,market,selection,line,odds_american
+2026-10-03,NJD@NYI,spread,New Jersey Devils,-1.5,180
+2026-10-03,NJD@NYI,spread,New York Islanders,+1.5,-225
+2026-10-03,NJD@NYI,moneyline,New Jersey Devils,,-137
+2026-10-03,NJD@NYI,moneyline,New York Islanders,,114
+2026-10-03,NJD@NYI,total,Over,5.5,-132
+2026-10-03,NJD@NYI,total,Under,5.5,108
+2026-10-03,NJD@NYI,anytime_goal,Jack Hughes,0.5,150
+2026-10-03,NJD@NYI,anytime_goal,Bo Horvat,0.5,195
+2026-10-03,NJD@NYI,anytime_goal,Nico Hischier,0.5,210
+2026-10-03,NJD@NYI,anytime_goal,Timo Meier,0.5,230
+2026-10-03,NJD@NYI,anytime_goal,Jesper Bratt,0.5,260
+2026-10-03,NJD@NYI,anytime_goal,Anthony Mantha,0.5,280
+2026-10-03,NJD@NYI,anytime_goal,Kyle Palmieri,0.5,290
+2026-10-03,NJD@NYI,anytime_goal,Luke Evangelista,0.5,320
+2026-10-03,NJD@NYI,anytime_goal,Brayden Schenn,0.5,340
+2026-10-03,NJD@NYI,anytime_goal,Emil Heineman,0.5,360
+2026-10-03,NJD@NYI,anytime_goal,Victor Eklund,0.5,370
+2026-10-03,NJD@NYI,anytime_goal,Matthew Schaefer,0.5,390
+2026-10-03,NJD@NYI,anytime_goal,Arseny Gritsyuk,0.5,400
+2026-10-03,NJD@NYI,anytime_goal,Evan Rodrigues,0.5,420
+2026-10-03,NJD@NYI,anytime_goal,Matias Maccelli,0.5,420
+2026-10-03,NJD@NYI,anytime_goal,Simon Holmstrom,0.5,440
+2026-10-03,NJD@NYI,anytime_goal,Calum Ritchie,0.5,450
+2026-10-03,NJD@NYI,anytime_goal,Anthony Duclair,0.5,460
+2026-10-03,NJD@NYI,anytime_goal,Dawson Mercer,0.5,470
+2026-10-03,NJD@NYI,anytime_goal,Dougie Hamilton,0.5,525
+2026-10-03,NJD@NYI,anytime_goal,Jean-Gabriel Pageau,0.5,525
+2026-10-03,NJD@NYI,anytime_goal,Luke Hughes,0.5,625
+2026-10-03,NJD@NYI,anytime_goal,Cody Glass,0.5,700
+2026-10-03,NJD@NYI,anytime_goal,Ondrej Palat,0.5,800
+2026-10-03,NJD@NYI,anytime_goal,Amadeus Lombardi,0.5,850
+2026-10-03,NJD@NYI,anytime_goal,Tony DeAngelo,0.5,850
+2026-10-03,NJD@NYI,anytime_goal,Casey Cizikas,0.5,900
+2026-10-03,NJD@NYI,anytime_goal,Stefan Noesen,0.5,1000
+2026-10-03,NJD@NYI,anytime_goal,Alexander Romanov,0.5,1600
+2026-10-03,NJD@NYI,anytime_goal,Ryan Pulock,0.5,1700
+2026-10-03,NJD@NYI,anytime_goal,Adam Pelech,0.5,1800
+2026-10-03,NJD@NYI,anytime_goal,Logan Stanley,0.5,1900
+2026-10-03,NJD@NYI,anytime_goal,Brett Pesce,0.5,2000
+2026-10-03,NJD@NYI,anytime_goal,Brenden Dillon,0.5,2100
+2026-10-03,NJD@NYI,anytime_goal,Declan Chisholm,0.5,2200
+2026-10-03,NJD@NYI,point_1plus,Jack Hughes,1,-265
+2026-10-03,NJD@NYI,point_1plus,Matthew Schaefer,1,-164
+2026-10-03,NJD@NYI,point_1plus,Bo Horvat,1,-156
+2026-10-03,NJD@NYI,point_1plus,Anthony Mantha,1,-146
+2026-10-03,NJD@NYI,point_1plus,Nico Hischier,1,-142
+2026-10-03,NJD@NYI,point_1plus,Jesper Bratt,1,-140
+2026-10-03,NJD@NYI,point_1plus,Luke Evangelista,1,-115
+2026-10-03,NJD@NYI,point_1plus,Dougie Hamilton,1,-104
+2026-10-03,NJD@NYI,point_1plus,Timo Meier,1,-102
+2026-10-03,NJD@NYI,point_1plus,Kyle Palmieri,1,100
+2026-10-03,NJD@NYI,point_1plus,Luke Hughes,1,100
+2026-10-03,NJD@NYI,point_1plus,Brayden Schenn,1,104
+2026-10-03,NJD@NYI,point_1plus,Emil Heineman,1,126
+2026-10-03,NJD@NYI,point_1plus,Victor Eklund,1,142
+2026-10-03,NJD@NYI,point_2plus,Jack Hughes,2,190
+2026-10-03,NJD@NYI,point_2plus,Matthew Schaefer,2,310
+2026-10-03,NJD@NYI,point_2plus,Bo Horvat,2,330
+2026-10-03,NJD@NYI,point_2plus,Anthony Mantha,2,350
+2026-10-03,NJD@NYI,point_2plus,Nico Hischier,2,360
+2026-10-03,NJD@NYI,point_2plus,Jesper Bratt,2,390
+2026-10-03,NJD@NYI,point_2plus,Luke Evangelista,2,440
+2026-10-03,NJD@NYI,point_2plus,Dougie Hamilton,2,500
+2026-10-03,NJD@NYI,point_2plus,Kyle Palmieri,2,520
+2026-10-03,NJD@NYI,point_2plus,Timo Meier,2,520
+2026-10-03,NJD@NYI,point_2plus,Luke Hughes,2,560
+2026-10-03,NJD@NYI,point_2plus,Brayden Schenn,2,600
+2026-10-03,NJD@NYI,point_2plus,Emil Heineman,2,680
+2026-10-03,NJD@NYI,point_2plus,Victor Eklund,2,800
+2026-10-03,NJD@NYI,anytime_assist,Jack Hughes,0.5,-113
+2026-10-03,NJD@NYI,anytime_assist,Matthew Schaefer,0.5,-111
+2026-10-03,NJD@NYI,anytime_assist,Anthony Mantha,0.5,124
+2026-10-03,NJD@NYI,anytime_assist,Luke Hughes,0.5,138
+2026-10-03,NJD@NYI,anytime_assist,Dougie Hamilton,0.5,138
+2026-10-03,NJD@NYI,anytime_assist,Bo Horvat,0.5,148
+2026-10-03,NJD@NYI,anytime_assist,Jesper Bratt,0.5,140
+2026-10-03,NJD@NYI,anytime_assist,Luke Evangelista,0.5,152
+2026-10-03,NJD@NYI,anytime_assist,Nico Hischier,0.5,162
+2026-10-03,NJD@NYI,anytime_assist,Brayden Schenn,0.5,196
+2026-10-03,NJD@NYI,anytime_assist,Kyle Palmieri,0.5,200
+2026-10-03,NJD@NYI,anytime_assist,Emil Heineman,0.5,235
+2026-10-03,NJD@NYI,anytime_assist,Timo Meier,0.5,235
+2026-10-03,NJD@NYI,anytime_assist,Victor Eklund,0.5,280
