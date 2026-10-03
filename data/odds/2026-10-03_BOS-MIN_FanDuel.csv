@@ -1,0 +1,73 @@
+date,game,market,selection,line,odds_american
+2026-10-03,BOS@MIN,spread,Boston Bruins,+1.5,-154
+2026-10-03,BOS@MIN,spread,Minnesota Wild,-1.5,124
+2026-10-03,BOS@MIN,moneyline,Boston Bruins,,172
+2026-10-03,BOS@MIN,moneyline,Minnesota Wild,,-210
+2026-10-03,BOS@MIN,total,Over,6.5,108
+2026-10-03,BOS@MIN,total,Under,6.5,-132
+2026-10-03,BOS@MIN,anytime_goal,Kirill Kaprizov,0.5,120
+2026-10-03,BOS@MIN,anytime_goal,Matt Boldy,0.5,135
+2026-10-03,BOS@MIN,anytime_goal,David Pastrnak,0.5,170
+2026-10-03,BOS@MIN,anytime_goal,Joel Eriksson Ek,0.5,200
+2026-10-03,BOS@MIN,anytime_goal,Blake Coleman,0.5,235
+2026-10-03,BOS@MIN,anytime_goal,Morgan Geekie,0.5,260
+2026-10-03,BOS@MIN,anytime_goal,Ryan Hartman,0.5,280
+2026-10-03,BOS@MIN,anytime_goal,Pavel Zacha,0.5,280
+2026-10-03,BOS@MIN,anytime_goal,JJ Peterka,0.5,290
+2026-10-03,BOS@MIN,anytime_goal,Maxim Shabanov,0.5,320
+2026-10-03,BOS@MIN,anytime_goal,Danila Yurov,0.5,350
+2026-10-03,BOS@MIN,anytime_goal,Bobby Brink,0.5,380
+2026-10-03,BOS@MIN,anytime_goal,Elias Lindholm,0.5,390
+2026-10-03,BOS@MIN,anytime_goal,Quinn Hughes,0.5,410
+2026-10-03,BOS@MIN,anytime_goal,Fraser Minten,0.5,420
+2026-10-03,BOS@MIN,anytime_goal,James Hagens,0.5,490
+2026-10-03,BOS@MIN,anytime_goal,Casey Mittelstadt,0.5,525
+2026-10-03,BOS@MIN,anytime_goal,Michael McCarron,0.5,700
+2026-10-03,BOS@MIN,anytime_goal,Marcus Foligno,0.5,750
+2026-10-03,BOS@MIN,anytime_goal,Marat Khusnutdinov,0.5,750
+2026-10-03,BOS@MIN,anytime_goal,Yakov Trenin,0.5,750
+2026-10-03,BOS@MIN,anytime_goal,Jared Spurgeon,0.5,800
+2026-10-03,BOS@MIN,anytime_goal,Nick Foligno,0.5,900
+2026-10-03,BOS@MIN,anytime_goal,Hampus Lindholm,0.5,900
+2026-10-03,BOS@MIN,anytime_goal,Mark Kastelic,0.5,1000
+2026-10-03,BOS@MIN,anytime_goal,Sean Kuraly,0.5,1100
+2026-10-03,BOS@MIN,anytime_goal,Mason Lohrei,0.5,1200
+2026-10-03,BOS@MIN,anytime_goal,Tanner Jeannot,0.5,1200
+2026-10-03,BOS@MIN,anytime_goal,Jonas Brodin,0.5,1400
+2026-10-03,BOS@MIN,anytime_goal,Connor Clifton,0.5,1600
+2026-10-03,BOS@MIN,anytime_goal,Olli Maatta,0.5,1700
+2026-10-03,BOS@MIN,anytime_goal,Daemon Hunt,0.5,1900
+2026-10-03,BOS@MIN,anytime_goal,Zach Bogosian,0.5,2000
+2026-10-03,BOS@MIN,anytime_goal,Nikita Zadorov,0.5,2000
+2026-10-03,BOS@MIN,anytime_goal,Will Borgen,0.5,2100
+2026-10-03,BOS@MIN,anytime_goal,Jonathan Aspirot,0.5,2300
+2026-10-03,BOS@MIN,point_1plus,Kirill Kaprizov,1,-390
+2026-10-03,BOS@MIN,point_1plus,Matt Boldy,1,-260
+2026-10-03,BOS@MIN,point_1plus,Quinn Hughes,1,-260
+2026-10-03,BOS@MIN,point_1plus,David Pastrnak,1,-192
+2026-10-03,BOS@MIN,point_1plus,Joel Eriksson Ek,1,-140
+2026-10-03,BOS@MIN,point_1plus,Blake Coleman,1,-113
+2026-10-03,BOS@MIN,point_1plus,JJ Peterka,1,-111
+2026-10-03,BOS@MIN,point_1plus,Morgan Geekie,1,100
+2026-10-03,BOS@MIN,point_1plus,Pavel Zacha,1,100
+2026-10-03,BOS@MIN,point_1plus,Elias Lindholm,1,112
+2026-10-03,BOS@MIN,point_2plus,Kirill Kaprizov,2,128
+2026-10-03,BOS@MIN,point_2plus,Matt Boldy,2,200
+2026-10-03,BOS@MIN,point_2plus,Quinn Hughes,2,200
+2026-10-03,BOS@MIN,point_2plus,David Pastrnak,2,255
+2026-10-03,BOS@MIN,point_2plus,Joel Eriksson Ek,2,350
+2026-10-03,BOS@MIN,point_2plus,JJ Peterka,2,470
+2026-10-03,BOS@MIN,point_2plus,Blake Coleman,2,470
+2026-10-03,BOS@MIN,point_2plus,Morgan Geekie,2,520
+2026-10-03,BOS@MIN,point_2plus,Pavel Zacha,2,560
+2026-10-03,BOS@MIN,point_2plus,Elias Lindholm,2,600
+2026-10-03,BOS@MIN,anytime_assist,Quinn Hughes,0.5,-180
+2026-10-03,BOS@MIN,anytime_assist,Kirill Kaprizov,0.5,-154
+2026-10-03,BOS@MIN,anytime_assist,Matt Boldy,0.5,104
+2026-10-03,BOS@MIN,anytime_assist,David Pastrnak,0.5,124
+2026-10-03,BOS@MIN,anytime_assist,Joel Eriksson Ek,0.5,164
+2026-10-03,BOS@MIN,anytime_assist,JJ Peterka,0.5,176
+2026-10-03,BOS@MIN,anytime_assist,Elias Lindholm,0.5,190
+2026-10-03,BOS@MIN,anytime_assist,Blake Coleman,0.5,200
+2026-10-03,BOS@MIN,anytime_assist,Morgan Geekie,0.5,215
+2026-10-03,BOS@MIN,anytime_assist,Pavel Zacha,0.5,210
