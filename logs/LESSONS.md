@@ -68,3 +68,27 @@
 - Keep three watchlists: goalie-save volume, rookie/fallback props, and low-probability/high-EV longshots.
 - If rookie/fallback or longshot EV cohorts continue underperforming over several more slates, test a higher minimum edge/EV gate for those cohorts rather than changing the veteran model globally.
 - Continue tracking puck-line performance separately; 4-0 is promising but far too small for a weight increase.
+
+## 2026-10-02 — Slate 3 grading
+
+### Results
+- Top 10 Probability Card: 7-3 (70.0%). Model probabilities summed to 7.1457 expected wins; Brier score 0.2017.
+- Official Playable Price Card: 6-2 (75.0%), +4.4427 units at 1u flat staking, +55.53% ROI; Brier score 0.2068.
+- Cumulative Top 10: 20-10 (66.67%) through three tracked slates.
+- Cumulative Playable Price: 19-16 (54.29%), +4.7830u, +13.67% ROI through 35 tracked plays.
+
+### Market notes
+- Top-10 puck-line picks went 4-0 on Slate 3 (BOS +1.5, NYR +1.5, WSH +1.5, ANA +1.5), moving the tracked Top-10 puck-line cohort to 8-0.
+- Top-10 1+ point props went 3-3: Eichel, Pastrnak and Kyle Connor won; Robertson, Rantanen and Scheifele lost.
+- Dallas was shut out 4-0, creating correlated misses on Robertson and Rantanen. Continue tracking same-team correlation inside the Top 10 even though probability ranking remains pure.
+- Playable goalie saves fell to 3-5 cumulatively after Oettinger O21.5 lost with 20 saves. Goalie workload remains a priority watchlist.
+- Low-probability/high-EV anytime-goal plays are now 0-3 across Blueger twice and Boone Jenner once. Keep this band separately calibrated before changing the full playable gate.
+- The broader Playable Price Card performed very well on Slate 3 and is now +4.7830u cumulatively, so there is no evidence for globally tightening the value gate at this point.
+- Pastrnak's markets were internally consistent this slate: 2+ points and 1+ assist both won on two assists.
+
+### Lessons / actions
+- No structural predictive-code change from game results yet. Three slates remain a small prospective sample, and both official cohorts are currently positive/healthy enough to avoid reactive overfitting.
+- Continue the current v0.1.0 probability model.
+- Maintain separate watchlists for goalie saves, rookie/fallback props, and model probabilities below 20% that qualify on large price edges.
+- Add same-team / same-game concentration diagnostics to grading reports so correlated misses can be distinguished from independent model errors. This is a reporting/diagnostic enhancement, not a change to which Top-10 bets are selected.
+- Do not increase puck-line weights despite the 8-0 start; retain pure probability ranking until a much larger sample exists.
