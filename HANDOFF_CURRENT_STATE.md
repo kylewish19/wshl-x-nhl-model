@@ -38,3 +38,14 @@ Prepare the next user-supplied NHL slate using v0.1.0 plus the logged opening-ni
 - Slate 2: Top 10 6-4; Playable Price 6-4, +1.2905u.
 - Current watchlists: goalie-save volume calibration, rookie/projection fallback props, low-probability/high-EV longshots.
 - No structural model change yet; v0.1.0 remains active pending a larger prospective sample.
+
+
+## Through 2026-10-02
+- Oct. 1 remained intentionally skipped; no retroactive card was created.
+- Oct. 2 Top 10 Probability: 7-3 (70.0%).
+- Oct. 2 Official Playable Price: 6-2, +4.4427u (+55.53% ROI).
+- Cumulative Top 10: 20-10 (66.67%).
+- Cumulative Official Playable Price: 19-16, +4.7830u (+13.67% ROI).
+- Top-10 puck-line cohort is 8-0 through three tracked slates; do not change weighting yet.
+- Current watchlists: goalie-save workload (playable 3-5), rookie/fallback props, and sub-20% probability/high-EV longshots (0-3).
+- No structural predictive-model change after Slate 3; v0.1.0 remains active.
