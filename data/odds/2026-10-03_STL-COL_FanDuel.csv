@@ -1,0 +1,54 @@
+date,game,market,selection,line,odds_american
+2026-10-03,STL@COL,spread,St. Louis Blues,+1.5,-106
+2026-10-03,STL@COL,spread,Colorado Avalanche,-1.5,-114
+2026-10-03,STL@COL,moneyline,St. Louis Blues,,225
+2026-10-03,STL@COL,moneyline,Colorado Avalanche,,-280
+2026-10-03,STL@COL,total,Over,6.5,100
+2026-10-03,STL@COL,total,Under,6.5,-122
+2026-10-03,STL@COL,anytime_goal,Nathan MacKinnon,0.5,100
+2026-10-03,STL@COL,anytime_goal,Martin Necas,0.5,160
+2026-10-03,STL@COL,anytime_goal,Brock Nelson,0.5,210
+2026-10-03,STL@COL,anytime_goal,Gabriel Landeskog,0.5,220
+2026-10-03,STL@COL,anytime_goal,Artturi Lehkonen,0.5,240
+2026-10-03,STL@COL,anytime_goal,Nazem Kadri,0.5,250
+2026-10-03,STL@COL,anytime_goal,Dylan Holloway,0.5,280
+2026-10-03,STL@COL,anytime_goal,Mason McTavish,0.5,280
+2026-10-03,STL@COL,anytime_goal,Jimmy Snuggerud,0.5,290
+2026-10-03,STL@COL,anytime_goal,Robert Thomas,0.5,290
+2026-10-03,STL@COL,anytime_goal,Cale Makar,0.5,310
+2026-10-03,STL@COL,anytime_goal,Pavel Buchnevich,0.5,320
+2026-10-03,STL@COL,anytime_goal,Jaden Schwartz,0.5,330
+2026-10-03,STL@COL,anytime_goal,Connor McMichael,0.5,330
+2026-10-03,STL@COL,anytime_goal,T.J. Hughes,0.5,380
+2026-10-03,STL@COL,anytime_goal,Nicolas Roy,0.5,460
+2026-10-03,STL@COL,anytime_goal,Jake Neighbours,0.5,470
+2026-10-03,STL@COL,anytime_goal,Parker Kelly,0.5,575
+2026-10-03,STL@COL,anytime_goal,Devon Toews,0.5,600
+2026-10-03,STL@COL,anytime_goal,Dalibor Dvorsky,0.5,600
+2026-10-03,STL@COL,anytime_goal,Fedor Svechkov,0.5,600
+2026-10-03,STL@COL,anytime_goal,Cam Fowler,0.5,800
+2026-10-03,STL@COL,anytime_goal,Jonatan Berggren,0.5,850
+2026-10-03,STL@COL,anytime_goal,Pius Suter,0.5,900
+2026-10-03,STL@COL,anytime_goal,Adam Jiricek,0.5,900
+2026-10-03,STL@COL,anytime_goal,Sam Malinski,0.5,900
+2026-10-03,STL@COL,anytime_goal,Brent Burns,0.5,900
+2026-10-03,STL@COL,anytime_goal,Philip Broberg,0.5,1200
+2026-10-03,STL@COL,anytime_goal,Colton Parayko,0.5,1400
+2026-10-03,STL@COL,anytime_goal,Ross Johnston,0.5,1400
+2026-10-03,STL@COL,anytime_goal,Theo Lindstein,0.5,1700
+2026-10-03,STL@COL,anytime_goal,Brett Kulak,0.5,2000
+2026-10-03,STL@COL,point_1plus,Nathan MacKinnon,1,-950
+2026-10-03,STL@COL,point_1plus,Martin Necas,1,-400
+2026-10-03,STL@COL,point_1plus,Cale Makar,1,-350
+2026-10-03,STL@COL,point_1plus,Gabriel Landeskog,1,-184
+2026-10-03,STL@COL,point_1plus,Brock Nelson,1,-138
+2026-10-03,STL@COL,point_2plus,Nathan MacKinnon,2,-172
+2026-10-03,STL@COL,point_2plus,Martin Necas,2,130
+2026-10-03,STL@COL,point_2plus,Cale Makar,2,146
+2026-10-03,STL@COL,point_2plus,Gabriel Landeskog,2,285
+2026-10-03,STL@COL,point_2plus,Brock Nelson,2,390
+2026-10-03,STL@COL,anytime_assist,Nathan MacKinnon,0.5,-350
+2026-10-03,STL@COL,anytime_assist,Cale Makar,0.5,-240
+2026-10-03,STL@COL,anytime_assist,Martin Necas,0.5,-188
+2026-10-03,STL@COL,anytime_assist,Gabriel Landeskog,0.5,110
+2026-10-03,STL@COL,anytime_assist,Brock Nelson,0.5,172
