@@ -1,0 +1,43 @@
+date,game,market,selection,line,odds_american
+2026-10-03,LAK@SJS,spread,Los Angeles Kings,+1.5,-265
+2026-10-03,LAK@SJS,spread,San Jose Sharks,-1.5,210
+2026-10-03,LAK@SJS,moneyline,Los Angeles Kings,,-105
+2026-10-03,LAK@SJS,moneyline,San Jose Sharks,,-114
+2026-10-03,LAK@SJS,total,Over,6.5,106
+2026-10-03,LAK@SJS,total,Under,6.5,-130
+2026-10-03,LAK@SJS,anytime_goal,Macklin Celebrini,0.5,130
+2026-10-03,LAK@SJS,anytime_goal,Adrian Kempe,0.5,170
+2026-10-03,LAK@SJS,anytime_goal,Will Smith,0.5,180
+2026-10-03,LAK@SJS,anytime_goal,Artemi Panarin,0.5,195
+2026-10-03,LAK@SJS,anytime_goal,Quinton Byfield,0.5,220
+2026-10-03,LAK@SJS,anytime_goal,Mason Marchment,0.5,260
+2026-10-03,LAK@SJS,anytime_goal,Alex Laferriere,0.5,270
+2026-10-03,LAK@SJS,anytime_goal,Igor Chernyshov,0.5,320
+2026-10-03,LAK@SJS,anytime_goal,Michael Misa,0.5,350
+2026-10-03,LAK@SJS,anytime_goal,Mats Zuccarello,0.5,350
+2026-10-03,LAK@SJS,anytime_goal,Ivar Stenberg,0.5,380
+2026-10-03,LAK@SJS,anytime_goal,Trevor Moore,0.5,390
+2026-10-03,LAK@SJS,anytime_goal,Tyler Toffoli,0.5,410
+2026-10-03,LAK@SJS,anytime_goal,Alex Turcotte,0.5,420
+2026-10-03,LAK@SJS,anytime_goal,Alex Wennberg,0.5,440
+2026-10-03,LAK@SJS,anytime_goal,Collin Graf,0.5,500
+2026-10-03,LAK@SJS,anytime_goal,Erik Haula,0.5,575
+2026-10-03,LAK@SJS,anytime_goal,Brandt Clarke,0.5,575
+2026-10-03,LAK@SJS,anytime_goal,Scott Laughton,0.5,600
+2026-10-03,LAK@SJS,anytime_goal,Corey Perry,0.5,625
+2026-10-03,LAK@SJS,anytime_goal,Joel Armia,0.5,650
+2026-10-03,LAK@SJS,anytime_goal,Luca Cagnoni,0.5,650
+2026-10-03,LAK@SJS,anytime_goal,Kiefer Sherwood,0.5,700
+2026-10-03,LAK@SJS,anytime_goal,Andre Lee,0.5,750
+2026-10-03,LAK@SJS,anytime_goal,Dmitry Orlov,0.5,800
+2026-10-03,LAK@SJS,anytime_goal,Drew Doughty,0.5,800
+2026-10-03,LAK@SJS,anytime_goal,Sam Dickinson,0.5,1000
+2026-10-03,LAK@SJS,anytime_goal,Darnell Nurse,0.5,1200
+2026-10-03,LAK@SJS,anytime_goal,Barclay Goodrow,0.5,1200
+2026-10-03,LAK@SJS,anytime_goal,Zack Ostapchuk,0.5,1300
+2026-10-03,LAK@SJS,anytime_goal,Mikey Anderson,0.5,1500
+2026-10-03,LAK@SJS,anytime_goal,Michael Kesselring,0.5,1500
+2026-10-03,LAK@SJS,anytime_goal,Joel Edmundson,0.5,1600
+2026-10-03,LAK@SJS,anytime_goal,Cody Ceci,0.5,2100
+2026-10-03,LAK@SJS,anytime_goal,Nolan Allan,0.5,2100
+2026-10-03,LAK@SJS,anytime_goal,Brian Dumoulin,0.5,2300
