@@ -1,0 +1,16 @@
+{
+  "date":"2026-10-03",
+  "version":"0.1.0",
+  "lock_type":"LATE_LOCK",
+  "clean_prospective_tracking":false,
+  "reason":"Final model run occurred after some scheduled puck drops because goalie-save odds were not captured in time.",
+  "inputs":"Only pregame FanDuel screenshots stored before games; no live scores, in-game odds, live stats, or outcomes were used in model probabilities.",
+  "goalie_saves_included":false,
+  "notes":[
+    "Goalie-save markets excluded entirely.",
+    "LAK-SJS only had game lines and anytime-goal markets captured.",
+    "Some no-history players without an independent pregame fallback were excluded.",
+    "Limited-history fallback remains explicitly tagged.",
+    "Late-lock cards should be graded separately from the clean prospective cumulative record."
+  ]
+}
