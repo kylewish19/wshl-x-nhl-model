@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-03,1,STL@COL,point_1plus,Nathan MacKinnon,1,0.8306,transition_ml,false,LATE_LOCK
+2026-10-03,2,WSH@TBL,point_1plus,Nikita Kucherov,1,0.7981,transition_ml,false,LATE_LOCK
+2026-10-03,3,OTT@TOR,spread,Ottawa Senators,+1.5,0.7776,team_goal_hybrid,false,LATE_LOCK
+2026-10-03,4,NJD@NYI,point_1plus,Jack Hughes,1,0.7653,transition_ml,false,LATE_LOCK
+2026-10-03,5,CGY@VAN,spread,Calgary Flames,+1.5,0.7645,team_goal_hybrid,false,LATE_LOCK
+2026-10-03,6,NJD@NYI,spread,New York Islanders,+1.5,0.7568,team_goal_hybrid,false,LATE_LOCK
+2026-10-03,7,BOS@MIN,point_1plus,David Pastrnak,1,0.7412,transition_ml,false,LATE_LOCK
+2026-10-03,8,LAK@SJS,spread,Los Angeles Kings,+1.5,0.7311,team_goal_hybrid,false,LATE_LOCK
+2026-10-03,9,MTL@PIT,spread,Pittsburgh Penguins,+1.5,0.7298,team_goal_hybrid,false,LATE_LOCK
+2026-10-03,10,UTA@CBJ,spread,Columbus Blue Jackets,+1.5,0.7211,team_goal_hybrid,false,LATE_LOCK
