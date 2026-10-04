@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,result,actual
+2026-10-03,1,STL@COL,point_1plus,Nathan MacKinnon,1,0.8306,WIN,3 assists
+2026-10-03,2,WSH@TBL,point_1plus,Nikita Kucherov,1,0.7981,WIN,1 assist
+2026-10-03,3,OTT@TOR,spread,Ottawa Senators,+1.5,0.7776,WIN,OTT won 3-2
+2026-10-03,4,NJD@NYI,point_1plus,Jack Hughes,1,0.7653,LOSS,0 points
+2026-10-03,5,CGY@VAN,spread,Calgary Flames,+1.5,0.7645,LOSS,CGY lost 4-1
+2026-10-03,6,NJD@NYI,spread,New York Islanders,+1.5,0.7568,WIN,NYI won 6-0
+2026-10-03,7,BOS@MIN,point_1plus,David Pastrnak,1,0.7412,LOSS,0 points
+2026-10-03,8,LAK@SJS,spread,Los Angeles Kings,+1.5,0.7311,WIN,LAK lost 5-4 OT
+2026-10-03,9,MTL@PIT,spread,Pittsburgh Penguins,+1.5,0.7298,WIN,PIT won 6-5 OT
+2026-10-03,10,UTA@CBJ,spread,Columbus Blue Jackets,+1.5,0.7211,LOSS,CBJ lost 4-1
