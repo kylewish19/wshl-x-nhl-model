@@ -92,3 +92,28 @@
 - Maintain separate watchlists for goalie saves, rookie/fallback props, and model probabilities below 20% that qualify on large price edges.
 - Add same-team / same-game concentration diagnostics to grading reports so correlated misses can be distinguished from independent model errors. This is a reporting/diagnostic enhancement, not a change to which Top-10 bets are selected.
 - Do not increase puck-line weights despite the 8-0 start; retain pure probability ranking until a much larger sample exists.
+
+## 2026-10-03 — Late-lock grading (excluded from clean prospective cumulative record)
+
+### Results
+- Top 10 Probability Card: 6-4 (60.0%). Model probabilities summed to 7.6161 expected wins; Brier score 0.2563.
+- Playable Price Card: 12-21 (36.36%), +6.4177 units at 1u flat staking, +19.45% ROI; Brier score 0.2836.
+- This slate remains tagged LATE_LOCK because the final model run occurred after some scheduled puck drops. Only pregame screenshots were used; no live scores, in-game odds, live stats, or outcomes were used to generate the cards.
+- Clean prospective cumulative totals remain unchanged at Top 10 20-10 (66.67%) and Playable Price 19-16, +4.7830u (+13.67% ROI).
+
+### Market notes
+- Top-10 puck lines went 4-2: OTT +1.5, NYI +1.5, LAK +1.5 and PIT +1.5 won; CGY +1.5 and CBJ +1.5 lost. The clean tracked Top-10 puck-line streak remains separate because this slate is late-lock.
+- Top-10 1+ point props went 2-2: MacKinnon and Kucherov won; Jack Hughes and Pastrnak lost.
+- Playable moneylines went 2-5 and playable spreads went 3-5. Game-side value was the weak area of the late-lock card.
+- Playable anytime goals went 1-2, but Kiefer Sherwood +700 produced +7u and made the market profitable despite the losing record.
+- Playable 2+ point props went 1-3, with Victor Eklund +800 producing +8u.
+- Assists went 3-3; 1+ point props went 2-2; SEA-EDM Over 6.5 lost.
+- Limited-history/fallback props were highly correlated by player: Victor Eklund went 3-0 across 1+ point, 2+ points and assist, while Porter Martone went 0-4 across goal/point/assist markets. Do not treat seven correlated bets as seven independent calibration observations.
+
+### Lessons / actions
+- No predictive-code change from this slate. The card was late-lock and therefore is lower-quality evidence for prospective model evaluation even though the inputs were frozen pregame.
+- Add/retain a process rule: any slate not fully locked before the first puck drop is graded in a separate LATE_LOCK cohort and excluded from the clean prospective season record.
+- Positive ROI (+6.42u) came from a few large plus-money hits while the card was only 12-21 and had a weak 0.2836 Brier score. Do not interpret the profit as evidence that probability calibration improved.
+- Continue monitoring same-player concentration. Eklund's three correlated wins and Martone's four correlated losses show why card-level W-L can overstate the effective sample size.
+- Continue the v0.1.0 model unchanged. Do not tighten or loosen the longshot gate from one high-variance slate.
+
