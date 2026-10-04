@@ -5,6 +5,8 @@ PLAYER_NAME_ALIASES = {
     "Alexis Lafreniere": "Alexis Lafrenière",
     "Joe Veleno": "Joseph Veleno",
     "Michael Brandsegg-Nygard": "Michael Brandsegg-Nygård",
+    "Maxim Tsyplakov": "Maksim Tsyplakov",
+    "Frederick Gaudreau": "Freddy Gaudreau",
 }
 
 
