@@ -1,0 +1,26 @@
+{
+  "date":"2026-10-04",
+  "version":"0.1.0",
+  "lock_type":"OFFICIAL_PARTIAL_SLATE",
+  "clean_prospective_tracking":true,
+  "included_games":["UTA@NYR","CGY@SEA","FLA@ANA","VGK@VAN"],
+  "excluded_games":["WPG@DET"],
+  "excluded_game_reason":"WPG@DET had already started before the complete late-day market board was assembled; it was excluded rather than mixing an incomplete/after-puck-drop candidate universe.",
+  "odds_used_in_probability_stage":false,
+  "goalie_saves_included":false,
+  "goalie_saves_policy":"User requested the card be run before goalie-save odds were supplied. Any later goalie-save analysis is supplemental and cannot retroactively replace this locked Top 10.",
+  "prelock_normalization_fixes":["Maxim Tsyplakov->Maksim Tsyplakov","Frederick Gaudreau->Freddy Gaudreau"],
+  "eligibility_exclusions":["Curtis Douglas scratched for SEA"],
+  "unmatched_no_2025_26_transition":["Mikhail Sergachev","Alberts Smits","Judd Caulfield","Noah Warren","Trevor Connelly"],
+  "current_context_checked":[
+    "UTA-NYR NHL projected lineups: Vejmelka/Shesterkin projected; Kartye moved to NYR line 2 and Dorofeyev to RW.",
+    "CGY-SEA NHL projected lineups: both clubs on second half of back-to-back; Wolf/Daccord projected; Huberdeau injured; Douglas scratched.",
+    "FLA-ANA NHL projected lineups: Barkov LTIR; Forsling injured/game-status concern; Panthers lines reshuffled; Schmid/Dostal projected.",
+    "VGK-VAN current team reports checked; Vancouver on second half of back-to-back; Vegas entered with rest advantage."
+  ],
+  "notes":[
+    "Top 10 locked from all eligible non-goalie markets before the included games started.",
+    "Playable Price Card generated only after Top 10 probabilities were locked.",
+    "No structural predictive-model change; v0.1.0 remains active."
+  ]
+}
