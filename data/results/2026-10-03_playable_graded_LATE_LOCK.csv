@@ -1,0 +1,34 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-03,1,LAK@SJS,anytime_goal,Kiefer Sherwood,0.5,0.2177,700,WIN,1 goal,7.0000
+2026-10-03,2,CAR@PHI,point_2plus,Porter Martone,2,0.2703,500,LOSS,0 points,-1.0000
+2026-10-03,3,CAR@PHI,anytime_goal,Porter Martone,0.5,0.3812,310,LOSS,0 goals,-1.0000
+2026-10-03,4,NJD@NYI,point_2plus,Victor Eklund,2,0.1726,800,WIN,1 goal 1 assist,8.0000
+2026-10-03,5,NJD@NYI,anytime_assist,Victor Eklund,0.5,0.4014,280,WIN,1 assist,2.8000
+2026-10-03,6,WSH@TBL,anytime_goal,Boone Jenner,0.5,0.1677,800,LOSS,0 goals,-1.0000
+2026-10-03,7,BOS@MIN,point_2plus,David Pastrnak,2,0.3914,255,LOSS,0 points,-1.0000
+2026-10-03,8,BOS@MIN,moneyline,Boston Bruins,,0.4692,172,LOSS,BOS lost 4-1,-1.0000
+2026-10-03,9,NJD@NYI,point_1plus,Victor Eklund,1,0.5266,142,WIN,1 goal 1 assist,1.4200
+2026-10-03,10,BOS@MIN,anytime_assist,David Pastrnak,0.5,0.5647,124,LOSS,0 assists,-1.0000
+2026-10-03,11,CAR@PHI,point_1plus,Porter Martone,1,0.6381,-102,LOSS,0 points,-1.0000
+2026-10-03,12,NJD@NYI,point_2plus,Jack Hughes,2,0.4251,190,LOSS,0 points,-1.0000
+2026-10-03,13,CAR@PHI,anytime_assist,Travis Konecny,0.5,0.3942,196,WIN,1 assist,1.9600
+2026-10-03,14,STL@COL,spread,St. Louis Blues,+1.5,0.5957,-106,LOSS,STL lost 6-1,-1.0000
+2026-10-03,15,BOS@MIN,spread,Boston Bruins,+1.5,0.7009,-154,LOSS,BOS lost 4-1,-1.0000
+2026-10-03,16,CAR@PHI,anytime_assist,Porter Martone,0.5,0.4152,176,LOSS,0 assists,-1.0000
+2026-10-03,17,STL@COL,moneyline,St. Louis Blues,,0.3508,225,LOSS,STL lost 6-1,-1.0000
+2026-10-03,18,SEA@EDM,moneyline,Seattle Kraken,,0.4288,164,LOSS,SEA lost 3-1,-1.0000
+2026-10-03,19,BOS@MIN,point_1plus,David Pastrnak,1,0.7412,-192,LOSS,0 points,-1.0000
+2026-10-03,20,NJD@NYI,anytime_assist,Jack Hughes,0.5,0.5968,-113,LOSS,0 assists,-1.0000
+2026-10-03,21,WSH@TBL,moneyline,Washington Capitals,,0.4462,152,LOSS,WSH lost 3-1,-1.0000
+2026-10-03,22,CHI@BUF,moneyline,Chicago Blackhawks,,0.3703,202,LOSS,CHI lost 4-3,-1.0000
+2026-10-03,23,NJD@NYI,moneyline,New York Islanders,,0.5225,114,WIN,NYI won 6-0,1.1400
+2026-10-03,24,CAR@PHI,anytime_assist,Sebastian Aho,0.5,0.4327,158,WIN,1 assist,1.5800
+2026-10-03,25,WSH@TBL,spread,Washington Capitals,+1.5,0.6811,-158,LOSS,WSH lost 3-1,-1.0000
+2026-10-03,26,SEA@EDM,spread,Seattle Kraken,+1.5,0.6546,-144,LOSS,SEA lost 3-1,-1.0000
+2026-10-03,27,SEA@EDM,total,Over,6.5,0.5834,-112,LOSS,4 total goals,-1.0000
+2026-10-03,28,CHI@BUF,spread,Chicago Blackhawks,+1.5,0.6103,-124,WIN,CHI lost 4-3,0.8065
+2026-10-03,29,CAR@PHI,point_1plus,Travis Konecny,1,0.5529,-102,WIN,1 assist,0.9804
+2026-10-03,30,NJD@NYI,spread,New York Islanders,+1.5,0.7568,-225,WIN,NYI won 6-0,0.4444
+2026-10-03,31,OTT@TOR,moneyline,Ottawa Senators,,0.5617,-110,WIN,OTT won 3-2,0.9091
+2026-10-03,32,OTT@TOR,spread,Ottawa Senators,+1.5,0.7776,-265,WIN,OTT won 3-2,0.3774
+2026-10-03,33,CGY@VAN,spread,Calgary Flames,+1.5,0.7645,-260,LOSS,CGY lost 4-1,-1.0000
