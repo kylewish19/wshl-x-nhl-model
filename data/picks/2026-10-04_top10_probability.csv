@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-04,1,UTA@NYR,spread,Utah Mammoth,+1.5,0.7509,team_goal_hybrid,false,LOCKED
+2026-10-04,2,VGK@VAN,point_1plus,Jack Eichel,1,0.7438,transition_ml,false,LOCKED
+2026-10-04,3,FLA@ANA,spread,Anaheim Ducks,+1.5,0.7384,team_goal_hybrid,false,LOCKED
+2026-10-04,4,CGY@SEA,spread,Calgary Flames,+1.5,0.7006,team_goal_hybrid,false,LOCKED
+2026-10-04,5,VGK@VAN,point_1plus,Mark Stone,1,0.6491,transition_ml,false,LOCKED
+2026-10-04,6,UTA@NYR,point_1plus,Clayton Keller,1,0.6373,transition_ml,false,LOCKED
+2026-10-04,7,FLA@ANA,point_1plus,Matthew Tkachuk,1,0.6336,transition_ml,false,LOCKED
+2026-10-04,8,VGK@VAN,spread,Vancouver Canucks,+1.5,0.6289,team_goal_hybrid,false,LOCKED
+2026-10-04,9,CGY@SEA,total,Over,5.5,0.6251,team_goal_hybrid,false,LOCKED
+2026-10-04,10,FLA@ANA,point_1plus,Sam Reinhart,1,0.6229,transition_ml,false,LOCKED
