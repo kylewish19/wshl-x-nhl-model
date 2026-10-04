@@ -1,0 +1,34 @@
+date,rank,game,market,selection,line,model_probability,odds_american,edge,expected_roi,model_basis,status
+2026-10-03,1,LAK@SJS,anytime_goal,Kiefer Sherwood,0.5,0.2177,700,0.0927,0.7412,transition_ml,LATE_LOCK
+2026-10-03,2,CAR@PHI,point_2plus,Porter Martone,2,0.2703,500,0.1036,0.6218,limited_history_fallback,LATE_LOCK
+2026-10-03,3,CAR@PHI,anytime_goal,Porter Martone,0.5,0.3812,310,0.1373,0.5630,limited_history_fallback,LATE_LOCK
+2026-10-03,4,NJD@NYI,point_2plus,Victor Eklund,2,0.1726,800,0.0615,0.5534,limited_history_fallback,LATE_LOCK
+2026-10-03,5,NJD@NYI,anytime_assist,Victor Eklund,0.5,0.4014,280,0.1382,0.5253,limited_history_fallback,LATE_LOCK
+2026-10-03,6,WSH@TBL,anytime_goal,Boone Jenner,0.5,0.1677,800,0.0566,0.5096,transition_ml,LATE_LOCK
+2026-10-03,7,BOS@MIN,point_2plus,David Pastrnak,2,0.3914,255,0.1097,0.3896,transition_ml,LATE_LOCK
+2026-10-03,8,BOS@MIN,moneyline,Boston Bruins,,0.4692,172,0.1015,0.2762,team_goal_hybrid,LATE_LOCK
+2026-10-03,9,NJD@NYI,point_1plus,Victor Eklund,1,0.5266,142,0.1134,0.2744,limited_history_fallback,LATE_LOCK
+2026-10-03,10,BOS@MIN,anytime_assist,David Pastrnak,0.5,0.5647,124,0.1182,0.2648,transition_ml,LATE_LOCK
+2026-10-03,11,CAR@PHI,point_1plus,Porter Martone,1,0.6381,-102,0.1332,0.2637,limited_history_fallback,LATE_LOCK
+2026-10-03,12,NJD@NYI,point_2plus,Jack Hughes,2,0.4251,190,0.0802,0.2327,transition_ml,LATE_LOCK
+2026-10-03,13,CAR@PHI,anytime_assist,Travis Konecny,0.5,0.3942,196,0.0564,0.1669,transition_ml,LATE_LOCK
+2026-10-03,14,STL@COL,spread,St. Louis Blues,+1.5,0.5957,-106,0.0811,0.1577,team_goal_hybrid,LATE_LOCK
+2026-10-03,15,BOS@MIN,spread,Boston Bruins,+1.5,0.7009,-154,0.0946,0.1561,team_goal_hybrid,LATE_LOCK
+2026-10-03,16,CAR@PHI,anytime_assist,Porter Martone,0.5,0.4152,176,0.0529,0.1459,limited_history_fallback,LATE_LOCK
+2026-10-03,17,STL@COL,moneyline,St. Louis Blues,,0.3508,225,0.0432,0.1403,team_goal_hybrid,LATE_LOCK
+2026-10-03,18,SEA@EDM,moneyline,Seattle Kraken,,0.4288,164,0.0500,0.1319,team_goal_hybrid,LATE_LOCK
+2026-10-03,19,BOS@MIN,point_1plus,David Pastrnak,1,0.7412,-192,0.0837,0.1273,transition_ml,LATE_LOCK
+2026-10-03,20,NJD@NYI,anytime_assist,Jack Hughes,0.5,0.5968,-113,0.0663,0.1249,transition_ml,LATE_LOCK
+2026-10-03,21,WSH@TBL,moneyline,Washington Capitals,,0.4462,152,0.0494,0.1244,team_goal_hybrid,LATE_LOCK
+2026-10-03,22,CHI@BUF,moneyline,Chicago Blackhawks,,0.3703,202,0.0392,0.1183,team_goal_hybrid,LATE_LOCK
+2026-10-03,23,NJD@NYI,moneyline,New York Islanders,,0.5225,114,0.0552,0.1182,team_goal_hybrid,LATE_LOCK
+2026-10-03,24,CAR@PHI,anytime_assist,Sebastian Aho,0.5,0.4327,158,0.0451,0.1164,transition_ml,LATE_LOCK
+2026-10-03,25,WSH@TBL,spread,Washington Capitals,+1.5,0.6811,-158,0.0687,0.1122,team_goal_hybrid,LATE_LOCK
+2026-10-03,26,SEA@EDM,spread,Seattle Kraken,+1.5,0.6546,-144,0.0644,0.1091,team_goal_hybrid,LATE_LOCK
+2026-10-03,27,SEA@EDM,total,Over,6.5,0.5834,-112,0.0551,0.1043,team_goal_hybrid,LATE_LOCK
+2026-10-03,28,CHI@BUF,spread,Chicago Blackhawks,+1.5,0.6103,-124,0.0567,0.1024,team_goal_hybrid,LATE_LOCK
+2026-10-03,29,CAR@PHI,point_1plus,Travis Konecny,1,0.5529,-102,0.0479,0.0949,transition_ml,LATE_LOCK
+2026-10-03,30,NJD@NYI,spread,New York Islanders,+1.5,0.7568,-225,0.0645,0.0932,team_goal_hybrid,LATE_LOCK
+2026-10-03,31,OTT@TOR,moneyline,Ottawa Senators,,0.5617,-110,0.0379,0.0724,team_goal_hybrid,LATE_LOCK
+2026-10-03,32,OTT@TOR,spread,Ottawa Senators,+1.5,0.7776,-265,0.0516,0.0710,team_goal_hybrid,LATE_LOCK
+2026-10-03,33,CGY@VAN,spread,Calgary Flames,+1.5,0.7645,-260,0.0423,0.0586,team_goal_hybrid,LATE_LOCK
