@@ -1,0 +1,79 @@
+date,game,market,selection,line,odds_american
+2026-10-04,VGK@VAN,spread,Vegas Golden Knights,-1.5,-112
+2026-10-04,VGK@VAN,spread,Vancouver Canucks,+1.5,-108
+2026-10-04,VGK@VAN,moneyline,Vegas Golden Knights,,-285
+2026-10-04,VGK@VAN,moneyline,Vancouver Canucks,,230
+2026-10-04,VGK@VAN,total,Over,6.5,-102
+2026-10-04,VGK@VAN,total,Under,6.5,-120
+2026-10-04,VGK@VAN,anytime_goal,Jack Eichel,0.5,150
+2026-10-04,VGK@VAN,anytime_goal,Mark Stone,0.5,160
+2026-10-04,VGK@VAN,anytime_goal,Mitchell Marner,0.5,180
+2026-10-04,VGK@VAN,anytime_goal,Tomas Hertl,0.5,200
+2026-10-04,VGK@VAN,anytime_goal,Brock Boeser,0.5,250
+2026-10-04,VGK@VAN,anytime_goal,Ivan Barbashev,0.5,270
+2026-10-04,VGK@VAN,anytime_goal,William Karlsson,0.5,290
+2026-10-04,VGK@VAN,anytime_goal,Brett Howden,0.5,300
+2026-10-04,VGK@VAN,anytime_goal,Elias Pettersson #40,0.5,300
+2026-10-04,VGK@VAN,anytime_goal,Victor Olofsson,0.5,330
+2026-10-04,VGK@VAN,anytime_goal,Marco Rossi,0.5,340
+2026-10-04,VGK@VAN,anytime_goal,Shea Theodore,0.5,390
+2026-10-04,VGK@VAN,anytime_goal,Linus Karlsson,0.5,400
+2026-10-04,VGK@VAN,anytime_goal,Braeden Bowman,0.5,420
+2026-10-04,VGK@VAN,anytime_goal,Trevor Connelly,0.5,450
+2026-10-04,VGK@VAN,anytime_goal,Paul Cotter,0.5,480
+2026-10-04,VGK@VAN,anytime_goal,Rasmus Andersson,0.5,490
+2026-10-04,VGK@VAN,anytime_goal,Liam Ohgren,0.5,500
+2026-10-04,VGK@VAN,anytime_goal,Jonathan Lekkerimaki,0.5,550
+2026-10-04,VGK@VAN,anytime_goal,Filip Hronek,0.5,600
+2026-10-04,VGK@VAN,anytime_goal,Drew O'Connor,0.5,600
+2026-10-04,VGK@VAN,anytime_goal,Zeev Buium,0.5,650
+2026-10-04,VGK@VAN,anytime_goal,Max Sasson,0.5,700
+2026-10-04,VGK@VAN,anytime_goal,Aatu Raty,0.5,750
+2026-10-04,VGK@VAN,anytime_goal,Arshdeep Bains,0.5,750
+2026-10-04,VGK@VAN,anytime_goal,Brendan Gallagher,0.5,800
+2026-10-04,VGK@VAN,anytime_goal,Nic Dowd,0.5,800
+2026-10-04,VGK@VAN,anytime_goal,Marc Gatcomb,0.5,850
+2026-10-04,VGK@VAN,anytime_goal,Tom Willander,0.5,1000
+2026-10-04,VGK@VAN,anytime_goal,Noah Hanifin,0.5,1000
+2026-10-04,VGK@VAN,anytime_goal,Brayden McNabb,0.5,1200
+2026-10-04,VGK@VAN,anytime_goal,Parker Wotherspoon,0.5,1600
+2026-10-04,VGK@VAN,anytime_goal,Jamie Oleksiak,0.5,1700
+2026-10-04,VGK@VAN,anytime_goal,Jeremy Lauzon,0.5,2000
+2026-10-04,VGK@VAN,anytime_goal,Elias Pettersson #25,0.5,2300
+2026-10-04,VGK@VAN,anytime_goal,Luke Schenn,0.5,2500
+2026-10-04,VGK@VAN,point_1plus,Jack Eichel,1,-340
+2026-10-04,VGK@VAN,point_1plus,Mitchell Marner,1,-280
+2026-10-04,VGK@VAN,point_1plus,Mark Stone,1,-250
+2026-10-04,VGK@VAN,point_1plus,Ivan Barbashev,1,-154
+2026-10-04,VGK@VAN,point_1plus,Tomas Hertl,1,-142
+2026-10-04,VGK@VAN,point_1plus,Shea Theodore,1,-138
+2026-10-04,VGK@VAN,point_1plus,Elias Pettersson #40,1,-120
+2026-10-04,VGK@VAN,point_1plus,Brock Boeser,1,-106
+2026-10-04,VGK@VAN,point_1plus,Filip Hronek,1,104
+2026-10-04,VGK@VAN,point_1plus,Rasmus Andersson,1,106
+2026-10-04,VGK@VAN,point_1plus,Marco Rossi,1,108
+2026-10-04,VGK@VAN,point_1plus,Zeev Buium,1,150
+2026-10-04,VGK@VAN,point_2plus,Jack Eichel,2,146
+2026-10-04,VGK@VAN,point_2plus,Mitchell Marner,2,186
+2026-10-04,VGK@VAN,point_2plus,Mark Stone,2,210
+2026-10-04,VGK@VAN,point_2plus,Ivan Barbashev,2,350
+2026-10-04,VGK@VAN,point_2plus,Shea Theodore,2,360
+2026-10-04,VGK@VAN,point_2plus,Tomas Hertl,2,360
+2026-10-04,VGK@VAN,point_2plus,Elias Pettersson #40,2,440
+2026-10-04,VGK@VAN,point_2plus,Brock Boeser,2,500
+2026-10-04,VGK@VAN,point_2plus,Filip Hronek,2,560
+2026-10-04,VGK@VAN,point_2plus,Rasmus Andersson,2,560
+2026-10-04,VGK@VAN,point_2plus,Marco Rossi,2,600
+2026-10-04,VGK@VAN,point_2plus,Zeev Buium,2,870
+2026-10-04,VGK@VAN,anytime_assist,Jack Eichel,0.5,-156
+2026-10-04,VGK@VAN,anytime_assist,Mitchell Marner,0.5,-132
+2026-10-04,VGK@VAN,anytime_assist,Mark Stone,0.5,-106
+2026-10-04,VGK@VAN,anytime_assist,Shea Theodore,0.5,114
+2026-10-04,VGK@VAN,anytime_assist,Ivan Barbashev,0.5,124
+2026-10-04,VGK@VAN,anytime_assist,Filip Hronek,0.5,146
+2026-10-04,VGK@VAN,anytime_assist,Elias Pettersson #40,0.5,150
+2026-10-04,VGK@VAN,anytime_assist,Tomas Hertl,0.5,164
+2026-10-04,VGK@VAN,anytime_assist,Rasmus Andersson,0.5,162
+2026-10-04,VGK@VAN,anytime_assist,Marco Rossi,0.5,196
+2026-10-04,VGK@VAN,anytime_assist,Brock Boeser,0.5,200
+2026-10-04,VGK@VAN,anytime_assist,Zeev Buium,0.5,220
