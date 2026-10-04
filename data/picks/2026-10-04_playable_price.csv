@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-04,1,FLA@ANA,anytime_goal,Tristan Luneau,0.5,0.1785,950,0.0952,0.0833,0.8746,limited_history_fallback,PLAYABLE
+2026-10-04,2,VGK@VAN,moneyline,Vancouver Canucks,,0.3951,230,0.3030,0.0921,0.3038,team_goal_hybrid,PLAYABLE
+2026-10-04,3,VGK@VAN,spread,Vancouver Canucks,+1.5,0.6289,-108,0.5192,0.1096,0.2112,team_goal_hybrid,PLAYABLE
+2026-10-04,4,CGY@SEA,total,Over,5.5,0.6251,-120,0.5455,0.0796,0.1460,team_goal_hybrid,PLAYABLE
+2026-10-04,5,FLA@ANA,moneyline,Anaheim Ducks,,0.5152,114,0.4673,0.0479,0.1025,team_goal_hybrid,PLAYABLE
+2026-10-04,6,UTA@NYR,total,Over,5.5,0.5893,-120,0.5455,0.0438,0.0803,team_goal_hybrid,PLAYABLE
+2026-10-04,7,UTA@NYR,moneyline,Utah Mammoth,,0.5237,105,0.4878,0.0359,0.0736,team_goal_hybrid,PLAYABLE
+2026-10-04,8,CGY@SEA,moneyline,Calgary Flames,,0.4662,130,0.4348,0.0315,0.0724,team_goal_hybrid,PLAYABLE
+2026-10-04,9,FLA@ANA,spread,Anaheim Ducks,+1.5,0.7384,-225,0.6923,0.0461,0.0666,team_goal_hybrid,PLAYABLE
+2026-10-04,10,UTA@NYR,spread,Utah Mammoth,+1.5,0.7509,-245,0.7101,0.0408,0.0574,team_goal_hybrid,PLAYABLE
