@@ -1,29 +1,41 @@
 {
   "date":"2026-10-05",
   "version":"0.1.0",
-  "lock_type":"OFFICIAL_FULL_SLATE",
+  "lock_type":"OFFICIAL_FULL_SLATE_WITH_GOALIE_SUPPLEMENT",
   "clean_prospective_tracking":true,
   "included_games":["PHI@TBL","OTT@BOS","WPG@PIT","SJS@DAL"],
   "odds_used_in_probability_stage":false,
   "top10_expected_wins":7.125882,
+  "top10_goalie_rewrite":false,
   "current_context_checked":[
     "NHL.com projected lineups and injuries for all four games on Oct. 5.",
-    "PHI-TBL: Vladar listed first; Vasilevskiy projected. Grebenkin out for PHI; Lilleberg, Dominic James and Gourde out for TBL.",
-    "OTT-BOS: Ullmark and Swayman listed first. Sanderson, Zub, MacDermid and Burakovsky out for OTT; Greig suspended; McAvoy suspended for BOS.",
-    "WPG-PIT: Clay Stevenson listed first but NHL preview said he could start; Murashov listed first and stated to make season debut. Hellebuyck suspended; Rust, Brazeau and Graves out for PIT.",
-    "SJS-DAL: Askarov and Oettinger listed first; Rantanen expected to play after maintenance absence; Duchene out for DAL."
+    "PHI-TBL: Vladar/Vasilevskiy FanDuel save lines supplied by user; this game had already started by the time the reconstructed goalie pipeline completed, so those two save props were not added to the clean official card.",
+    "OTT-BOS: Ullmark and Swayman FanDuel save lines supplied by user.",
+    "WPG-PIT: Stevenson and Murashov FanDuel save lines supplied by user.",
+    "SJS-DAL: Askarov and Oettinger FanDuel save lines supplied by user."
   ],
   "team_goal_means":{"PHI@TBL":{"away":2.55,"home":3.50},"OTT@BOS":{"away":2.95,"home":3.34},"WPG@PIT":{"away":2.85,"home":3.65},"SJS@DAL":{"away":2.90,"home":3.60}},
-  "goalie_saves_included_official":false,
-  "goalie_saves_reason":"The supplied goalie-save markets were logged, but the repository still lacked the persisted trained v0.1 goalie artifact/feature table needed to reproduce official save probabilities. The v0.2 goalie model was also still shadow-only without its historical training parquet. No goalie probability was fabricated for the locked official cards.",
-  "goalie_listing_policy_effective_after_lock":"Effective 2026-10-05 after this slate was locked, any goalie-save line shown on a user-supplied FanDuel board is eligible without separate starter confirmation. If the goalie does not start and FanDuel voids, grade VOID. This policy does not retroactively rewrite this already locked card.",
-  "goalie_shadow_status":"framework present; no official influence; no trained shadow prediction recorded today",
-  "probability_reconstruction_note":"Persisted full skater artifacts are not committed. Existing prior locked v0.1 probabilities were reused as anchors for recurring players; new established-player estimates use the documented transition bootstrap reconstruction from 2025-26 rates plus current team environment. Limited-history players retain the documented fallback treatment.",
+  "goalie_saves_policy":"Effective 2026-10-05: a user-supplied FanDuel goalie-save listing is sufficient for eligibility; no separate external starter confirmation is required. If the goalie does not start and FanDuel voids the wager, grade it VOID.",
+  "goalie_saves_included_official":true,
+  "goalie_data_build":{"historical_starter_rows":13198,"seasons":"2021-22 through 2025-26 plus pre-Oct-5 2026-27 context","source":"NHL regular-season boxscores","workflow_run":37387752810},
+  "goalie_v0_1_reconstruction":{"transition_rows":265,"selected_ridge_alpha":0.3,"validation_mae_saves_per_start":1.5389411163,"distribution":"Poisson","artifact":"goalie_saves_v0.1_reconstructed.joblib"},
+  "goalie_shadow_v0_2":{"status":"SHADOW_ONLY","validation_rows":2624,"shots_mae":5.4262324907,"save_pct_mae":0.0539681798,"saves_mae":5.4236553181,"nb_alpha":0.0375666642,"official_influence":false},
+  "goalie_playable_supplement":[
+    "Linus Ullmark Over 21.5 -118 — p=0.627952",
+    "Clay Stevenson Under 25.5 -118 — p=0.744431",
+    "Sergei Murashov Over 22.5 -110 — p=0.565178",
+    "Yaroslav Askarov Over 23.5 -130 — p=0.647856",
+    "Jake Oettinger Over 22.5 -102 — p=0.566221"
+  ],
+  "goalie_not_added_due_started_game":[
+    "Dan Vladar Under 26.5 -128 — p=0.743887; qualified numerically but PHI@TBL had started before model completion",
+    "Andrei Vasilevskiy Over 21.5 -112 — p=0.642766; qualified numerically but PHI@TBL had started before model completion"
+  ],
+  "goalie_nonqualifier":["Jeremy Swayman Under 25.5 -132 — p=0.550148; did not clear official edge/EV gates"],
+  "probability_reconstruction_note":"The original persisted v0.1 goalie artifact was absent. The official goalie transition model was rebuilt reproducibly from 13,198 NHL starter boxscore rows using the committed v0.1 transition code. This is an explicit reconstruction, not a claim that the lost artifact was reproduced byte-for-byte, and it does not rewrite earlier historical picks.",
   "notes":[
-    "Top 10 was locked before the first 7:00 PM ET puck drop.",
-    "Playable prices were applied only after the odds-blind Top 10 probabilities were fixed.",
-    "No structural predictive-model change; v0.1.0 remains official.",
-    "Goalie v0.2 remains a shadow challenger only.",
-    "Goalie eligibility workflow changed after lock: FanDuel listing supplied by the user now replaces the separate starter-confirmation requirement for future candidate eligibility."
+    "Top 10 remained locked exactly as originally posted; goalie results did not replace or reorder it.",
+    "Original 22-play Playable Price card was preserved and five qualifying goalie-save plays were appended before the 7:30/8:00 PM puck drops.",
+    "No structural promotion of v0.2; it remains shadow-only."
   ]
 }
