@@ -16,16 +16,17 @@ This is different from the Official Playable Price Card, which is edge/EV-gated.
 
 ## Daily process
 1. Run and freeze the day's model probabilities first.
-2. Keep all normal eligibility rules: active players only, no scratched/injured players, and goalie-save props require sufficiently confirmed starters.
-3. Apply current FanDuel prices only after probabilities are frozen.
-4. Evaluate all straight bets priced from -120 through +100.
-5. Evaluate parlays built from the strongest eligible model probabilities until the combined FanDuel price falls in the -120 through +100 range.
-6. Estimate full-ticket hit probability.
+2. Keep all normal eligibility rules: active players only and no scratched/injured players. For goalie saves, a goalie/line shown on a FanDuel screenshot supplied by the user is eligible immediately; no separate starter confirmation is required.
+3. If a listed goalie ultimately does not start and FanDuel voids the wager, grade that ladder leg/ticket according to the sportsbook settlement (normally VOID), not as a model loss.
+4. Apply current FanDuel prices only after probabilities are frozen.
+5. Evaluate all straight bets priced from -120 through +100.
+6. Evaluate parlays built from the strongest eligible model probabilities until the combined FanDuel price falls in the -120 through +100 range.
+7. Estimate full-ticket hit probability.
    - For clearly independent cross-game legs, use the product of calibrated leg probabilities.
    - Do not blindly multiply same-game/same-player/same-team correlated legs. Use a modeled joint estimate/simulation when available; otherwise avoid that combination for the ladder.
-7. Choose the eligible ticket with the highest modeled full-ticket probability.
-8. Tie-breakers: fewer legs, lower correlation/uncertainty, stronger data quality (veteran/established model over limited-history fallback), then better model edge/EV.
-9. Lock one ticket before the relevant games start. Never retroactively change a locked ladder ticket.
+8. Choose the eligible ticket with the highest modeled full-ticket probability.
+9. Tie-breakers: fewer legs, lower correlation/uncertainty, stronger data quality (veteran/established model over limited-history fallback), then better model edge/EV.
+10. Lock one ticket before the relevant games start. Never retroactively change a locked ladder ticket.
 
 ## Tracking
 Track the ladder separately from all official model cohorts:
@@ -39,7 +40,7 @@ Track the ladder separately from all official model cohorts:
 - model fair odds if calculated
 - result (WIN/LOSS/VOID/PENDING)
 - stake and payout when supplied by the user
-- notes on correlation, starter status, and data-quality flags
+- notes on correlation, sportsbook listing/settlement status, and data-quality flags
 
 A ladder loss ends that challenge run. A new 10-day run may begin afterward without rewriting the failed run.
 
