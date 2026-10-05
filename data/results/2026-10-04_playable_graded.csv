@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-04,1,FLA@ANA,anytime_goal,Tristan Luneau,0.5,0.1785,950,LOSS,0 goals,-1.0000
+2026-10-04,2,VGK@VAN,moneyline,Vancouver Canucks,,0.3951,230,LOSS,VAN lost 3-2,-1.0000
+2026-10-04,3,VGK@VAN,spread,Vancouver Canucks,+1.5,0.6289,-108,WIN,VAN lost 3-2,0.9259
+2026-10-04,4,CGY@SEA,total,Over,5.5,0.6251,-120,WIN,7 total goals,0.8333
+2026-10-04,5,FLA@ANA,moneyline,Anaheim Ducks,,0.5152,114,WIN,ANA won 3-2 OT,1.1400
+2026-10-04,6,UTA@NYR,total,Over,5.5,0.5893,-120,WIN,6 total goals,0.8333
+2026-10-04,7,UTA@NYR,moneyline,Utah Mammoth,,0.5237,105,LOSS,UTA lost 4-2,-1.0000
+2026-10-04,8,CGY@SEA,moneyline,Calgary Flames,,0.4662,130,LOSS,CGY lost 6-1,-1.0000
+2026-10-04,9,FLA@ANA,spread,Anaheim Ducks,+1.5,0.7384,-225,WIN,ANA won 3-2 OT,0.4444
+2026-10-04,10,UTA@NYR,spread,Utah Mammoth,+1.5,0.7509,-245,LOSS,UTA lost 4-2,-1.0000
