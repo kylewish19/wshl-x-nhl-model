@@ -1,0 +1,27 @@
+{
+  "date":"2026-10-05",
+  "version":"0.1.0",
+  "lock_type":"OFFICIAL_FULL_SLATE",
+  "clean_prospective_tracking":true,
+  "included_games":["PHI@TBL","OTT@BOS","WPG@PIT","SJS@DAL"],
+  "odds_used_in_probability_stage":false,
+  "top10_expected_wins":7.125882,
+  "current_context_checked":[
+    "NHL.com projected lineups and injuries for all four games on Oct. 5.",
+    "PHI-TBL: Vladar listed first; Vasilevskiy projected. Grebenkin out for PHI; Lilleberg, Dominic James and Gourde out for TBL.",
+    "OTT-BOS: Ullmark and Swayman listed first. Sanderson, Zub, MacDermid and Burakovsky out for OTT; Greig suspended; McAvoy suspended for BOS.",
+    "WPG-PIT: Clay Stevenson listed first but NHL preview said he could start; Murashov listed first and stated to make season debut. Hellebuyck suspended; Rust, Brazeau and Graves out for PIT.",
+    "SJS-DAL: Askarov and Oettinger listed first; Rantanen expected to play after maintenance absence; Duchene out for DAL."
+  ],
+  "team_goal_means":{"PHI@TBL":{"away":2.55,"home":3.50},"OTT@BOS":{"away":2.95,"home":3.34},"WPG@PIT":{"away":2.85,"home":3.65},"SJS@DAL":{"away":2.90,"home":3.60}},
+  "goalie_saves_included_official":false,
+  "goalie_saves_reason":"The supplied goalie-save markets were logged and starters checked, but the repository still lacks the persisted trained v0.1 goalie artifact/feature table needed to reproduce official save probabilities. The v0.2 goalie model is shadow-only and its historical training parquet is also not yet populated. No goalie probability was fabricated for the official cards.",
+  "goalie_shadow_status":"framework present; no official influence; no trained shadow prediction recorded today",
+  "probability_reconstruction_note":"Persisted full skater artifacts are not committed. Existing prior locked v0.1 probabilities were reused as anchors for recurring players; new established-player estimates use the documented transition bootstrap reconstruction from 2025-26 rates plus current team environment. Limited-history players retain the documented fallback treatment.",
+  "notes":[
+    "Top 10 was locked before the first 7:00 PM ET puck drop.",
+    "Playable prices were applied only after the odds-blind Top 10 probabilities were fixed.",
+    "No structural predictive-model change; v0.1.0 remains official.",
+    "Goalie v0.2 remains a shadow challenger only."
+  ]
+}
