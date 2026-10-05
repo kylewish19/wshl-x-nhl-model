@@ -1,6 +1,7 @@
 # NHL MODEL — CURRENT STATE
 
-Version: **v0.1.0**
+Version: **v0.1.0 official**
+Shadow experiment: **goalie saves v0.2**
 Season: **2026-27**
 Repository: **kylewish19/wshl-x-nhl-model**
 Branch: `main`
@@ -21,14 +22,40 @@ Branch: `main`
 - Skipped dates stay skipped; never create retroactive official cards.
 
 ## Modeling state
-- **v0.1.0 remains active. No structural predictive change through Oct. 4.**
+- **v0.1.0 remains the official production model. No structural official predictive change through Oct. 4.**
 - Training seasons: **2021-22 through 2025-26** plus current 2026-27 context prospectively.
 - Skater season-transition sample: **2,594 rows**, chronological latest validation **640 rows**.
 - Selected Ridge transition models: goal/game alpha 10 (validation MAE ~0.0574), assist/game alpha 0.3 (~0.0761), point/game alpha 0.3 (~0.1125).
 - Team/game markets use the current team-goal Poisson hybrid plus opening-season strength context.
 - Player goal/assist/point thresholds are generated from count-rate models with probability transforms.
-- Goalie-save model remains a watchlist because workload/shot-volume calibration has been weak early.
+- Official goalie-save model remains a watchlist because workload/shot-volume calibration has been weak early.
 - Known limitations: opening-season role changes, rookie/limited-history fallback, independent team-goal structure, lineup/goalie uncertainty, raw implied-probability edge rather than full no-vig price normalization.
+
+## Goalie saves v0.2 shadow experiment — started 2026-10-05
+This is **not official** and cannot alter Top 10 or Playable Price picks yet.
+
+Purpose: test whether decomposing goalie saves into workload and skill improves accuracy/calibration over the current v0.1 goalie transition model.
+
+Architecture:
+1. Workload model predicts **shots faced** using team/opponent context, recent shots against, opponent shot generation/xG, rest/start workload and penalty context.
+2. Save-rate model predicts **goalie save percentage** using recent save%, GSAx, rebound-control proxy, workload and rest context.
+3. Expected saves = expected shots × expected save percentage.
+4. Negative-binomial dispersion converts expected saves into O/U probabilities.
+
+Files:
+- `src/wshlx_nhl/goalie_shadow.py`
+- `config/goalie_shadow_v0.2.yaml`
+- `scripts/train_goalie_shadow.py`
+- `tests/test_goalie_shadow.py`
+- `data/results/goalie_shadow_v0.2.csv`
+
+Promotion rule:
+- v0.1.0 stays official.
+- Starting with the next eligible slate, record v0.1 and v0.2 probabilities side by side for sufficiently confirmed starting goalies.
+- Historical chronological validation is required but is not enough by itself.
+- Earliest promotion review is after **20 clean confirmed-start goalie props**; use more if the evidence remains noisy.
+- v0.2 must beat v0.1.0 on save-count MAE and prospective probability calibration/Brier without creating a new directional bias.
+- If it does not, revise or discard the shadow model instead of forcing a version change.
 
 ## Player-name normalization fixes already in repo
 `src/wshlx_nhl/player_aliases.py` includes:
@@ -73,13 +100,12 @@ Official Playable Price went **5-5, -0.8231u**:
 - The later goalie-save board was analyzed, but no goalie save was added to the official locked Playable Price Card before puck drop, so Oct. 4's official playable cohort remains the original 10.
 
 ## Current watchlists / lessons
-- **Goalie saves:** clean official playable cohort remains **3-5 through Oct. 2** because no Oct. 4 goalie save became official. Continue monitoring expected opponent shot volume, workload and game script.
+- **Goalie saves:** clean official playable cohort remains **3-5 through Oct. 2** because no Oct. 4 goalie save became official. Continue monitoring expected opponent shot volume, workload and game script; compare v0.1 against the new v0.2 shadow prospectively.
 - **Rookie / limited-history fallback:** still volatile/weak. Tristan Luneau ATG +950 lost on Oct. 4. Keep tagged separately and do not give equal trust to established transition-model players.
 - **Low-probability/high-EV anytime goals:** clean cohort is now **0-4** across Teddy Blueger twice, Boone Jenner and Tristan Luneau. Escalate for review, but do not change the gate yet; the sample is still small and low-base-rate.
 - **Top-10 puck lines:** clean cohort is **10-2**. Promising, but do not increase weighting or change pure probability ranking yet.
 - **Moneylines:** Oct. 4 playable ML went 1-3, but cumulative evidence is still too mixed/small for a market-specific code change.
 - **Correlation:** same-team and same-game concentration can create clustered wins/losses. Keep reporting diagnostics; do not distort the pure-probability Top 10.
-- **No structural predictive-model update yet; v0.1.0 remains active.**
 
 ## 10-Day NHL Ladder Challenge
 Separate workflow documented in `LADDER_CHALLENGE.md`; it does not alter Top 10 or Playable Price tracking.
@@ -97,4 +123,8 @@ Separate workflow documented in `LADDER_CHALLENGE.md`; it does not alter Top 10 
 - `logs/LESSONS.md`
 
 ## Next task
-For the next supplied NHL slate, continue with v0.1.0 and the same clean workflow: refresh current context, run probabilities odds-blind, lock exactly 10 Top-Probability picks, apply FanDuel prices to the full universe for the Playable Price Card, and separately select Ladder Challenge Day 2 from the strongest model-supported ticket priced between -120 and +100.
+For the next supplied NHL slate:
+1. Keep **v0.1.0** as the official model and follow the same clean odds-blind Top 10 / priced Playable workflow.
+2. For sufficiently confirmed starting goalies, also generate and save **v0.2 shadow goalie probabilities** beside v0.1 without allowing the shadow to affect official selections.
+3. Continue Ladder Challenge **Day 2** from the strongest model-supported ticket priced between -120 and +100.
+4. Grade all official cohorts and the shadow comparison after games, updating lessons prospectively.
