@@ -1,0 +1,67 @@
+date,game,market,selection,line,odds_american
+2026-10-05,PHI@TBL,spread,Philadelphia Flyers,1.5,-120
+2026-10-05,PHI@TBL,spread,Tampa Bay Lightning,-1.5,-102
+2026-10-05,PHI@TBL,moneyline,Philadelphia Flyers,,202
+2026-10-05,PHI@TBL,moneyline,Tampa Bay Lightning,,-250
+2026-10-05,PHI@TBL,total,Over,5.5,-128
+2026-10-05,PHI@TBL,total,Under,5.5,104
+2026-10-05,PHI@TBL,point_1plus,Nikita Kucherov,1,-460
+2026-10-05,PHI@TBL,point_1plus,Jake Guentzel,1,-245
+2026-10-05,PHI@TBL,point_1plus,Travis Konecny,1,100
+2026-10-05,PHI@TBL,point_1plus,Porter Martone,1,118
+2026-10-05,PHI@TBL,point_2plus,Porter Martone,2,630
+2026-10-05,PHI@TBL,anytime_goal,Porter Martone,0.5,320
+2026-10-05,PHI@TBL,anytime_assist,Porter Martone,0.5,230
+2026-10-05,PHI@TBL,anytime_assist,Travis Konecny,0.5,190
+2026-10-05,PHI@TBL,goalie_saves,Dan Vladar Over,26.5,-104
+2026-10-05,PHI@TBL,goalie_saves,Dan Vladar Under,26.5,-128
+2026-10-05,PHI@TBL,goalie_saves,Andrei Vasilevskiy Over,21.5,-112
+2026-10-05,PHI@TBL,goalie_saves,Andrei Vasilevskiy Under,21.5,-118
+2026-10-05,OTT@BOS,spread,Ottawa Senators,-1.5,210
+2026-10-05,OTT@BOS,spread,Boston Bruins,1.5,-265
+2026-10-05,OTT@BOS,moneyline,Ottawa Senators,,-115
+2026-10-05,OTT@BOS,moneyline,Boston Bruins,,-104
+2026-10-05,OTT@BOS,total,Over,5.5,-115
+2026-10-05,OTT@BOS,total,Under,5.5,-105
+2026-10-05,OTT@BOS,point_1plus,David Pastrnak,1,-250
+2026-10-05,OTT@BOS,point_2plus,David Pastrnak,2,210
+2026-10-05,OTT@BOS,anytime_assist,David Pastrnak,0.5,-104
+2026-10-05,OTT@BOS,point_1plus,Morgan Geekie,1,-106
+2026-10-05,OTT@BOS,anytime_goal,Morgan Geekie,0.5,240
+2026-10-05,OTT@BOS,point_1plus,Pavel Zacha,1,102
+2026-10-05,OTT@BOS,anytime_assist,Pavel Zacha,0.5,215
+2026-10-05,OTT@BOS,anytime_assist,Elias Lindholm,0.5,210
+2026-10-05,OTT@BOS,goalie_saves,Linus Ullmark Over,21.5,-118
+2026-10-05,OTT@BOS,goalie_saves,Linus Ullmark Under,21.5,-112
+2026-10-05,OTT@BOS,goalie_saves,Jeremy Swayman Over,25.5,100
+2026-10-05,OTT@BOS,goalie_saves,Jeremy Swayman Under,25.5,-132
+2026-10-05,WPG@PIT,spread,Winnipeg Jets,1.5,-176
+2026-10-05,WPG@PIT,spread,Pittsburgh Penguins,-1.5,142
+2026-10-05,WPG@PIT,moneyline,Winnipeg Jets,,150
+2026-10-05,WPG@PIT,moneyline,Pittsburgh Penguins,,-182
+2026-10-05,WPG@PIT,total,Over,6.5,-106
+2026-10-05,WPG@PIT,total,Under,6.5,-114
+2026-10-05,WPG@PIT,point_1plus,Kyle Connor,1,-230
+2026-10-05,WPG@PIT,point_1plus,Mark Scheifele,1,-260
+2026-10-05,WPG@PIT,point_1plus,Evgeni Malkin,1,-164
+2026-10-05,WPG@PIT,anytime_assist,Evgeni Malkin,0.5,126
+2026-10-05,WPG@PIT,point_1plus,Gabriel Vilardi,1,-108
+2026-10-05,WPG@PIT,anytime_assist,Gabriel Vilardi,0.5,200
+2026-10-05,WPG@PIT,goalie_saves,Clay Stevenson Over,25.5,-112
+2026-10-05,WPG@PIT,goalie_saves,Clay Stevenson Under,25.5,-118
+2026-10-05,WPG@PIT,goalie_saves,Sergei Murashov Over,22.5,-110
+2026-10-05,WPG@PIT,goalie_saves,Sergei Murashov Under,22.5,-120
+2026-10-05,SJS@DAL,spread,San Jose Sharks,1.5,-148
+2026-10-05,SJS@DAL,spread,Dallas Stars,-1.5,120
+2026-10-05,SJS@DAL,moneyline,San Jose Sharks,,172
+2026-10-05,SJS@DAL,moneyline,Dallas Stars,,-210
+2026-10-05,SJS@DAL,total,Over,6.5,-105
+2026-10-05,SJS@DAL,total,Under,6.5,-115
+2026-10-05,SJS@DAL,point_1plus,Macklin Celebrini,1,-310
+2026-10-05,SJS@DAL,point_1plus,Jason Robertson,1,-295
+2026-10-05,SJS@DAL,point_1plus,Mikko Rantanen,1,-295
+2026-10-05,SJS@DAL,anytime_goal,Kiefer Sherwood,0.5,575
+2026-10-05,SJS@DAL,goalie_saves,Yaroslav Askarov Over,23.5,-130
+2026-10-05,SJS@DAL,goalie_saves,Yaroslav Askarov Under,23.5,-102
+2026-10-05,SJS@DAL,goalie_saves,Jake Oettinger Over,22.5,-102
+2026-10-05,SJS@DAL,goalie_saves,Jake Oettinger Under,22.5,-130
