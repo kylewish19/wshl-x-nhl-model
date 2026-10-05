@@ -1,0 +1,44 @@
+# Shadow-only goalie save model configuration.
+# This does not replace the official v0.1.0 goalie model.
+
+workload:
+  target: shots_against
+  categorical:
+    - team
+    - opponent
+  numeric:
+    - is_home
+    - days_rest
+    - starts_last_7d
+    - shots_against_r5
+    - shots_against_r10
+    - opponent_shots_for_r5
+    - opponent_shots_for_r10
+    - opponent_xgoals_for_r5
+    - team_xgoals_against_r5
+    - team_penalty_rate_r10
+
+save_rate:
+  target: saves
+  shots_target: shots_against
+  categorical:
+    - goalie_id
+    - team
+    - opponent
+  numeric:
+    - is_home
+    - days_rest
+    - starts_last_7d
+    - save_pct_r10
+    - gsax_r10
+    - rebound_control_proxy
+    - shots_against_r5
+    - shots_against_r10
+
+promotion:
+  minimum_clean_confirmed_starts: 20
+  require_better_saves_mae: true
+  require_better_probability_calibration: true
+  notes: >-
+    Historical chronological validation is necessary but not sufficient. The shadow
+    must also beat v0.1.0 prospectively on confirmed-start goalie props before promotion.
