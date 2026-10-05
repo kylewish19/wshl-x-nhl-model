@@ -19,10 +19,31 @@ def eligible_candidates(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     if "active" in out.columns:
         out = out[out["active"].fillna(1).astype(bool)]
-    if "market" in out.columns and "starter_confirmed" in out.columns:
+
+    # Goalie-save market policy (effective 2026-10-05): if FanDuel has listed
+    # a goalie save prop supplied by the user, that listing is sufficient for
+    # eligibility. We no longer wait for a separate external starter
+    # confirmation. If the goalie does not start and the sportsbook voids the
+    # wager, grading records the play as VOID rather than as a loss.
+    if "market" in out.columns:
         goalie = out["market"].eq("goalie_saves")
-        confirmed = out["starter_confirmed"].fillna(0).astype(bool)
-        out = out[~goalie | confirmed]
+        if goalie.any():
+            if "sportsbook_listed" in out.columns:
+                listed = out["sportsbook_listed"].fillna(0).astype(bool)
+            elif "odds_american" in out.columns:
+                # Daily candidate universes are built from the user-supplied
+                # FanDuel board, so a priced goalie-save row counts as listed.
+                listed = out["odds_american"].notna()
+            else:
+                listed = pd.Series(False, index=out.index)
+
+            if "starter_confirmed" in out.columns:
+                confirmed = out["starter_confirmed"].fillna(0).astype(bool)
+            else:
+                confirmed = pd.Series(False, index=out.index)
+
+            out = out[~goalie | listed | confirmed]
+
     return out.dropna(subset=["model_probability"]).copy()
 
 
