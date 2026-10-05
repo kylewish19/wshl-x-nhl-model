@@ -1,2 +1,3 @@
 challenge_id,day_number,date,ticket_type,legs,final_odds_american,model_ticket_probability,model_fair_odds,result,stake,payout,notes
 2026-10-A,1,2026-10-04,STRAIGHT,"Vancouver Canucks +1.5 vs VGK",-108,0.6289,-169,WIN,,,"Vancouver lost 3-2, so +1.5 covered. Highest model-probability eligible ticket within -120 to +100 using the supplied FanDuel board; separate from Top 10 and Playable Price cohorts."
+2026-10-A,2,2026-10-05,STRAIGHT,"OTT@BOS Over 5.5",-115,0.600225,-150,PENDING,,,"Highest model-probability eligible straight ticket in the -120 to +100 target window; selected over lower-survival-probability parlays."
