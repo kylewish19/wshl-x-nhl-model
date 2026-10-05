@@ -1,130 +1,87 @@
 # NHL MODEL — CURRENT STATE
 
-Version: **v0.1.0 official**
-Shadow experiment: **goalie saves v0.2**
-Season: **2026-27**
-Repository: **kylewish19/wshl-x-nhl-model**
+Version: **v0.1.0 official**  
+Shadow experiment: **goalie saves v0.2**  
+Season: **2026-27**  
+Repository: **kylewish19/wshl-x-nhl-model**  
 Branch: `main`
 
 ## Core workflow / locked rules
-- Use only the games the user supplies for the daily slate.
-- Refresh current rosters, injuries, projected lines/PP roles, rest/back-to-back context, and starting goalies before the final model run.
-- First stage is **odds-blind**: sportsbook thresholds/markets define the candidate universe, but prices cannot influence probabilities or Top 10 ranking.
-- Produce exactly **10 highest model-probability eligible bets** across the full available slate: the **Top 10 Probability Card**. No forced game/market diversity.
-- Lock the Top 10 before applying FanDuel prices.
-- Then apply the **Playable Price Gate** to the full eligible candidate universe, not only the Top 10. The playable card is uncapped.
+- Use only games the user supplies for the daily slate.
+- Refresh current rosters, injuries, projected lines/PP roles, rest/back-to-back context and current goalie context before the final run.
+- Probability stage is **odds-blind**: sportsbook markets/thresholds define the candidate universe, but prices cannot influence model probabilities or Top 10 ranking.
+- Produce exactly **10 highest model-probability eligible bets** across the full slate for the Top 10 Probability Card. No forced diversity.
+- Lock Top 10 before applying FanDuel prices.
+- Apply the Playable Price Gate to the full eligible candidate universe. The playable card is uncapped.
 - Default playable gates: minimum EV 5%; edge thresholds ML/spread/total 3%, anytime goal 5%, assist 4%, goalie saves 4%, 1+ point 4%, 2+ point 5%.
-- Grade Top 10 and Playable Price separately after each slate. Track W-L, hit rate and Brier/calibration; Playable also tracks 1u flat profit/ROI.
-- Structural model/code changes happen only when repeated prospective evidence justifies them, except implementation/data bugs and normalization fixes which may be corrected pre-lock. Never rewrite historical locked picks.
-- Same-player / same-team correlations are diagnostic issues; pure Top 10 ranking remains based on marginal probability unless a future documented rule changes it.
-- Goalie-save props are official only when the expected starter is sufficiently confirmed.
-- If a slate is finalized after puck drop, it must be tagged **LATE_LOCK** and kept out of the clean prospective cumulative record.
-- Skipped dates stay skipped; never create retroactive official cards.
+- Grade Top 10 and Playable Price separately; track W-L, hit rate, Brier/calibration, and flat-stake units/ROI for Playable.
+- Structural predictive changes require repeated prospective evidence; implementation/data bugs may be fixed immediately and logged.
+- Never rewrite historical locked picks.
+- Same-player/team/game correlation is tracked diagnostically; pure Top 10 remains marginal-probability ranked unless a documented rule changes it.
+- Any slate finalized after puck drop is tagged **LATE_LOCK** and excluded from the clean prospective cumulative record.
+- Skipped dates stay skipped.
+
+## Goalie-save eligibility policy — effective 2026-10-05
+- **If the user sends a FanDuel goalie-save line, use that goalie and that exact line immediately.**
+- A separate external starter confirmation is **not required** anymore.
+- A FanDuel-listed goalie-save prop supplied by the user is sufficient for candidate eligibility in Top 10, Playable Price, and Ladder workflows, provided the model has a valid probability for that market.
+- If the goalie ultimately does not start and FanDuel voids the wager, grade it according to sportsbook settlement (normally **VOID**), not as a model loss.
+- This is a workflow/eligibility rule change, not a predictive-model version change; **v0.1.0 remains official**.
+- `src/wshlx_nhl/selection.py` now treats a priced/listed goalie-save row as eligible even when `starter_confirmed` is false.
 
 ## Modeling state
-- **v0.1.0 remains the official production model. No structural official predictive change through Oct. 4.**
-- Training seasons: **2021-22 through 2025-26** plus current 2026-27 context prospectively.
-- Skater season-transition sample: **2,594 rows**, chronological latest validation **640 rows**.
-- Selected Ridge transition models: goal/game alpha 10 (validation MAE ~0.0574), assist/game alpha 0.3 (~0.0761), point/game alpha 0.3 (~0.1125).
-- Team/game markets use the current team-goal Poisson hybrid plus opening-season strength context.
-- Player goal/assist/point thresholds are generated from count-rate models with probability transforms.
-- Official goalie-save model remains a watchlist because workload/shot-volume calibration has been weak early.
-- Known limitations: opening-season role changes, rookie/limited-history fallback, independent team-goal structure, lineup/goalie uncertainty, raw implied-probability edge rather than full no-vig price normalization.
+- **v0.1.0 remains the official production model.**
+- Training seasons: 2021-22 through 2025-26, with 2026-27 current context appended prospectively.
+- Skater transition sample: 2,594 rows; latest chronological validation 640 rows.
+- Ridge transition models: goal/game alpha 10, assist/game alpha 0.3, point/game alpha 0.3.
+- Team/game markets use the team-goal Poisson hybrid plus opening-season strength context.
+- Skater goal/assist/point thresholds use count-rate models with probability transforms.
+- Current known limitations: early-season role changes, rookie/limited-history fallback, independent team-goal structure, lineup/goalie uncertainty, and raw implied-probability edge rather than fully no-vig-normalized price comparison.
 
-## Goalie saves v0.2 shadow experiment — started 2026-10-05
-This is **not official** and cannot alter Top 10 or Playable Price picks yet.
-
-Purpose: test whether decomposing goalie saves into workload and skill improves accuracy/calibration over the current v0.1 goalie transition model.
-
-Architecture:
-1. Workload model predicts **shots faced** using team/opponent context, recent shots against, opponent shot generation/xG, rest/start workload and penalty context.
-2. Save-rate model predicts **goalie save percentage** using recent save%, GSAx, rebound-control proxy, workload and rest context.
-3. Expected saves = expected shots × expected save percentage.
-4. Negative-binomial dispersion converts expected saves into O/U probabilities.
-
-Files:
-- `src/wshlx_nhl/goalie_shadow.py`
-- `config/goalie_shadow_v0.2.yaml`
-- `scripts/train_goalie_shadow.py`
-- `tests/test_goalie_shadow.py`
-- `data/results/goalie_shadow_v0.2.csv`
-
-Promotion rule:
-- v0.1.0 stays official.
-- Starting with the next eligible slate, record v0.1 and v0.2 probabilities side by side for sufficiently confirmed starting goalies.
-- Historical chronological validation is required but is not enough by itself.
-- Earliest promotion review is after **20 clean confirmed-start goalie props**; use more if the evidence remains noisy.
-- v0.2 must beat v0.1.0 on save-count MAE and prospective probability calibration/Brier without creating a new directional bias.
-- If it does not, revise or discard the shadow model instead of forcing a version change.
-
-## Player-name normalization fixes already in repo
-`src/wshlx_nhl/player_aliases.py` includes:
-- Mitchell Marner -> Mitch Marner
-- Alexis Lafreniere -> Alexis Lafrenière
-- Joe Veleno -> Joseph Veleno
-- Michael Brandsegg-Nygard -> Michael Brandsegg-Nygård
-- Maxim Tsyplakov -> Maksim Tsyplakov
-- Frederick Gaudreau -> Freddy Gaudreau
-
-These are data/identity fixes, not predictive-model changes.
+## Goalie saves v0.2 shadow experiment
+- Started 2026-10-05 and remains **shadow-only**.
+- Architecture: expected shots faced model -> save-rate model -> expected saves -> negative-binomial O/U probabilities.
+- Files: `src/wshlx_nhl/goalie_shadow.py`, `config/goalie_shadow_v0.2.yaml`, `scripts/train_goalie_shadow.py`, `tests/test_goalie_shadow.py`, `data/results/goalie_shadow_v0.2.csv`.
+- Promotion review begins only after at least 20 clean prospective goalie props with usable model outputs; v0.2 must beat v0.1 on save-count MAE and probability calibration/Brier without introducing a new directional bias.
+- The repo still needs the historical goalie feature dataset/artifact population before the shadow can produce a complete reproducible comparison slate-by-slate.
 
 ## Clean prospective grading through 2026-10-04
-### Daily results
-- **2026-09-29:** Top 10 7-3, Brier 0.2080. Playable 7-10, -0.9502u, -5.59% ROI, Brier 0.2586.
-- **2026-09-30:** Top 10 6-4, Brier 0.2135. Playable 6-4, +1.2905u, +12.90% ROI, Brier 0.1824.
-- **2026-10-01:** skipped intentionally; no retroactive picks.
-- **2026-10-02:** Top 10 7-3, Brier 0.2017. Playable 6-2, +4.4427u, +55.53% ROI, Brier 0.2068.
-- **2026-10-04:** Top 10 **7-3**, expected wins **6.7306**, Brier **0.2244**. Playable **5-5**, **-0.8231u**, **-8.23% ROI**, Brier **0.1994**.
+- Sep 29 Top 10: 7-3; Playable: 7-10, -0.9502u.
+- Sep 30 Top 10: 6-4; Playable: 6-4, +1.2905u.
+- Oct 1: skipped.
+- Oct 2 Top 10: 7-3; Playable: 6-2, +4.4427u.
+- Oct 4 Top 10: 7-3; Playable: 5-5, -0.8231u.
+- Clean cumulative Top 10 through Oct 4: **27-13 (67.50%)**, expected wins 28.3544, Brier 0.2119.
+- Clean cumulative Playable through Oct 4: **24-21 (53.33%)**, **+3.9599u**, **+8.80% ROI**, Brier 0.2193.
+- Oct 3 remains a separate LATE_LOCK cohort and is excluded from clean totals.
 
-### CLEAN CUMULATIVE through Oct. 4
-- **Top 10: 27-13 (67.50%)**, expected wins **28.3544**, Brier **0.2119**.
-- **Playable Price: 24-21 (53.33%)**, expected wins **23.8740**, **+3.9599u**, **+8.80% ROI**, Brier **0.2193**.
-
-## Oct. 3 — LATE LOCK (separate from clean record)
-Oct. 3 remains excluded from clean cumulative totals.
-- Late-lock Top 10: **6-4**, expected wins **7.6161**, Brier **0.2563**.
-- Late-lock Playable: **12-21**, **+6.4177u**, **+19.45% ROI**, Brier **0.2836**.
-- Profit was driven by a few plus-money hits, especially Kiefer Sherwood ATG +700 and Victor Eklund 2+ points +800; do not interpret the profit as improved calibration.
-
-## Oct. 4 grading details
-Official Top 10 went **7-3**:
-- Wins: Jack Eichel 1+ point, Anaheim +1.5, Mark Stone 1+ point, Clayton Keller 1+ point, Matthew Tkachuk 1+ point, Vancouver +1.5, CGY-SEA Over 5.5.
-- Losses: Utah +1.5, Calgary +1.5, Sam Reinhart 1+ point.
-- Clean Top-10 puck-line cohort is now **10-2** after going 2-2 on Oct. 4.
-- Top-10 1+ point props went **4-1** on Oct. 4.
-
-Official Playable Price went **5-5, -0.8231u**:
-- Wins: Vancouver +1.5, CGY-SEA Over 5.5, Anaheim ML, UTA-NYR Over 5.5, Anaheim +1.5.
-- Losses: Tristan Luneau ATG +950, Vancouver ML, Utah ML, Calgary ML, Utah +1.5.
-- Moneylines were 1-3; spreads 2-1; totals 2-0.
-- The later goalie-save board was analyzed, but no goalie save was added to the official locked Playable Price Card before puck drop, so Oct. 4's official playable cohort remains the original 10.
-
-## Current watchlists / lessons
-- **Goalie saves:** clean official playable cohort remains **3-5 through Oct. 2** because no Oct. 4 goalie save became official. Continue monitoring expected opponent shot volume, workload and game script; compare v0.1 against the new v0.2 shadow prospectively.
-- **Rookie / limited-history fallback:** still volatile/weak. Tristan Luneau ATG +950 lost on Oct. 4. Keep tagged separately and do not give equal trust to established transition-model players.
-- **Low-probability/high-EV anytime goals:** clean cohort is now **0-4** across Teddy Blueger twice, Boone Jenner and Tristan Luneau. Escalate for review, but do not change the gate yet; the sample is still small and low-base-rate.
-- **Top-10 puck lines:** clean cohort is **10-2**. Promising, but do not increase weighting or change pure probability ranking yet.
-- **Moneylines:** Oct. 4 playable ML went 1-3, but cumulative evidence is still too mixed/small for a market-specific code change.
-- **Correlation:** same-team and same-game concentration can create clustered wins/losses. Keep reporting diagnostics; do not distort the pure-probability Top 10.
+## Current watchlists
+- Goalie saves: workload/shot-volume calibration remains a priority; official clean goalie-save cohort was 3-5 through Oct 2 before the new listing policy.
+- Rookie/limited-history fallback: volatile; keep tagged separately and do not treat as equally mature evidence.
+- Low-probability/high-EV anytime goals: clean cohort was 0-4 through Oct 4; continue review before changing thresholds.
+- Top-10 puck lines: clean cohort 10-2 through Oct 4; do not upweight from a small sample.
+- Moneylines and correlation remain monitored separately.
 
 ## 10-Day NHL Ladder Challenge
-Separate workflow documented in `LADDER_CHALLENGE.md`; it does not alter Top 10 or Playable Price tracking.
-- Challenge ID: **2026-10-A**
-- Day 1 (Oct. 4): **Vancouver Canucks +1.5 -108**, model probability 62.89%, model fair odds ~-169.
-- Result: **WIN** (Vancouver lost 3-2, so +1.5 covered).
-- Challenge advances to **Day 2** on the next eligible slate.
+- Separate from Top 10 and Playable Price.
+- Challenge ID: **2026-10-A**.
+- Day 1 (Oct 4): Vancouver +1.5 -108 — **WIN**.
+- Day 2 (Oct 5): OTT-BOS Over 5.5 -115 — pending at lock.
+- Ladder goal: one ticket per day with final FanDuel odds between -120 and +100, maximizing modeled survival probability.
+- FanDuel-listed goalie-save props are now eligible for ladder consideration without separate starter confirmation if the model has a valid probability.
 
-## Repo files updated for Oct. 4 grading
-- `data/results/2026-10-04_top10_graded.csv`
-- `data/results/2026-10-04_playable_graded.csv`
-- `data/results/2026-10-04_summary.csv`
-- `data/results/season_summary.csv`
-- `data/results/ladder_summary.csv`
-- `logs/LESSONS.md`
+## Current slate — 2026-10-05
+Games:
+- PHI@TBL
+- OTT@BOS
+- WPG@PIT
+- SJS@DAL
 
-## Next task
-For the next supplied NHL slate:
-1. Keep **v0.1.0** as the official model and follow the same clean odds-blind Top 10 / priced Playable workflow.
-2. For sufficiently confirmed starting goalies, also generate and save **v0.2 shadow goalie probabilities** beside v0.1 without allowing the shadow to affect official selections.
-3. Continue Ladder Challenge **Day 2** from the strongest model-supported ticket priced between -120 and +100.
-4. Grade all official cohorts and the shadow comparison after games, updating lessons prospectively.
+Official Top 10 file: `data/picks/2026-10-05_top10_probability.csv`  
+Official Playable file: `data/picks/2026-10-05_playable_price.csv`  
+Run metadata: `data/model_runs/2026-10-05_v0.1.0.json`
+
+The Oct 5 Top 10 and Playable cards were locked before this goalie eligibility-policy change. Do not retroactively rewrite those locked cards unless the user explicitly requests a pre-puck rerun while all affected games are still unstarted. Going forward, the FanDuel listing rule applies automatically.
+
+## Next-task rule
+For future supplied slates: refresh context, generate probabilities odds-blind, include FanDuel-listed goalie-save candidates immediately when valid model probabilities are available, lock exactly 10 Top-Probability picks, apply prices to the full universe for Playable, select the ladder ticket, and grade all cohorts after games.
