@@ -1,0 +1,23 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-05,1,PHI@TBL,point_2plus,Porter Martone,2,0.270300,630,0.136986,0.133314,0.973190,limited_history_fallback,PLAYABLE
+2026-10-05,2,PHI@TBL,anytime_goal,Porter Martone,0.5,0.381200,320,0.238095,0.143105,0.601040,limited_history_fallback,PLAYABLE
+2026-10-05,3,SJS@DAL,anytime_goal,Kiefer Sherwood,0.5,0.217700,575,0.148148,0.069552,0.469475,transition_ml_anchor,PLAYABLE
+2026-10-05,4,PHI@TBL,point_1plus,Porter Martone,1,0.638100,118,0.458716,0.179384,0.391058,limited_history_fallback,PLAYABLE
+2026-10-05,5,PHI@TBL,anytime_assist,Porter Martone,0.5,0.415200,230,0.303030,0.112170,0.370160,limited_history_fallback,PLAYABLE
+2026-10-05,6,OTT@BOS,anytime_goal,Morgan Geekie,0.5,0.364560,240,0.294118,0.070442,0.239504,transition_ml_reconstruction,PLAYABLE
+2026-10-05,7,OTT@BOS,point_2plus,David Pastrnak,2,0.391400,210,0.322581,0.068819,0.213340,transition_ml_anchor,PLAYABLE
+2026-10-05,8,PHI@TBL,anytime_assist,Travis Konecny,0.5,0.394200,190,0.344828,0.049372,0.143180,transition_ml_anchor,PLAYABLE
+2026-10-05,9,OTT@BOS,anytime_assist,Pavel Zacha,0.5,0.362680,215,0.317460,0.045220,0.142442,transition_ml_reconstruction,PLAYABLE
+2026-10-05,10,OTT@BOS,point_1plus,Pavel Zacha,1,0.562720,102,0.495050,0.067670,0.136694,transition_ml_reconstruction,PLAYABLE
+2026-10-05,11,WPG@PIT,anytime_assist,Evgeni Malkin,0.5,0.502240,126,0.442478,0.059762,0.135062,transition_ml_reconstruction,PLAYABLE
+2026-10-05,12,WPG@PIT,anytime_assist,Gabriel Vilardi,0.5,0.378160,200,0.333333,0.044827,0.134480,transition_ml_reconstruction,PLAYABLE
+2026-10-05,13,OTT@BOS,anytime_assist,Elias Lindholm,0.5,0.363000,210,0.322581,0.040419,0.125300,transition_ml_reconstruction,PLAYABLE
+2026-10-05,14,OTT@BOS,total,Over,5.5,0.600225,-115,0.534884,0.065341,0.122160,team_goal_hybrid,PLAYABLE
+2026-10-05,15,OTT@BOS,anytime_assist,David Pastrnak,0.5,0.564700,-104,0.509804,0.054896,0.107681,transition_ml_anchor,PLAYABLE
+2026-10-05,16,PHI@TBL,point_1plus,Travis Konecny,1,0.552900,100,0.500000,0.052900,0.105800,transition_ml_anchor,PLAYABLE
+2026-10-05,17,OTT@BOS,moneyline,Boston Bruins,,0.560787,-104,0.509804,0.050984,0.100006,team_goal_hybrid,PLAYABLE
+2026-10-05,18,OTT@BOS,point_1plus,Morgan Geekie,1,0.565180,-106,0.514563,0.050617,0.098369,transition_ml_reconstruction,PLAYABLE
+2026-10-05,19,PHI@TBL,spread,Philadelphia Flyers,1.5,0.595030,-120,0.545455,0.049575,0.090888,team_goal_hybrid,PLAYABLE
+2026-10-05,20,WPG@PIT,point_1plus,Gabriel Vilardi,1,0.565980,-108,0.519231,0.046749,0.090036,transition_ml_reconstruction,PLAYABLE
+2026-10-05,21,OTT@BOS,spread,Boston Bruins,1.5,0.778710,-265,0.726027,0.052683,0.072563,team_goal_hybrid,PLAYABLE
+2026-10-05,22,SJS@DAL,spread,San Jose Sharks,1.5,0.628825,-148,0.596774,0.032051,0.053707,team_goal_hybrid,PLAYABLE
