@@ -1,0 +1,53 @@
+name: Goalie Shadow Build
+
+on:
+  push:
+    paths:
+      - '.github/workflows/goalie-shadow.yml'
+      - 'scripts/build_goalie_features.py'
+      - 'scripts/run_goalie_board.py'
+      - 'src/wshlx_nhl/goalie_shadow.py'
+      - 'src/wshlx_nhl/bootstrap_models.py'
+      - 'config/goalie_shadow_v0.2.yaml'
+      - 'data/odds/2026-10-05_goalie_saves_FanDuel.csv'
+  workflow_dispatch:
+
+jobs:
+  build-and-predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build historical goalie start features
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-10-05 \
+            --output data/processed/goalie_features.parquet \
+            --team-games data/processed/team_games.parquet \
+            --max-workers 12
+      - name: Train v0.1 reconstruction and v0.2 shadow, then score FanDuel board
+        run: |
+          python scripts/run_goalie_board.py \
+            --features data/processed/goalie_features.parquet \
+            --team-games data/processed/team_games.parquet \
+            --odds data/odds/2026-10-05_goalie_saves_FanDuel.csv \
+            --target-date 2026-10-05 \
+            --predictions data/model_runs/2026-10-05_goalie_predictions.csv \
+            --metrics data/model_runs/2026-10-05_goalie_model_validation.json
+      - name: Upload goalie model outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalie-shadow-2026-10-05
+          retention-days: 14
+          path: |
+            data/processed/goalie_features.parquet
+            data/processed/team_games.parquet
+            data/model_runs/2026-10-05_goalie_predictions.csv
+            data/model_runs/2026-10-05_goalie_model_validation.json
+            models/goalie_saves_v0.1_reconstructed.joblib
+            models/goalie_saves_shadow_v0.2.joblib
