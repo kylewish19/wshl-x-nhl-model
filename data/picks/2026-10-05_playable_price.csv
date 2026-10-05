@@ -21,3 +21,8 @@ date,rank,game,market,selection,line,model_probability,odds_american,implied_pro
 2026-10-05,20,WPG@PIT,point_1plus,Gabriel Vilardi,1,0.565980,-108,0.519231,0.046749,0.090036,transition_ml_reconstruction,PLAYABLE
 2026-10-05,21,OTT@BOS,spread,Boston Bruins,1.5,0.778710,-265,0.726027,0.052683,0.072563,team_goal_hybrid,PLAYABLE
 2026-10-05,22,SJS@DAL,spread,San Jose Sharks,1.5,0.628825,-148,0.596774,0.032051,0.053707,team_goal_hybrid,PLAYABLE
+2026-10-05,23,OTT@BOS,goalie_saves,Linus Ullmark Over,21.5,0.627952,-118,0.541284,0.086668,0.160115,goalie_transition_ml_reconstructed,PLAYABLE_GOALIE_SUPPLEMENT
+2026-10-05,24,WPG@PIT,goalie_saves,Clay Stevenson Under,25.5,0.744431,-118,0.541284,0.203147,0.375305,goalie_transition_ml_reconstructed,PLAYABLE_GOALIE_SUPPLEMENT
+2026-10-05,25,WPG@PIT,goalie_saves,Sergei Murashov Over,22.5,0.565178,-110,0.523810,0.041369,0.078976,goalie_transition_ml_reconstructed,PLAYABLE_GOALIE_SUPPLEMENT
+2026-10-05,26,SJS@DAL,goalie_saves,Yaroslav Askarov Over,23.5,0.647856,-130,0.565217,0.082639,0.146207,goalie_transition_ml_reconstructed,PLAYABLE_GOALIE_SUPPLEMENT
+2026-10-05,27,SJS@DAL,goalie_saves,Jake Oettinger Over,22.5,0.566221,-102,0.504950,0.061271,0.121340,goalie_transition_ml_reconstructed,PLAYABLE_GOALIE_SUPPLEMENT
