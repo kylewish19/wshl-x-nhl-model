@@ -135,6 +135,11 @@ def main():
 
     season_frames = [season_goalie_frame(starts, s) for s in SEASONS_OFFICIAL]
     transitions = build_goalie_transitions(season_frames, min_starts=5)
+    # build_goalie_transitions retains suffixes on overlapping prior/next-season
+    # fields. The transition trainer expects prior-season feature names, so
+    # normalize those columns here. This is a reconstruction plumbing fix, not
+    # a predictive model change.
+    transitions = transitions.rename(columns={"gamesStarted_prev":"gamesStarted", "saves_prev":"saves"})
     official = train_goalie_transition_model(transitions)
     joblib.dump(official, args.official_model)
 
