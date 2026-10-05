@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-05,1,PHI@TBL,point_1plus,Nikita Kucherov,1,0.7981,transition_ml_anchor,false,LOCKED
+2026-10-05,2,OTT@BOS,spread,Boston Bruins,1.5,0.77871,team_goal_hybrid,false,LOCKED
+2026-10-05,3,OTT@BOS,point_1plus,David Pastrnak,1,0.7412,transition_ml_anchor,false,LOCKED
+2026-10-05,4,SJS@DAL,point_1plus,Macklin Celebrini,1,0.723382,transition_ml_reconstruction,false,LOCKED
+2026-10-05,5,SJS@DAL,point_1plus,Jason Robertson,1,0.7181,transition_ml_anchor,false,LOCKED
+2026-10-05,6,WPG@PIT,point_1plus,Kyle Connor,1,0.6958,transition_ml_anchor,false,LOCKED
+2026-10-05,7,SJS@DAL,point_1plus,Mikko Rantanen,1,0.6927,transition_ml_anchor,false,LOCKED
+2026-10-05,8,WPG@PIT,point_1plus,Mark Scheifele,1,0.6848,transition_ml_anchor,false,LOCKED
+2026-10-05,9,PHI@TBL,point_1plus,Jake Guentzel,1,0.648262,transition_ml_reconstruction,false,LOCKED
+2026-10-05,10,WPG@PIT,point_1plus,Evgeni Malkin,1,0.644828,transition_ml_reconstruction,false,LOCKED
