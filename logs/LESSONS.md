@@ -117,3 +117,29 @@
 - Continue monitoring same-player concentration. Eklund's three correlated wins and Martone's four correlated losses show why card-level W-L can overstate the effective sample size.
 - Continue the v0.1.0 model unchanged. Do not tighten or loosen the longshot gate from one high-variance slate.
 
+## 2026-10-04 — Slate 4 grading
+
+### Results
+- Top 10 Probability Card: **7-3 (70.0%)**. Model probabilities summed to **6.7306 expected wins**; Brier score **0.2244**.
+- Official Playable Price Card: **5-5 (50.0%)**, **-0.8231u** at 1u flat staking, **-8.23% ROI**; Brier score **0.1994**.
+- Clean cumulative Top 10: **27-13 (67.50%)**, expected wins **28.3544**, Brier **0.2119** through 40 picks.
+- Clean cumulative Playable Price: **24-21 (53.33%)**, **+3.9599u**, **+8.80% ROI**, Brier **0.2193** through 45 plays.
+- The goalie-save board was analyzed later, but no goalie save was added to the official locked Playable Price Card before puck drop; therefore the official Oct. 4 playable cohort remains the original 10 plays.
+- Ladder Challenge 2026-10-A Day 1 won: Vancouver +1.5 covered in a 3-2 loss to Vegas.
+
+### Market notes
+- Top-10 puck lines went **2-2**: Anaheim +1.5 and Vancouver +1.5 won; Utah +1.5 and Calgary +1.5 lost. The clean Top-10 puck-line cohort is now **10-2**.
+- Top-10 1+ point props went **4-1**: Eichel, Stone, Keller and Matthew Tkachuk won; Reinhart lost.
+- Top-10 CGY-SEA Over 5.5 won easily in Seattle's 6-1 victory.
+- Playable moneylines went **1-3**: Anaheim won; Vancouver, Utah and Calgary lost.
+- Playable spreads went **2-1** and playable totals went **2-0**. Game-side losses were concentrated in moneylines rather than the broader team-market model.
+- Tristan Luneau anytime goal +950 lost, moving the clean low-probability/high-EV anytime-goal watchlist to **0-4** across Blueger twice, Boone Jenner and Luneau. Luneau was also a limited-history fallback.
+- Oct. 4 produced several useful correlated clusters: Anaheim ML/+1.5 both won; Utah ML/+1.5 both lost; Calgary ML/+1.5 both lost while the game over won. Treat these as clustered evidence rather than fully independent observations.
+
+### Lessons / actions
+- **No structural predictive-code change. v0.1.0 remains active.** The Top 10 has now produced 27 wins in 40 clean prospective picks and the playable card remains profitable overall.
+- Do not increase puck-line weighting despite the 10-2 clean start. The two losses on Oct. 4 are a reminder that the earlier 8-0 streak was not enough evidence to alter pure probability ranking.
+- Keep monitoring moneyline pricing separately. Oct. 4 moneylines were 1-3, but the clean moneyline sample remains too small and mixed to justify a market-specific code or gate change.
+- Escalate the low-probability/high-EV anytime-goal cohort for review, but do not change the gate yet. A 0-4 record is poor, yet these are low-base-rate events and the expected number of wins across such a small sample is still below one; more independent observations are needed before tightening the threshold.
+- Limited-history fallback remains a caution flag. Continue tagging it explicitly and avoid treating its probability estimates as equally mature evidence when making ladder/tie-break decisions.
+- Goalie-save model remains on watch. No official Oct. 4 goalie save entered the clean record, so the clean goalie-save cohort remains **3-5** through Oct. 2.
