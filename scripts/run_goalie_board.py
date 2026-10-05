@@ -7,6 +7,7 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
+import requests
 import yaml
 
 from wshlx_nhl.bootstrap_models import build_goalie_transitions, train_goalie_transition_model
@@ -15,6 +16,40 @@ from wshlx_nhl.goalie_shadow import train_goalie_two_stage_shadow
 from wshlx_nhl.odds import american_to_implied, expected_roi
 
 SEASONS_OFFICIAL = ["20212022", "20222023", "20232024", "20242025", "20252026"]
+NHL_BASE = "https://api-web.nhle.com/v1"
+_ROSTER_CACHE: dict[str, dict[str, str]] = {}
+
+
+def _local(v):
+    if isinstance(v, dict):
+        return v.get("default") or v.get("en") or next(iter(v.values()), "")
+    return v or ""
+
+
+def roster_goalie_map(team: str) -> dict[str, str]:
+    team = team.upper()
+    if team in _ROSTER_CACHE:
+        return _ROSTER_CACHE[team]
+    out: dict[str, str] = {}
+    for url in [f"{NHL_BASE}/roster-current/{team}", f"{NHL_BASE}/roster/{team}/20262027"]:
+        try:
+            r = requests.get(url, timeout=20)
+            if not r.ok:
+                continue
+            payload = r.json()
+            for g in payload.get("goalies", []):
+                first = _local(g.get("firstName"))
+                last = _local(g.get("lastName"))
+                name = f"{first} {last}".strip().casefold()
+                gid = g.get("id") or g.get("playerId")
+                if name and gid:
+                    out[name] = str(gid)
+            if out:
+                break
+        except Exception:
+            continue
+    _ROSTER_CACHE[team] = out
+    return out
 
 
 def season_goalie_frame(starts: pd.DataFrame, season: str) -> pd.DataFrame:
@@ -47,11 +82,11 @@ def recent_team(team_games: pd.DataFrame, team: str, target: pd.Timestamp) -> di
     }
 
 
-def recent_goalie(starts: pd.DataFrame, goalie_id: str | None, goalie_name: str, target: pd.Timestamp) -> dict:
+def recent_goalie(starts: pd.DataFrame, goalie_id: str | None, target: pd.Timestamp) -> dict:
     if goalie_id:
         g = starts[(starts["goalie_id"].astype(str) == str(goalie_id)) & (pd.to_datetime(starts["date"]) < target)].sort_values("date")
     else:
-        g = starts[(starts["goalie_name"].str.casefold() == goalie_name.casefold()) & (pd.to_datetime(starts["date"]) < target)].sort_values("date")
+        g = starts.iloc[0:0].copy()
     def mean_tail(col, n, default=np.nan):
         x = g[col].tail(n)
         return float(x.mean()) if len(x) else default
@@ -74,8 +109,13 @@ def recent_goalie(starts: pd.DataFrame, goalie_id: str | None, goalie_name: str,
     }
 
 
-def resolve_goalie(starts: pd.DataFrame, name: str) -> str | None:
-    g = starts[starts["goalie_name"].str.casefold() == name.casefold()]
+def resolve_goalie(starts: pd.DataFrame, name: str, team: str) -> str | None:
+    gid = roster_goalie_map(team).get(name.casefold())
+    if gid:
+        return gid
+    # Historical boxscores do not always expose names, but keep this fallback for rows that do.
+    names = starts["goalie_name"].fillna("").astype(str)
+    g = starts[names.str.casefold() == name.casefold()]
     return None if g.empty else str(g.sort_values("date").iloc[-1]["goalie_id"])
 
 
@@ -83,11 +123,11 @@ def current_feature_rows(board: pd.DataFrame, starts: pd.DataFrame, team_games: 
     target = pd.Timestamp(target_date)
     rows = []
     for _, r in board.iterrows():
-        name = str(r["goalie_name"])
-        gid = resolve_goalie(starts, name)
-        own = recent_team(team_games, str(r["team"]), target)
+        name = str(r["goalie_name"]); team = str(r["team"])
+        gid = resolve_goalie(starts, name, team)
+        own = recent_team(team_games, team, target)
         opp = recent_team(team_games, str(r["opponent"]), target)
-        gr = recent_goalie(starts, gid, name, target)
+        gr = recent_goalie(starts, gid, target)
         rows.append({**r.to_dict(), "goalie_id": gid or f"UNKNOWN::{name}", "is_home": float(r["is_home"]),
             "days_rest": gr["days_rest"], "starts_last_7d": gr["starts_last_7d"],
             "team_shots_against_r5": own["team_shots_against_r5"], "team_shots_against_r10": own["team_shots_against_r10"],
@@ -109,39 +149,25 @@ def choose_side(p_over: float, over_odds: int, p_under: float, under_odds: int) 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--features", required=True)
-    ap.add_argument("--team-games", required=True)
-    ap.add_argument("--odds", required=True)
-    ap.add_argument("--config", default="config/goalie_shadow_v0.2.yaml")
-    ap.add_argument("--target-date", required=True)
-    ap.add_argument("--predictions", required=True)
-    ap.add_argument("--metrics", required=True)
+    ap.add_argument("--features", required=True); ap.add_argument("--team-games", required=True); ap.add_argument("--odds", required=True)
+    ap.add_argument("--config", default="config/goalie_shadow_v0.2.yaml"); ap.add_argument("--target-date", required=True)
+    ap.add_argument("--predictions", required=True); ap.add_argument("--metrics", required=True)
     ap.add_argument("--shadow-model", default="models/goalie_saves_shadow_v0.2.joblib")
     ap.add_argument("--official-model", default="models/goalie_saves_v0.1_reconstructed.joblib")
     args = ap.parse_args()
 
-    starts = pd.read_parquet(args.features)
-    team_games = pd.read_parquet(args.team_games)
-    board = pd.read_csv(args.odds)
+    starts = pd.read_parquet(args.features); team_games = pd.read_parquet(args.team_games); board = pd.read_csv(args.odds)
     cfg = yaml.safe_load(Path(args.config).read_text())
     historical = starts[pd.to_datetime(starts["date"]) < pd.Timestamp("2026-07-01")].copy()
-
     workload_features = cfg["workload"]["numeric"] + cfg["workload"]["categorical"]
     skill_features = cfg["save_rate"]["numeric"] + cfg["save_rate"]["categorical"]
-    shadow = train_goalie_two_stage_shadow(historical, workload_features, cfg["workload"]["categorical"],
-                                           skill_features, cfg["save_rate"]["categorical"])
-    Path(args.shadow_model).parent.mkdir(parents=True, exist_ok=True)
-    joblib.dump(shadow, args.shadow_model)
+    shadow = train_goalie_two_stage_shadow(historical, workload_features, cfg["workload"]["categorical"], skill_features, cfg["save_rate"]["categorical"])
+    Path(args.shadow_model).parent.mkdir(parents=True, exist_ok=True); joblib.dump(shadow, args.shadow_model)
 
     season_frames = [season_goalie_frame(starts, s) for s in SEASONS_OFFICIAL]
     transitions = build_goalie_transitions(season_frames, min_starts=5)
-    # build_goalie_transitions retains suffixes on overlapping prior/next-season
-    # fields. The transition trainer expects prior-season feature names, so
-    # normalize those columns here. This is a reconstruction plumbing fix, not
-    # a predictive model change.
     transitions = transitions.rename(columns={"gamesStarted_prev":"gamesStarted", "saves_prev":"saves"})
-    official = train_goalie_transition_model(transitions)
-    joblib.dump(official, args.official_model)
+    official = train_goalie_transition_model(transitions); joblib.dump(official, args.official_model)
 
     current = current_feature_rows(board, starts, team_games, args.target_date)
     exp_shots, exp_sv, exp_saves = shadow.predict_components(current)
@@ -160,26 +186,20 @@ def main():
         p02o, p02u = float(shadow.prob_over(current.iloc[[i]], line)[0]), float(shadow.prob_under(current.iloc[[i]], line)[0])
         pick01 = choose_side(p01o, int(row["over_odds"]), p01u, int(row["under_odds"]))
         pick02 = choose_side(p02o, int(row["over_odds"]), p02u, int(row["under_odds"]))
-        records.append({"date":row["date"],"game":row["game"],"goalie_name":row["goalie_name"],"team":row["team"],
-            "opponent":row["opponent"],"line":line,"over_odds":int(row["over_odds"]),"under_odds":int(row["under_odds"]),
-            "history_starts":int(row["history_starts"]),"v0_1_expected_saves":mu01,"v0_1_over_probability":p01o,
-            "v0_1_under_probability":p01u,"v0_1_pick":pick01["pick"],"v0_1_pick_probability":pick01["pick_probability"],
-            "v0_1_pick_odds":pick01["pick_odds"],"v0_1_edge":pick01["edge"],"v0_1_expected_roi":pick01["expected_roi"],
-            "v0_1_basis":basis01,"v0_2_expected_shots":float(exp_shots[i]),"v0_2_expected_save_pct":float(exp_sv[i]),
-            "v0_2_expected_saves":float(exp_saves[i]),"v0_2_over_probability":p02o,"v0_2_under_probability":p02u,
-            "v0_2_pick":pick02["pick"],"v0_2_pick_probability":pick02["pick_probability"],"v0_2_pick_odds":pick02["pick_odds"],
-            "v0_2_edge":pick02["edge"],"v0_2_expected_roi":pick02["expected_roi"],"v0_2_status":"SHADOW_ONLY"})
+        records.append({"date":row["date"],"game":row["game"],"goalie_name":row["goalie_name"],"team":row["team"],"opponent":row["opponent"],
+            "goalie_id":gid,"line":line,"over_odds":int(row["over_odds"]),"under_odds":int(row["under_odds"]),"history_starts":int(row["history_starts"]),
+            "v0_1_expected_saves":mu01,"v0_1_over_probability":p01o,"v0_1_under_probability":p01u,"v0_1_pick":pick01["pick"],
+            "v0_1_pick_probability":pick01["pick_probability"],"v0_1_pick_odds":pick01["pick_odds"],"v0_1_edge":pick01["edge"],
+            "v0_1_expected_roi":pick01["expected_roi"],"v0_1_basis":basis01,"v0_2_expected_shots":float(exp_shots[i]),
+            "v0_2_expected_save_pct":float(exp_sv[i]),"v0_2_expected_saves":float(exp_saves[i]),"v0_2_over_probability":p02o,
+            "v0_2_under_probability":p02u,"v0_2_pick":pick02["pick"],"v0_2_pick_probability":pick02["pick_probability"],
+            "v0_2_pick_odds":pick02["pick_odds"],"v0_2_edge":pick02["edge"],"v0_2_expected_roi":pick02["expected_roi"],"v0_2_status":"SHADOW_ONLY"})
 
-    pred = pd.DataFrame(records)
-    Path(args.predictions).parent.mkdir(parents=True, exist_ok=True)
-    pred.to_csv(args.predictions, index=False)
-    payload = {"target_date":args.target_date,
-        "official_v0_1_reconstruction":{"transition_rows":int(len(transitions)),"alpha":official.alpha,
-            "validation_mae_saves_per_start":official.validation_mae,"distribution":"Poisson",
-            "notes":"Reconstructed from NHL regular-season starter boxscores, 2021-22 through 2025-26."},
+    pred = pd.DataFrame(records); Path(args.predictions).parent.mkdir(parents=True, exist_ok=True); pred.to_csv(args.predictions, index=False)
+    payload = {"target_date":args.target_date,"official_v0_1_reconstruction":{"transition_rows":int(len(transitions)),"alpha":official.alpha,
+        "validation_mae_saves_per_start":official.validation_mae,"distribution":"Poisson","notes":"Reconstructed from NHL regular-season starter boxscores, 2021-22 through 2025-26."},
         "shadow_v0_2":{"status":"SHADOW_ONLY","validation_metrics":shadow.validation_metrics},"rows":int(len(pred))}
-    Path(args.metrics).write_text(json.dumps(payload, indent=2))
-    print(pred.to_string(index=False)); print(json.dumps(payload, indent=2))
+    Path(args.metrics).write_text(json.dumps(payload, indent=2)); print(pred.to_string(index=False)); print(json.dumps(payload, indent=2))
 
 
 if __name__ == "__main__":
