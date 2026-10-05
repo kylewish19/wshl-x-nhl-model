@@ -143,3 +143,26 @@
 - Escalate the low-probability/high-EV anytime-goal cohort for review, but do not change the gate yet. A 0-4 record is poor, yet these are low-base-rate events and the expected number of wins across such a small sample is still below one; more independent observations are needed before tightening the threshold.
 - Limited-history fallback remains a caution flag. Continue tagging it explicitly and avoid treating its probability estimates as equally mature evidence when making ladder/tie-break decisions.
 - Goalie-save model remains on watch. No official Oct. 4 goalie save entered the clean record, so the clean goalie-save cohort remains **3-5** through Oct. 2.
+
+## 2026-10-05 — v0.2 goalie-save shadow development started
+
+### Why this experiment is justified
+- The official clean goalie-save playable cohort is only 3-5, so it is still too small to replace v0.1.0 from results alone.
+- However, opponent shot volume / workload has been the same identified weakness since opening night, so it is reasonable to begin testing a structural alternative now rather than waiting to write code later.
+- This is a **shadow experiment only**. Official daily cards continue to use v0.1.0 until the replacement earns promotion prospectively.
+
+### Shadow model design
+- Added `src/wshlx_nhl/goalie_shadow.py` with a two-stage architecture:
+  1. predict expected shots faced from opponent shot generation, team defensive environment, rest/workload and penalty/xG context;
+  2. predict goalie save percentage from recent save skill, GSAx, rebound proxy and workload context;
+  3. combine expected shots × expected save percentage into expected saves;
+  4. fit a negative-binomial dispersion layer on chronological validation saves for O/U probabilities.
+- Added `config/goalie_shadow_v0.2.yaml`, `scripts/train_goalie_shadow.py`, `tests/test_goalie_shadow.py`, and `data/results/goalie_shadow_v0.2.csv`.
+- Historical validation remains chronological and recency-weighted. No random train/test split is permitted.
+
+### Promotion rule
+- Keep v0.1.0 official while v0.2 records shadow predictions on confirmed starters.
+- Do not promote from historical backtest alone.
+- Minimum prospective review point: **20 clean confirmed-start goalie props**. Prefer more if calibration is noisy.
+- v0.2 must improve save-count MAE and probability calibration/Brier versus v0.1.0 without creating an obvious new directional bias.
+- If it fails, revise or discard the shadow rather than forcing a version change.
