@@ -1,0 +1,23 @@
+{
+  "target_date": "2026-10-05",
+  "historical_start_rows": 13198,
+  "official_v0_1_reconstruction": {
+    "transition_rows": 265,
+    "alpha": 0.3,
+    "validation_mae_saves_per_start": 1.5389411162974134,
+    "distribution": "Poisson",
+    "notes": "Reconstructed reproducibly from NHL regular-season starter boxscores, 2021-22 through 2025-26."
+  },
+  "shadow_v0_2": {
+    "status": "SHADOW_ONLY",
+    "validation_metrics": {
+      "validation_rows": 2624,
+      "shots_mae": 5.426232490678797,
+      "save_pct_mae": 0.053968179757707416,
+      "saves_mae": 5.423655318079761,
+      "saves_poisson_deviance": 2.1494794754874205,
+      "nb_alpha": 0.037566664213087436
+    }
+  },
+  "rows_scored": 8
+}
