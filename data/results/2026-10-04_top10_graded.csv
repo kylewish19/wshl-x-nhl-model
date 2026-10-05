@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,result,actual
+2026-10-04,1,UTA@NYR,spread,Utah Mammoth,+1.5,0.7509,LOSS,NYR won 4-2
+2026-10-04,2,VGK@VAN,point_1plus,Jack Eichel,1,0.7438,WIN,1 assist
+2026-10-04,3,FLA@ANA,spread,Anaheim Ducks,+1.5,0.7384,WIN,ANA won 3-2 OT
+2026-10-04,4,CGY@SEA,spread,Calgary Flames,+1.5,0.7006,LOSS,SEA won 6-1
+2026-10-04,5,VGK@VAN,point_1plus,Mark Stone,1,0.6491,WIN,1 assist
+2026-10-04,6,UTA@NYR,point_1plus,Clayton Keller,1,0.6373,WIN,1 assist
+2026-10-04,7,FLA@ANA,point_1plus,Matthew Tkachuk,1,0.6336,WIN,1 assist
+2026-10-04,8,VGK@VAN,spread,Vancouver Canucks,+1.5,0.6289,WIN,VAN lost 3-2
+2026-10-04,9,CGY@SEA,total,Over,5.5,0.6251,WIN,7 total goals
+2026-10-04,10,FLA@ANA,point_1plus,Sam Reinhart,1,0.6229,LOSS,0 points
