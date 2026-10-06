@@ -1,1 +1,7 @@
 date,game,goalie,line,side,starter_confirmed,v0_1_probability,v0_2_probability,odds_american,result,actual_saves,notes
+2026-10-05,OTT@BOS,Linus Ullmark,21.5,Over,true,0.627952,0.563271,-118,LOSS,10,"FanDuel-listed goalie; started and left after two periods as a precaution. Same-side v0.1 vs v0.2 probability comparison."
+2026-10-05,OTT@BOS,Jeremy Swayman,25.5,Under,true,0.550148,0.585995,-132,WIN,20,"FanDuel-listed goalie; same-side v0.1 vs v0.2 probability comparison."
+2026-10-05,WPG@PIT,Clay Stevenson,25.5,Under,true,0.744431,0.534415,-118,LOSS,30,"FanDuel-listed goalie; same-side v0.1 vs v0.2 probability comparison."
+2026-10-05,WPG@PIT,Sergei Murashov,22.5,Over,true,0.565178,0.594772,-110,WIN,31,"FanDuel-listed goalie; same-side v0.1 vs v0.2 probability comparison."
+2026-10-05,SJS@DAL,Yaroslav Askarov,23.5,Over,true,0.647856,0.568436,-130,LOSS,21,"FanDuel-listed goalie; same-side v0.1 vs v0.2 probability comparison."
+2026-10-05,SJS@DAL,Jake Oettinger,22.5,Over,true,0.566221,0.425759,-102,LOSS,13,"FanDuel-listed goalie; v0.2 preferred the Under, but this row compares both models on the official v0.1 Over side."
