@@ -1,4 +1,4 @@
-name: Goalie Shadow Build
+name: Goalie and Team Model Build
 
 on:
   push:
@@ -6,10 +6,13 @@ on:
       - '.github/workflows/goalie-shadow.yml'
       - 'scripts/build_goalie_features.py'
       - 'scripts/run_goalie_board.py'
+      - 'scripts/run_team_goal_board.py'
       - 'src/wshlx_nhl/goalie_shadow.py'
       - 'src/wshlx_nhl/bootstrap_models.py'
+      - 'src/wshlx_nhl/game_markets.py'
       - 'config/goalie_shadow_v0.2.yaml'
       - 'data/odds/2026-10-06_goalie_saves_FanDuel.csv'
+      - 'data/manual/2026-10-06_games.csv'
   workflow_dispatch:
 
 jobs:
@@ -23,14 +26,14 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: pip install -e .
-      - name: Build historical goalie start features
+      - name: Build historical goalie and team-game features
         run: |
           python scripts/build_goalie_features.py \
             --target-date 2026-10-06 \
             --output data/processed/goalie_features.parquet \
             --team-games data/processed/team_games.parquet \
             --max-workers 12
-      - name: Train v0.1 reconstruction and v0.2 shadow, then score FanDuel board
+      - name: Train v0.1 goalie reconstruction and v0.2 shadow
         run: |
           python scripts/run_goalie_board.py \
             --features data/processed/goalie_features.parquet \
@@ -39,15 +42,25 @@ jobs:
             --target-date 2026-10-06 \
             --predictions data/model_runs/2026-10-06_goalie_predictions.csv \
             --metrics data/model_runs/2026-10-06_goalie_model_validation.json
-      - name: Upload goalie model outputs
+      - name: Run v0.1 team-goal hybrid reconstruction
+        run: |
+          python scripts/run_team_goal_board.py \
+            --team-games data/processed/team_games.parquet \
+            --board data/manual/2026-10-06_games.csv \
+            --target-date 2026-10-06 \
+            --predictions data/model_runs/2026-10-06_team_predictions.csv \
+            --metrics data/model_runs/2026-10-06_team_model_meta.json
+      - name: Upload model outputs
         uses: actions/upload-artifact@v4
         with:
-          name: goalie-shadow-2026-10-06
+          name: model-build-2026-10-06
           retention-days: 14
           path: |
             data/processed/goalie_features.parquet
             data/processed/team_games.parquet
             data/model_runs/2026-10-06_goalie_predictions.csv
             data/model_runs/2026-10-06_goalie_model_validation.json
+            data/model_runs/2026-10-06_team_predictions.csv
+            data/model_runs/2026-10-06_team_model_meta.json
             models/goalie_saves_v0.1_reconstructed.joblib
             models/goalie_saves_shadow_v0.2.joblib
