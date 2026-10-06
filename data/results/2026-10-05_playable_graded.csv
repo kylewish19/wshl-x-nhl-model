@@ -1,0 +1,28 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-05,1,PHI@TBL,point_2plus,Porter Martone,2,0.270300,630,LOSS,0 points,-1.0000
+2026-10-05,2,PHI@TBL,anytime_goal,Porter Martone,0.5,0.381200,320,LOSS,0 goals,-1.0000
+2026-10-05,3,SJS@DAL,anytime_goal,Kiefer Sherwood,0.5,0.217700,575,LOSS,0 goals,-1.0000
+2026-10-05,4,PHI@TBL,point_1plus,Porter Martone,1,0.638100,118,LOSS,0 points,-1.0000
+2026-10-05,5,PHI@TBL,anytime_assist,Porter Martone,0.5,0.415200,230,LOSS,0 assists,-1.0000
+2026-10-05,6,OTT@BOS,anytime_goal,Morgan Geekie,0.5,0.364560,240,LOSS,0 goals,-1.0000
+2026-10-05,7,OTT@BOS,point_2plus,David Pastrnak,2,0.391400,210,LOSS,0 points,-1.0000
+2026-10-05,8,PHI@TBL,anytime_assist,Travis Konecny,0.5,0.394200,190,LOSS,0 assists,-1.0000
+2026-10-05,9,OTT@BOS,anytime_assist,Pavel Zacha,0.5,0.362680,215,LOSS,0 assists,-1.0000
+2026-10-05,10,OTT@BOS,point_1plus,Pavel Zacha,1,0.562720,102,LOSS,0 points,-1.0000
+2026-10-05,11,WPG@PIT,anytime_assist,Evgeni Malkin,0.5,0.502240,126,LOSS,0 assists,-1.0000
+2026-10-05,12,WPG@PIT,anytime_assist,Gabriel Vilardi,0.5,0.378160,200,LOSS,0 assists,-1.0000
+2026-10-05,13,OTT@BOS,anytime_assist,Elias Lindholm,0.5,0.363000,210,LOSS,0 assists,-1.0000
+2026-10-05,14,OTT@BOS,total,Over,5.5,0.600225,-115,LOSS,5 total goals,-1.0000
+2026-10-05,15,OTT@BOS,anytime_assist,David Pastrnak,0.5,0.564700,-104,LOSS,0 assists,-1.0000
+2026-10-05,16,PHI@TBL,point_1plus,Travis Konecny,1,0.552900,100,LOSS,0 points,-1.0000
+2026-10-05,17,OTT@BOS,moneyline,Boston Bruins,,0.560787,-104,LOSS,BOS lost 4-1,-1.0000
+2026-10-05,18,OTT@BOS,point_1plus,Morgan Geekie,1,0.565180,-106,LOSS,0 points,-1.0000
+2026-10-05,19,PHI@TBL,spread,Philadelphia Flyers,+1.5,0.595030,-120,LOSS,PHI lost 4-1,-1.0000
+2026-10-05,20,WPG@PIT,point_1plus,Gabriel Vilardi,1,0.565980,-108,LOSS,0 points,-1.0000
+2026-10-05,21,OTT@BOS,spread,Boston Bruins,+1.5,0.778710,-265,LOSS,BOS lost 4-1,-1.0000
+2026-10-05,22,SJS@DAL,spread,San Jose Sharks,+1.5,0.628825,-148,LOSS,SJS lost 5-0,-1.0000
+2026-10-05,23,OTT@BOS,goalie_saves,Linus Ullmark Over,21.5,0.627952,-118,LOSS,10 saves,-1.0000
+2026-10-05,24,WPG@PIT,goalie_saves,Clay Stevenson Under,25.5,0.744431,-118,LOSS,30 saves,-1.0000
+2026-10-05,25,WPG@PIT,goalie_saves,Sergei Murashov Over,22.5,0.565178,-110,WIN,31 saves,0.9091
+2026-10-05,26,SJS@DAL,goalie_saves,Yaroslav Askarov Over,23.5,0.647856,-130,LOSS,21 saves,-1.0000
+2026-10-05,27,SJS@DAL,goalie_saves,Jake Oettinger Over,22.5,0.566221,-102,LOSS,13 saves,-1.0000
