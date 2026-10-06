@@ -18,22 +18,39 @@ SEASONS = [20212022, 20222023, 20232024, 20242025, 20252026, 20262027]
 
 def get_season_stats(season: int) -> pd.DataFrame:
     url = f"{STATS_BASE}/skater/summary"
-    params = {
-        "isAggregate": "false",
-        "isGame": "false",
-        "sort": '[{"property":"points","direction":"DESC"}]',
-        "start": 0,
-        "limit": 2000,
-        "cayenneExp": f"gameTypeId=2 and seasonId={season}",
-    }
-    r = requests.get(url, params=params, timeout=60, headers={"User-Agent":"wshlx-nhl-model/skater-transition"})
-    r.raise_for_status()
-    data = r.json().get("data", [])
-    df = pd.DataFrame(data)
+    rows: list[dict] = []
+    start = 0
+    # The NHL Stats REST service caps pages even when a larger limit is requested.
+    # Page explicitly so the transition model is trained on the full season pool,
+    # not merely the top-scoring page.
+    while True:
+        params = {
+            "isAggregate": "false",
+            "isGame": "false",
+            "sort": '[{"property":"points","direction":"DESC"}]',
+            "start": start,
+            "limit": 100,
+            "cayenneExp": f"gameTypeId=2 and seasonId={season}",
+        }
+        r = requests.get(url, params=params, timeout=60, headers={"User-Agent":"wshlx-nhl-model/skater-transition"})
+        r.raise_for_status()
+        payload = r.json()
+        page = payload.get("data", [])
+        if not page:
+            break
+        rows.extend(page)
+        start += len(page)
+        total = payload.get("total")
+        if total is not None and start >= int(total):
+            break
+        if len(page) < 100:
+            break
+        if start > 5000:
+            raise RuntimeError(f"Unexpected pagination runaway for season {season}")
+
+    df = pd.DataFrame(rows).drop_duplicates(subset=["playerId"], keep="first")
     if df.empty:
         raise RuntimeError(f"No skater data returned for {season}")
-    # NHL Stats REST fields are normally already named this way; aliases keep the
-    # pipeline resilient if the public endpoint changes a label.
     aliases = {
         "powerPlayGoals": "ppGoals",
         "powerPlayPoints": "ppPoints",
@@ -87,7 +104,6 @@ def fallback_rate(current_row: pd.DataFrame, prior: pd.DataFrame, target: str, p
         return max(0.0, league_rate)
     gp = float(current_row.iloc[0]["gamesPlayed"] or 0)
     cnt = float(current_row.iloc[0][rate_col] or 0)
-    # Early-season fallback: five pseudo-games at the positional median.
     return max(0.0, (cnt + 5.0 * league_rate) / max(gp + 5.0, 1.0))
 
 
@@ -145,6 +161,7 @@ def main():
     out.to_csv(args.predictions, index=False)
     metrics = {
         "transition_rows": int(len(transitions)),
+        "season_row_counts": {str(s): int(len(frames[s])) for s in SEASONS},
         "validation_mae": {k: float(v.validation_mae) for k,v in models.items()},
         "alpha": {k: float(v.alpha) for k,v in models.items()},
         "rows_scored": int(len(out)),
