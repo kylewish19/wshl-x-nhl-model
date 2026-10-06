@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-06,1,UTA@NJD,point_1plus,Jack Hughes,1.000000,0.777557,transition_ml_anchor,False,LOCKED
+2026-10-06,2,VGK@SEA,point_1plus,Jack Eichel,1.000000,0.766241,transition_ml_anchor,False,LOCKED
+2026-10-06,3,MIN@BUF,point_1plus,Kirill Kaprizov,1.000000,0.721610,transition_ml_anchor,False,LOCKED
+2026-10-06,4,FLA@LAK,spread,LAK,1.500000,0.718150,team_goal_hybrid_v0.1_context_means,False,LOCKED
+2026-10-06,5,OTT@DET,spread,OTT,1.500000,0.714950,team_goal_hybrid_v0.1_context_means,False,LOCKED
+2026-10-06,6,CAR@MTL,point_1plus,Nick Suzuki,1.000000,0.712446,transition_ml_anchor,False,LOCKED
+2026-10-06,7,UTA@NJD,spread,UTA,1.500000,0.705950,team_goal_hybrid_v0.1_context_means,False,LOCKED
+2026-10-06,8,MIN@BUF,spread,BUF,1.500000,0.696150,team_goal_hybrid_v0.1_context_means,False,LOCKED
+2026-10-06,9,CAR@MTL,spread,MTL,1.500000,0.696150,team_goal_hybrid_v0.1_context_means,False,LOCKED
+2026-10-06,10,STL@CHI,goalie_saves,Spencer Knight Over,22.500000,0.693543,goalie_transition_ml_reconstructed,False,LOCKED
