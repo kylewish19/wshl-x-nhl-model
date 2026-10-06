@@ -1,0 +1,21 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-06,1,CAR@MTL,anytime_goal,Arber Xhekaj,0.500000,0.103351,2200,0.043478,0.059873,1.377075,limited_history_fallback_reconstruction,PLAYABLE
+2026-10-06,2,MIN@BUF,anytime_goal,Justin Danforth,0.500000,0.169050,900,0.100000,0.069050,0.690496,limited_history_fallback_reconstruction,PLAYABLE
+2026-10-06,3,NSH@TOR,anytime_goal,Teddy Blueger,0.500000,0.152772,900,0.100000,0.052772,0.527720,transition_ml_anchor,PLAYABLE
+2026-10-06,4,CAR@MTL,goalie_saves,Jakub Dobes Under,26.500000,0.679412,-102,0.504950,0.174462,0.345502,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,5,UTA@NJD,goalie_saves,Karel Vejmelka Under,25.500000,0.646741,-102,0.504950,0.141791,0.280801,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,6,UTA@NJD,point_2plus,Jack Hughes,2.000000,0.443206,176,0.362319,0.080887,0.223248,transition_ml_anchor,PLAYABLE
+2026-10-06,7,STL@CHI,goalie_saves,Spencer Knight Over,22.500000,0.693543,-132,0.568966,0.124577,0.218954,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,8,FLA@LAK,anytime_goal,Brad Marchand,0.500000,0.300465,300,0.250000,0.050465,0.201859,transition_ml_anchor,PLAYABLE
+2026-10-06,9,STL@CHI,goalie_saves,Joel Hofer Over,22.500000,0.658403,-128,0.561404,0.096999,0.172780,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,10,NYI@NYR,goalie_saves,Igor Shesterkin Over,23.500000,0.579153,-102,0.504950,0.074203,0.146950,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,11,FLA@LAK,goalie_saves,Jacob Markstrom Over,22.500000,0.595249,-110,0.523810,0.071439,0.136384,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,12,FLA@LAK,point_1plus,Brad Marchand,1.000000,0.579170,-104,0.509804,0.069366,0.136064,transition_ml_anchor,PLAYABLE
+2026-10-06,13,UTA@NJD,goalie_saves,Jake Allen Over,23.500000,0.569143,-102,0.504950,0.064193,0.127126,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,14,NSH@TOR,goalie_saves,Anthony Stolarz Over,23.500000,0.622899,-128,0.561404,0.061495,0.109539,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,15,NYI@NYR,point_1plus,Victor Eklund,1.000000,0.445764,148,0.403226,0.042538,0.105494,limited_history_fallback_reconstruction,PLAYABLE
+2026-10-06,16,MIN@BUF,goalie_saves,Jesper Wallstedt Over,24.500000,0.580255,-112,0.528302,0.051953,0.098340,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,17,FLA@LAK,goalie_saves,Darcy Kuemper Under,24.500000,0.585748,-118,0.541284,0.044464,0.082145,goalie_transition_ml_reconstructed,PLAYABLE
+2026-10-06,18,STL@CHI,total,Over,5.500000,0.588750,-122,0.549550,0.039200,0.071332,team_goal_hybrid_v0.1_context_means,PLAYABLE
+2026-10-06,19,UTA@NJD,point_1plus,Jack Hughes,1.000000,0.777557,-265,0.726027,0.051529,0.070974,transition_ml_anchor,PLAYABLE
+2026-10-06,20,NSH@TOR,total,Over,5.500000,0.613350,-138,0.579832,0.033518,0.057807,team_goal_hybrid_v0.1_context_means,PLAYABLE
