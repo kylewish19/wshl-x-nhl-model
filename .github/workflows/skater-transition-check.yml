@@ -1,11 +1,11 @@
-name: Skater Transition Check
+name: Skater Transition Board
 
 on:
   push:
     paths:
       - '.github/workflows/skater-transition-check.yml'
       - 'scripts/run_skater_transition_board.py'
-      - 'data/manual/skater_transition_check.csv'
+      - 'data/manual/2026-10-06_skater_board.csv.gz.b64'
   workflow_dispatch:
 
 jobs:
@@ -19,16 +19,19 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: pip install -e .
-      - name: Run transition check
+      - name: Decode board
+        run: |
+          base64 -d data/manual/2026-10-06_skater_board.csv.gz.b64 | gzip -d > data/manual/2026-10-06_skater_board.csv
+      - name: Run transition board
         run: |
           python scripts/run_skater_transition_board.py \
-            --board data/manual/skater_transition_check.csv \
-            --predictions data/model_runs/skater_transition_check.csv \
-            --metrics data/model_runs/skater_transition_check.json
+            --board data/manual/2026-10-06_skater_board.csv \
+            --predictions data/model_runs/2026-10-06_skater_predictions.csv \
+            --metrics data/model_runs/2026-10-06_skater_model_validation.json
       - uses: actions/upload-artifact@v4
         with:
-          name: skater-transition-check
+          name: skater-transition-2026-10-06
           retention-days: 7
           path: |
-            data/model_runs/skater_transition_check.csv
-            data/model_runs/skater_transition_check.json
+            data/model_runs/2026-10-06_skater_predictions.csv
+            data/model_runs/2026-10-06_skater_model_validation.json
