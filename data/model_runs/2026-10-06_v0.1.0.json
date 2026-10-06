@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-06",
+  "version": "0.1.0",
+  "lock_type": "OFFICIAL_FULL_SLATE",
+  "clean_prospective_tracking": true,
+  "included_games": ["UTA@NJD","MIN@BUF","OTT@DET","CAR@MTL","NSH@TOR","NYI@NYR","STL@CHI","VGK@SEA","FLA@LAK"],
+  "odds_used_in_probability_stage": false,
+  "top10_expected_wins": 7.202747,
+  "official_playable_count": 20,
+  "playable_shadow_v0_2_count": 16,
+  "skater_model": {
+    "transition_rows": 2477,
+    "fixed_v0_1_alpha": {"goals":10.0,"assists":0.3,"points":0.3},
+    "validation_mae": {"goals":0.058093,"assists":0.076571,"points":0.113565},
+    "rows_scored": 633,
+    "unresolved_rows_excluded": 6,
+    "unresolved_names": ["Benoit-Olivier Groulx","Nicholas Paul","Mitchell Marner"],
+    "notes": "Unresolved player-ID rows were excluded from the official candidate universe rather than treated as mature projections."
+  },
+  "team_goal_means": {
+    "UTA@NJD":{"away":3.10,"home":3.25},
+    "MIN@BUF":{"away":3.30,"home":3.05},
+    "OTT@DET":{"away":3.10,"home":3.20},
+    "CAR@MTL":{"away":3.30,"home":3.05},
+    "NSH@TOR":{"away":2.95,"home":3.45},
+    "NYI@NYR":{"away":2.80,"home":3.30},
+    "STL@CHI":{"away":3.25,"home":2.95},
+    "VGK@SEA":{"away":3.35,"home":2.90},
+    "FLA@LAK":{"away":3.15,"home":3.05}
+  },
+  "team_model_note": "The committed automated team-goal reconstruction hit a dataclass-access implementation bug during the pre-lock run. To preserve a clean pre-puck lock, the official v0.1 team/game probabilities used the documented odds-blind pregame team-goal means above with the existing 20,000-run Poisson simulation architecture. The bug is implementation-only and does not authorize retroactive changes to this locked card.",
+  "goalie_model": {
+    "historical_starter_rows": 13206,
+    "official_v0_1_transition_rows": 265,
+    "official_v0_1_alpha": 0.3,
+    "official_v0_1_validation_mae_saves_per_start": 1.5389411163,
+    "fan_duel_rows_scored": 17,
+    "vegas_goalie_line_missing_by_user_choice": true,
+    "shadow_v0_2_status": "SHADOW_ONLY"
+  },
+  "goalie_policy": "FanDuel-listed goalie-save lines are immediately eligible; no separate starter confirmation required. Non-start sportsbook voids grade VOID.",
+  "playable_shadow_v0_2": {
+    "status": "SHADOW_ONLY",
+    "rules": ["quarantine tagged limited-history/rookie fallback", "quarantine anytime-goal candidates below 25% model probability"],
+    "removed_from_official_playable_today": ["Arber Xhekaj anytime goal +2200", "Justin Danforth anytime goal +900", "Teddy Blueger anytime goal +900", "Victor Eklund 1+ point +148"]
+  },
+  "ladder": {
+    "challenge_id": "2026-10-B",
+    "day": 1,
+    "ticket": "Jakub Dobes Under 26.5 saves -102",
+    "model_probability": 0.679412,
+    "model_fair_odds": -212
+  },
+  "notes": [
+    "Official Top 10, Playable Price card, Playable Shadow v0.2 and Ladder Day 1 were locked before the 7:00 PM ET first puck drop.",
+    "No Vegas goalie-save market was included because the user elected to proceed without it.",
+    "v0.1.0 remains official; goalie v0.2 and Playable selection v0.2 remain shadow-only."
+  ]
+}
