@@ -1,0 +1,62 @@
+{
+  "review_date": "2026-10-06",
+  "official_model": "v0.1.0",
+  "official_selection_unchanged": true,
+  "shadow_name": "playable_price_shadow_v0.2",
+  "purpose": "Test targeted risk controls after repeated clean prospective misses without retroactively changing v0.1.0.",
+  "clean_evidence_through_2026-10-05": {
+    "limited_history_fallback": {
+      "settled_bets": 7,
+      "wins": 0,
+      "losses": 7,
+      "effective_sample_caution": "Four losses are the same Porter Martone player-game cluster, so seven bets are not seven independent observations.",
+      "examples": [
+        "Anton Frondell 1+ assist - loss",
+        "Anton Frondell 1+ point - loss",
+        "Tristan Luneau anytime goal - loss",
+        "Porter Martone 2+ points - loss",
+        "Porter Martone anytime goal - loss",
+        "Porter Martone 1+ point - loss",
+        "Porter Martone 1+ assist - loss"
+      ]
+    },
+    "sub_25pct_anytime_goal": {
+      "settled_bets": 5,
+      "wins": 0,
+      "losses": 5,
+      "expected_wins_sum": 0.8593,
+      "note": "Zero wins is poor but still plausible at these low base rates; this is a shadow review trigger, not proof of a permanent exclusion rule."
+    },
+    "all_anytime_goal_playable": {
+      "settled_bets": 8,
+      "wins": 1,
+      "losses": 7,
+      "expected_wins_sum": 2.12246,
+      "profit_units": -5.8
+    }
+  },
+  "shadow_rules": [
+    "Apply the normal official Playable Price gate first.",
+    "Withhold model_basis=limited_history_fallback (and equivalent tagged fallback rows) from the shadow card.",
+    "Withhold anytime_goal candidates with model_probability < 0.25 from the shadow card.",
+    "Do not alter model probabilities, Top 10 ranking, or the official v0.1.0 Playable Price card.",
+    "Track shadow results prospectively before any promotion."
+  ],
+  "retrospective_diagnostic_only": {
+    "warning": "The shadow rules were chosen after seeing these results, so retrospective improvement is not evidence for promotion.",
+    "removed_clean_bets": 11,
+    "removed_wins": 0,
+    "removed_losses": 11,
+    "official_clean_playable_record": "25-47",
+    "counterfactual_filtered_record": "25-36",
+    "official_clean_profit_units": -21.131,
+    "counterfactual_filtered_profit_units": -10.131
+  },
+  "promotion_rule": {
+    "minimum_new_clean_independent_shadow_decisions": 20,
+    "require_better_brier": true,
+    "require_better_flat_stake_roi": true,
+    "require_no_material_harm_to_high_probability_markets": true,
+    "note": "Prospective evidence only; clustered same-player bets count as one diagnostic cluster when judging independence."
+  }
+}
