@@ -1,0 +1,34 @@
+name: Skater Transition Check
+
+on:
+  push:
+    paths:
+      - '.github/workflows/skater-transition-check.yml'
+      - 'scripts/run_skater_transition_board.py'
+      - 'data/manual/skater_transition_check.csv'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Run transition check
+        run: |
+          python scripts/run_skater_transition_board.py \
+            --board data/manual/skater_transition_check.csv \
+            --predictions data/model_runs/skater_transition_check.csv \
+            --metrics data/model_runs/skater_transition_check.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skater-transition-check
+          retention-days: 7
+          path: |
+            data/model_runs/skater_transition_check.csv
+            data/model_runs/skater_transition_check.json
