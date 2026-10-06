@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-05",
+  "official_model": "v0.1.0",
+  "top10": {
+    "wins": 3,
+    "losses": 6,
+    "voids": 1,
+    "settled_hit_rate": 0.333333,
+    "expected_wins_settled": 6.4025,
+    "brier_settled": 0.351063,
+    "void_note": "Macklin Celebrini 1+ point was void after a late scratch and is excluded from settled calibration."
+  },
+  "playable_price": {
+    "wins": 1,
+    "losses": 26,
+    "hit_rate": 0.037037,
+    "expected_wins": 13.805435,
+    "brier": 0.275367,
+    "profit_units": -25.0909,
+    "roi": -0.929293,
+    "only_winner": "Sergei Murashov Over 22.5 saves -110"
+  },
+  "ladder": {
+    "challenge_id": "2026-10-A",
+    "day": 2,
+    "ticket": "OTT@BOS Over 5.5 -115",
+    "result": "LOSS",
+    "actual_total_goals": 5,
+    "challenge_status": "ENDED"
+  },
+  "market_diagnostics": {
+    "anytime_goal": "0-3 on Oct. 5; clean watchlist now 0-7",
+    "goalie_saves": "1-4 official Oct. 5 supplement; clean official goalie-save playable cohort now 4-9",
+    "limited_history_fallback": "Porter Martone cluster went 0-4; repeated clean fallback misses justify targeted shadow recalibration/quarantine review",
+    "correlation": "Several losses were clustered by player/team, but correlation does not explain away the severe probability-calibration miss."
+  },
+  "goalie_shadow_matched_comparison": {
+    "sample": 6,
+    "scope": "OTT@BOS, WPG@PIT and SJS@DAL only; PHI@TBL excluded because the rebuild completed after puck drop",
+    "v0_1_preferred_sides_record": "2-4",
+    "v0_2_preferred_sides_record": "3-3",
+    "v0_1_expected_saves_mae": 8.057379,
+    "v0_2_expected_saves_mae": 6.901668,
+    "v0_1_brier": 0.346710,
+    "v0_2_brier": 0.240479,
+    "promotion_decision": "NO PROMOTION - sample only six",
+    "metric_integrity_note": "Do not compare the historical v0.1 season-transition MAE (~1.54) directly with the historical v0.2 per-game saves MAE (~5.42); those are different targets/granularities. Promotion must use matched per-game evaluation."
+  },
+  "actions": [
+    "Keep v0.1.0 official; do not globally restructure from one catastrophic slate.",
+    "Start a targeted limited-history/fallback calibration or quarantine shadow review before the next slate.",
+    "Continue matched v0.1 versus v0.2 goalie tracking on FanDuel-listed props; earliest promotion review remains 20 clean settled listed props.",
+    "Continue reviewing low-probability/high-EV anytime-goal calibration; do not ignore the 0-7 clean start.",
+    "Keep correlation diagnostics, but evaluate effective independent sample size rather than treating clustered bets as fully independent."
+  ]
+}
