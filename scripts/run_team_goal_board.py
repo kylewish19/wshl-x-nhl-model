@@ -55,27 +55,43 @@ def main():
     for _, r in board.iterrows():
         away = str(r['away']); home = str(r['home']); game = str(r['game'])
         ar = strength['teams'][away]; hr = strength['teams'][home]
-        # v0.1 reconstruction: geometric matchup blend with a modest location factor.
         away_mu = float(np.sqrt(ar['gf'] * hr['ga']) * 0.98)
         home_mu = float(np.sqrt(hr['gf'] * ar['ga']) * 1.02)
-        # User/analyst supplied pregame context offsets are odds-blind and documented.
         away_mu += float(r.get('away_context_adjustment', 0.0) or 0.0)
         home_mu += float(r.get('home_context_adjustment', 0.0) or 0.0)
         away_mu = max(1.5, away_mu); home_mu = max(1.5, home_mu)
-        probs = simulate_game(away_mu, home_mu, total_line=float(r['total_line']))
+
+        home_spread = float(r['home_spread'])
+        away_spread = float(r['away_spread'])
+        # simulate_game expects home_mu first, then away_mu, and returns a dataclass.
+        probs = simulate_game(
+            home_mu,
+            away_mu,
+            runs=20_000,
+            home_spread=home_spread,
+            total_line=float(r['total_line']),
+            rng_seed=42,
+        )
         means[game] = {'away': away_mu, 'home': home_mu}
         rows += [
-            {'game':game,'market':'moneyline','selection':away,'line':'','model_probability':probs['away_ml'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
-            {'game':game,'market':'moneyline','selection':home,'line':'','model_probability':probs['home_ml'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
-            {'game':game,'market':'spread','selection':away,'line':1.5,'model_probability':probs['away_plus_1_5'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
-            {'game':game,'market':'spread','selection':home,'line':-1.5,'model_probability':probs['home_minus_1_5'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
-            {'game':game,'market':'total','selection':'Over','line':float(r['total_line']),'model_probability':probs['over'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
-            {'game':game,'market':'total','selection':'Under','line':float(r['total_line']),'model_probability':probs['under'],'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'moneyline','selection':away,'line':'','model_probability':probs.away_ml,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'moneyline','selection':home,'line':'','model_probability':probs.home_ml,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'spread','selection':away,'line':away_spread,'model_probability':probs.away_cover,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'spread','selection':home,'line':home_spread,'model_probability':probs.home_cover,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'total','selection':'Over','line':float(r['total_line']),'model_probability':probs.over,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
+            {'game':game,'market':'total','selection':'Under','line':float(r['total_line']),'model_probability':probs.under,'model_basis':'team_goal_hybrid_v0.1_reconstruction'},
         ]
     out = pd.DataFrame(rows)
     Path(args.predictions).parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(args.predictions, index=False)
-    meta = {'target_date':args.target_date,'prior_pseudo_games':10.0,'league_prior_goals_per_team_game':league,'current_games_before_target':counts,'team_goal_means':means,'rows_scored':len(out)}
+    meta = {
+        'target_date': args.target_date,
+        'prior_pseudo_games': 10.0,
+        'league_prior_goals_per_team_game': league,
+        'current_games_before_target': counts,
+        'team_goal_means': means,
+        'rows_scored': len(out),
+    }
     Path(args.metrics).write_text(json.dumps(meta, indent=2))
     print(out.to_string(index=False)); print(json.dumps(meta, indent=2))
 
