@@ -5,6 +5,12 @@ import pandas as pd
 from .selection import playable_price_card
 
 
+FALLBACK_BASIS_TAGS = (
+    "limited_history_fallback",
+    "rookie_projection_fallback",
+)
+
+
 def add_shadow_risk_flags(df: pd.DataFrame) -> pd.DataFrame:
     """Tag known high-uncertainty cohorts without changing official v0.1 selection.
 
@@ -18,9 +24,10 @@ def add_shadow_risk_flags(df: pd.DataFrame) -> pd.DataFrame:
     out["shadow_eligible"] = True
 
     if "model_basis" in out.columns:
-        limited = out["model_basis"].fillna("").astype(str).str.contains(
-            "limited_history_fallback", case=False, regex=False
-        )
+        basis = out["model_basis"].fillna("").astype(str).str.casefold()
+        limited = pd.Series(False, index=out.index)
+        for tag in FALLBACK_BASIS_TAGS:
+            limited |= basis.str.contains(tag.casefold(), regex=False)
         out.loc[limited, "shadow_risk_flag"] = "LIMITED_HISTORY_QUARANTINE"
         out.loc[limited, "shadow_eligible"] = False
 
@@ -44,8 +51,8 @@ def playable_price_shadow_v0_2(
     """Shadow challenger for Playable Price selection.
 
     First applies the exact official price gate, then withholds two cohorts under
-    targeted review: limited-history fallback and sub-25% anytime-goal candidates.
-    This challenger must be tracked prospectively before any promotion.
+    targeted review: tagged limited-history/rookie fallback and sub-25% anytime-goal
+    candidates. This challenger must be tracked prospectively before any promotion.
     """
     official = playable_price_card(
         df,
