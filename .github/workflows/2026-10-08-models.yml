@@ -1,0 +1,76 @@
+name: Oct 8 Full Model Slate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-10-08-models.yml'
+  workflow_dispatch:
+
+jobs:
+  skaters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Score full Oct 8 skater slate
+        run: |
+          python scripts/run_skater_transition_slate.py \
+            --games data/manual/2026-10-08_games.csv \
+            --predictions data/model_runs/2026-10-08_skater_predictions.csv \
+            --metrics data/model_runs/2026-10-08_skater_model_validation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skater-transition-2026-10-08
+          retention-days: 14
+          path: |
+            data/model_runs/2026-10-08_skater_predictions.csv
+            data/model_runs/2026-10-08_skater_model_validation.json
+
+  goalies-and-teams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build historical goalie and team-game features
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-10-08 \
+            --output data/processed/goalie_features.parquet \
+            --team-games data/processed/team_games.parquet \
+            --max-workers 12
+      - name: Run goalie v0.1 and v0.2 shadow
+        run: |
+          python scripts/run_goalie_board.py \
+            --features data/processed/goalie_features.parquet \
+            --team-games data/processed/team_games.parquet \
+            --odds data/odds/2026-10-08_goalie_saves_FanDuel.csv \
+            --target-date 2026-10-08 \
+            --predictions data/model_runs/2026-10-08_goalie_predictions.csv \
+            --metrics data/model_runs/2026-10-08_goalie_model_validation.json
+      - name: Run team-goal hybrid v0.1
+        run: |
+          python scripts/run_team_goal_board.py \
+            --team-games data/processed/team_games.parquet \
+            --board data/manual/2026-10-08_games.csv \
+            --target-date 2026-10-08 \
+            --predictions data/model_runs/2026-10-08_team_predictions.csv \
+            --metrics data/model_runs/2026-10-08_team_model_meta.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goalie-team-2026-10-08
+          retention-days: 14
+          path: |
+            data/model_runs/2026-10-08_goalie_predictions.csv
+            data/model_runs/2026-10-08_goalie_model_validation.json
+            data/model_runs/2026-10-08_team_predictions.csv
+            data/model_runs/2026-10-08_team_model_meta.json
