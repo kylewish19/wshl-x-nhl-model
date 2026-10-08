@@ -1,0 +1,30 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-08,1,DAL@BUF,anytime_goal,Justin Danforth,0.500000,0.171665,1200,0.076923,0.094742,1.231641,limited_history_fallback_reconstruction,LATE_LOCK
+2026-10-08,2,TOR@VGK,anytime_goal,Teddy Blueger,0.500000,0.148483,1100,0.083333,0.065149,0.781793,transition_ml_anchor,LATE_LOCK
+2026-10-08,3,UTA@BOS,anytime_goal,James Hagens,0.500000,0.261854,480,0.172414,0.089440,0.518752,limited_history_fallback_reconstruction,LATE_LOCK
+2026-10-08,4,COL@CGY,anytime_goal,Aydar Suniev,0.500000,0.163981,800,0.111111,0.052870,0.475833,limited_history_fallback_reconstruction,LATE_LOCK
+2026-10-08,5,VAN@CAR,moneyline,VAN,,0.360825,290,0.256410,0.104415,0.407217,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,6,TOR@VGK,goalie_saves,Sergei Bobrovsky Under,26.500000,0.745805,-114,0.532710,0.213095,0.400020,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,7,COL@CGY,goalie_saves,Devin Cooley Under,28.500000,0.747762,-120,0.545455,0.202308,0.370897,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,8,MIN@TBL,goalie_saves,Dennis Hildeby Over,23.500000,0.737122,-125,0.555556,0.181566,0.326820,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,9,SJS@STL,goalie_saves,Joel Hofer Over,22.500000,0.658403,-102,0.504950,0.153453,0.303897,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,10,VAN@CAR,goalie_saves,Pyotr Kochetkov Over,19.500000,0.693935,-114,0.532710,0.161225,0.302650,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,11,VAN@CAR,goalie_saves,Kevin Lankinen Under,27.500000,0.663173,-108,0.519231,0.143942,0.277222,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,12,VAN@CAR,spread,VAN,1.500000,0.590650,116,0.462963,0.127687,0.275804,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,13,DAL@BUF,goalie_saves,Ukko-Pekka Luukkonen Over,21.500000,0.675671,-130,0.565217,0.110454,0.195418,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,14,CHI@NYI,goalie_saves,Ilya Sorokin Over,22.500000,0.665468,-128,0.561404,0.104065,0.185366,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,15,COL@CGY,goalie_saves,Scott Wedgewood Over,21.500000,0.626760,-114,0.532710,0.094050,0.176550,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,16,TOR@VGK,anytime_assist,Darren Raddysh,0.500000,0.446740,152,0.396825,0.049914,0.125784,transition_ml_anchor,LATE_LOCK
+2026-10-08,17,PHI@OTT,point_1plus,Christian Dvorak,1.000000,0.419804,168,0.373134,0.046669,0.125074,transition_ml_anchor,LATE_LOCK
+2026-10-08,18,TOR@VGK,point_1plus,Darren Raddysh,1.000000,0.545936,106,0.485437,0.060499,0.124628,transition_ml_anchor,LATE_LOCK
+2026-10-08,19,UTA@BOS,goalie_saves,Sebastian Cossa Over,23.500000,0.557589,-102,0.504950,0.052639,0.104245,goalie_transition_fallback_no_2025_26,LATE_LOCK
+2026-10-08,20,CHI@NYI,total,Under,5.500000,0.557150,-102,0.504950,0.052200,0.103375,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,21,TOR@VGK,total,Under,6.500000,0.556750,-104,0.509804,0.046946,0.092087,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,22,PHI@OTT,goalie_saves,Linus Ullmark Over,22.500000,0.545942,-102,0.504950,0.040992,0.081180,goalie_transition_ml_reconstructed,LATE_LOCK
+2026-10-08,23,MIN@TBL,anytime_assist,Quinn Hughes,0.500000,0.654185,-154,0.606299,0.047886,0.078981,transition_ml_anchor,LATE_LOCK
+2026-10-08,24,NSH@MTL,moneyline,NSH,,0.463625,132,0.431034,0.032591,0.075610,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,25,COL@CGY,total,Under,6.500000,0.599650,-128,0.561404,0.038246,0.068127,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,26,PHI@OTT,total,Over,5.500000,0.570550,-115,0.534884,0.035666,0.066680,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,27,MIN@TBL,total,Under,6.500000,0.598000,-128,0.561404,0.036596,0.065187,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,28,NSH@MTL,spread,NSH,1.500000,0.694700,-188,0.652778,0.041922,0.064221,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
+2026-10-08,29,DAL@BUF,total,Under,6.500000,0.603400,-134,0.572650,0.030750,0.053699,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK
