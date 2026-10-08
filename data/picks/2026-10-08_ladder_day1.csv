@@ -1,0 +1,2 @@
+date,challenge_id,day,game,market,selection,line,model_probability,odds_american,model_basis,lock_time_et,status
+2026-10-08,2026-10-C,1,COL@CGY,goalie_saves,Devin Cooley Under,28.5,0.747762,-120,goalie_transition_ml_reconstructed,19:10:59,LOCKED_PREGAME
