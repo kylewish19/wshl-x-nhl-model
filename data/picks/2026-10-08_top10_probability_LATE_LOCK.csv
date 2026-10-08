@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,model_basis,odds_used,status
+2026-10-08,1,COL@CGY,point_1plus,Nathan MacKinnon,1.0,0.855473,transition_ml_anchor,false,LATE_LOCK
+2026-10-08,2,MIN@TBL,point_1plus,Nikita Kucherov,1.0,0.815742,transition_ml_anchor,false,LATE_LOCK
+2026-10-08,3,UTA@BOS,point_1plus,David Pastrnak,1.0,0.766285,transition_ml_anchor,false,LATE_LOCK
+2026-10-08,4,TOR@VGK,point_1plus,Jack Eichel,1.0,0.760826,transition_ml_anchor,false,LATE_LOCK
+2026-10-08,5,COL@CGY,goalie_saves,Devin Cooley Under,28.5,0.747762,goalie_transition_ml_reconstructed,false,LATE_LOCK
+2026-10-08,6,TOR@VGK,goalie_saves,Sergei Bobrovsky Under,26.5,0.745805,goalie_transition_ml_reconstructed,false,LATE_LOCK
+2026-10-08,7,DAL@BUF,spread,BUF,1.5,0.741550,team_goal_hybrid_v0.1_reconstruction,false,LATE_LOCK
+2026-10-08,8,MIN@TBL,goalie_saves,Dennis Hildeby Over,23.5,0.737122,goalie_transition_ml_reconstructed,false,LATE_LOCK
+2026-10-08,9,MIN@TBL,point_1plus,Kirill Kaprizov,1.0,0.730911,transition_ml_anchor,false,LATE_LOCK
+2026-10-08,10,DAL@BUF,point_1plus,Jason Robertson,1.0,0.729925,transition_ml_anchor,false,LATE_LOCK
