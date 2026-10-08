@@ -1,0 +1,4 @@
+date,cohort,wins,losses,hit_rate,expected_wins,brier,profit_units,roi,notes
+2026-10-06,PLAYABLE_SHADOW_FILTERED,6,10,0.3750,9.5130,0.2613,-5.4475,-0.3405,"Excluded Xhekaj ATG, Danforth ATG, Blueger ATG and Victor Eklund 1+ point from the official 20-play card; all four exclusions lost."
+2026-10-06,GOALIE_V0_1_DIRECTION,7,10,0.4118,,0.2896,,,"Directional grading on all 17 supplied goalie save lines using over probability >=0.5; expected-saves MAE 5.0304 using NHL.com-reported Knight 25 saves."
+2026-10-06,GOALIE_V0_2_SHADOW_DIRECTION,10,7,0.5882,,0.2584,,,"Shadow-only directional grading on all 17 supplied goalie save lines; expected-saves MAE 4.6416. v0.2 remains unpromoted."
