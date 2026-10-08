@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-08",
+  "status": "LATE_LOCK",
+  "official_probability_model": "v0.1.0",
+  "workflow_run_id": 37856914532,
+  "workflow_head_sha": "8548cb8af635dee096feb09e6b340cfd3b634c51",
+  "workflow_started_utc": "2026-10-08T23:00:11Z",
+  "scheduled_first_puck_et": "19:00:00",
+  "reason": "The full model workflow began seconds after the first scheduled 7:00 PM ET puck drop. No live scores, outcomes, in-game odds, or same-day game results were used, but the full slate is conservatively excluded from the clean prospective record.",
+  "pregame_feature_safety": {
+    "team_and_goalie_target_date": "2026-10-08",
+    "team_and_goalie_rows_exclude_target_date_games": true,
+    "veteran_skater_transition_anchor_uses_prior_season": true,
+    "fallback_skater_rows_are_not_trusted_for_clean_executable_evidence": true
+  },
+  "top10": {
+    "count": 10,
+    "expected_wins": 7.631402,
+    "file": "data/picks/2026-10-08_top10_probability_LATE_LOCK.csv"
+  },
+  "official_playable": {
+    "count": 29,
+    "file": "data/picks/2026-10-08_playable_price_LATE_LOCK.csv"
+  },
+  "playable_shadow_v0_3": {
+    "count": 8,
+    "status": "LATE_LOCK_SHADOW_ONLY",
+    "counts_toward_promotion_sample": false,
+    "file": "data/picks/2026-10-08_playable_shadow_v0.3_LATE_LOCK.csv"
+  },
+  "goalie_shadow_v0_2": {
+    "status": "SHADOW_ONLY",
+    "rows_compared": 19,
+    "notes": "Tracked against v0.1; no promotion from this slate."
+  },
+  "ladder": {
+    "challenge_id": "2026-10-C",
+    "day": 1,
+    "selection": "Devin Cooley Under 28.5 saves",
+    "odds_american": -120,
+    "model_probability": 0.747762,
+    "lock_time_et": "19:10:59",
+    "status": "LOCKED_PREGAME",
+    "note": "COL-CGY was scheduled for 9:00 PM ET, so the separate ladder ticket was locked before its own game despite the full-slate late-lock designation."
+  }
+}
