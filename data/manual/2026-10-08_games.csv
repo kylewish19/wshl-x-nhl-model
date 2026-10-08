@@ -1,0 +1,11 @@
+game,away,home,total_line,away_spread,home_spread,away_context_adjustment,home_context_adjustment
+PHI@OTT,PHI,OTT,5.5,1.5,-1.5,0.05,-0.05
+MIN@TBL,MIN,TBL,6.5,1.5,-1.5,0.00,0.10
+DAL@BUF,DAL,BUF,6.5,-1.5,1.5,-0.05,-0.05
+NSH@MTL,NSH,MTL,6.5,1.5,-1.5,0.00,-0.15
+VAN@CAR,VAN,CAR,6.5,1.5,-1.5,-0.10,0.10
+UTA@BOS,UTA,BOS,5.5,-1.5,1.5,0.10,0.00
+CHI@NYI,CHI,NYI,5.5,1.5,-1.5,-0.35,-0.20
+SJS@STL,SJS,STL,5.5,1.5,-1.5,-0.25,0.00
+COL@CGY,COL,CGY,6.5,-1.5,1.5,-0.05,-0.15
+TOR@VGK,TOR,VGK,6.5,1.5,-1.5,-0.05,-0.05
