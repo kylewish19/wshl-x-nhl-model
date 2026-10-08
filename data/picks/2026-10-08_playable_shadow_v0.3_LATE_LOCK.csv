@@ -1,0 +1,9 @@
+date,rank,game,market,selection,line,model_probability,market_reliability_factor,calibrated_probability,odds_american,implied_probability,calibrated_edge,calibrated_expected_roi,model_basis,status
+2026-10-08,1,VAN@CAR,spread,VAN,1.500000,0.590650,0.943357,0.557194,116,0.462963,0.094231,0.203538,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,2,CHI@NYI,total,Under,5.500000,0.557150,1.000000,0.557150,-102,0.504950,0.052200,0.103375,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,3,TOR@VGK,total,Under,6.500000,0.556750,1.000000,0.556750,-104,0.509804,0.046946,0.092087,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,4,NSH@MTL,moneyline,NSH,,0.463625,1.000000,0.463625,132,0.431034,0.032591,0.075610,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,5,COL@CGY,total,Under,6.500000,0.599650,1.000000,0.599650,-128,0.561404,0.038246,0.068127,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,6,PHI@OTT,total,Over,5.500000,0.570550,1.000000,0.570550,-115,0.534884,0.035666,0.066680,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,7,MIN@TBL,total,Under,6.500000,0.598000,1.000000,0.598000,-128,0.561404,0.036596,0.065187,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
+2026-10-08,8,DAL@BUF,total,Under,6.500000,0.603400,1.000000,0.603400,-134,0.572650,0.030750,0.053699,team_goal_hybrid_v0.1_reconstruction,LATE_LOCK_SHADOW_V0_3
