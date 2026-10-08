@@ -1,0 +1,21 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-06,1,CAR@MTL,anytime_goal,Arber Xhekaj,0.5,0.103351,2200,LOSS,0 goals,-1.0000
+2026-10-06,2,MIN@BUF,anytime_goal,Justin Danforth,0.5,0.169050,900,LOSS,0 goals,-1.0000
+2026-10-06,3,NSH@TOR,anytime_goal,Teddy Blueger,0.5,0.152772,900,LOSS,0 goals,-1.0000
+2026-10-06,4,CAR@MTL,goalie_saves,Jakub Dobes Under,26.5,0.679412,-102,LOSS,28 saves,-1.0000
+2026-10-06,5,UTA@NJD,goalie_saves,Karel Vejmelka Under,25.5,0.646741,-102,LOSS,30 saves,-1.0000
+2026-10-06,6,UTA@NJD,point_2plus,Jack Hughes,2,0.443206,176,LOSS,1 point,-1.0000
+2026-10-06,7,STL@CHI,goalie_saves,Spencer Knight Over,22.5,0.693543,-132,WIN,25 saves,0.7576
+2026-10-06,8,FLA@LAK,anytime_goal,Brad Marchand,0.5,0.300465,300,LOSS,0 goals,-1.0000
+2026-10-06,9,STL@CHI,goalie_saves,Joel Hofer Over,22.5,0.658403,-128,LOSS,17 saves,-1.0000
+2026-10-06,10,NYI@NYR,goalie_saves,Igor Shesterkin Over,23.5,0.579153,-102,LOSS,17 saves,-1.0000
+2026-10-06,11,FLA@LAK,goalie_saves,Jacob Markstrom Over,22.5,0.595249,-110,LOSS,19 saves,-1.0000
+2026-10-06,12,FLA@LAK,point_1plus,Brad Marchand,1,0.579170,-104,LOSS,0 points,-1.0000
+2026-10-06,13,UTA@NJD,goalie_saves,Jake Allen Over,23.5,0.569143,-102,WIN,27 saves,0.9804
+2026-10-06,14,NSH@TOR,goalie_saves,Anthony Stolarz Over,23.5,0.622899,-128,LOSS,21 saves,-1.0000
+2026-10-06,15,NYI@NYR,point_1plus,Victor Eklund,1,0.445764,148,LOSS,0 points,-1.0000
+2026-10-06,16,MIN@BUF,goalie_saves,Jesper Wallstedt Over,24.5,0.580255,-112,WIN,25 saves,0.8929
+2026-10-06,17,FLA@LAK,goalie_saves,Darcy Kuemper Under,24.5,0.585748,-118,LOSS,26 saves,-1.0000
+2026-10-06,18,STL@CHI,total,Over,5.5,0.588750,-122,WIN,6 total goals,0.8197
+2026-10-06,19,UTA@NJD,point_1plus,Jack Hughes,1,0.777557,-265,WIN,1 assist / 1 point,0.3774
+2026-10-06,20,NSH@TOR,total,Over,5.5,0.613350,-138,WIN,9 total goals,0.7246
