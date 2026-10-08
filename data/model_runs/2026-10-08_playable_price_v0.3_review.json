@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-08",
+  "experiment": "PLAYABLE_PRICE_SHADOW_V0_3",
+  "status": "SHADOW_ONLY",
+  "official_probability_model": "v0.1.0",
+  "official_playable_control_unchanged": true,
+  "top10_unchanged": true,
+  "evidence_through": "2026-10-06",
+  "clean_top10": {
+    "wins": 37,
+    "losses": 22,
+    "hit_rate": 0.6271,
+    "brier": 0.2321
+  },
+  "clean_official_playable": {
+    "wins": 31,
+    "losses": 61,
+    "hit_rate": 0.3370,
+    "profit_units": -30.5785,
+    "roi": -0.3324,
+    "brier": 0.2364
+  },
+  "oct_6_shadow_v0_2": {
+    "wins": 6,
+    "losses": 10,
+    "profit_units": -5.4475,
+    "roi": -0.3405,
+    "note": "Four official plays were withheld and all four lost; useful prospective evidence but not sufficient for promotion."
+  },
+  "v0_3_rules": {
+    "one_sided_market_reliability_haircut": true,
+    "reliability_prior_weight": 20.0,
+    "minimum_market_history": 5,
+    "minimum_reliability_factor": 0.65,
+    "strictly_prior_clean_history_only": true,
+    "limited_history_quarantine": true,
+    "anytime_goal_quarantine": true,
+    "market_probability_floors": {
+      "moneyline": 0.0,
+      "spread": 0.55,
+      "total": 0.55,
+      "anytime_assist": 0.50,
+      "goalie_saves": 0.58,
+      "point_1plus": 0.55,
+      "point_2plus": 0.45
+    },
+    "official_edge_thresholds_retained": true,
+    "minimum_expected_roi": 0.05,
+    "correlation_exposure_gate": "one primary shadow wager per substantially correlated player/team/goalie cluster",
+    "cluster_priority": ["calibrated_probability", "calibrated_expected_roi"]
+  },
+  "promotion_rule": {
+    "minimum_new_clean_independent_decisions": 20,
+    "preferred_range": "20-30+",
+    "must_improve_prospective_brier_or_calibration": true,
+    "must_improve_flat_stake_roi": true,
+    "must_not_materially_harm_stronger_markets": true
+  },
+  "notes": [
+    "No historical locked picks are rewritten.",
+    "No post-hoc v0.3 backtest counts as promotion evidence.",
+    "Goalie v0.2 remains a separate shadow and is not promoted by this experiment."
+  ]
+}
