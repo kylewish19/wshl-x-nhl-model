@@ -1,0 +1,64 @@
+version: playable_price_shadow_v0.3
+status: SHADOW_ONLY
+official_influence: false
+raw_probability_model: v0.1.0
+
+reliability_haircut:
+  description: >-
+    One-sided market-level shrinkage using only clean settled Official Playable
+    observations strictly before the target slate. Historical Playable rows are a
+    selected sample, so the haircut may reduce raw probability but never increase it.
+  prior_weight: 20.0
+  minimum_history_rows: 5
+  minimum_reliability_factor: 0.65
+  exclude_late_lock: true
+  exclude_same_day_results: true
+
+probability_floors:
+  moneyline: 0.00
+  spread: 0.55
+  total: 0.55
+  anytime_goal: 1.01
+  anytime_assist: 0.50
+  goalie_saves: 0.58
+  point_1plus: 0.55
+  point_2plus: 0.45
+
+quarantines:
+  anytime_goal: true
+  model_basis_tags:
+    - limited_history_fallback
+    - rookie_projection_fallback
+
+price_gate:
+  minimum_expected_roi: 0.05
+  minimum_edge:
+    moneyline: 0.03
+    spread: 0.03
+    total: 0.03
+    anytime_goal: 0.05
+    anytime_assist: 0.04
+    goalie_saves: 0.04
+    point_1plus: 0.04
+    point_2plus: 0.05
+  probability_used: calibrated_probability
+
+exposure_gate:
+  description: One executable shadow wager per substantially correlated result cluster.
+  skater_cluster: same game plus same player across goal/assist/1+ point/2+ point
+  goalie_cluster: same game plus same goalie
+  team_side_cluster: same game plus same team across moneyline/spread
+  total_cluster: game plus total line
+  cluster_priority:
+    - calibrated_probability_desc
+    - calibrated_expected_roi_desc
+
+promotion_review:
+  minimum_new_clean_independent_decisions: 20
+  preferred_review_range: 20-30+
+  requirements:
+    - better prospective Brier/calibration than the official Playable control
+    - better flat-stake ROI than the official Playable control
+    - no material degradation in stronger markets
+    - same-player correlated clusters count as one independent diagnostic cluster
+  note: No historical or post-hoc result can by itself promote this shadow.
