@@ -1,0 +1,7 @@
+game,market,selection,line,model_probability,model_basis
+NYR@WSH,moneyline,NYR,,0.501575,team_goal_hybrid_v0.1_reconstruction
+NYR@WSH,moneyline,WSH,,0.498425,team_goal_hybrid_v0.1_reconstruction
+NYR@WSH,spread,NYR,1.5,0.737000,team_goal_hybrid_v0.1_reconstruction
+NYR@WSH,spread,WSH,-1.5,0.263000,team_goal_hybrid_v0.1_reconstruction
+NYR@WSH,total,Over,5.5,0.550650,team_goal_hybrid_v0.1_reconstruction
+NYR@WSH,total,Under,5.5,0.449350,team_goal_hybrid_v0.1_reconstruction
