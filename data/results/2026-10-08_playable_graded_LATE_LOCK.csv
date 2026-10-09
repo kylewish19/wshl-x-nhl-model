@@ -1,0 +1,30 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-08,1,DAL@BUF,anytime_goal,Justin Danforth,0.5,0.171665,1200,LOSS,0 goals,-1.0000
+2026-10-08,2,TOR@VGK,anytime_goal,Teddy Blueger,0.5,0.148483,1100,LOSS,0 goals,-1.0000
+2026-10-08,3,UTA@BOS,anytime_goal,James Hagens,0.5,0.261854,480,LOSS,0 goals,-1.0000
+2026-10-08,4,COL@CGY,anytime_goal,Aydar Suniev,0.5,0.163981,800,LOSS,0 goals,-1.0000
+2026-10-08,5,VAN@CAR,moneyline,VAN,,0.360825,290,LOSS,CAR won 7-2,-1.0000
+2026-10-08,6,TOR@VGK,goalie_saves,Sergei Bobrovsky Under,26.5,0.745805,-114,LOSS,40 saves,-1.0000
+2026-10-08,7,COL@CGY,goalie_saves,Devin Cooley Under,28.5,0.747762,-120,WIN,23 saves,0.8333
+2026-10-08,8,MIN@TBL,goalie_saves,Dennis Hildeby Over,23.5,0.737122,-125,WIN,34 saves,0.8000
+2026-10-08,9,SJS@STL,goalie_saves,Joel Hofer Over,22.5,0.658403,-102,WIN,24 saves,0.9804
+2026-10-08,10,VAN@CAR,goalie_saves,Pyotr Kochetkov Over,19.5,0.693935,-114,LOSS,18 saves,-1.0000
+2026-10-08,11,VAN@CAR,goalie_saves,Kevin Lankinen Under,27.5,0.663173,-108,WIN,12 saves (relieved after 2 periods),0.9259
+2026-10-08,12,VAN@CAR,spread,VAN,1.5,0.590650,116,LOSS,CAR won 7-2,-1.0000
+2026-10-08,13,DAL@BUF,goalie_saves,Ukko-Pekka Luukkonen Over,21.5,0.675671,-130,LOSS,14 saves,-1.0000
+2026-10-08,14,CHI@NYI,goalie_saves,Ilya Sorokin Over,22.5,0.665468,-128,LOSS,22 saves,-1.0000
+2026-10-08,15,COL@CGY,goalie_saves,Scott Wedgewood Over,21.5,0.626760,-114,WIN,26 saves,0.8772
+2026-10-08,16,TOR@VGK,anytime_assist,Darren Raddysh,0.5,0.446740,152,WIN,1 assist,1.5200
+2026-10-08,17,PHI@OTT,point_1plus,Christian Dvorak,1,0.419804,168,LOSS,0 points,-1.0000
+2026-10-08,18,TOR@VGK,point_1plus,Darren Raddysh,1,0.545936,106,WIN,1 assist / 1 point,1.0600
+2026-10-08,19,UTA@BOS,goalie_saves,Sebastian Cossa Over,23.5,0.557589,-102,LOSS,5 saves,-1.0000
+2026-10-08,20,CHI@NYI,total,Under,5.5,0.557150,-102,WIN,5 total goals,0.9804
+2026-10-08,21,TOR@VGK,total,Under,6.5,0.556750,-104,LOSS,7 total goals,-1.0000
+2026-10-08,22,PHI@OTT,goalie_saves,Linus Ullmark Over,22.5,0.545942,-102,WIN,28 saves,0.9804
+2026-10-08,23,MIN@TBL,anytime_assist,Quinn Hughes,0.5,0.654185,-154,WIN,1 assist,0.6494
+2026-10-08,24,NSH@MTL,moneyline,NSH,,0.463625,132,WIN,NSH won 5-2,1.3200
+2026-10-08,25,COL@CGY,total,Under,6.5,0.599650,-128,LOSS,10 total goals,-1.0000
+2026-10-08,26,PHI@OTT,total,Over,5.5,0.570550,-115,LOSS,3 total goals,-1.0000
+2026-10-08,27,MIN@TBL,total,Under,6.5,0.598000,-128,WIN,5 total goals,0.7812
+2026-10-08,28,NSH@MTL,spread,NSH,1.5,0.694700,-188,WIN,NSH won 5-2,0.5319
+2026-10-08,29,DAL@BUF,total,Under,6.5,0.603400,-134,WIN,4 total goals,0.7463
