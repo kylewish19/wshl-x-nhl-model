@@ -1,0 +1,9 @@
+date,rank,game,market,selection,line,model_probability,market_reliability_factor,calibrated_probability,odds_american,result,actual,profit_units
+2026-10-08,1,VAN@CAR,spread,VAN,1.5,0.590650,0.943357,0.557194,116,LOSS,CAR won 7-2,-1.0000
+2026-10-08,2,CHI@NYI,total,Under,5.5,0.557150,1.000000,0.557150,-102,WIN,5 total goals,0.9804
+2026-10-08,3,TOR@VGK,total,Under,6.5,0.556750,1.000000,0.556750,-104,LOSS,7 total goals,-1.0000
+2026-10-08,4,NSH@MTL,moneyline,NSH,,0.463625,1.000000,0.463625,132,WIN,NSH won 5-2,1.3200
+2026-10-08,5,COL@CGY,total,Under,6.5,0.599650,1.000000,0.599650,-128,LOSS,10 total goals,-1.0000
+2026-10-08,6,PHI@OTT,total,Over,5.5,0.570550,1.000000,0.570550,-115,LOSS,3 total goals,-1.0000
+2026-10-08,7,MIN@TBL,total,Under,6.5,0.598000,1.000000,0.598000,-128,WIN,5 total goals,0.7812
+2026-10-08,8,DAL@BUF,total,Under,6.5,0.603400,1.000000,0.603400,-134,WIN,4 total goals,0.7463
