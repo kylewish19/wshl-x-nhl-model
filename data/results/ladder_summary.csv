@@ -2,3 +2,4 @@ challenge_id,day_number,date,ticket_type,legs,final_odds_american,model_ticket_p
 2026-10-A,1,2026-10-04,STRAIGHT,"Vancouver Canucks +1.5 vs VGK",-108,0.6289,-169,WIN,,,"Vancouver lost 3-2, so +1.5 covered. Highest model-probability eligible ticket within -120 to +100 using the supplied FanDuel board; separate from Top 10 and Playable Price cohorts."
 2026-10-A,2,2026-10-05,STRAIGHT,"OTT@BOS Over 5.5",-115,0.600225,-150,LOSS,,,"Ottawa won 4-1 for exactly 5 total goals, so Over 5.5 lost. Challenge 2026-10-A ended on Day 2."
 2026-10-B,1,2026-10-06,STRAIGHT,"Jakub Dobes Under 26.5 saves vs CAR",-102,0.679412,-212,LOSS,,,"Dobes made 28 saves, so Under 26.5 lost. Challenge 2026-10-B ended on Day 1."
+2026-10-C,1,2026-10-08,STRAIGHT,"Devin Cooley Under 28.5 saves vs COL",-120,0.747762,-296,WIN,,,"Cooley made 23 saves in Calgary's 7-3 loss; Under 28.5 won. Ticket locked pregame for the 9:00 PM ET game even though the full slate was LATE_LOCK."
