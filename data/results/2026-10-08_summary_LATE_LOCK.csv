@@ -1,0 +1,4 @@
+date,cohort,wins,losses,hit_rate,expected_wins,brier,profit_units,roi,clean_record_eligible
+2026-10-08,TOP10_PROBABILITY_LATE_LOCK,8,2,0.8000,7.6314,0.1551,,,false
+2026-10-08,PLAYABLE_PRICE_LATE_LOCK,14,15,0.4828,15.7256,0.2166,-2.0136,-0.0694,false
+2026-10-08,PLAYABLE_PRICE_SHADOW_V0_3_LATE_LOCK,4,4,0.5000,4.5063,0.2635,-0.1721,-0.0215,false
