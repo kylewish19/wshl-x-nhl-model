@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,result,actual
+2026-10-08,1,COL@CGY,point_1plus,Nathan MacKinnon,1,0.855473,WIN,1 goal + 2 assists / 3 points
+2026-10-08,2,MIN@TBL,point_1plus,Nikita Kucherov,1,0.815742,WIN,2 assists / 2 points
+2026-10-08,3,UTA@BOS,point_1plus,David Pastrnak,1,0.766285,WIN,2 goals + 2 assists / 4 points
+2026-10-08,4,TOR@VGK,point_1plus,Jack Eichel,1,0.760826,WIN,1 goal + 1 assist / 2 points
+2026-10-08,5,COL@CGY,goalie_saves,Devin Cooley Under,28.5,0.747762,WIN,23 saves
+2026-10-08,6,TOR@VGK,goalie_saves,Sergei Bobrovsky Under,26.5,0.745805,LOSS,40 saves
+2026-10-08,7,DAL@BUF,spread,BUF,+1.5,0.741550,LOSS,DAL won 4-0
+2026-10-08,8,MIN@TBL,goalie_saves,Dennis Hildeby Over,23.5,0.737122,WIN,34 saves
+2026-10-08,9,MIN@TBL,point_1plus,Kirill Kaprizov,1,0.730911,WIN,1 assist / 1 point
+2026-10-08,10,DAL@BUF,point_1plus,Jason Robertson,1,0.729925,WIN,1 goal / 1 point
