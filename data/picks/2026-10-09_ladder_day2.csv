@@ -1,0 +1,2 @@
+challenge_id,day_number,date,ticket_type,legs,final_odds_american,model_ticket_probability,model_fair_odds,status,notes
+2026-10-C,2,2026-10-09,STRAIGHT,"Logan Thompson Over 22.5 saves vs NYR",-104,0.635474,-174,LOCKED,"Highest official-model probability among supplied straight-bet candidates within the ladder price band -120 through +100. Goalie v0.2 shadow also prefers Over (52.19%), though with much lower confidence."
