@@ -1,0 +1,2 @@
+date,rank,game,market,selection,line,model_probability,market_reliability_factor,calibrated_probability,odds_american,implied_probability,calibrated_edge,calibrated_expected_roi,model_basis,status
+2026-10-09,1,NYR@WSH,moneyline,NYR,,0.501575,1.000000,0.501575,118,0.458716,0.042859,0.093433,team_goal_hybrid_v0.1_reconstruction,SHADOW_V0_3_LOCKED
