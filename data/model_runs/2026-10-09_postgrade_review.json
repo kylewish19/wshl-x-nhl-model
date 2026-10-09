@@ -1,0 +1,62 @@
+{
+  "graded_date": "2026-10-08",
+  "review_date": "2026-10-09",
+  "slate_status": "LATE_LOCK",
+  "counts_toward_clean_record": false,
+  "official_model": "v0.1.0",
+  "top10": {
+    "wins": 8,
+    "losses": 2,
+    "hit_rate": 0.8,
+    "expected_wins": 7.6314,
+    "brier": 0.1551
+  },
+  "official_playable": {
+    "wins": 14,
+    "losses": 15,
+    "hit_rate": 0.4828,
+    "expected_wins": 15.7256,
+    "brier": 0.2166,
+    "profit_units": -2.0136,
+    "roi": -0.0694,
+    "anytime_goal": {"wins": 0, "losses": 4, "profit_units": -4.0},
+    "goalie_saves": {"wins": 6, "losses": 5, "profit_units": 0.3972}
+  },
+  "playable_shadow_v0_3": {
+    "status": "SHADOW_ONLY_LATE_LOCK",
+    "counts_toward_promotion_sample": false,
+    "wins": 4,
+    "losses": 4,
+    "expected_wins_calibrated": 4.5063,
+    "brier": 0.2635,
+    "profit_units": -0.1721,
+    "roi": -0.0215,
+    "note": "Avoided all four official anytime-goal losses but had worse selected-subset Brier; no promotion inference from late-lock slate."
+  },
+  "goalie_comparison": {
+    "matched_props": 19,
+    "v0_1": {"wins": 12, "losses": 7, "brier": 0.2546, "expected_saves_mae": 6.5225},
+    "v0_2": {"wins": 11, "losses": 8, "brier": 0.2570, "expected_saves_mae": 6.7184},
+    "decision": "KEEP_V0_2_SHADOW_ONLY"
+  },
+  "ladder": {
+    "challenge_id": "2026-10-C",
+    "day": 1,
+    "pick": "Devin Cooley Under 28.5 saves",
+    "odds": -120,
+    "actual_saves": 23,
+    "result": "WIN",
+    "advance_to_day": 2
+  },
+  "clean_cumulative_unchanged": {
+    "top10": {"wins": 37, "losses": 22, "hit_rate": 0.6271},
+    "playable": {"wins": 31, "losses": 61, "hit_rate": 0.3370, "profit_units": -30.5785, "roi": -0.3324}
+  },
+  "actions": [
+    "Keep official v0.1.0 unchanged.",
+    "Keep Playable Price v0.3 shadow-only and ATG quarantine active.",
+    "Do not count Oct. 8 toward v0.3 promotion sample.",
+    "Keep goalie v0.2 shadow-only and continue matched clean prospective tracking.",
+    "Preserve pre-first-puck lock requirement for clean full-slate records."
+  ]
+}
