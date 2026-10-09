@@ -1,0 +1,5 @@
+date,rank,game,market,selection,line,model_probability,odds_american,implied_probability,edge,expected_roi,model_basis,status
+2026-10-09,1,NYR@WSH,goalie_saves,Logan Thompson Over,22.5,0.635474,-104,0.509804,0.125670,0.246506,goalie_transition_ml_reconstructed,LOCKED
+2026-10-09,2,NYR@WSH,goalie_saves,Igor Shesterkin Under,26.5,0.655839,-132,0.568966,0.086873,0.152686,goalie_transition_ml_reconstructed,LOCKED
+2026-10-09,3,NYR@WSH,moneyline,NYR,,0.501575,118,0.458716,0.042859,0.093433,team_goal_hybrid_v0.1_reconstruction,LOCKED
+2026-10-09,4,NYR@WSH,spread,NYR,1.5,0.737000,-215,0.682540,0.054460,0.079791,team_goal_hybrid_v0.1_reconstruction,LOCKED
