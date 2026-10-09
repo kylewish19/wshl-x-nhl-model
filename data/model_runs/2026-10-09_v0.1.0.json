@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-09",
+  "lock_timestamp_et": "2026-10-09T17:07:23-04:00",
+  "lock_type": "CLEAN_PREGAME",
+  "game": "NYR@WSH",
+  "scheduled_puck_et": "2026-10-09T19:00:00-04:00",
+  "official_model_version": "v0.1.0",
+  "probability_stage_odds_blind": true,
+  "workflow_run_id": 37990637607,
+  "workflow_head_sha": "ed801fd4c87959e4416038c706703cd122429f72",
+  "artifacts": {
+    "skater_transition": 11644283564,
+    "goalie_team": 11644249332
+  },
+  "current_context": {
+    "rangers_record": "4-1-0",
+    "capitals_record": "2-1-0",
+    "rangers_injured": ["Joonas Korpisalo (lower body)", "Joseph Veleno (lower body)"],
+    "capitals_injured": ["Rasmus Sandin (knee)", "Matt Roy (lower body)"],
+    "goalies_on_fanduel_board": ["Igor Shesterkin", "Logan Thompson"],
+    "away_context_adjustment_goals": 0.10,
+    "home_context_adjustment_goals": 0.00,
+    "context_note": "NYR +0.10 scoring-context adjustment reflects Washington missing two regular defensemen (Sandin/Roy); current-season game results are already included through Oct. 8 and were not double-counted as form adjustments."
+  },
+  "team_goal_means": {
+    "NYR": 2.9935183427381356,
+    "WSH": 2.974047211306942
+  },
+  "goalie_v0_1": {
+    "Igor Shesterkin": {"line": 26.5, "expected_saves": 24.651337, "under_probability": 0.6558386527840854},
+    "Logan Thompson": {"line": 22.5, "expected_saves": 24.354857, "over_probability": 0.6354735711742743}
+  },
+  "goalie_v0_2_shadow": {
+    "Igor Shesterkin": {"expected_saves": 22.862932, "under_probability": 0.727913},
+    "Logan Thompson": {"expected_saves": 23.318377, "over_probability": 0.521930}
+  },
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 5.809632972360966
+  },
+  "official_playable_count": 4,
+  "playable_shadow_v0_3_count": 1,
+  "v0_3_history_policy": "Uses clean settled official Playable rows strictly before Oct. 9; Oct. 8 LATE_LOCK is excluded from reliability factors and promotion evidence.",
+  "ladder": {
+    "challenge_id": "2026-10-C",
+    "day": 2,
+    "selection": "Logan Thompson Over 22.5 saves",
+    "odds": -104,
+    "official_probability": 0.6354735711742743,
+    "v0_2_shadow_probability": 0.521930
+  }
+}
