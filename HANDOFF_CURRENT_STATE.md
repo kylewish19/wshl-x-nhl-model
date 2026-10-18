@@ -24,6 +24,7 @@ Branch: `main`
 - If the user sends a FanDuel goalie-save line, use that goalie and exact line immediately.
 - Separate starter confirmation is not required.
 - If the listed goalie does not start and FanDuel voids the wager, grade **VOID** rather than loss.
+- If the goalie starts and later leaves injured, the prop remains graded from his recorded saves unless the sportsbook itself voids it; Oct. 9 Shesterkin U26.5 therefore graded WIN after he started and made 13 saves.
 
 ## Official modeling state
 - **v0.1.0 remains the production model.**
@@ -31,9 +32,9 @@ Branch: `main`
 - Team/game markets: team-goal Poisson hybrid plus opening-season strength/current context.
 - Skater goal/assist/point thresholds: transition/count-rate models with probability transforms.
 - Official goalie v0.1: documented season-transition reconstruction.
-- No official predictive version change has been justified through Oct. 8 grading.
+- No official predictive version change has been justified through Oct. 9 grading.
 
-## Clean prospective record through 2026-10-06
+## Clean prospective record through 2026-10-09
 - Sep 29 Top 10: 7-3; Playable: 7-10, -0.9502u.
 - Sep 30 Top 10: 6-4; Playable: 6-4, +1.2905u.
 - Oct 1 skipped.
@@ -42,10 +43,12 @@ Branch: `main`
 - Oct 4 Top 10: 7-3; Playable: 5-5, -0.8231u.
 - Oct 5 Top 10: 3-6 + 1 VOID; Playable: 1-26, -25.0909u.
 - Oct 6 Top 10: 7-3; Playable: 6-14, -9.4475u.
+- Oct 8 LATE_LOCK; excluded from clean cumulative.
+- Oct 9 Top 10: **4-6**; Playable: **1-3, -2.2424u**.
 
-Clean cumulative remains:
-- **Top 10: 37-22 settled (62.71%)**, expected wins 41.9596, Brier 0.2321.
-- **Official Playable: 31-61 (33.70%)**, **-30.5785u**, **-33.24% ROI**, Brier 0.2364.
+Clean cumulative:
+- **Top 10: 41-28 settled (59.42%)**, expected wins 47.7692, Brier 0.2418.
+- **Official Playable: 32-64 (33.33%)**, **-32.8209u**, **-34.19% ROI**, Brier 0.2403.
 
 ## Playable Price shadow v0.3 — active shadow, started 2026-10-08
 Official Playable remains the control. v0.3 does not alter v0.1 probabilities or Top 10.
@@ -63,6 +66,8 @@ Promotion review:
 - At least **20 new clean independent decisions**, preferably 20-30+.
 - Must beat the Official Playable control prospectively on calibration/Brier and flat-stake ROI without materially harming stronger markets.
 - LATE_LOCK decisions do not count.
+- Oct. 8 was LATE_LOCK and does not count.
+- Oct. 9 was the **first clean v0.3 decision**: Rangers ML +118, LOSS. Current clean v0.3 record: **0-1, -1.0u**. No promotion inference.
 
 ## Goalie v0.2 shadow status
 - v0.2 architecture: expected shots faced -> save rate -> expected saves -> negative-binomial O/U probability.
@@ -71,7 +76,8 @@ Promotion review:
 - Oct. 5 matched six-goalie diagnostic favored v0.2 on MAE/Brier.
 - Oct. 6 clean 17-goalie comparison also favored v0.2: directional 10-7 vs v0.1 7-10; Brier about 0.2584 vs 0.2896; expected-saves MAE about 4.64 vs 5.03.
 - Oct. 8 LATE_LOCK diagnostic went the other way slightly: v0.1 12-7 vs v0.2 11-8; Brier 0.2546 vs 0.2570; MAE 6.5225 vs 6.7184.
-- Evidence is mixed, so **no promotion yet**.
+- Oct. 9 clean two-goalie comparison: both versions went **1-1** directionally. v0.2 had better Brier (**0.1732 vs 0.2611**) and expected-saves MAE (**6.0907 vs 7.5031**), but two props are far too few for promotion.
+- Evidence remains mixed, so **no promotion yet**.
 
 ## 2026-10-08 grading — LATE_LOCK diagnostic only
 The full Oct. 8 model workflow began at 7:00:11 PM ET, seconds after the first scheduled puck drop. No live scores, outcomes, in-game odds or Oct. 8 game data were used, but standing rules require exclusion from clean records.
@@ -80,8 +86,6 @@ Top 10:
 - **8-2 (80.0%)**
 - Expected wins 7.6314
 - Brier 0.1551
-- Wins: MacKinnon 1+ point, Kucherov 1+ point, Pastrnak 1+ point, Eichel 1+ point, Cooley U28.5 saves, Hildeby O23.5 saves, Kaprizov 1+ point, Robertson 1+ point.
-- Losses: Bobrovsky U26.5 saves, Buffalo +1.5.
 
 Official Playable:
 - **14-15 (48.28%)**
@@ -97,33 +101,53 @@ Playable v0.3 shadow:
 - It avoided all four Official Playable ATG losses and materially reduced the loss, but selected-subset Brier was worse and it withheld several winning props.
 - **Does not count toward promotion sample because Oct. 8 was LATE_LOCK.**
 
+## 2026-10-09 grading — CLEAN
+Final: Washington 3, Rangers 1.
+
+Top 10:
+- **4-6 (40.0%)**
+- Expected wins 5.8096
+- Brier 0.2987
+- Wins: Shesterkin U26.5 saves, J.T. Miller 1+ point, Tom Wilson 1+ point, Pavel Dorofeyev 1+ point.
+- Losses: NYR +1.5, Zibanejad 1+ point, Thompson O22.5 saves, Over 5.5, Adam Fox 1+ point, Ovechkin 1+ point.
+
+Official Playable:
+- **1-3 (25.0%)**
+- **-2.2424u, -56.06% ROI**
+- Brier 0.3293
+- Only winner: Shesterkin U26.5 saves.
+
+Playable v0.3:
+- Rangers ML +118 — LOSS.
+- Clean record now **0-1, -1.0u**.
+
 ## Ladder Challenge
 - 2026-10-A: Day 1 VAN +1.5 WIN; Day 2 OTT-BOS O5.5 LOSS — challenge ended.
 - 2026-10-B: Day 1 Dobes U26.5 saves LOSS — challenge ended.
-- **2026-10-C Day 1 (Oct. 8): Devin Cooley U28.5 saves -120 — WIN, 23 saves.**
-- This ladder ticket was locked at 7:10:59 PM ET for the 9:00 PM COL-CGY game, so it is a valid pregame ladder decision despite the full-slate LATE_LOCK label.
-- Challenge 2026-10-C advances to Day 2 on the next eligible slate.
+- 2026-10-C Day 1 (Oct. 8): Devin Cooley U28.5 saves -120 — WIN.
+- 2026-10-C Day 2 (Oct. 9): Logan Thompson O22.5 saves -104 — **LOSS (21 saves)**.
+- **Challenge 2026-10-C ended on Day 2.**
 
 ## Current lessons / actions
-- Keep v0.1.0 official and leave Top 10 logic unchanged.
-- Keep Official Playable as the control.
-- Keep Playable v0.3 shadow-only and maintain the ATG quarantine.
-- Keep goalie v0.2 shadow-only; continue matched clean comparisons rather than promoting on mixed evidence.
+- Keep v0.1.0 official and do not change Top 10 structure from one one-game 4-6 slate.
+- Keep Official Playable as the control; performance remains poor enough that v0.3 testing is still justified.
+- Keep Playable v0.3 shadow-only and maintain the ATG quarantine; it has only one clean decision so far.
+- Keep goalie v0.2 shadow-only; continue matched clean comparisons rather than promoting on mixed/small-sample evidence.
 - Full-slate lock must be completed before the first scheduled puck drop to count toward clean records or shadow promotion.
 - Do not retroactively apply v0.3 to historical official records as if it had been live.
 
 ## Key current files
 - `data/results/season_summary.csv`
 - `data/results/ladder_summary.csv`
-- `data/results/2026-10-08_top10_graded_LATE_LOCK.csv`
-- `data/results/2026-10-08_playable_graded_LATE_LOCK.csv`
-- `data/results/2026-10-08_playable_shadow_v0.3_graded_LATE_LOCK.csv`
-- `data/results/2026-10-08_goalie_shadow_graded_LATE_LOCK.csv`
-- `data/results/2026-10-08_summary_LATE_LOCK.csv`
-- `data/model_runs/2026-10-09_postgrade_review.json`
-- `logs/2026-10-09_OCT08_GRADING.md`
+- `data/results/2026-10-09_top10_graded.csv`
+- `data/results/2026-10-09_playable_graded.csv`
+- `data/results/2026-10-09_playable_shadow_v0.3_graded.csv`
+- `data/results/2026-10-09_goalie_shadow_graded.csv`
+- `data/results/2026-10-09_summary.csv`
+- `data/model_runs/2026-10-09_postgame_review.json`
+- `data/model_runs/2026-10-09_postgrade_review.json` (this file contains Oct. 8 grading review created on Oct. 9)
 - `config/playable_price_shadow_v0.3.yaml`
 - `src/wshlx_nhl/selection_shadow.py`
 
 ## Next-task rule
-For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and continue Challenge 2026-10-C with Day 2 if the user wants the ladder.
+For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
