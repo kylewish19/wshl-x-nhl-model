@@ -1,0 +1,3 @@
+date,game,goalie,line,actual_saves,v0_1_expected_saves,v0_1_over_probability,v0_1_direction,v0_1_result,v0_2_expected_saves,v0_2_over_probability,v0_2_direction,v0_2_result
+2026-10-09,NYR@WSH,Igor Shesterkin,26.5,13,24.651337,0.344161,Under,WIN,22.862932,0.272087,Under,WIN
+2026-10-09,NYR@WSH,Logan Thompson,22.5,21,24.354857,0.635474,Over,LOSS,23.318377,0.521930,Over,LOSS
