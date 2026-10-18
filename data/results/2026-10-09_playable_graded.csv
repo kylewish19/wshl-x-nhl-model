@@ -1,0 +1,5 @@
+date,rank,game,market,selection,line,model_probability,odds_american,result,actual,profit_units
+2026-10-09,1,NYR@WSH,goalie_saves,Logan Thompson Over,22.5,0.635474,-104,LOSS,"21 saves",-1.0000
+2026-10-09,2,NYR@WSH,goalie_saves,Igor Shesterkin Under,26.5,0.655839,-132,WIN,"13 saves; started and left injured in 2nd period",0.7576
+2026-10-09,3,NYR@WSH,moneyline,NYR,,0.501575,118,LOSS,"WSH won 3-1",-1.0000
+2026-10-09,4,NYR@WSH,spread,NYR,+1.5,0.737000,-215,LOSS,"WSH won 3-1; NYR lost by 2",-1.0000
