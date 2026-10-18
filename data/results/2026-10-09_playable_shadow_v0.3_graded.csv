@@ -1,0 +1,2 @@
+date,rank,game,market,selection,line,model_probability,calibrated_probability,odds_american,result,actual,profit_units
+2026-10-09,1,NYR@WSH,moneyline,NYR,,0.501575,0.501575,118,LOSS,"WSH won 3-1",-1.0000
