@@ -1,0 +1,32 @@
+{
+  "graded_date": "2026-10-09",
+  "review_date": "2026-10-18",
+  "slate_status": "CLEAN_PREGAME",
+  "counts_toward_clean_record": true,
+  "official_model": "v0.1.0",
+  "final_score": "WSH 3, NYR 1",
+  "top10": {"wins": 4, "losses": 6, "hit_rate": 0.4, "expected_wins": 5.8096, "brier": 0.2987},
+  "official_playable": {"wins": 1, "losses": 3, "hit_rate": 0.25, "expected_wins": 2.5299, "brier": 0.3293, "profit_units": -2.2424, "roi": -0.5606},
+  "playable_shadow_v0_3": {"wins": 0, "losses": 1, "profit_units": -1.0, "roi": -1.0, "brier": 0.2516, "clean_independent_decisions_to_date": 1, "promotion_status": "NO_PROMOTION"},
+  "goalie_comparison": {
+    "matched_props": 2,
+    "v0_1": {"wins": 1, "losses": 1, "brier": 0.2611, "expected_saves_mae": 7.5031},
+    "v0_2": {"wins": 1, "losses": 1, "brier": 0.1732, "expected_saves_mae": 6.0907},
+    "decision": "KEEP_V0_2_SHADOW_ONLY"
+  },
+  "ladder": {"challenge_id": "2026-10-C", "day": 2, "pick": "Logan Thompson Over 22.5 saves", "odds": -104, "actual_saves": 21, "result": "LOSS", "challenge_status": "ENDED"},
+  "clean_cumulative_after_oct9": {
+    "top10": {"wins": 41, "losses": 28, "hit_rate": 0.5942, "expected_wins": 47.7692, "brier": 0.2418},
+    "playable": {"wins": 32, "losses": 64, "hit_rate": 0.3333, "expected_wins": 50.5933, "brier": 0.2403, "profit_units": -32.8209, "roi": -0.3419},
+    "playable_shadow_v0_3": {"wins": 0, "losses": 1, "profit_units": -1.0, "roi": -1.0}
+  },
+  "actions": [
+    "Keep official v0.1.0 unchanged; one one-game slate is not enough for a structural model change.",
+    "Keep Official Playable as control.",
+    "Keep Playable v0.3 shadow-only; Oct. 9 is its first clean prospective decision and it lost.",
+    "Keep ATG quarantine active in v0.3.",
+    "Keep goalie v0.2 shadow-only despite better Oct. 9 Brier and MAE on only two props.",
+    "Challenge 2026-10-C ended on Day 2."
+  ],
+  "grading_note": "Shesterkin Under 26.5 grades WIN because he started and recorded 13 saves before leaving injured; the supplied FanDuel rule voids only if the goalie does not start."
+}
