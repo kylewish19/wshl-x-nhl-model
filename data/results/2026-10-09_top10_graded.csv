@@ -1,0 +1,11 @@
+date,rank,game,market,selection,line,model_probability,result,actual
+2026-10-09,1,NYR@WSH,spread,NYR,+1.5,0.737000,LOSS,"WSH won 3-1; NYR lost by 2"
+2026-10-09,2,NYR@WSH,goalie_saves,Igor Shesterkin Under,26.5,0.655839,WIN,"13 saves; started and left injured in 2nd period"
+2026-10-09,3,NYR@WSH,point_1plus,Mika Zibanejad,1,0.640726,LOSS,"0 points"
+2026-10-09,4,NYR@WSH,goalie_saves,Logan Thompson Over,22.5,0.635474,LOSS,"21 saves"
+2026-10-09,5,NYR@WSH,total,Over,5.5,0.550650,LOSS,"4 total goals"
+2026-10-09,6,NYR@WSH,point_1plus,J.T. Miller,1,0.538317,WIN,"1 assist / 1 point"
+2026-10-09,7,NYR@WSH,point_1plus,Tom Wilson,1,0.517396,WIN,"1 goal / 1 point"
+2026-10-09,8,NYR@WSH,point_1plus,Adam Fox,1,0.511670,LOSS,"0 points"
+2026-10-09,9,NYR@WSH,point_1plus,Pavel Dorofeyev,1,0.511293,WIN,"1 assist / 1 point"
+2026-10-09,10,NYR@WSH,point_1plus,Alex Ovechkin,1,0.511269,LOSS,"0 points"
