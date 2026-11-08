@@ -1,0 +1,35 @@
+version: skater_current_season_blend_shadow_v0.2
+status: SHADOW_ONLY
+official_model_changed: false
+
+purpose: >-
+  Add 2026-27 observed production to the established-skater transition baseline
+  without rewriting official v0.1.0. This exists because the official veteran
+  skater path remains primarily anchored to 2025-26 transition-model inputs.
+
+blend:
+  formula: (prior_games * official_rate + current_season_count) / (prior_games + current_season_gp)
+  prior_games:
+    goal: 12.0
+    assist: 10.0
+    point: 10.0
+  distribution: Poisson
+  markets:
+    - anytime_goal
+    - anytime_assist
+    - point_1plus
+    - point_2plus
+
+prospective_policy:
+  no_retroactive_rewriting: true
+  official_top10_influence: false
+  official_playable_influence: false
+  promotion_requires:
+    - clean prospective tracking
+    - better Brier/calibration than official v0.1 skater probabilities
+    - no material degradation in high-confidence 1+ point selections
+    - sufficient sample across multiple slates and player archetypes
+
+notes:
+  - Current roster and 2026-27 season counts are refreshed before each slate.
+  - Lines, PP units, injuries, and scratches remain separate same-day context inputs.
