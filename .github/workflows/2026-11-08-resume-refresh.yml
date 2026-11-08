@@ -1,0 +1,45 @@
+name: Nov 8 NHL Resume Refresh
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-08-resume-refresh.yml'
+      - 'scripts/build_resume_snapshot.py'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Rebuild league data through Nov 8
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-11-09 \
+            --output data/processed/2026-11-08_goalie_features.parquet \
+            --team-games data/processed/2026-11-08_team_games.parquet \
+            --max-workers 12
+      - name: Build current-season resume snapshot
+        run: |
+          python scripts/build_resume_snapshot.py \
+            --goalie-features data/processed/2026-11-08_goalie_features.parquet \
+            --team-games data/processed/2026-11-08_team_games.parquet \
+            --target-date 2026-11-09 \
+            --out-dir data/resume/2026-11-08
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-08
+          retention-days: 30
+          path: |
+            data/resume/2026-11-08/team_form_2026-11-08.csv
+            data/resume/2026-11-08/goalie_workload_2026-11-08.csv
+            data/resume/2026-11-08/skater_snapshot_2026-11-08.csv
+            data/resume/2026-11-08/resume_refresh_summary.json
+            data/processed/2026-11-08_goalie_features.parquet
+            data/processed/2026-11-08_team_games.parquet
