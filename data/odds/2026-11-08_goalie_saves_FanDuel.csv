@@ -1,0 +1,9 @@
+date,game,goalie_name,team,opponent,is_home,line,over_odds,under_odds
+2026-11-08,VGK@BUF,Colten Ellis,BUF,VGK,1,22.5,-130,-102
+2026-11-08,TBL@WPG,Stuart Skinner,WPG,TBL,1,23.5,-108,-122
+2026-11-08,TBL@WPG,Andrei Vasilevskiy,TBL,WPG,0,23.5,-102,-130
+2026-11-08,NJD@TOR,Connor Hellebuyck,NJD,TOR,0,23.5,-128,-104
+2026-11-08,NJD@TOR,Anthony Stolarz,TOR,NJD,1,27.5,-110,-120
+2026-11-08,PHI@CGY,Devin Cooley,CGY,PHI,1,22.5,-130,-102
+2026-11-08,PHI@CGY,Dan Vladar,PHI,CGY,0,24.5,-132,100
+2026-11-08,PIT@ANA,Arturs Silovs,PIT,ANA,0,24.5,-106,-125
