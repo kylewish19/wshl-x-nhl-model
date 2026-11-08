@@ -239,3 +239,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Refresh workflow trigger: 2026-11-08 resume snapshot
