@@ -1,0 +1,2 @@
+date,game,market,selection,line,odds_american,model_probability,market_reliability_factor,calibrated_probability,implied_probability,calibrated_edge,calibrated_expected_roi,cohort,rank
+2026-11-08,NJD@TOR,moneyline,Toronto Maple Leafs,,128,0.4956,0.9863010765689944,0.4888108135475936,0.43859649122807015,0.05021432231952344,0.11448865488851356,PLAYABLE_PRICE_SHADOW_V0_3,1
