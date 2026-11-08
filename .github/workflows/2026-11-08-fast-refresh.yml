@@ -1,0 +1,41 @@
+name: Nov 8 NHL Fast Current Refresh
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-08-fast-refresh.yml'
+      - 'scripts/build_current_season_fast_snapshot.py'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build current 2026-27 game and goalie tables
+        run: |
+          python scripts/build_current_season_fast_snapshot.py \
+            --target-date 2026-11-09 \
+            --output data/processed/2026-11-08_goalie_features_current.parquet \
+            --team-games data/processed/2026-11-08_team_games_current.parquet \
+            --max-workers 16
+      - name: Build resume summaries
+        run: |
+          python scripts/build_resume_snapshot.py \
+            --goalie-features data/processed/2026-11-08_goalie_features_current.parquet \
+            --team-games data/processed/2026-11-08_team_games_current.parquet \
+            --target-date 2026-11-09 \
+            --out-dir data/resume/2026-11-08-fast
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-fast-resume-refresh-2026-11-08
+          retention-days: 30
+          path: |
+            data/resume/2026-11-08-fast/*.csv
+            data/resume/2026-11-08-fast/*.json
