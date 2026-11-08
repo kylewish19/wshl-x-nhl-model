@@ -192,5 +192,24 @@ Historical clean record remains unchanged:
 
 Skipped dates remain skipped. Do not retroactively manufacture picks for the break.
 
+
+## Market scope change — effective 2026-11-08
+From this point forward, the active NHL betting workflow is limited to:
+- **Spread / puck line**
+- **Moneyline**
+- **Game total goals O/U**
+- **Anytime goal scorer**
+- **Goalie total saves O/U**
+
+Temporarily excluded from daily cards and tracking unless the user explicitly re-adds them:
+- 1+ point
+- 2+ points
+- 1+ assist / anytime assist
+- other skater props
+
+Top 10 Probability Card and Official/Shadow Playable systems should rank/filter only the active market universe above.
+Goalie v0.1/v0.2 shadow tracking continues.
+Playable Price v0.3 continues, with the ATG quarantine policy still active unless separately changed.
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
