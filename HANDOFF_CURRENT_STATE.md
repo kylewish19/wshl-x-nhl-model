@@ -149,5 +149,48 @@ Playable v0.3:
 - `config/playable_price_shadow_v0.3.yaml`
 - `src/wshlx_nhl/selection_shadow.py`
 
+
+## 2026-11-08 RESUME REFRESH — COMPLETE
+After the Oct. 9 slate, the project paused for roughly one month. Before resuming betting, the model was refreshed through the Nov. 8 current-season sample without rewriting official historical predictions.
+
+Refresh scope:
+- **276 completed 2026-27 regular-season games**
+- **552 team-game rows**
+- **32 teams**
+- **74 goalies with at least one 2026-27 start**
+- **717 current-roster skaters**
+- **727 current-season skater stat rows**
+
+Team/game and goalie-current-context pipelines now include the missed month of completed games. Same-day injuries, scratches, projected lines, PP units, rest and goalie context still must be refreshed before each slate.
+
+### New skater current-season shadow
+Audit found that established-skater official v0.1 remains primarily anchored to 2025-26 transition inputs. To measure the value of November form without corrupting the official comparison, a new shadow was added:
+
+**SKATER_CURRENT_SEASON_BLEND_SHADOW_V0_2 — SHADOW_ONLY**
+
+Formula: empirical-Bayes blend of official v0.1 expected rate with actual 2026-27 counts.
+- goals: 12-game prior weight
+- assists: 10-game prior weight
+- points: 10-game prior weight
+
+It has **no Official Top 10 or Official Playable influence yet** and must be tracked prospectively before promotion.
+
+Key files:
+- `scripts/build_resume_snapshot.py`
+- `scripts/build_current_season_fast_snapshot.py`
+- `config/skater_current_season_shadow_v0.2.yaml`
+- `data/context/2026-11-08_resume_context.md`
+- `logs/2026-11-08_RESUME_REFRESH.md`
+- `data/model_runs/2026-11-08_resume_refresh.json`
+
+Both full and fast Nov. 8 refresh workflows completed successfully.
+
+Historical clean record remains unchanged:
+- Top 10: **41-28 (59.42%)**
+- Official Playable: **32-64 (33.33%), -32.8209u, -34.19% ROI**
+- Playable v0.3: **0-1, -1.0u**
+
+Skipped dates remain skipped. Do not retroactively manufacture picks for the break.
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
