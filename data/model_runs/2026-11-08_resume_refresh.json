@@ -1,0 +1,31 @@
+{
+  "snapshot_date": "2026-11-08",
+  "status": "COMPLETE",
+  "official_model_version": "v0.1.0",
+  "official_model_changed": false,
+  "current_season_completed_games": 276,
+  "current_season_team_game_rows": 552,
+  "team_count": 32,
+  "goalies_with_starts": 74,
+  "current_roster_skaters": 717,
+  "current_season_skater_stat_rows": 727,
+  "new_shadow": {
+    "name": "SKATER_CURRENT_SEASON_BLEND_SHADOW_V0_2",
+    "status": "SHADOW_ONLY",
+    "goal_prior_games": 12.0,
+    "assist_prior_games": 10.0,
+    "point_prior_games": 10.0,
+    "official_influence": false
+  },
+  "clean_records_unchanged": {
+    "top10": {"wins": 41, "losses": 28, "hit_rate": 0.5942},
+    "official_playable": {"wins": 32, "losses": 64, "hit_rate": 0.3333, "profit_units": -32.8209, "roi": -0.3419},
+    "playable_shadow_v0_3": {"wins": 0, "losses": 1, "profit_units": -1.0}
+  },
+  "policy": [
+    "No retroactive rewriting of official picks.",
+    "Skipped dates remain skipped.",
+    "Refresh same-day injuries, lines, PP units, rest, scratches, and goalie context before every slate.",
+    "Track current-season skater blend prospectively before any promotion."
+  ]
+}
