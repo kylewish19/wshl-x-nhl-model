@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-08",
+  "lock_type": "CLEAN_PREGAME",
+  "lock_time_et": "2026-11-08T14:08:22-05:00",
+  "first_user_supplied_puck_et": "2026-11-08T15:30:00-05:00",
+  "market_scope": [
+    "spread",
+    "moneyline",
+    "total",
+    "anytime_goal",
+    "goalie_saves"
+  ],
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 6.822180611821835
+  },
+  "official_playable": {
+    "count": 10,
+    "expected_wins_sum": 4.902834305476833,
+    "expected_roi_sum_units_flat_1u": 4.973570004178794
+  },
+  "playable_v0_3": {
+    "count": 1,
+    "selection": "Toronto Maple Leafs ML",
+    "odds_american": 128,
+    "calibrated_probability": 0.4888108135475936,
+    "calibrated_expected_roi": 0.11448865488851356
+  },
+  "goalie_shadow_status": "SHADOW_ONLY",
+  "skater_current_season_shadow_status": "SHADOW_ONLY",
+  "context_notes": [
+    "Same-day Nov. 8 games excluded from model training/current-form tables.",
+    "Scott Sabourin excluded from ATG eligibility after NHL projected lineup listed him scratched.",
+    "Identity audit found naming variants for Mitch Marner, Nick Paul, Jake McCabe, Nick Robertson, and Viggo Bjorck; corrected snapshot probabilities did not alter Top 10, Official Playable, or v0.3 selections."
+  ]
+}
