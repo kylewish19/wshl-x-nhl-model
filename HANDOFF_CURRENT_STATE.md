@@ -211,5 +211,65 @@ Top 10 Probability Card and Official/Shadow Playable systems should rank/filter 
 Goalie v0.1/v0.2 shadow tracking continues.
 Playable Price v0.3 continues, with the ATG quarantine policy still active unless separately changed.
 
+
+## 2026-11-08 CORE MARKET SLATE — CLEAN PREGAME LOCK
+Market universe was restricted by user to spread, moneyline, game total, anytime goal, and goalie saves only.
+
+User-supplied games:
+- VGK@BUF
+- TBL@WPG
+- NJD@TOR
+- PHI@CGY
+- PIT@ANA
+
+Lock completed about **2:08 PM ET**, before the first supplied game (VGK@BUF, 3:30 PM ET). Same-day Nov. 8 games were excluded from pregame training/current-form tables.
+
+Top 10 expected wins sum: **6.8222**.
+Official Playable: **10 selections**.
+Playable Price v0.3: **1 selection — Toronto ML +128**, calibrated probability 48.88%, calibrated expected ROI +11.45%.
+
+Top 10:
+1. Calgary +1.5 — 74.995%
+2. Buffalo +1.5 — 72.84%
+3. Toronto +1.5 — 72.25%
+4. Pittsburgh +1.5 — 70.10%
+5. Colten Ellis O22.5 saves — 70.01%
+6. Devin Cooley O22.5 saves — 69.93%
+7. Anthony Stolarz U27.5 saves — 68.44%
+8. Winnipeg +1.5 — 64.83%
+9. Dan Vladar U24.5 saves — 60.03%
+10. Tampa Bay ML — 58.80%
+
+Official Playable contains four fallback ATG longshots (William Stromgren, Zack MacEwen, Cole Knuble, Trevor Connelly), four goalie props, Toronto ML, and Toronto +1.5. v0.3 quarantines all ATGs and all four goalie props after reliability/floor rules, leaving only Toronto ML.
+
+Goalie v0.1/v0.2 directional agreements:
+- Ellis Over
+- Skinner Over
+- Hellebuyck Over
+- Stolarz Under
+- Cooley Over
+- Vladar Under
+- Silovs Under
+Vasilevskiy is near 50/50 in both versions; both preferred Over by price-selection logic even though raw Under probability is slightly higher.
+
+Current-season ATG shadow leaders:
+- Kyle Connor 47.38%
+- Cutter Gauthier 46.14%
+- Auston Matthews 42.35%
+- Tage Thompson 41.35%
+- Jack Hughes 41.35%
+- Jake Guentzel 40.75%
+- William Nylander 40.24%
+
+Identity audit corrected naming variants (Mitch Marner, Nick Paul, Jake McCabe, Nick Robertson, Viggo Bjorck/Björck). Audit had **no impact** on Top 10, Official Playable, or v0.3 card.
+
+Key files:
+- `data/model_runs/2026-11-08_top10.csv`
+- `data/model_runs/2026-11-08_playable.csv`
+- `data/model_runs/2026-11-08_playable_shadow_v0.3.csv`
+- `data/model_runs/2026-11-08_goalie_predictions.csv`
+- `data/model_runs/2026-11-08_atg_current_shadow_summary.json`
+- `data/model_runs/2026-11-08_core_lock_summary.json`
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
