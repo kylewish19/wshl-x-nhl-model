@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-08",
+  "status": "SHADOW_ONLY",
+  "note": "Current-season blend does not alter Official Top 10 or Official Playable. v0.3 continues full ATG quarantine.",
+  "top_by_shadow_probability": [
+    {
+      "player": "Kyle Connor",
+      "team": "WPG",
+      "game": "TBL@WPG",
+      "odds": 160,
+      "official_probability": 0.375279,
+      "shadow_probability": 0.473751
+    },
+    {
+      "player": "Cutter Gauthier",
+      "team": "ANA",
+      "game": "PIT@ANA",
+      "odds": 105,
+      "official_probability": 0.356095,
+      "shadow_probability": 0.461358
+    },
+    {
+      "player": "Auston Matthews",
+      "team": "TOR",
+      "game": "NJD@TOR",
+      "odds": 140,
+      "official_probability": 0.368149,
+      "shadow_probability": 0.423509
+    },
+    {
+      "player": "Tage Thompson",
+      "team": "BUF",
+      "game": "VGK@BUF",
+      "odds": 140,
+      "official_probability": 0.335208,
+      "shadow_probability": 0.413471
+    },
+    {
+      "player": "Jack Hughes",
+      "team": "NJD",
+      "game": "NJD@TOR",
+      "odds": 135,
+      "official_probability": 0.415667,
+      "shadow_probability": 0.413465
+    },
+    {
+      "player": "Jake Guentzel",
+      "team": "TBL",
+      "game": "TBL@WPG",
+      "odds": 155,
+      "official_probability": 0.321155,
+      "shadow_probability": 0.407461
+    },
+    {
+      "player": "William Nylander",
+      "team": "TOR",
+      "game": "NJD@TOR",
+      "odds": 190,
+      "official_probability": 0.312512,
+      "shadow_probability": 0.402441
+    },
+    {
+      "player": "Mark Stone",
+      "team": "VGK",
+      "game": "VGK@BUF",
+      "odds": 195,
+      "official_probability": 0.317452,
+      "shadow_probability": 0.384092
+    },
+    {
+      "player": "Brandon Hagel",
+      "team": "TBL",
+      "game": "TBL@WPG",
+      "odds": 195,
+      "official_probability": 0.321354,
+      "shadow_probability": 0.362606
+    },
+    {
+      "player": "Beckett Sennecke",
+      "team": "ANA",
+      "game": "PIT@ANA",
+      "odds": 150,
+      "official_probability": 0.21995,
+      "shadow_probability": 0.361207
+    }
+  ],
+  "largest_upward_deltas": [
+    {
+      "player": "Matvei Michkov",
+      "delta": 0.160186
+    },
+    {
+      "player": "Jack Quinn",
+      "delta": 0.144058
+    },
+    {
+      "player": "Beckett Sennecke",
+      "delta": 0.141257
+    },
+    {
+      "player": "Arseny Gritsyuk",
+      "delta": 0.126457
+    },
+    {
+      "player": "Tommy Novak",
+      "delta": 0.12208
+    }
+  ],
+  "identity_audit": [
+    "Mitchell Marner -> Mitch Marner",
+    "Nicholas Paul -> Nick Paul",
+    "Jack/Jake McCabe -> Jake McCabe",
+    "Nicholas Robertson -> Nick Robertson",
+    "Viggo Bjork -> Viggo Bjorck/Björck"
+  ],
+  "identity_audit_card_impact": "NONE"
+}
