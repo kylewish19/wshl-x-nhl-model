@@ -1,0 +1,24 @@
+version: ATG_CONSENSUS_SHADOW_V0_1
+status: SHADOW_ONLY
+effective_date: 2026-11-09
+
+purpose: >-
+  Reintroduce ATG research cautiously while Playable v0.3 keeps a full ATG
+  quarantine. This is not an executable official card and cannot alter
+  Official Top 10 or Official Playable.
+
+rules:
+  exclude_fallback_basis: true
+  min_current_gp: 8
+  min_probability_each_model: implicit_via_consensus_floor
+  consensus_probability: min(official_v0_1_probability, current_season_shadow_probability)
+  min_consensus_probability: 0.30
+  max_model_disagreement: 0.12
+  min_edge_vs_fanduel: 0.05
+  min_expected_roi: 0.05
+
+promotion:
+  minimum_clean_decisions: 25
+  require_positive_flat_stake_roi: true
+  require_brier_improvement_vs_official_atg: true
+  require_no_reliance_on_late_lock_results: true
