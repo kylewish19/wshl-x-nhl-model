@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-08",
+  "lock_type": "CLEAN_PREGAME",
+  "final_scores": {
+    "VGK@BUF": "VGK 4-1 BUF",
+    "TBL@WPG": "WPG 4-3 TBL",
+    "NJD@TOR": "NJD 4-0 TOR",
+    "PHI@CGY": "CGY 4-3 PHI (OT)",
+    "PIT@ANA": "ANA 5-2 PIT"
+  },
+  "top10": {
+    "wins": 5,
+    "losses": 5,
+    "expected_wins": 6.8222,
+    "brier": 0.2916
+  },
+  "official_playable": {
+    "wins": 3,
+    "losses": 7,
+    "profit_units": -4.3974,
+    "roi": -0.4397,
+    "brier": 0.1871
+  },
+  "playable_v0_3": {
+    "wins": 0,
+    "losses": 1,
+    "profit_units": -1,
+    "clean_cumulative": "0-2, -2.0u"
+  },
+  "goalie_comparison": {
+    "v0_1": {
+      "wins": 4,
+      "losses": 4,
+      "brier": 0.2316,
+      "expected_saves_mae": 3.3029
+    },
+    "v0_2": {
+      "wins": 4,
+      "losses": 4,
+      "brier": 0.242,
+      "expected_saves_mae": 3.6486
+    },
+    "decision": "NO_PROMOTION"
+  },
+  "atg_shadow": {
+    "current_season_top10": {
+      "wins": 2,
+      "losses": 8,
+      "brier": 0.2048
+    },
+    "official_v0_1_top10": {
+      "wins": 3,
+      "losses": 7,
+      "brier": 0.2206
+    },
+    "decision": "KEEP_SHADOW_ONLY"
+  },
+  "lessons": [
+    "Four limited-history fallback ATGs qualified for Official Playable and all four lost.",
+    "Playable v0.3 correctly quarantined all four fallback ATGs, but its lone Toronto ML selection lost.",
+    "Goalie v0.1 and v0.2 went 4-4 on identical directions; v0.1 had slightly better Brier and expected-saves MAE on this slate.",
+    "Current-season ATG shadow was more calibrated by Brier than official ATG top10 but hit fewer scorers (2-8 vs 3-7); one slate is insufficient for promotion.",
+    "Top10 puck-line subset went 2-3; goalie subset went 3-1; Tampa ML lost.",
+    "No official predictive model structural change is justified from this single restart slate."
+  ]
+}
