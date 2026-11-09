@@ -319,5 +319,37 @@ The shadow had a better Brier but fewer hits on one slate; keep SHADOW_ONLY.
 - Do not promote the current-season ATG shadow from one slate.
 - No official v0.1 structural change from this single restart slate.
 
+
+## 2026-11-09 POST-GRADE DEVELOPMENT
+Active-market clean Official Playable diagnostics through Nov. 8:
+- Anytime goal: **1-15, -13.80u, -86.25% ROI**
+- Goalie saves: **11-18, -8.2832u, -28.56% ROI**
+- Moneyline: **6-8, +0.3349u, +2.39% ROI**
+- Spread: **7-7, -2.7325u, -19.52% ROI**
+- Total: **4-2, +1.2109u, +20.18% ROI**
+
+Official v0.1 remains unchanged. Playable v0.3 keeps the full ATG quarantine.
+
+New research track:
+**ATG_CONSENSUS_SHADOW_V0_1 — SHADOW_ONLY**
+- excludes limited-history / rookie fallback projections
+- requires current GP >= 8 when available
+- consensus probability = lower of official v0.1 ATG probability and current-season ATG shadow probability
+- consensus probability >= 30%
+- model disagreement <= 12 percentage points
+- edge >= 5%
+- expected ROI >= 5%
+- promotion review no earlier than 25 clean prospective decisions
+
+Files:
+- `src/wshlx_nhl/atg_consensus_shadow.py`
+- `scripts/build_atg_consensus_shadow.py`
+- `config/atg_consensus_shadow_v0.1.yaml`
+- `tests/test_atg_consensus_shadow.py`
+- `data/results/market_diagnostics_through_2026-11-08.csv`
+- `logs/2026-11-09_POSTGRADE_DEVELOPMENT.md`
+
+The ATG consensus shadow does not alter Official Top 10, Official Playable, or Playable v0.3.
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
