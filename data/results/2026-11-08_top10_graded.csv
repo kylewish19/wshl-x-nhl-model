@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-08,PHI@CGY,spread,Calgary Flames,1.5,-265,0.74995,WIN,"CGY 4-3 PHI (OT)","Calgary +1.5 covered"
+2026-11-08,VGK@BUF,spread,Buffalo Sabres,1.5,-280,0.7284,LOSS,"VGK 4-1 BUF","Buffalo lost by 3"
+2026-11-08,NJD@TOR,spread,Toronto Maple Leafs,1.5,-188,0.7225,LOSS,"NJD 4-0 TOR","Toronto lost by 4"
+2026-11-08,PIT@ANA,spread,Pittsburgh Penguins,1.5,-235,0.7010000000000001,LOSS,"ANA 5-2 PIT","Pittsburgh lost by 3"
+2026-11-08,VGK@BUF,goalie_saves,Colten Ellis Over,22.5,-130,0.700052199978384,LOSS,"21 saves","Under 22.5"
+2026-11-08,PHI@CGY,goalie_saves,Devin Cooley Over,22.5,-130,0.6993422614839566,WIN,"31 saves","Over 22.5"
+2026-11-08,NJD@TOR,goalie_saves,Anthony Stolarz Under,27.5,-120,0.684351732528335,WIN,"25 saves","Under 27.5"
+2026-11-08,TBL@WPG,spread,Winnipeg Jets,1.5,-196,0.6483,WIN,"WPG 4-3 TBL","Winnipeg +1.5 covered"
+2026-11-08,PHI@CGY,goalie_saves,Dan Vladar Under,24.5,100,0.6003094178311591,WIN,"22 saves","Under 24.5"
+2026-11-08,TBL@WPG,moneyline,Tampa Bay Lightning,,-150,0.587975,LOSS,"WPG 4-3 TBL","Tampa Bay lost in regulation"
