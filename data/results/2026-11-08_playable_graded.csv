@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,profit_units,actual,notes
+2026-11-08,PHI@CGY,anytime_goal,William Stromgren,0.5,850,0.29959439708710023,LOSS,-1.0,"0 goals","Fallback ATG"
+2026-11-08,NJD@TOR,anytime_goal,Zack MacEwen,0.5,1100,0.1549479010568816,LOSS,-1.0,"0 goals","Fallback ATG"
+2026-11-08,PHI@CGY,anytime_goal,Cole Knuble,0.5,600,0.25701708423586633,LOSS,-1.0,"0 goals","Fallback ATG"
+2026-11-08,VGK@BUF,anytime_goal,Trevor Connelly,0.5,350,0.28911931127514956,LOSS,-1.0,"0 goals","Fallback ATG"
+2026-11-08,NJD@TOR,goalie_saves,Anthony Stolarz Under,27.5,-120,0.684351732528335,WIN,0.8333333333,"25 saves",""
+2026-11-08,VGK@BUF,goalie_saves,Colten Ellis Over,22.5,-130,0.700052199978384,LOSS,-1.0,"21 saves",""
+2026-11-08,PHI@CGY,goalie_saves,Devin Cooley Over,22.5,-130,0.6993422614839566,WIN,0.7692307692,"31 saves",""
+2026-11-08,PHI@CGY,goalie_saves,Dan Vladar Under,24.5,100,0.6003094178311591,WIN,1.0,"22 saves",""
+2026-11-08,NJD@TOR,moneyline,Toronto Maple Leafs,,128,0.4956,LOSS,-1.0,"NJD 4-0 TOR",""
+2026-11-08,NJD@TOR,spread,Toronto Maple Leafs,1.5,-188,0.7225,LOSS,-1.0,"NJD 4-0 TOR",""
