@@ -271,5 +271,53 @@ Key files:
 - `data/model_runs/2026-11-08_atg_current_shadow_summary.json`
 - `data/model_runs/2026-11-08_core_lock_summary.json`
 
+
+## 2026-11-08 GRADING — COMPLETE
+Final scores:
+- VGK 4-1 BUF
+- WPG 4-3 TBL
+- NJD 4-0 TOR
+- CGY 4-3 PHI (OT)
+- ANA 5-2 PIT
+
+### Top 10
+**5-5 (50.0%)**, expected wins 6.8222, Brier 0.2916.
+Wins: Calgary +1.5; Devin Cooley O22.5 saves; Anthony Stolarz U27.5 saves; Winnipeg +1.5; Dan Vladar U24.5 saves.
+Losses: Buffalo +1.5; Toronto +1.5; Pittsburgh +1.5; Colten Ellis O22.5 saves; Tampa Bay ML.
+
+### Official Playable
+**3-7, -4.3974u, -43.97% ROI**, Brier 0.1871.
+The four limited-history fallback ATGs (William Stromgren, Zack MacEwen, Cole Knuble, Trevor Connelly) all lost.
+Winners: Stolarz U27.5; Cooley O22.5; Vladar U24.5.
+
+### Playable v0.3
+Toronto ML +128 — LOSS.
+Clean prospective record now **0-2, -2.0u**.
+v0.3 correctly withheld all four fallback ATG losses, but still has only two clean decisions and remains SHADOW_ONLY.
+
+### Goalie v0.1 vs v0.2
+Both directional cards: **4-4**.
+- v0.1 Brier 0.2316, expected-saves MAE 3.3029
+- v0.2 Brier 0.2420, expected-saves MAE 3.6486
+v0.1 was slightly better on this slate; no promotion.
+
+### Current-season ATG shadow
+Top 10 shadow scorers: **2-8**, expected 4.1034, Brier 0.2048.
+Winners: Cutter Gauthier (3 goals) and Brandon Hagel.
+Official v0.1 ATG top 10 went **3-7**, expected 3.6145, Brier 0.2206.
+The shadow had a better Brier but fewer hits on one slate; keep SHADOW_ONLY.
+
+### Updated clean records
+- Top 10: **46-33 (58.23%)**, Brier 0.2481
+- Official Playable: **35-71 (33.02%)**, **-37.2183u, -35.11% ROI**, Brier 0.2353
+- Playable v0.3: **0-2, -2.0u**
+
+### Lessons
+- Official Playable remains vulnerable to limited-history fallback ATG inflation; v0.3 quarantine continues to be justified.
+- Do not promote v0.3 yet: only two clean prospective selections.
+- Do not promote goalie v0.2: this slate favored v0.1 slightly.
+- Do not promote the current-season ATG shadow from one slate.
+- No official v0.1 structural change from this single restart slate.
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
