@@ -1,0 +1,94 @@
+name: Nov 9 Core NHL Slate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-09-core-slate.yml'
+      - 'data/inputs/2026-11-09_team_board.csv'
+      - 'data/inputs/2026-11-09_atg_board.csv'
+      - 'data/odds/2026-11-09_core_FanDuel.csv'
+      - 'data/odds/2026-11-09_goalie_saves_FanDuel.csv'
+      - 'scripts/assemble_core_slate.py'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build pregame historical/current data
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-11-09 \
+            --output data/processed/2026-11-09_pregame_goalie_features.parquet \
+            --team-games data/processed/2026-11-09_pregame_team_games.parquet \
+            --max-workers 12
+      - name: Run team/game markets
+        run: |
+          python scripts/run_team_goal_board.py \
+            --team-games data/processed/2026-11-09_pregame_team_games.parquet \
+            --board data/inputs/2026-11-09_team_board.csv \
+            --target-date 2026-11-09 \
+            --predictions data/model_runs/2026-11-09_team_predictions.csv \
+            --metrics data/model_runs/2026-11-09_team_metrics.json
+      - name: Run goalie v0.1 and v0.2
+        run: |
+          python scripts/run_goalie_board.py \
+            --features data/processed/2026-11-09_pregame_goalie_features.parquet \
+            --team-games data/processed/2026-11-09_pregame_team_games.parquet \
+            --odds data/odds/2026-11-09_goalie_saves_FanDuel.csv \
+            --target-date 2026-11-09 \
+            --predictions data/model_runs/2026-11-09_goalie_predictions.csv \
+            --metrics data/model_runs/2026-11-09_goalie_metrics.json
+      - name: Run official ATG model
+        run: |
+          python scripts/run_skater_transition_board.py \
+            --board data/inputs/2026-11-09_atg_board.csv \
+            --predictions data/model_runs/2026-11-09_atg_predictions.csv \
+            --metrics data/model_runs/2026-11-09_atg_metrics.json
+      - name: Build current-season skater shadow snapshot
+        run: |
+          python scripts/build_resume_snapshot.py \
+            --goalie-features data/processed/2026-11-09_pregame_goalie_features.parquet \
+            --team-games data/processed/2026-11-09_pregame_team_games.parquet \
+            --target-date 2026-11-09 \
+            --out-dir data/model_runs/2026-11-09_resume
+      - name: Assemble restricted core candidate universe
+        run: |
+          python scripts/assemble_core_slate.py \
+            --team-pred data/model_runs/2026-11-09_team_predictions.csv \
+            --core-odds data/odds/2026-11-09_core_FanDuel.csv \
+            --atg-pred data/model_runs/2026-11-09_atg_predictions.csv \
+            --goalie-pred data/model_runs/2026-11-09_goalie_predictions.csv \
+            --skater-snapshot data/model_runs/2026-11-09_resume/skater_snapshot_2026-11-08.csv \
+            --date 2026-11-09 \
+            --exclude-atg "Luke Glendening" \
+            --out data/model_runs/2026-11-09_core_candidates.csv \
+            --shadow-atg-out data/model_runs/2026-11-09_atg_current_shadow.csv
+      - name: Build ATG consensus shadow
+        run: |
+          python scripts/build_atg_consensus_shadow.py \
+            --official-atg data/model_runs/2026-11-09_atg_predictions.csv \
+            --skater-snapshot data/model_runs/2026-11-09_resume/skater_snapshot_2026-11-08.csv \
+            --output data/model_runs/2026-11-09_atg_consensus_shadow.csv
+      - name: Lock official and shadow cards
+        run: |
+          python scripts/make_cards.py \
+            --candidates data/model_runs/2026-11-09_core_candidates.csv \
+            --top10-out data/model_runs/2026-11-09_top10.csv \
+            --playable-out data/model_runs/2026-11-09_playable.csv \
+            --shadow-v03-out data/model_runs/2026-11-09_playable_shadow_v0.3.csv \
+            --shadow-target-date 2026-11-09
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-09
+          retention-days: 30
+          path: |
+            data/model_runs/2026-11-09_*.csv
+            data/model_runs/2026-11-09_*.json
