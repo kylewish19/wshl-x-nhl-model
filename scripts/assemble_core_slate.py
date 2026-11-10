@@ -8,7 +8,8 @@ TEAM_NAMES = {
     "VGK":"Vegas Golden Knights","BUF":"Buffalo Sabres","TBL":"Tampa Bay Lightning",
     "WPG":"Winnipeg Jets","NJD":"New Jersey Devils","TOR":"Toronto Maple Leafs",
     "PHI":"Philadelphia Flyers","CGY":"Calgary Flames","PIT":"Pittsburgh Penguins",
-    "ANA":"Anaheim Ducks"
+    "ANA":"Anaheim Ducks","NYR":"New York Rangers","EDM":"Edmonton Oilers",
+    "VAN":"Vancouver Canucks","NYI":"New York Islanders","SJS":"San Jose Sharks"
 }
 
 SCRATCHED_ATG = {"Scott Sabourin"}
@@ -22,6 +23,8 @@ def main():
     ap.add_argument("--skater-snapshot",required=True)
     ap.add_argument("--out",required=True)
     ap.add_argument("--shadow-atg-out",required=True)
+    ap.add_argument("--date", required=True)
+    ap.add_argument("--exclude-atg", default="")
     args=ap.parse_args()
 
     team=pd.read_csv(args.team_pred)
@@ -33,13 +36,15 @@ def main():
         odds[["date","game","market","selection","line_key","odds_american"]],
         on=["game","market","selection","line_key"], how="left"
     )
-    team["date"]=team["date"].fillna("2026-11-08")
+    team["date"]=team["date"].fillna(args.date)
     team["active"]=1
 
     atg=pd.read_csv(args.atg_pred)
-    atg["date"]="2026-11-08"
+    atg["date"]=args.date
     atg["selection"]=atg["player_name"]
-    atg["active"]=~atg["player_name"].isin(SCRATCHED_ATG)
+    excluded = set(SCRATCHED_ATG)
+    excluded.update(x.strip() for x in args.exclude_atg.split(",") if x.strip())
+    atg["active"]=~atg["player_name"].isin(excluded)
     atg["active"]=atg["active"].astype(int)
 
     goal=pd.read_csv(args.goalie_pred)
@@ -48,7 +53,7 @@ def main():
         for side in ("Over","Under"):
             low=side.lower()
             grow.append({
-                "date":"2026-11-08","game":r["game"],"market":"goalie_saves",
+                "date":args.date,"game":r["game"],"market":"goalie_saves",
                 "selection":f'{r["goalie_name"]} {side}',"goalie_name":r["goalie_name"],
                 "team":r["team"],"line":r["line"],
                 "odds_american":r[f"{low}_odds"],
