@@ -1,0 +1,7 @@
+date,game,market,selection,line,model_probability,result,actual,notes
+2026-11-09,NYR@EDM,goalie_saves,Dylan Garand Over,24.5,0.5488,LOSS,"17 saves","v0.2 diagnostic"
+2026-11-09,NYR@EDM,goalie_saves,Devon Levi Over,22.5,0.5358,WIN,"28 saves","v0.2 diagnostic"
+2026-11-09,PHI@VAN,goalie_saves,Leevi Merilainen Over,22.5,0.5750,LOSS,"14 saves","v0.2 diagnostic"
+2026-11-09,NYI@SJS,goalie_saves,Yaroslav Askarov Over,23.5,0.6254,WIN,"30 saves","v0.2 diagnostic"
+2026-11-09,NYI@SJS,goalie_saves,Ilya Sorokin Over,23.5,0.5072,WIN,"37 saves","v0.2 diagnostic"
+2026-11-09,PHI@VAN,goalie_saves,Joseph Woll Under,22.5,0.6044,WIN,"18 saves","v0.2 diagnostic; opposite v0.1 direction"
