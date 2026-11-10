@@ -166,3 +166,27 @@
 - Minimum prospective review point: **20 clean confirmed-start goalie props**. Prefer more if calibration is noisy.
 - v0.2 must improve save-count MAE and probability calibration/Brier versus v0.1.0 without creating an obvious new directional bias.
 - If it fails, revise or discard the shadow rather than forcing a version change.
+
+## 2026-11-09 — Slate grading
+
+### Results
+- Top 10 Probability Card: **6-4 (60.0%)**. Expected wins **6.5416**; Brier score **0.2845**.
+- Official Playable Price Card: **5-2 with 1 void (71.43% on settled bets)**, **+2.6586u**, **+37.98% ROI** at 1u flat staking on seven settled bets.
+- Cole Knuble anytime goal +550 was **VOID** because he was scratched and did not play.
+- v0.3 playable shadow: **1-1**, **-0.1667u**.
+- Goalie v0.2 directional diagnostic: **4-2**. Notably, v0.2 had Joseph Woll Under 22.5 while official v0.1 had Woll Over 22.5; Woll finished with 18 saves, so the shadow direction was correct.
+- Current-season ATG shadow: **2-6** across the eight locked candidates; Leon Draisaitl and Connor McDavid scored.
+
+### Market notes
+- Official goalie-save playable props went **4-2**: Levi Over, Askarov Over and Sorokin Over won; Woll Over and Merilainen Over lost.
+- Islanders-Sharks Under 6.5 won with five total goals.
+- Connor McDavid anytime goal +115 won.
+- San Jose +1.5 won outright, while Vancouver +1.5 and Rangers +1.5 both missed by one goal relative to the +1.5 line.
+- Edmonton moneyline won 3-1.
+
+### Lessons / actions
+- **No structural predictive-code change from this slate alone.** The official playable card performed well, but one slate is not enough evidence to loosen or tighten gates.
+- Continue the goalie v0.2 shadow comparison. The 4-2 directional result and the correct Woll disagreement are useful evidence, but the prospective sample is still too small for promotion.
+- Keep scratch/lineup validation as a mandatory pregame data-quality step. Knuble's void is not a model loss, but late scratch detection matters for executable cards.
+- Do not overreact to the 2-6 current-season ATG shadow; the Brier score was relatively strong because most misses were low-probability events. Continue collecting prospective data before changing the ATG architecture.
+
