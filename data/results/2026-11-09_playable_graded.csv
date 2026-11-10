@@ -1,0 +1,9 @@
+date,game,market,selection,line,odds_american,model_probability,result,profit_units,actual,notes
+2026-11-09,PHI@VAN,anytime_goal,Cole Knuble,0.5,550,0.2439,VOID,0.0,"DNP","Official NHL roster lists Knuble as scratch"
+2026-11-09,PHI@VAN,goalie_saves,Joseph Woll Over,22.5,-112,0.7900,LOSS,-1.0,"18 saves",""
+2026-11-09,NYR@EDM,goalie_saves,Devon Levi Over,22.5,-102,0.6372,WIN,0.9803921569,"28 saves",""
+2026-11-09,NYI@SJS,goalie_saves,Yaroslav Askarov Over,23.5,-118,0.6479,WIN,0.8474576271,"30 saves",""
+2026-11-09,NYR@EDM,anytime_goal,Connor McDavid,0.5,115,0.5336,WIN,1.15,"1 goal",""
+2026-11-09,PHI@VAN,goalie_saves,Leevi Merilainen Over,22.5,-132,0.6372,LOSS,-1.0,"14 saves",""
+2026-11-09,NYI@SJS,goalie_saves,Ilya Sorokin Over,23.5,-118,0.5877,WIN,0.8474576271,"37 saves",""
+2026-11-09,NYI@SJS,total,Under,6.5,-120,0.5912,WIN,0.8333333333,"5 total goals",""
