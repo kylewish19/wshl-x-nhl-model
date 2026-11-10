@@ -1,0 +1,7 @@
+date,game,goalie_name,team,opponent,is_home,line,over_odds,under_odds
+2026-11-09,NYR@EDM,Dylan Garand,NYR,EDM,0,24.5,-112,-118
+2026-11-09,NYR@EDM,Devon Levi,EDM,NYR,1,22.5,-102,-130
+2026-11-09,PHI@VAN,Leevi Merilainen,VAN,PHI,1,22.5,-132,100
+2026-11-09,PHI@VAN,Joseph Woll,PHI,VAN,0,22.5,-112,-118
+2026-11-09,NYI@SJS,Yaroslav Askarov,SJS,NYI,1,23.5,-118,-112
+2026-11-09,NYI@SJS,Ilya Sorokin,NYI,SJS,0,23.5,-118,-112
