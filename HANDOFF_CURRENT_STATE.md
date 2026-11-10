@@ -351,5 +351,75 @@ Files:
 
 The ATG consensus shadow does not alter Official Top 10, Official Playable, or Playable v0.3.
 
+
+## 2026-11-09 CORE MARKET SLATE — CLEAN PREGAME LOCK
+Games supplied:
+- NYR@EDM — 8:00 PM ET
+- PHI@VAN — 9:30 PM ET
+- NYI@SJS — 10:00 PM ET
+
+Lock completed about **7:11:54 PM ET**, before the 8:00 PM opener. Same-day Nov. 9 games were excluded from training/current-form inputs.
+
+Luke Glendening was excluded from ATG eligibility after NHL projected lineup listed him scratched.
+
+### Top 10
+1. Joseph Woll O22.5 saves — 79.00%
+2. Vancouver +1.5 — 71.59%
+3. San Jose +1.5 — 70.16%
+4. Rangers +1.5 — 66.10%
+5. Yaroslav Askarov O23.5 saves — 64.79%
+6. Devon Levi O22.5 saves — 63.72%
+7. Leevi Merilainen O22.5 saves — 63.72%
+8. NYI-SJS U6.5 — 59.12%
+9. Ilya Sorokin O23.5 saves — 58.77%
+10. Edmonton ML — 57.19%
+Expected wins sum: **6.5416**.
+
+### Official Playable
+8 selections:
+- Cole Knuble ATG +550 — 24.39%
+- Joseph Woll O22.5 -112 — 79.00%
+- Devon Levi O22.5 -102 — 63.72%
+- Yaroslav Askarov O23.5 -118 — 64.79%
+- Connor McDavid ATG +115 — 53.36%
+- Leevi Merilainen O22.5 -132 — 63.72%
+- Ilya Sorokin O23.5 -118 — 58.77%
+- NYI-SJS U6.5 -120 — 59.12%
+
+### Playable v0.3 shadow
+2 selections:
+- Joseph Woll O22.5 -112 — calibrated 60.06%
+- NYI-SJS U6.5 -120 — calibrated 59.12%
+
+### Goalie v0.1 vs v0.2
+Same direction:
+- Garand O24.5
+- Levi O22.5
+- Merilainen O22.5
+- Askarov O23.5
+- Sorokin O23.5
+
+Strong disagreement:
+- **Joseph Woll O22.5:** v0.1 Over 79.00%; v0.2 Under 60.44%.
+
+### ATG research tracks
+Official v0.1 top scorers:
+McDavid 53.36%, Draisaitl 43.19%, Celebrini 42.41%, Horvat 33.84%, Zibanejad 33.32%.
+
+Current-season shadow top:
+Draisaitl 53.52%, McDavid 47.39%, Celebrini 37.50%, Horvat 34.69%, Bouchard 33.68%.
+
+ATG consensus shadow produced **0 qualifying selections**. No player passed all consensus, disagreement, edge and EV gates.
+
+Key files:
+- `data/model_runs/2026-11-09_top10.csv`
+- `data/model_runs/2026-11-09_playable.csv`
+- `data/model_runs/2026-11-09_playable_shadow_v0.3.csv`
+- `data/model_runs/2026-11-09_goalie_predictions.csv`
+- `data/model_runs/2026-11-09_atg_official_top10.csv`
+- `data/model_runs/2026-11-09_atg_current_shadow_top10.csv`
+- `data/model_runs/2026-11-09_atg_consensus_shadow.csv`
+- `data/model_runs/2026-11-09_core_lock_summary.json`
+
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
