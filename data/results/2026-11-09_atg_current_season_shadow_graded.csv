@@ -1,0 +1,9 @@
+date,game,market,selection,line,model_probability,result,actual,notes
+2026-11-09,NYR@EDM,anytime_goal,Leon Draisaitl,0.5,0.5352,WIN,"2 goals","current-season ATG shadow"
+2026-11-09,NYR@EDM,anytime_goal,Connor McDavid,0.5,0.4739,WIN,"1 goal","current-season ATG shadow"
+2026-11-09,NYI@SJS,anytime_goal,Macklin Celebrini,0.5,0.3750,LOSS,"0 goals","current-season ATG shadow"
+2026-11-09,NYI@SJS,anytime_goal,Bo Horvat,0.5,0.3469,LOSS,"0 goals","current-season ATG shadow"
+2026-11-09,NYR@EDM,anytime_goal,Evan Bouchard,0.5,0.3368,LOSS,"0 goals","current-season ATG shadow"
+2026-11-09,PHI@VAN,anytime_goal,Matvei Michkov,0.5,0.3286,LOSS,"0 goals","current-season ATG shadow"
+2026-11-09,NYR@EDM,anytime_goal,Alexis Lafreniere,0.5,0.3281,LOSS,"0 goals","current-season ATG shadow"
+2026-11-09,NYR@EDM,anytime_goal,Vasily Podkolzin,0.5,0.3063,LOSS,"0 goals","current-season ATG shadow"
