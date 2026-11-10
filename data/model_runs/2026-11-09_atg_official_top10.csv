@@ -1,0 +1,11 @@
+date,game,player_name,team,odds_american,model_probability,model_basis
+2026-11-09,NYR@EDM,Connor McDavid,EDM,115,0.5335677511811582,transition_ml_anchor
+2026-11-09,NYR@EDM,Leon Draisaitl,EDM,100,0.4319312058095539,transition_ml_anchor
+2026-11-09,NYI@SJS,Macklin Celebrini,SJS,130,0.4240844991326199,transition_ml_anchor
+2026-11-09,NYI@SJS,Bo Horvat,NYI,135,0.3383714646457177,transition_ml_anchor
+2026-11-09,NYR@EDM,Mika Zibanejad,NYR,230,0.3332206224086457,transition_ml_anchor
+2026-11-09,NYR@EDM,Zach Hyman,EDM,195,0.3196078601153878,transition_ml_anchor
+2026-11-09,NYR@EDM,Pavel Dorofeyev,NYR,195,0.3086906908289415,transition_ml_anchor
+2026-11-09,PHI@VAN,Jake DeBrusk,VAN,230,0.2597439766358826,transition_ml_anchor
+2026-11-09,NYI@SJS,Will Smith,SJS,195,0.2495689728962437,transition_ml_anchor
+2026-11-09,NYI@SJS,Victor Eklund,NYI,330,0.2454617038446715,limited_history_fallback_reconstruction
