@@ -1,0 +1,3 @@
+date,game,market,selection,line,odds_american,model_probability,result,profit_units,actual,notes
+2026-11-09,PHI@VAN,goalie_saves,Joseph Woll Over,22.5,-112,0.6006,LOSS,-1.0,"18 saves","v0.3 playable shadow"
+2026-11-09,NYI@SJS,total,Under,6.5,-120,0.5912,WIN,0.8333333333,"5 total goals","v0.3 playable shadow"
