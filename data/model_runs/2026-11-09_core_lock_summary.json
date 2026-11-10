@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-09",
+  "lock_type": "CLEAN_PREGAME",
+  "lock_time_et": "2026-11-09T19:11:54-05:00",
+  "first_puck_et": "2026-11-09T20:00:00-05:00",
+  "market_scope": [
+    "spread",
+    "moneyline",
+    "total",
+    "anytime_goal",
+    "goalie_saves"
+  ],
+  "games": [
+    "NYR@EDM",
+    "PHI@VAN",
+    "NYI@SJS"
+  ],
+  "excluded_atg": [
+    "Luke Glendening"
+  ],
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 6.5416115263489765
+  },
+  "official_playable": {
+    "count": 8,
+    "expected_wins_sum": 4.6687558073440165,
+    "expected_roi_sum_flat_1u": 1.976586298427272
+  },
+  "playable_v0_3": {
+    "count": 2,
+    "calibrated_expected_wins_sum": 1.1917681822995285,
+    "calibrated_expected_roi_sum_flat_1u": 0.22065941649553591
+  },
+  "atg_consensus_shadow": {
+    "count": 0,
+    "status": "SHADOW_ONLY"
+  },
+  "goalie_shadow": {
+    "status": "SHADOW_ONLY",
+    "strong_disagreement": "Joseph Woll O22.5: v0.1 Over 79.00%; v0.2 Under 60.44%"
+  },
+  "notes": [
+    "Same-day Nov. 9 games excluded from training/current-form tables.",
+    "Luke Glendening excluded after NHL projected lineup listed him scratched.",
+    "FanDuel-listed goalie lines accepted under standing goalie eligibility rule."
+  ]
+}
