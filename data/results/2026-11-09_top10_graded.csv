@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-09,PHI@VAN,goalie_saves,Joseph Woll Over,22.5,-112,0.7900,LOSS,"18 saves","Over 22.5 missed"
+2026-11-09,PHI@VAN,spread,Vancouver Canucks,1.5,,0.7159,LOSS,"PHI 3-1 VAN","Vancouver lost by 2"
+2026-11-09,NYI@SJS,spread,San Jose Sharks,1.5,,0.7016,WIN,"SJS 3-2 NYI (SO)","San Jose won outright"
+2026-11-09,NYR@EDM,spread,New York Rangers,1.5,,0.6610,LOSS,"EDM 3-1 NYR","Rangers lost by 2"
+2026-11-09,NYI@SJS,goalie_saves,Yaroslav Askarov Over,23.5,-118,0.6479,WIN,"30 saves","Over 23.5"
+2026-11-09,NYR@EDM,goalie_saves,Devon Levi Over,22.5,-102,0.6372,WIN,"28 saves","Over 22.5"
+2026-11-09,PHI@VAN,goalie_saves,Leevi Merilainen Over,22.5,-132,0.6372,LOSS,"14 saves","Over 22.5 missed"
+2026-11-09,NYI@SJS,total,Under,6.5,-120,0.5912,WIN,"SJS 3-2 NYI (SO)","5 total goals"
+2026-11-09,NYI@SJS,goalie_saves,Ilya Sorokin Over,23.5,-118,0.5877,WIN,"37 saves","Over 23.5"
+2026-11-09,NYR@EDM,moneyline,Edmonton Oilers,,,0.5719,WIN,"EDM 3-1 NYR","Edmonton won in regulation"
