@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-11",
+  "model_version": "v0.2.0",
+  "lock_type": "CLEAN_PREGAME",
+  "lock_time_et": "2026-11-11T17:46:14-05:00",
+  "first_puck_et": "2026-11-11T19:00:00-05:00",
+  "workflow_run_id": 43113958533,
+  "games": [
+    "TBL@BUF",
+    "NYR@CGY",
+    "PHI@EDM",
+    "UTA@VGK",
+    "PIT@SJS",
+    "NSH@ANA"
+  ],
+  "excluded_atg": [
+    "Nico Myatovic"
+  ],
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 6.578935858585823
+  },
+  "official_playable": {
+    "count": 8
+  },
+  "playable_v0_3": {
+    "count": 0
+  },
+  "official_goalie_model": "v0.2",
+  "goalie_v0_1_control": true,
+  "goalie_v0_3_research": true,
+  "notes": [
+    "Official goalie v0.2 is used in Top 10 and Official Playable for the first time.",
+    "Utah Mammoth mapping was corrected before final lock; probabilities were unchanged.",
+    "No same-day game results or live data were used.",
+    "ATG consensus shadow produced zero qualifying selections."
+  ]
+}
