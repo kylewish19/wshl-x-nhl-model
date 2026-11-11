@@ -1,5 +1,5 @@
-# Shadow-only goalie save model configuration.
-# This does not replace the official v0.1.0 goalie model until promotion criteria are met.
+# Official goalie save model configuration effective 2026-11-11.
+# Promoted from shadow after the pre-written prospective review criteria were met.
 # Features in this revision are built entirely from NHL regular-season boxscores so the
 # pipeline is reproducible without relying on an unavailable private feature table.
 
@@ -36,11 +36,12 @@ save_rate:
     - goalie_shots_against_r10
 
 promotion:
+  status: PROMOTED_2026-11-11
   minimum_clean_listed_props: 20
   require_better_saves_mae: true
   require_better_probability_calibration: true
   notes: >-
-    Historical chronological validation is necessary but not sufficient. The shadow
-    must also beat v0.1.0 prospectively on FanDuel-listed goalie-save props before promotion.
+    Promotion was approved after v0.2 beat v0.1 on 33 clean prospective matched
+    FanDuel-listed goalie-save props in directional hit rate, saves MAE, and Brier calibration.
     Under the Oct. 5 policy, a FanDuel goalie listing is sufficient for candidate eligibility;
     a non-start that the sportsbook voids is graded VOID.
