@@ -1,0 +1,60 @@
+# Shadow-only goalie save model v0.3.
+# Structural changes vs v0.2:
+# 1) training includes every completed game before the target slate, including 2026-27;
+# 2) 20-game/start baselines stabilize short-window shot/save noise;
+# 3) O/U probabilities come from simulated shots faced -> save percentage -> saves.
+
+training:
+  validation_fraction: 0.20
+  half_life_days: 730
+  random_state: 42
+  simulation_draws: 20000
+
+workload:
+  target: shots_against
+  categorical:
+    - team
+    - opponent
+  numeric:
+    - is_home
+    - days_rest
+    - starts_last_7d
+    - team_shots_against_r5
+    - team_shots_against_r10
+    - team_shots_against_r20
+    - opponent_shots_for_r5
+    - opponent_shots_for_r10
+    - opponent_shots_for_r20
+    - opponent_goals_for_r5
+    - team_goals_against_r5
+
+save_rate:
+  target: saves
+  shots_target: shots_against
+  categorical:
+    - goalie_id
+    - team
+    - opponent
+  numeric:
+    - is_home
+    - days_rest
+    - starts_last_7d
+    - save_pct_r5
+    - save_pct_r10
+    - save_pct_r20
+    - goalie_shots_against_r5
+    - goalie_shots_against_r10
+    - goalie_shots_against_r20
+    - opponent_goals_for_r5
+    - team_goals_against_r5
+
+promotion:
+  status: SHADOW_ONLY
+  minimum_clean_listed_props: 20
+  require_better_saves_mae: true
+  require_better_probability_calibration: true
+  require_better_directional_hit_rate: true
+  notes: >-
+    v0.3 cannot replace official v0.1 from backtests alone. It must beat v0.1 and v0.2
+    prospectively on clean FanDuel-listed goalie-save props with better MAE/calibration
+    and no obvious Over/Under directional bias.
