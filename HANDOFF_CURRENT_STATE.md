@@ -1,7 +1,7 @@
 # NHL MODEL — CURRENT STATE
 
-Version: **v0.1.0 official**  
-Shadow experiments: **goalie saves v0.2** and **Playable Price shadow v0.3**  
+Version: **v0.2.0 official**  
+Shadow experiments: **Playable Price shadow v0.3**, **goalie simulation v0.3 research**, and skater/ATG research tracks  
 Season: **2026-27**  
 Repository: **kylewish19/wshl-x-nhl-model**  
 Branch: `main`
@@ -27,12 +27,12 @@ Branch: `main`
 - If the goalie starts and later leaves injured, the prop remains graded from his recorded saves unless the sportsbook itself voids it; Oct. 9 Shesterkin U26.5 therefore graded WIN after he started and made 13 saves.
 
 ## Official modeling state
-- **v0.1.0 remains the production model.**
+- **v0.2.0 is the production model effective 2026-11-11.** The only promoted predictive component is goalie saves; team/game and skater components remain the prior v0.1.0 implementations.
 - Training seasons: 2021-22 through 2025-26, with current 2026-27 context appended prospectively.
 - Team/game markets: team-goal Poisson hybrid plus opening-season strength/current context.
 - Skater goal/assist/point thresholds: transition/count-rate models with probability transforms.
-- Official goalie v0.1: documented season-transition reconstruction.
-- No official predictive version change has been justified through Oct. 9 grading.
+- Official goalie v0.2: two-stage expected-shots-faced + save-rate model with negative-binomial O/U probabilities. v0.1 remains stored as a diagnostic comparator.
+- Goalie v0.2 promotion was justified on 2026-11-11 after clearing the pre-written clean prospective review rule.
 
 ## Clean prospective record through 2026-10-09
 - Sep 29 Top 10: 7-3; Playable: 7-10, -0.9502u.
@@ -423,3 +423,45 @@ Key files:
 
 ## Next-task rule
 For the next user-supplied slate: refresh current context; score v0.1 probabilities odds-blind; include FanDuel-listed goalie-save props immediately; lock the full Top 10 **before first puck**; apply Official Playable prices afterward; also generate Playable v0.3 shadow for prospective comparison; continue matched goalie v0.1/v0.2 tracking; and start a fresh ladder challenge if the user wants to continue the ladder.
+
+## 2026-11-10 grading — LATE_LOCK diagnostic
+- Top 10: **8-2 (80.0%)**, expected wins 7.1492, Brier 0.1634.
+- Official Playable: **8-5, +1.0451u (+8.04% ROI)**, Brier 0.1414.
+- Playable Price v0.3: **2-0, +1.8130u**; diagnostic only.
+- Official goalie v0.1 directional board: **8-5**.
+- Goalie v0.2 directional board: **5-8**.
+- This slate remains excluded from clean cumulative records because the computational lock finished after the first puck drop.
+
+## 2026-11-11 GOALIE MODEL REVIEW / PROMOTION
+The goalie market was audited across the recorded clean prospective v0.1/v0.2 matched slates from Oct. 6, Oct. 9, Nov. 8 and Nov. 9.
+
+Clean prospective matched sample (**33 goalie props**):
+- **v0.1:** 15-18 (45.5%), saves MAE **5.298**, pick Brier **0.275**.
+- **v0.2:** 19-14 (57.6%), saves MAE **4.963**, pick Brier **0.244**.
+
+This clears the Oct. 5 pre-written promotion rule: at least 20 clean matched props plus improvement in expected-save MAE and probability calibration/Brier without a worse directional record.
+
+### Promotion decision
+- Overall official model version advances to **v0.2.0** effective **2026-11-11**.
+- **Goalie v0.2 becomes the official goalie-save probability source** for both Top 10 ranking and Official Playable Price evaluation.
+- v0.1 goalie probabilities remain recorded as a diagnostic control.
+- The normal goalie playable gate remains unchanged: **4% minimum edge + 5% minimum expected EV**.
+- Historical cards are never rewritten.
+
+### Goalie simulation v0.3 research result
+A separate v0.3 experiment was built with current-season retraining, 20-game/start baselines and shots-faced -> save-rate Monte Carlo simulation. Seven normalized FanDuel boards (72 matched starts; clean and LATE_LOCK kept separate) were replayed with date-safe training cutoffs.
+
+Clean backfill comparison (40 rows):
+- v0.1: 17-23, MAE 5.794, Brier 0.293.
+- v0.2: **20-20, MAE 5.358, Brier 0.248**.
+- v0.3: 20-20, MAE 5.538, Brier 0.260.
+
+At the existing 4% goalie edge gate on clean rows:
+- v0.2: **9-6, +1.7342u, +11.56% ROI**.
+- v0.3: **6-9, -3.6844u, -24.56% ROI**.
+
+Therefore **v0.3 is NOT promoted**. It remains research-only. More complexity did not improve the actionable goalie card.
+
+## Next-task rule — effective 2026-11-11
+For the next user-supplied slate: refresh current context; run team/game and ATG components as before; run **goalie v0.2 as the official goalie-save model**; retain v0.1 goalie diagnostics and v0.3 research only; lock Top 10 before first puck; then apply FanDuel prices to the full universe for Official Playable. Do not revert official goalie probabilities to v0.1.
+
