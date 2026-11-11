@@ -1,0 +1,12 @@
+date,game,goalie_name,team,opponent,is_home,line,over_odds,under_odds
+2026-11-11,TBL@BUF,Andrei Vasilevskiy,TBL,BUF,0,23.5,100,-132
+2026-11-11,TBL@BUF,Ukko-Pekka Luukkonen,BUF,TBL,1,24.5,-122,-108
+2026-11-11,NYR@CGY,Joonas Korpisalo,NYR,CGY,0,24.5,100,-132
+2026-11-11,NYR@CGY,Devin Cooley,CGY,NYR,1,24.5,-106,-125
+2026-11-11,PHI@EDM,Dan Vladar,PHI,EDM,0,24.5,-106,-125
+2026-11-11,PHI@EDM,Tristan Jarry,EDM,PHI,1,20.5,-128,-104
+2026-11-11,UTA@VGK,Sebastian Cossa,UTA,VGK,0,23.5,-128,-104
+2026-11-11,UTA@VGK,Carter Hart,VGK,UTA,1,23.5,-110,-120
+2026-11-11,PIT@SJS,Yaroslav Askarov,SJS,PIT,1,24.5,-120,-110
+2026-11-11,PIT@SJS,Sergei Murashov,PIT,SJS,0,24.5,-102,-130
+2026-11-11,NSH@ANA,Laurent Brossoit,ANA,NSH,1,22.5,-130,-102
