@@ -1,5 +1,7 @@
 # WSHL_X NHL Model
 
+Current official version: **v0.2.0** (effective 2026-11-11). The version change promotes the goalie-save two-stage v0.2 component; team/game and skater models are unchanged from v0.1.0.
+
 Season-long NHL prediction and grading framework for:
 
 - Moneyline
@@ -38,7 +40,7 @@ This project deliberately does **not** use one generic model for everything.
 
 - `game_goals_home` and `game_goals_away`: gradient-boosted Poisson regressors estimate expected team goals. Monte Carlo simulation derives ML, puck line and game-total probabilities.
 - `player_goals`, `player_assists`, `player_points`: gradient-boosted Poisson regressors estimate expected event counts. Negative-binomial probability layers handle overdispersion and produce P(1+), P(2+), etc.
-- `goalie_saves`: gradient-boosted count model estimates saves; a negative-binomial layer converts the estimate into O/U probabilities.
+- `goalie_saves` (official v0.2): a two-stage model predicts expected shots faced and goalie save rate, combines them into expected saves, then uses a negative-binomial O/U probability layer. v0.1 is retained as a diagnostic comparator.
 - Optional isotonic calibration maps raw probabilities to better out-of-sample probabilities on validation data.
 
 All validation is chronological. Random train/test splits are prohibited because they leak future hockey context into the past.
@@ -65,8 +67,8 @@ All validation is chronological. Random train/test splits are prohibited because
 
 ## Important slate rules
 
-- Goalie-save props are not official until the expected starter is sufficiently confirmed.
-- If a starting goalie is uncertain, game markets may be run as goalie scenarios; the uncertainty must be recorded.
+- A FanDuel-listed goalie-save line is eligible immediately; separate starter confirmation is not required.
+- If the listed goalie does not start and FanDuel voids the market, grade the wager VOID. If he starts and later leaves, grade the recorded saves unless the sportsbook itself voids it.
 - Injured/out players are excluded. Questionable players require an availability flag.
 - Current line/PP role matters heavily for player props, especially early in the season.
 - No same-day result information may enter prediction features.
