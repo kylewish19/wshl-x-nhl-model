@@ -301,14 +301,20 @@ class GoalieSimulationShadowBundle:
     def simulate_probabilities(
         self,
         X: pd.DataFrame,
-        line: float,
+        line: float | np.ndarray | pd.Series,
         n_sims: int | None = None,
     ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         sims = int(n_sims or self.n_sims)
         exp_shots, exp_sv, _ = self.predict_components(X)
+        if np.isscalar(line):
+            lines = np.full(len(X), float(line), dtype=float)
+        else:
+            lines = np.asarray(line, dtype=float)
+            if len(lines) != len(X):
+                raise ValueError("line array must have one value per prediction row")
         overs, unders, pushes = [], [], []
-        for i, (mu_shots, save_pct) in enumerate(zip(exp_shots, exp_sv)):
-            seed = int(self.random_state + i * 104729 + round(float(line) * 10.0))
+        for i, (mu_shots, save_pct, line_i) in enumerate(zip(exp_shots, exp_sv, lines)):
+            seed = int(self.random_state + i * 104729 + round(float(line_i) * 10.0))
             rng = np.random.default_rng(seed)
             shots = self._draw_shots(rng, float(mu_shots), sims)
             k = float(max(self.beta_concentration, 2.0))
@@ -316,9 +322,9 @@ class GoalieSimulationShadowBundle:
             b = max((1.0 - float(save_pct)) * k, 1e-3)
             p_draw = rng.beta(a, b, size=sims)
             saves = rng.binomial(shots, p_draw)
-            overs.append(float(np.mean(saves > float(line))))
-            unders.append(float(np.mean(saves < float(line))))
-            pushes.append(float(np.mean(saves == float(line))))
+            overs.append(float(np.mean(saves > float(line_i))))
+            unders.append(float(np.mean(saves < float(line_i))))
+            pushes.append(float(np.mean(saves == float(line_i))))
         return np.asarray(overs), np.asarray(unders), np.asarray(pushes)
 
     def prob_over(self, X: pd.DataFrame, line: float) -> np.ndarray:
