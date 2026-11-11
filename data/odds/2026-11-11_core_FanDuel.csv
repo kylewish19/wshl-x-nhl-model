@@ -1,0 +1,37 @@
+date,game,market,selection,line,odds_american
+2026-11-11,TBL@BUF,spread,Tampa Bay Lightning,-1.5,176
+2026-11-11,TBL@BUF,spread,Buffalo Sabres,1.5,-220
+2026-11-11,TBL@BUF,moneyline,Tampa Bay Lightning,,-128
+2026-11-11,TBL@BUF,moneyline,Buffalo Sabres,,106
+2026-11-11,TBL@BUF,total,Over,6.5,-115
+2026-11-11,TBL@BUF,total,Under,6.5,-105
+2026-11-11,NYR@CGY,spread,New York Rangers,-1.5,168
+2026-11-11,NYR@CGY,spread,Calgary Flames,1.5,-210
+2026-11-11,NYR@CGY,moneyline,New York Rangers,,-140
+2026-11-11,NYR@CGY,moneyline,Calgary Flames,,116
+2026-11-11,NYR@CGY,total,Over,5.5,-128
+2026-11-11,NYR@CGY,total,Under,5.5,104
+2026-11-11,PHI@EDM,spread,Philadelphia Flyers,1.5,-168
+2026-11-11,PHI@EDM,spread,Edmonton Oilers,-1.5,136
+2026-11-11,PHI@EDM,moneyline,Philadelphia Flyers,,155
+2026-11-11,PHI@EDM,moneyline,Edmonton Oilers,,-188
+2026-11-11,PHI@EDM,total,Over,6.5,108
+2026-11-11,PHI@EDM,total,Under,6.5,-132
+2026-11-11,UTA@VGK,spread,Utah Mammoth,1.5,-225
+2026-11-11,UTA@VGK,spread,Vegas Golden Knights,-1.5,180
+2026-11-11,UTA@VGK,moneyline,Utah Mammoth,,106
+2026-11-11,UTA@VGK,moneyline,Vegas Golden Knights,,-128
+2026-11-11,UTA@VGK,total,Over,6.5,-105
+2026-11-11,UTA@VGK,total,Under,6.5,-115
+2026-11-11,PIT@SJS,spread,Pittsburgh Penguins,-1.5,154
+2026-11-11,PIT@SJS,spread,San Jose Sharks,1.5,-192
+2026-11-11,PIT@SJS,moneyline,Pittsburgh Penguins,,-142
+2026-11-11,PIT@SJS,moneyline,San Jose Sharks,,118
+2026-11-11,PIT@SJS,total,Over,6.5,-134
+2026-11-11,PIT@SJS,total,Under,6.5,110
+2026-11-11,NSH@ANA,spread,Nashville Predators,1.5,-215
+2026-11-11,NSH@ANA,spread,Anaheim Ducks,-1.5,172
+2026-11-11,NSH@ANA,moneyline,Nashville Predators,,114
+2026-11-11,NSH@ANA,moneyline,Anaheim Ducks,,-137
+2026-11-11,NSH@ANA,total,Over,6.5,-128
+2026-11-11,NSH@ANA,total,Under,6.5,104
