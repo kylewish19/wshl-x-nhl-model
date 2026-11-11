@@ -61,8 +61,9 @@ def main():
                 "selection":f'{r["goalie_name"]} {side}',"goalie_name":r["goalie_name"],
                 "team":r["team"],"line":r["line"],
                 "odds_american":r[f"{low}_odds"],
-                "model_probability":r[f"v0_1_{low}_probability"],
-                "model_basis":r["v0_1_basis"],"active":1,
+                "model_probability":r[f"v0_2_{low}_probability"],
+                "model_basis":"goalie_two_stage_v0.2_official","active":1,
+                "v0_1_probability":r[f"v0_1_{low}_probability"],
                 "v0_2_probability":r[f"v0_2_{low}_probability"],
                 "v0_2_expected_saves":r["v0_2_expected_saves"],
                 "v0_1_expected_saves":r["v0_1_expected_saves"],
@@ -73,7 +74,7 @@ def main():
     extras=[c for c in ["player_name","player_id","team","resolved_team","listed_team"] if c in atg.columns]
     atg_out=atg[keep+extras].copy()
     team_out=team[keep].copy()
-    goal_out=goalc[keep+[c for c in ["goalie_name","team","v0_2_probability","v0_2_expected_saves","v0_1_expected_saves"] if c in goalc.columns]].copy()
+    goal_out=goalc[keep+[c for c in ["goalie_name","team","v0_1_probability","v0_2_probability","v0_2_expected_saves","v0_1_expected_saves"] if c in goalc.columns]].copy()
 
     candidates=pd.concat([team_out,atg_out,goal_out],ignore_index=True,sort=False)
     candidates.to_csv(args.out,index=False)
