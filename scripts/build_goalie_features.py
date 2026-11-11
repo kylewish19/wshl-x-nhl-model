@@ -150,7 +150,7 @@ def rolling_mean_shifted(s: pd.Series, n: int) -> pd.Series:
 def add_team_features(team_games: pd.DataFrame) -> pd.DataFrame:
     tg = team_games.sort_values(["team", "date", "game_id"]).copy()
     for col in ["shots_for", "shots_against", "goals_for", "goals_against"]:
-        for n in [5, 10]:
+        for n in [5, 10, 20]:
             tg[f"{col}_r{n}"] = tg.groupby("team")[col].transform(lambda s: rolling_mean_shifted(s, n))
     return tg
 
@@ -160,14 +160,16 @@ def add_goalie_features(starts: pd.DataFrame, team_games: pd.DataFrame) -> pd.Da
     st["date"] = pd.to_datetime(st["date"])
     st["goalie_shots_against_r5"] = st.groupby("goalie_id")["shots_against"].transform(lambda s: rolling_mean_shifted(s, 5))
     st["goalie_shots_against_r10"] = st.groupby("goalie_id")["shots_against"].transform(lambda s: rolling_mean_shifted(s, 10))
+    st["goalie_shots_against_r20"] = st.groupby("goalie_id")["shots_against"].transform(lambda s: rolling_mean_shifted(s, 20))
 
     st["save_pct_r5"] = np.nan
     st["save_pct_r10"] = np.nan
+    st["save_pct_r20"] = np.nan
     st["starts_last_7d"] = 0.0
     for _, idx in st.groupby("goalie_id").groups.items():
         ids = list(idx)
         g = st.loc[ids]
-        for n in [5, 10]:
+        for n in [5, 10, 20]:
             saves = g["saves"].shift().rolling(n, min_periods=1).sum()
             shots = g["shots_against"].shift().rolling(n, min_periods=1).sum()
             st.loc[ids, f"save_pct_r{n}"] = (saves / shots.replace(0, np.nan)).to_numpy()
@@ -179,15 +181,17 @@ def add_goalie_features(starts: pd.DataFrame, team_games: pd.DataFrame) -> pd.Da
     st["days_rest"] = (st["date"] - prev_date).dt.days.clip(lower=0, upper=30).fillna(7)
 
     tg = add_team_features(team_games)
-    own = tg[["game_id", "team", "shots_against_r5", "shots_against_r10", "goals_against_r5"]].rename(columns={
+    own = tg[["game_id", "team", "shots_against_r5", "shots_against_r10", "shots_against_r20", "goals_against_r5"]].rename(columns={
         "shots_against_r5": "team_shots_against_r5",
         "shots_against_r10": "team_shots_against_r10",
+        "shots_against_r20": "team_shots_against_r20",
         "goals_against_r5": "team_goals_against_r5",
     })
-    opp = tg[["game_id", "team", "shots_for_r5", "shots_for_r10", "goals_for_r5"]].rename(columns={
+    opp = tg[["game_id", "team", "shots_for_r5", "shots_for_r10", "shots_for_r20", "goals_for_r5"]].rename(columns={
         "team": "opponent",
         "shots_for_r5": "opponent_shots_for_r5",
         "shots_for_r10": "opponent_shots_for_r10",
+        "shots_for_r20": "opponent_shots_for_r20",
         "goals_for_r5": "opponent_goals_for_r5",
     })
     return st.merge(own, on=["game_id", "team"], how="left").merge(opp, on=["game_id", "opponent"], how="left")
