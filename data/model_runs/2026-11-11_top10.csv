@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,model_basis,active,player_name,player_id,team,resolved_team,listed_team,goalie_name,v0_1_probability,v0_2_probability,v0_2_expected_saves,v0_1_expected_saves,cohort,rank
+2026-11-11,NSH@ANA,spread,Nashville Predators,1.5,-215,0.7092499999999999,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,1
+2026-11-11,NYR@CGY,spread,Calgary Flames,1.5,-210,0.70145,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,2
+2026-11-11,TBL@BUF,spread,Buffalo Sabres,1.5,-220,0.6995,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,3
+2026-11-11,PIT@SJS,spread,San Jose Sharks,1.5,-192,0.69915,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,4
+2026-11-11,UTA@VGK,spread,Utah Mammoth,1.5,-225,0.6803,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,5
+2026-11-11,PHI@EDM,moneyline,Edmonton Oilers,,-188,0.6356,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,6
+2026-11-11,NSH@ANA,goalie_saves,Laurent Brossoit Over,22.5,-130,0.6237474643088388,goalie_two_stage_v0.2_official,1,,,ANA,,,Laurent Brossoit,0.5107823400739469,0.6237474643088388,25.11973561370331,22.796318165327193,TOP10_PROBABILITY,7
+2026-11-11,PHI@EDM,goalie_saves,Dan Vladar Under,24.5,-125,0.6182269287544291,goalie_two_stage_v0.2_official,1,,,PHI,,,Dan Vladar,0.6003094178311591,0.6182269287544291,22.96148584899037,23.428048918269557,TOP10_PROBABILITY,8
+2026-11-11,PHI@EDM,goalie_saves,Tristan Jarry Over,20.5,-128,0.606211465522555,goalie_two_stage_v0.2_official,1,,,EDM,,,Tristan Jarry,0.7848815805163007,0.606211465522555,22.648696865542043,24.458810054653718,TOP10_PROBABILITY,9
+2026-11-11,PHI@EDM,spread,Philadelphia Flyers,1.5,-168,0.6054999999999999,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,10
