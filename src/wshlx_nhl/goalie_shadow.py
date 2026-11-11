@@ -247,3 +247,176 @@ def train_goalie_two_stage_shadow(
         shots_target=shots_target,
         saves_target=saves_target,
     )
+
+def _estimate_beta_concentration(
+    actual_saves: np.ndarray,
+    shots: np.ndarray,
+    predicted_save_pct: np.ndarray,
+) -> float:
+    """Estimate extra-binomial save-rate variation on chronological validation rows."""
+    n = np.clip(np.asarray(shots, dtype=float), 1.0, None)
+    p = np.clip(np.asarray(predicted_save_pct, dtype=float), 0.80, 0.97)
+    actual = np.asarray(actual_saves, dtype=float) / n
+    resid2 = np.square(actual - p)
+    base = p * (1.0 - p) / n
+    denom = p * (1.0 - p) * np.maximum(n - 1.0, 0.0) / n
+    rho = np.where(denom > 1e-9, (resid2 - base) / denom, np.nan)
+    rho = rho[np.isfinite(rho) & (rho > 0)]
+    if len(rho) == 0:
+        return 100.0
+    robust_rho = float(np.clip(np.median(rho), 1.0 / 301.0, 1.0 / 21.0))
+    concentration = 1.0 / robust_rho - 1.0
+    return float(np.clip(concentration, 20.0, 300.0))
+
+
+@dataclass
+class GoalieSimulationShadowBundle:
+    """v0.3 shadow: simulate shots faced, then saves conditional on those shots."""
+
+    workload_model: CountModelBundle
+    save_rate_model: SaveRateModelBundle
+    beta_concentration: float
+    validation_metrics: dict
+    n_sims: int = 20000
+    random_state: int = 42
+    shots_target: str = "shots_against"
+    saves_target: str = "saves"
+
+    def predict_components(self, X: pd.DataFrame) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        expected_shots = np.clip(self.workload_model.predict_mu(X), 5.0, 60.0)
+        expected_save_pct = self.save_rate_model.predict_save_pct(X)
+        expected_saves = np.clip(expected_shots * expected_save_pct, 3.0, 58.0)
+        return expected_shots, expected_save_pct, expected_saves
+
+    def _draw_shots(self, rng: np.random.Generator, mu: float, n_sims: int) -> np.ndarray:
+        alpha = float(max(self.workload_model.alpha, 0.0))
+        if alpha < 1e-8:
+            shots = rng.poisson(max(mu, 1e-6), size=n_sims)
+        else:
+            shape = 1.0 / alpha
+            prob = shape / (shape + max(mu, 1e-6))
+            shots = rng.negative_binomial(shape, prob, size=n_sims)
+        return np.clip(shots, 0, 65).astype(int)
+
+    def simulate_probabilities(
+        self,
+        X: pd.DataFrame,
+        line: float,
+        n_sims: int | None = None,
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        sims = int(n_sims or self.n_sims)
+        exp_shots, exp_sv, _ = self.predict_components(X)
+        overs, unders, pushes = [], [], []
+        for i, (mu_shots, save_pct) in enumerate(zip(exp_shots, exp_sv)):
+            seed = int(self.random_state + i * 104729 + round(float(line) * 10.0))
+            rng = np.random.default_rng(seed)
+            shots = self._draw_shots(rng, float(mu_shots), sims)
+            k = float(max(self.beta_concentration, 2.0))
+            a = max(float(save_pct) * k, 1e-3)
+            b = max((1.0 - float(save_pct)) * k, 1e-3)
+            p_draw = rng.beta(a, b, size=sims)
+            saves = rng.binomial(shots, p_draw)
+            overs.append(float(np.mean(saves > float(line))))
+            unders.append(float(np.mean(saves < float(line))))
+            pushes.append(float(np.mean(saves == float(line))))
+        return np.asarray(overs), np.asarray(unders), np.asarray(pushes)
+
+    def prob_over(self, X: pd.DataFrame, line: float) -> np.ndarray:
+        return self.simulate_probabilities(X, line)[0]
+
+    def prob_under(self, X: pd.DataFrame, line: float) -> np.ndarray:
+        return self.simulate_probabilities(X, line)[1]
+
+
+def train_goalie_simulation_shadow(
+    df: pd.DataFrame,
+    workload_features: list[str],
+    workload_categorical: list[str],
+    skill_features: list[str],
+    skill_categorical: list[str],
+    shots_target: str = "shots_against",
+    saves_target: str = "saves",
+    date_col: str = "date",
+    validation_fraction: float = 0.20,
+    half_life_days: float = 730.0,
+    random_state: int = 42,
+    n_sims: int = 20000,
+) -> GoalieSimulationShadowBundle:
+    """Train v0.3 using all rows available before the requested slate date."""
+    required = set(workload_features + skill_features + [shots_target, saves_target, date_col])
+    missing = sorted(c for c in required if c not in df.columns)
+    if missing:
+        raise ValueError(f"Missing goalie simulation-shadow columns: {missing}")
+
+    clean = df.dropna(subset=[shots_target, saves_target, date_col]).copy()
+    clean = clean[clean[shots_target] > 0].copy()
+
+    workload = train_count_model(
+        df=clean,
+        target=shots_target,
+        feature_columns=workload_features,
+        categorical_columns=workload_categorical,
+        date_col=date_col,
+        validation_fraction=validation_fraction,
+        half_life_days=half_life_days,
+        random_state=random_state,
+    )
+    save_rate = train_save_rate_model(
+        df=clean,
+        feature_columns=skill_features,
+        categorical_columns=skill_categorical,
+        saves_col=saves_target,
+        shots_col=shots_target,
+        date_col=date_col,
+        validation_fraction=validation_fraction,
+        half_life_days=half_life_days,
+        random_state=random_state,
+    )
+
+    _, valid = chronological_split(clean, date_col, validation_fraction)
+    if len(valid):
+        expected_shots = np.clip(workload.predict_mu(valid), 5.0, 60.0)
+        expected_save_pct = save_rate.predict_save_pct(valid)
+        expected_saves = np.clip(expected_shots * expected_save_pct, 3.0, 58.0)
+        actual_saves = valid[saves_target].to_numpy(dtype=float)
+        beta_concentration = _estimate_beta_concentration(
+            actual_saves,
+            valid[shots_target].to_numpy(dtype=float),
+            expected_save_pct,
+        )
+        metrics = {
+            "training_rows": int(len(clean)),
+            "validation_rows": int(len(valid)),
+            "training_end": str(pd.to_datetime(clean[date_col]).max().date()),
+            "shots_mae": float(mean_absolute_error(valid[shots_target], expected_shots)),
+            "save_pct_mae": float(save_rate.validation_metrics.get("save_pct_mae", np.nan)),
+            "saves_mae": float(mean_absolute_error(actual_saves, expected_saves)),
+            "saves_poisson_deviance": float(
+                mean_poisson_deviance(actual_saves, np.clip(expected_saves, 1e-5, None))
+            ),
+            "shots_nb_alpha": float(workload.alpha),
+            "beta_concentration": float(beta_concentration),
+            "simulation_draws": int(n_sims),
+        }
+    else:
+        beta_concentration = 100.0
+        metrics = {
+            "training_rows": int(len(clean)),
+            "validation_rows": 0,
+            "training_end": str(pd.to_datetime(clean[date_col]).max().date()),
+            "shots_nb_alpha": float(workload.alpha),
+            "beta_concentration": beta_concentration,
+            "simulation_draws": int(n_sims),
+        }
+
+    return GoalieSimulationShadowBundle(
+        workload_model=workload,
+        save_rate_model=save_rate,
+        beta_concentration=float(beta_concentration),
+        validation_metrics=metrics,
+        n_sims=int(n_sims),
+        random_state=int(random_state),
+        shots_target=shots_target,
+        saves_target=saves_target,
+    )
+
