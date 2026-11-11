@@ -465,3 +465,54 @@ Therefore **v0.3 is NOT promoted**. It remains research-only. More complexity di
 ## Next-task rule — effective 2026-11-11
 For the next user-supplied slate: refresh current context; run team/game and ATG components as before; run **goalie v0.2 as the official goalie-save model**; retain v0.1 goalie diagnostics and v0.3 research only; lock Top 10 before first puck; then apply FanDuel prices to the full universe for Official Playable. Do not revert official goalie probabilities to v0.1.
 
+## 2026-11-11 CORE MARKET SLATE — CLEAN PREGAME LOCK
+Six supplied games:
+- TBL@BUF
+- NYR@CGY
+- PHI@EDM
+- UTA@VGK
+- PIT@SJS
+- NSH@ANA
+
+Final lock completed at approximately **5:46 PM ET**, before the 7:00 PM ET opener. No same-day outcomes/live data entered the model.
+
+This is the first official slate under **v0.2.0**, with promoted goalie v0.2 probabilities feeding Top 10 and Official Playable.
+
+Top 10 expected wins sum: **6.5789**.
+Official Playable: **8 selections**.
+Playable Price v0.3: **0 selections**.
+
+Top 10:
+1. Nashville +1.5 — 70.925%
+2. Calgary +1.5 — 70.145%
+3. Buffalo +1.5 — 69.950%
+4. San Jose +1.5 — 69.915%
+5. Utah +1.5 — 68.030%
+6. Edmonton ML — 63.560%
+7. Laurent Brossoit O22.5 saves — 62.375% (official goalie v0.2)
+8. Dan Vladar U24.5 saves — 61.823% (official goalie v0.2)
+9. Tristan Jarry O20.5 saves — 60.621% (official goalie v0.2)
+10. Philadelphia +1.5 — 60.550%
+
+Official Playable:
+- Tristan Luneau ATG +800
+- Connor McDavid ATG +115
+- Dan Vladar U24.5 saves -125
+- Laurent Brossoit O22.5 saves -130
+- Yaroslav Askarov O24.5 saves -120
+- PIT-SJS U6.5 +110
+- Tristan Jarry O20.5 saves -128
+- San Jose +1.5 -192
+
+Lineup validation:
+- Nico Myatovic was excluded from Anaheim ATG eligibility after being returned to the AHL.
+- Utah Mammoth team-name mapping was corrected before the final lock.
+
+Goalie v0.2 official notable plays:
+- Vladar U24.5: 61.82%, expected saves 22.96.
+- Brossoit O22.5: 62.37%, expected saves 25.12.
+- Askarov O24.5: 60.03%, expected saves 26.82.
+- Jarry O20.5: 60.62%, expected saves 22.65.
+
+Goalie v0.3 remains research-only and Playable Price v0.3 produced no qualifying selections.
+
