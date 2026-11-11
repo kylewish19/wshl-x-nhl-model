@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-10",
+  "lock_type": "LATE_LOCK",
+  "lock_time_et": "2026-11-10T19:11:17-05:00",
+  "first_puck_et": "2026-11-10T19:00:00-05:00",
+  "workflow_run_id": 42928602436,
+  "official_model_version": "v0.1.0",
+  "market_scope": [
+    "spread",
+    "moneyline",
+    "total",
+    "anytime_goal",
+    "goalie_saves"
+  ],
+  "games": [
+    "NJD@WPG",
+    "MIN@MTL",
+    "COL@TOR",
+    "WSH@OTT",
+    "FLA@CBJ",
+    "DET@STL",
+    "NSH@LAK"
+  ],
+  "excluded_atg": [
+    "Hayden Hodgson"
+  ],
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 7.149228017455592
+  },
+  "official_playable": {
+    "count": 13,
+    "expected_wins_sum": 7.303980469195625,
+    "expected_roi_sum_flat_1u": 3.663589844294539
+  },
+  "playable_v0_3": {
+    "count": 2,
+    "selections": [
+      "Sergei Bobrovsky Under 27.5 -106",
+      "NJD@WPG Under 6.5 -115"
+    ]
+  },
+  "notes": [
+    "User supplied all odds screenshots before final run; final computational lock occurred after 7:00 PM ET, so standing policy requires LATE_LOCK.",
+    "No live scores or same-day game outcomes were used in prediction features or selection.",
+    "Team-name mapping and shadow snapshot path were data-plumbing fixes only; predictive logic unchanged."
+  ]
+}
