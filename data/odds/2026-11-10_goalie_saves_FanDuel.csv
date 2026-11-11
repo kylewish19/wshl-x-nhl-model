@@ -1,0 +1,14 @@
+date,game,goalie_name,team,opponent,is_home,line,over_odds,under_odds
+2026-11-10,NJD@WPG,Jake Allen,NJD,WPG,0,23.5,-118,-112
+2026-11-10,NJD@WPG,Nico Daws,WPG,NJD,1,26.5,-118,-112
+2026-11-10,MIN@MTL,Jacob Fowler,MTL,MIN,1,25.5,-110,-120
+2026-11-10,MIN@MTL,Jesper Wallstedt,MIN,MTL,0,24.5,-114,-114
+2026-11-10,COL@TOR,Sergei Bobrovsky,TOR,COL,1,27.5,-125,-106
+2026-11-10,COL@TOR,Mackenzie Blackwood,COL,TOR,0,23.5,-128,-104
+2026-11-10,WSH@OTT,Samuel Ersson,OTT,WSH,1,22.5,-122,-108
+2026-11-10,WSH@OTT,Logan Thompson,WSH,OTT,0,24.5,-125,-106
+2026-11-10,FLA@CBJ,Cam Talbot,CBJ,FLA,1,24.5,-118,-112
+2026-11-10,FLA@CBJ,Jacob Markstrom,FLA,CBJ,0,24.5,-102,-130
+2026-11-10,DET@STL,Joel Hofer,STL,DET,1,25.5,-106,-125
+2026-11-10,DET@STL,John Gibson,DET,STL,0,22.5,-132,100
+2026-11-10,NSH@LAK,Anton Forsberg,LAK,NSH,1,23.5,-132,100
