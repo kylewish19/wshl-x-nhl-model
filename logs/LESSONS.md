@@ -216,3 +216,11 @@
 - Longshot / limited-history ATG remains a concern. Do not loosen the official ATG gate; continue prospective shadow collection before any architecture or gate change.
 - **Lineup-validation process adjustment:** Hayden Hodgson had been excluded from the submitted ATG universe based on a projected-scratch read, but he ultimately played and scored. Going forward, do not hard-exclude an ATG player solely from an early projected lineup when official game-roster confirmation is not yet available; treat projected scratches as provisional and re-check as close to lock as possible.
 
+## 2026-11-11 — Goalie-save model promotion
+- Repeated clean prospective evidence now satisfies the pre-written Oct. 5 goalie promotion rule.
+- On 33 matched clean prospective props, v0.2 beat v0.1 on directional record (**19-14 vs 15-18**), saves MAE (**4.963 vs 5.298**) and pick Brier (**0.244 vs 0.275**).
+- **Promote goalie v0.2 to official effective 2026-11-11; overall model version becomes v0.2.0.**
+- Keep the existing 4% goalie edge gate and 5% minimum EV. Do not rewrite historical official cards.
+- A new v0.3 simulation experiment (current-season retraining + r20 baselines + shot/save Monte Carlo) failed to improve actionable performance. On clean date-safe backfill, v0.2 had better MAE/Brier; at the existing goalie edge gate v0.2 went **9-6, +1.7342u** while v0.3 went **6-9, -3.6844u**.
+- **Do not promote v0.3.** Complexity is not an improvement by itself; keep it research-only.
+
