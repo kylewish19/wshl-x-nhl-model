@@ -196,12 +196,12 @@ def main():
             "v0_1_expected_roi":pick01["expected_roi"],"v0_1_basis":basis01,"v0_2_expected_shots":float(exp_shots[i]),
             "v0_2_expected_save_pct":float(exp_sv[i]),"v0_2_expected_saves":float(exp_saves[i]),"v0_2_over_probability":p02o,
             "v0_2_under_probability":p02u,"v0_2_pick":pick02["pick"],"v0_2_pick_probability":pick02["pick_probability"],
-            "v0_2_pick_odds":pick02["pick_odds"],"v0_2_edge":pick02["edge"],"v0_2_expected_roi":pick02["expected_roi"],"v0_2_status":"SHADOW_ONLY"})
+            "v0_2_pick_odds":pick02["pick_odds"],"v0_2_edge":pick02["edge"],"v0_2_expected_roi":pick02["expected_roi"],"v0_2_status":"OFFICIAL_EFFECTIVE_2026-11-11"})
 
     pred = pd.DataFrame(records); Path(args.predictions).parent.mkdir(parents=True, exist_ok=True); pred.to_csv(args.predictions, index=False)
     payload = {"target_date":args.target_date,"official_v0_1_reconstruction":{"transition_rows":int(len(transitions)),"alpha":official.alpha,
         "validation_mae_saves_per_start":official.validation_mae,"distribution":"Poisson","notes":"Reconstructed from NHL regular-season starter boxscores, 2021-22 through 2025-26."},
-        "shadow_v0_2":{"status":"SHADOW_ONLY","validation_metrics":shadow.validation_metrics},"rows":int(len(pred))}
+        "goalie_v0_2":{"status":"OFFICIAL_EFFECTIVE_2026-11-11","validation_metrics":shadow.validation_metrics},"rows":int(len(pred))}
     Path(args.metrics).write_text(json.dumps(payload, indent=2)); print(pred.to_string(index=False)); print(json.dumps(payload, indent=2))
 
 
