@@ -34,7 +34,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p data/model_runs/goalie_v03_backfill
-          for D in 2026-10-02 2026-10-04 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10; do
+          for D in 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10; do
             python scripts/run_goalie_board.py \
               --features data/processed/goalie_v03_backfill_features.parquet \
               --team-games data/processed/goalie_v03_backfill_team_games.parquet \
