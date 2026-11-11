@@ -1,0 +1,69 @@
+name: Goalie v0.3 Historical Diagnostic
+
+on:
+  push:
+    paths:
+      - '.github/workflows/goalie-v03-backfill.yml'
+      - 'src/wshlx_nhl/goalie_shadow.py'
+      - 'scripts/build_goalie_features.py'
+      - 'scripts/run_goalie_board.py'
+      - 'scripts/run_goalie_v03_board.py'
+      - 'scripts/grade_goalie_backfill.py'
+      - 'config/goalie_shadow_v0.3.yaml'
+  workflow_dispatch:
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Build one complete pre-Nov-11 history snapshot
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-11-11 \
+            --output data/processed/goalie_v03_backfill_features.parquet \
+            --team-games data/processed/goalie_v03_backfill_team_games.parquet \
+            --max-workers 12
+      - name: Run historical FanDuel boards with date-safe cutoffs
+        shell: bash
+        run: |
+          mkdir -p data/model_runs/goalie_v03_backfill
+          for D in 2026-10-02 2026-10-04 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10; do
+            python scripts/run_goalie_board.py \
+              --features data/processed/goalie_v03_backfill_features.parquet \
+              --team-games data/processed/goalie_v03_backfill_team_games.parquet \
+              --odds data/odds/${D}_goalie_saves_FanDuel.csv \
+              --target-date ${D} \
+              --predictions data/model_runs/goalie_v03_backfill/${D}_v01_v02.csv \
+              --metrics data/model_runs/goalie_v03_backfill/${D}_v01_v02_metrics.json
+            python scripts/run_goalie_v03_board.py \
+              --features data/processed/goalie_v03_backfill_features.parquet \
+              --team-games data/processed/goalie_v03_backfill_team_games.parquet \
+              --odds data/odds/${D}_goalie_saves_FanDuel.csv \
+              --target-date ${D} \
+              --predictions data/model_runs/goalie_v03_backfill/${D}_v03.csv \
+              --metrics data/model_runs/goalie_v03_backfill/${D}_v03_metrics.json
+          done
+      - name: Grade all three versions
+        run: |
+          python scripts/grade_goalie_backfill.py \
+            --features data/processed/goalie_v03_backfill_features.parquet \
+            --pred-dir data/model_runs/goalie_v03_backfill \
+            --dates 2026-10-02 2026-10-04 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10 \
+            --late-lock-dates 2026-10-08 2026-11-10 \
+            --out data/model_runs/goalie_v03_backfill/graded.csv \
+            --summary data/model_runs/goalie_v03_backfill/summary.csv
+      - name: Print summary
+        run: |
+          cat data/model_runs/goalie_v03_backfill/summary.csv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goalie-v03-backfill
+          retention-days: 30
+          path: data/model_runs/goalie_v03_backfill/
