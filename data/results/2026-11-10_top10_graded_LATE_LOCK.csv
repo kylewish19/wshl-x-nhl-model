@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-10,COL@TOR,goalie_saves,Sergei Bobrovsky Under,27.5,-106,0.804600164684547,WIN,"22 saves","Under 27.5"
+2026-11-10,WSH@OTT,spread,Ottawa Senators,1.5,-240,0.7525,WIN,"WSH 3-2 OTT (OT)","Ottawa lost by 1"
+2026-11-10,FLA@CBJ,spread,Columbus Blue Jackets,1.5,-250,0.7383,LOSS,"FLA 4-1 CBJ","Columbus lost by 3"
+2026-11-10,NSH@LAK,spread,Nashville Predators,1.5,-220,0.73135,WIN,"NSH 3-0 LAK","Nashville won outright"
+2026-11-10,MIN@MTL,spread,Montreal Canadiens,1.5,-245,0.721,WIN,"MIN 2-1 MTL (OT)","Montreal lost by 1"
+2026-11-10,DET@STL,spread,Detroit Red Wings,1.5,-210,0.7091,WIN,"STL 3-2 DET","Detroit lost by 1"
+2026-11-10,NJD@WPG,goalie_saves,Nico Daws Under,26.5,-112,0.6954033490327667,WIN,"19 saves","Under 26.5"
+2026-11-10,NJD@WPG,spread,Winnipeg Jets,1.5,-194,0.67255,WIN,"WPG 4-2 NJD","Winnipeg won outright"
+2026-11-10,COL@TOR,spread,Toronto Maple Leafs,1.5,-160,0.6633,LOSS,"COL 6-3 TOR","Toronto lost by 3"
+2026-11-10,MIN@MTL,goalie_saves,Jacob Fowler Under,25.5,-120,0.6611245037382777,WIN,"22 saves","Under 25.5"
