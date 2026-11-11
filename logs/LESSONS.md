@@ -190,3 +190,29 @@
 - Keep scratch/lineup validation as a mandatory pregame data-quality step. Knuble's void is not a model loss, but late scratch detection matters for executable cards.
 - Do not overreact to the 2-6 current-season ATG shadow; the Brier score was relatively strong because most misses were low-probability events. Continue collecting prospective data before changing the ATG architecture.
 
+## 2026-11-10 — LATE_LOCK slate grading
+
+### Results
+- This slate remains **LATE_LOCK / diagnostic only**. User-supplied FanDuel prices were pregame, but the final computational lock completed after the first puck drop. It does **not** change clean cumulative records.
+- Top 10 Probability Card: **8-2 (80.0%)**. Expected wins **7.1492**; Brier score **0.1634**.
+- Official Playable Price Card: **8-5 (61.54%)**, **+1.0451u**, **+8.04% ROI** at 1u flat staking; expected wins **7.3040**; Brier score **0.1414**.
+- Playable Price shadow v0.3: **2-0**, **+1.8130u**, **+90.65% ROI**; calibrated expected wins **1.1906**. Bobrovsky Under 27.5 and NJD-WPG Under 6.5 both won.
+- Official goalie v0.1 directional board: **8-5**, Brier **0.2131**.
+- Goalie v0.2 directional shadow: **5-8**, Brier **0.2677**.
+- Current-season ATG shadow top-eight diagnostic: **2-6**; Kirill Kaprizov and Kyle Connor scored.
+
+### Market notes
+- Top-10 +1.5 puck lines went **5-2**: Ottawa, Nashville, Montreal, Detroit and Winnipeg covered; Columbus and Toronto did not.
+- Top-10 goalie unders went **3-0**: Bobrovsky U27.5 (22), Daws U26.5 (19), Fowler U25.5 (22).
+- Official playable goalie saves went **5-0**: Bobrovsky U27.5, Daws U26.5, Fowler U25.5, Wallstedt O24.5 and Gibson O22.5.
+- Official playable ATGs went **0-3**: William Wallinder +1600, Zack MacEwen +1200 and Nathan MacKinnon +115.
+- The two limited-history fallback ATG longshots (Wallinder, MacEwen) both lost. v0.3 correctly quarantined all ATG selections on this slate.
+- NJD-WPG Under 6.5 won exactly below the line with a 4-2 Winnipeg final.
+
+### Lessons / actions
+- **No predictive-model promotion or structural change from this slate.** Because it is LATE_LOCK, it is diagnostic evidence rather than clean prospective promotion evidence.
+- The goalie v0.2 shadow should remain shadow-only. After a 4-2 Nov. 9 result, it went 5-8 here while official v0.1 went 8-5; the combined evidence is mixed and below the planned prospective review threshold.
+- Continue testing playable v0.3. Its 2-0 result is encouraging and its ATG quarantine avoided three official losses, but the clean prospective v0.3 sample is still too small for promotion.
+- Longshot / limited-history ATG remains a concern. Do not loosen the official ATG gate; continue prospective shadow collection before any architecture or gate change.
+- **Lineup-validation process adjustment:** Hayden Hodgson had been excluded from the submitted ATG universe based on a projected-scratch read, but he ultimately played and scored. Going forward, do not hard-exclude an ATG player solely from an early projected lineup when official game-roster confirmation is not yet available; treat projected scratches as provisional and re-check as close to lock as possible.
+
