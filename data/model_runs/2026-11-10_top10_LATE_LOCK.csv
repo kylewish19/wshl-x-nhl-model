@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,model_basis,active,player_name,player_id,team,resolved_team,listed_team,goalie_name,v0_2_probability,v0_2_expected_saves,v0_1_expected_saves,cohort,rank
+2026-11-10,COL@TOR,goalie_saves,Sergei Bobrovsky Under,27.5,-106,0.804600164684547,goalie_transition_ml_reconstructed,1,,,TOR,,,Sergei Bobrovsky,0.6350028846489227,25.507903832671204,23.399814815635676,TOP10_PROBABILITY,1
+2026-11-10,WSH@OTT,spread,Ottawa Senators,1.5,-240,0.7525,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,2
+2026-11-10,FLA@CBJ,spread,Columbus Blue Jackets,1.5,-250,0.7383,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,3
+2026-11-10,NSH@LAK,spread,Nashville Predators,1.5,-220,0.73135,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,4
+2026-11-10,MIN@MTL,spread,Montreal Canadiens,1.5,-245,0.721,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,5
+2026-11-10,DET@STL,spread,Detroit Red Wings,1.5,-210,0.7091000000000001,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,6
+2026-11-10,NJD@WPG,goalie_saves,Nico Daws Under,26.5,-112,0.6954033490327667,goalie_transition_ml_reconstructed,1,,,WPG,,,Nico Daws,0.5440806320747413,26.196670520567476,24.11647604875987,TOP10_PROBABILITY,7
+2026-11-10,NJD@WPG,spread,Winnipeg Jets,1.5,-194,0.67255,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,8
+2026-11-10,COL@TOR,spread,Toronto Maple Leafs,1.5,-160,0.6633,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,TOP10_PROBABILITY,9
+2026-11-10,MIN@MTL,goalie_saves,Jacob Fowler Under,25.5,-120,0.6611245037382777,goalie_transition_ml_reconstructed,1,,,MTL,,,Jacob Fowler,0.5091034413188079,25.82836972072984,23.62160019358702,TOP10_PROBABILITY,10
