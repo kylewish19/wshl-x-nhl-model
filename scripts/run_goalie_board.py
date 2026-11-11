@@ -75,9 +75,11 @@ def recent_team(team_games: pd.DataFrame, team: str, target: pd.Timestamp) -> di
     return {
         "team_shots_against_r5": mean_tail("shots_against", 5, 30.0),
         "team_shots_against_r10": mean_tail("shots_against", 10, 30.0),
+        "team_shots_against_r20": mean_tail("shots_against", 20, 30.0),
         "team_goals_against_r5": mean_tail("goals_against", 5, 3.0),
         "shots_for_r5": mean_tail("shots_for", 5, 30.0),
         "shots_for_r10": mean_tail("shots_for", 10, 30.0),
+        "shots_for_r20": mean_tail("shots_for", 20, 30.0),
         "goals_for_r5": mean_tail("goals_for", 5, 3.0),
     }
 
@@ -96,14 +98,15 @@ def recent_goalie(starts: pd.DataFrame, goalie_id: str | None, target: pd.Timest
             return np.nan
         return float(x["saves"].sum() / x["shots_against"].sum())
     if g.empty:
-        return {"goalie_shots_against_r5":np.nan,"goalie_shots_against_r10":np.nan,"save_pct_r5":np.nan,
-                "save_pct_r10":np.nan,"days_rest":7.0,"starts_last_7d":0.0,"history_starts":0}
+        return {"goalie_shots_against_r5":np.nan,"goalie_shots_against_r10":np.nan,"goalie_shots_against_r20":np.nan,"save_pct_r5":np.nan,
+                "save_pct_r10":np.nan,"save_pct_r20":np.nan,"days_rest":7.0,"starts_last_7d":0.0,"history_starts":0}
     last = pd.Timestamp(g.iloc[-1]["date"])
     starts_7 = int(((target - pd.to_datetime(g["date"])).dt.days.between(1, 7)).sum())
     return {
         "goalie_shots_against_r5": mean_tail("shots_against", 5),
         "goalie_shots_against_r10": mean_tail("shots_against", 10),
-        "save_pct_r5": pct_tail(5), "save_pct_r10": pct_tail(10),
+        "goalie_shots_against_r20": mean_tail("shots_against", 20),
+        "save_pct_r5": pct_tail(5), "save_pct_r10": pct_tail(10), "save_pct_r20": pct_tail(20),
         "days_rest": float(max(0, min(30, (target - last).days))), "starts_last_7d": float(starts_7),
         "history_starts": int(len(g)),
     }
@@ -130,11 +133,11 @@ def current_feature_rows(board: pd.DataFrame, starts: pd.DataFrame, team_games: 
         gr = recent_goalie(starts, gid, target)
         rows.append({**r.to_dict(), "goalie_id": gid or f"UNKNOWN::{name}", "is_home": float(r["is_home"]),
             "days_rest": gr["days_rest"], "starts_last_7d": gr["starts_last_7d"],
-            "team_shots_against_r5": own["team_shots_against_r5"], "team_shots_against_r10": own["team_shots_against_r10"],
-            "opponent_shots_for_r5": opp["shots_for_r5"], "opponent_shots_for_r10": opp["shots_for_r10"],
+            "team_shots_against_r5": own["team_shots_against_r5"], "team_shots_against_r10": own["team_shots_against_r10"], "team_shots_against_r20": own["team_shots_against_r20"],
+            "opponent_shots_for_r5": opp["shots_for_r5"], "opponent_shots_for_r10": opp["shots_for_r10"], "opponent_shots_for_r20": opp["shots_for_r20"],
             "opponent_goals_for_r5": opp["goals_for_r5"], "team_goals_against_r5": own["team_goals_against_r5"],
-            "save_pct_r5": gr["save_pct_r5"], "save_pct_r10": gr["save_pct_r10"],
-            "goalie_shots_against_r5": gr["goalie_shots_against_r5"], "goalie_shots_against_r10": gr["goalie_shots_against_r10"],
+            "save_pct_r5": gr["save_pct_r5"], "save_pct_r10": gr["save_pct_r10"], "save_pct_r20": gr["save_pct_r20"],
+            "goalie_shots_against_r5": gr["goalie_shots_against_r5"], "goalie_shots_against_r10": gr["goalie_shots_against_r10"], "goalie_shots_against_r20": gr["goalie_shots_against_r20"],
             "history_starts": gr["history_starts"]})
     return pd.DataFrame(rows)
 
