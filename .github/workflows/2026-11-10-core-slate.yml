@@ -66,7 +66,7 @@ jobs:
             --core-odds data/odds/2026-11-10_core_FanDuel.csv \
             --atg-pred data/model_runs/2026-11-10_atg_predictions.csv \
             --goalie-pred data/model_runs/2026-11-10_goalie_predictions.csv \
-            --skater-snapshot data/model_runs/2026-11-10_resume/skater_snapshot_2026-11-09.csv \
+            --skater-snapshot data/model_runs/2026-11-10_resume/skater_snapshot_2026-11-08.csv \
             --date 2026-11-10 \
             --exclude-atg "Hayden Hodgson" \
             --out data/model_runs/2026-11-10_core_candidates.csv \
@@ -75,7 +75,7 @@ jobs:
         run: |
           python scripts/build_atg_consensus_shadow.py \
             --official-atg data/model_runs/2026-11-10_atg_predictions.csv \
-            --skater-snapshot data/model_runs/2026-11-10_resume/skater_snapshot_2026-11-09.csv \
+            --skater-snapshot data/model_runs/2026-11-10_resume/skater_snapshot_2026-11-08.csv \
             --output data/model_runs/2026-11-10_atg_consensus_shadow.csv
       - name: Lock official and shadow cards
         run: |
