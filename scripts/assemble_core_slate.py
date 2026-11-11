@@ -9,7 +9,11 @@ TEAM_NAMES = {
     "WPG":"Winnipeg Jets","NJD":"New Jersey Devils","TOR":"Toronto Maple Leafs",
     "PHI":"Philadelphia Flyers","CGY":"Calgary Flames","PIT":"Pittsburgh Penguins",
     "ANA":"Anaheim Ducks","NYR":"New York Rangers","EDM":"Edmonton Oilers",
-    "VAN":"Vancouver Canucks","NYI":"New York Islanders","SJS":"San Jose Sharks"
+    "VAN":"Vancouver Canucks","NYI":"New York Islanders","SJS":"San Jose Sharks",
+    "MIN":"Minnesota Wild","MTL":"Montreal Canadiens","COL":"Colorado Avalanche",
+    "WSH":"Washington Capitals","OTT":"Ottawa Senators","FLA":"Florida Panthers",
+    "CBJ":"Columbus Blue Jackets","DET":"Detroit Red Wings","STL":"St. Louis Blues",
+    "NSH":"Nashville Predators","LAK":"Los Angeles Kings"
 }
 
 SCRATCHED_ATG = {"Scott Sabourin"}
