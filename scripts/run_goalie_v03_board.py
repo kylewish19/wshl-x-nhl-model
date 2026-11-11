@@ -8,7 +8,7 @@ import joblib
 import pandas as pd
 import yaml
 
-from scripts.run_goalie_board import current_feature_rows, choose_side
+from run_goalie_board import current_feature_rows, choose_side
 from wshlx_nhl.goalie_shadow import train_goalie_simulation_shadow
 
 
