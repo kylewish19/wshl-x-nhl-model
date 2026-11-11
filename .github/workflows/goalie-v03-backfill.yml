@@ -55,7 +55,7 @@ jobs:
           python scripts/grade_goalie_backfill.py \
             --features data/processed/goalie_v03_backfill_features.parquet \
             --pred-dir data/model_runs/goalie_v03_backfill \
-            --dates 2026-10-02 2026-10-04 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10 \
+            --dates 2026-10-05 2026-10-06 2026-10-08 2026-10-09 2026-11-08 2026-11-09 2026-11-10 \
             --late-lock-dates 2026-10-08 2026-11-10 \
             --out data/model_runs/goalie_v03_backfill/graded.csv \
             --summary data/model_runs/goalie_v03_backfill/summary.csv
@@ -63,6 +63,7 @@ jobs:
         run: |
           cat data/model_runs/goalie_v03_backfill/summary.csv
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: goalie-v03-backfill
           retention-days: 30
