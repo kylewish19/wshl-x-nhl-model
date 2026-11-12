@@ -224,3 +224,45 @@
 - A new v0.3 simulation experiment (current-season retraining + r20 baselines + shot/save Monte Carlo) failed to improve actionable performance. On clean date-safe backfill, v0.2 had better MAE/Brier; at the existing goalie edge gate v0.2 went **9-6, +1.7342u** while v0.3 went **6-9, -3.6844u**.
 - **Do not promote v0.3.** Complexity is not an improvement by itself; keep it research-only.
 
+## 2026-11-11 — Clean prospective slate grading
+
+### Results
+- Top 10 Probability Card: **6-4 (60.0%)**. Expected wins **6.5789**; Brier **0.2597**.
+- Official Playable Price Card: **5-3 (62.5%)**, **+1.0354u**, **+12.94% ROI** at 1u flat staking. Expected wins **4.3668**; Brier **0.1855**.
+- Playable Price shadow v0.3: **0 selections**. This is a valid PASS slate and does not change its cumulative W-L.
+- Official goalie v0.2 playable subset: **3-1**, **+1.4146u**, **+35.36% ROI**.
+- Top-10 goalie v0.2 selections: **2-1** (Vladar Under and Jarry Over won; Brossoit Over lost).
+- Full goalie directional board: v0.1 **8-3**, official v0.2 **6-5**, goalie v0.3 research **8-3**.
+- Current-season ATG shadow top-eight: **3-4 with 1 void** (Logan Cooley DNP).
+
+### Market notes
+- Nashville +1.5, San Jose +1.5, Edmonton ML and Philadelphia +1.5 won.
+- Calgary +1.5, Buffalo +1.5 and Utah +1.5 lost.
+- Official playable goalie results:
+  - Dan Vladar U24.5: **WIN**, 21 saves.
+  - Laurent Brossoit O22.5: **LOSS**, 18 saves.
+  - Yaroslav Askarov O24.5: **WIN**, 33 saves.
+  - Tristan Jarry O20.5: **WIN**, 30 saves.
+- PIT-SJS U6.5 won with a 3-2 shootout final.
+- Connor McDavid ATG lost; he recorded an assist but no goal.
+- Tristan Luneau ATG +800 lost; Anaheim's goals were scored by Cutter Gauthier and Mikael Granlund.
+
+### Goalie-model review
+- **No reversal of the Nov. 11 goalie v0.2 promotion.** One slate favored v0.1 and research v0.3 on the full directional board, but the promoted v0.2 remains ahead on the accumulated clean prospective matched sample.
+- Adding this slate to the 33-prop promotion sample gives:
+  - v0.1: **23-21 (52.3%)**, approximate cumulative saves MAE **5.527**, Brier **0.262**.
+  - v0.2: **25-19 (56.8%)**, approximate cumulative saves MAE **5.371**, Brier **0.245**.
+- More importantly for betting, the **price-gated official v0.2 goalie card went 3-1**. Continue evaluating both full-board calibration and the actual executable subset separately.
+- v0.3 research went 8-3 directionally on this slate, but its prior date-safe backfill was inferior to v0.2 at the price gate. Continue research only; do not promote from one strong day.
+
+### ATG / playable shadow
+- Playable Price shadow v0.3 passed the entire slate. Do not force action when its gates reject everything.
+- The official ATG card went 0-2 (Luneau, McDavid). The longshot limited-history ATG concern remains active.
+- Logan Cooley was a late DNP after appearing in earlier projected lineup information. Continue late lineup validation, and grade any DNP sportsbook market as VOID when applicable.
+
+### Action
+- **No predictive code change from this slate.**
+- Keep NHL model **v0.2.0** and official goalie component **v0.2**.
+- Continue collecting clean prospective goalie v0.1/v0.2/v0.3 comparisons and official price-gated goalie results.
+- Continue Playable Price shadow v0.3 exactly as specified; a zero-play slate is informative, not a failure.
+
