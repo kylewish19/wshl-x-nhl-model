@@ -13,7 +13,8 @@ TEAM_NAMES = {
     "MIN":"Minnesota Wild","MTL":"Montreal Canadiens","COL":"Colorado Avalanche",
     "WSH":"Washington Capitals","OTT":"Ottawa Senators","FLA":"Florida Panthers",
     "CBJ":"Columbus Blue Jackets","DET":"Detroit Red Wings","STL":"St. Louis Blues",
-    "NSH":"Nashville Predators","LAK":"Los Angeles Kings","UTA":"Utah Mammoth"
+    "NSH":"Nashville Predators","LAK":"Los Angeles Kings","UTA":"Utah Mammoth",
+    "BOS":"Boston Bruins","CHI":"Chicago Blackhawks","DAL":"Dallas Stars"
 }
 
 SCRATCHED_ATG = {"Scott Sabourin"}
