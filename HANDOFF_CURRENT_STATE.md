@@ -516,3 +516,12 @@ Goalie v0.2 official notable plays:
 
 Goalie v0.3 remains research-only and Playable Price v0.3 produced no qualifying selections.
 
+## 2026-11-11 GRADING
+- Clean prospective Top 10: **6-4**, Brier **0.2597**.
+- Clean Official Playable: **5-3, +1.0354u, +12.94% ROI**.
+- Playable Price shadow v0.3: **0 plays / PASS**.
+- Official goalie v0.2 executable plays: **3-1, +1.4146u**.
+- Full goalie directional diagnostics: v0.1 **8-3**, v0.2 **6-5**, v0.3 research **8-3**.
+- After adding this slate to the promotion-era clean matched sample, v0.2 still leads v0.1 overall: **25-19 vs 23-21**, with better approximate cumulative MAE and Brier.
+- No predictive code change. Official version remains **v0.2.0**.
+
