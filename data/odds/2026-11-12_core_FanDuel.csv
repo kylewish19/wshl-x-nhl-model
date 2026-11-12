@@ -1,0 +1,61 @@
+date,game,market,selection,line,odds_american
+2026-11-12,COL@OTT,spread,Colorado Avalanche,1.5,-260
+2026-11-12,COL@OTT,spread,Ottawa Senators,-1.5,205
+2026-11-12,COL@OTT,moneyline,Colorado Avalanche,,-110
+2026-11-12,COL@OTT,moneyline,Ottawa Senators,,-110
+2026-11-12,COL@OTT,total,Over,6.5,100
+2026-11-12,COL@OTT,total,Under,6.5,-122
+2026-11-12,WSH@NJD,spread,Washington Capitals,1.5,-205
+2026-11-12,WSH@NJD,spread,New Jersey Devils,-1.5,164
+2026-11-12,WSH@NJD,moneyline,Washington Capitals,,128
+2026-11-12,WSH@NJD,moneyline,New Jersey Devils,,-154
+2026-11-12,WSH@NJD,total,Over,6.5,112
+2026-11-12,WSH@NJD,total,Under,6.5,-140
+2026-11-12,TBL@CBJ,spread,Tampa Bay Lightning,-1.5,205
+2026-11-12,TBL@CBJ,spread,Columbus Blue Jackets,1.5,-260
+2026-11-12,TBL@CBJ,moneyline,Tampa Bay Lightning,,-114
+2026-11-12,TBL@CBJ,moneyline,Columbus Blue Jackets,,-105
+2026-11-12,TBL@CBJ,total,Over,6.5,-105
+2026-11-12,TBL@CBJ,total,Under,6.5,-115
+2026-11-12,MIN@TOR,spread,Minnesota Wild,-1.5,130
+2026-11-12,MIN@TOR,spread,Toronto Maple Leafs,1.5,-160
+2026-11-12,MIN@TOR,moneyline,Minnesota Wild,,-172
+2026-11-12,MIN@TOR,moneyline,Toronto Maple Leafs,,142
+2026-11-12,MIN@TOR,total,Over,6.5,-102
+2026-11-12,MIN@TOR,total,Under,6.5,-120
+2026-11-12,MTL@BOS,spread,Montreal Canadiens,1.5,-260
+2026-11-12,MTL@BOS,spread,Boston Bruins,-1.5,198
+2026-11-12,MTL@BOS,moneyline,Montreal Canadiens,,104
+2026-11-12,MTL@BOS,moneyline,Boston Bruins,,-125
+2026-11-12,MTL@BOS,total,Over,6.5,110
+2026-11-12,MTL@BOS,total,Under,6.5,-134
+2026-11-12,DET@FLA,spread,Detroit Red Wings,1.5,-188
+2026-11-12,DET@FLA,spread,Florida Panthers,-1.5,152
+2026-11-12,DET@FLA,moneyline,Detroit Red Wings,,142
+2026-11-12,DET@FLA,moneyline,Florida Panthers,,-172
+2026-11-12,DET@FLA,total,Over,5.5,-134
+2026-11-12,DET@FLA,total,Under,5.5,110
+2026-11-12,BUF@CHI,spread,Buffalo Sabres,-1.5,158
+2026-11-12,BUF@CHI,spread,Chicago Blackhawks,1.5,-200
+2026-11-12,BUF@CHI,moneyline,Buffalo Sabres,,-156
+2026-11-12,BUF@CHI,moneyline,Chicago Blackhawks,,130
+2026-11-12,BUF@CHI,total,Over,6.5,-105
+2026-11-12,BUF@CHI,total,Under,6.5,-115
+2026-11-12,WPG@DAL,spread,Winnipeg Jets,1.5,-188
+2026-11-12,WPG@DAL,spread,Dallas Stars,-1.5,152
+2026-11-12,WPG@DAL,moneyline,Winnipeg Jets,,138
+2026-11-12,WPG@DAL,moneyline,Dallas Stars,,-166
+2026-11-12,WPG@DAL,total,Over,5.5,-124
+2026-11-12,WPG@DAL,total,Under,5.5,102
+2026-11-12,STL@UTA,spread,St. Louis Blues,-1.5,186
+2026-11-12,STL@UTA,spread,Utah Mammoth,1.5,-235
+2026-11-12,STL@UTA,moneyline,St. Louis Blues,,-126
+2026-11-12,STL@UTA,moneyline,Utah Mammoth,,105
+2026-11-12,STL@UTA,total,Over,5.5,-130
+2026-11-12,STL@UTA,total,Under,5.5,106
+2026-11-12,NYI@LAK,spread,New York Islanders,1.5,-250
+2026-11-12,NYI@LAK,spread,Los Angeles Kings,-1.5,198
+2026-11-12,NYI@LAK,moneyline,New York Islanders,,102
+2026-11-12,NYI@LAK,moneyline,Los Angeles Kings,,-122
+2026-11-12,NYI@LAK,total,Over,5.5,-140
+2026-11-12,NYI@LAK,total,Under,5.5,112
