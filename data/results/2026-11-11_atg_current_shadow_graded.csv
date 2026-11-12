@@ -1,0 +1,9 @@
+date,game,player_name,team,shadow_probability,result,actual,notes
+2026-11-11,PHI@EDM,Leon Draisaitl,EDM,0.5524949131,LOSS,"0 goals","Top-eight current-season ATG shadow"
+2026-11-11,NSH@ANA,Cutter Gauthier,ANA,0.5034643868,WIN,"1 goal","Top-eight current-season ATG shadow"
+2026-11-11,PHI@EDM,Connor McDavid,EDM,0.4796434459,LOSS,"0 goals","Top-eight current-season ATG shadow"
+2026-11-11,TBL@BUF,Tage Thompson,BUF,0.4032368912,WIN,"1 goal","Top-eight current-season ATG shadow"
+2026-11-11,TBL@BUF,Jake Guentzel,TBL,0.3972816536,LOSS,"0 goals","Top-eight current-season ATG shadow"
+2026-11-11,TBL@BUF,Brandon Hagel,TBL,0.3752835347,WIN,"2 goals","Top-eight current-season ATG shadow"
+2026-11-11,UTA@VGK,Mark Stone,VGK,0.3742628421,LOSS,"0 goals","Top-eight current-season ATG shadow"
+2026-11-11,UTA@VGK,Logan Cooley,UTA,0.3735860143,VOID,"DNP","Late lineup scratch; excluded from settled shadow record"
