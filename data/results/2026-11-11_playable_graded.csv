@@ -1,0 +1,9 @@
+date,game,market,selection,line,odds_american,model_probability,result,profit_units,actual,notes
+2026-11-11,NSH@ANA,anytime_goal,Tristan Luneau,0.5,800,0.1676513174,LOSS,-1.000000,"0 goals","Limited-history fallback ATG"
+2026-11-11,PHI@EDM,anytime_goal,Connor McDavid,0.5,115,0.5328865528,LOSS,-1.000000,"0 goals; 1 assist",""
+2026-11-11,PHI@EDM,goalie_saves,Dan Vladar Under,24.5,-125,0.6182269288,WIN,0.800000,"21 saves","Official goalie v0.2"
+2026-11-11,NSH@ANA,goalie_saves,Laurent Brossoit Over,22.5,-130,0.6237474643,LOSS,-1.000000,"18 saves","Official goalie v0.2"
+2026-11-11,PIT@SJS,goalie_saves,Yaroslav Askarov Over,24.5,-120,0.6003154794,WIN,0.833333,"33 saves","Official goalie v0.2"
+2026-11-11,PIT@SJS,total,Under,6.5,110,0.5186000000,WIN,1.100000,"5 total goals","PIT 3-2 SJS (SO)"
+2026-11-11,PHI@EDM,goalie_saves,Tristan Jarry Over,20.5,-128,0.6062114655,WIN,0.781250,"30 saves","Official goalie v0.2"
+2026-11-11,PIT@SJS,spread,San Jose Sharks,1.5,-192,0.6991500000,WIN,0.520833,"PIT 3-2 SJS (SO)","San Jose lost by 1"
