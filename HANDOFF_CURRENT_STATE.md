@@ -69,9 +69,9 @@ Promotion review:
 - Oct. 8 was LATE_LOCK and does not count.
 - Oct. 9 was the **first clean v0.3 decision**: Rangers ML +118, LOSS. Current clean v0.3 record: **0-1, -1.0u**. No promotion inference.
 
-## Goalie v0.2 shadow status
+## Goalie v0.2 historical shadow / current official status
 - v0.2 architecture: expected shots faced -> save rate -> expected saves -> negative-binomial O/U probability.
-- It remains **SHADOW_ONLY**.
+- **Promoted to OFFICIAL effective 2026-11-11.** v0.1 remains the diagnostic control.
 - Promotion requires matched prospective FanDuel-listed comparisons, no earlier than 20 clean settled props, and convincing improvement in expected-save MAE plus Brier/calibration without directional bias.
 - Oct. 5 matched six-goalie diagnostic favored v0.2 on MAE/Brier.
 - Oct. 6 clean 17-goalie comparison also favored v0.2: directional 10-7 vs v0.1 7-10; Brier about 0.2584 vs 0.2896; expected-saves MAE about 4.64 vs 5.03.
@@ -524,4 +524,85 @@ Goalie v0.3 remains research-only and Playable Price v0.3 produced no qualifying
 - Full goalie directional diagnostics: v0.1 **8-3**, v0.2 **6-5**, v0.3 research **8-3**.
 - After adding this slate to the promotion-era clean matched sample, v0.2 still leads v0.1 overall: **25-19 vs 23-21**, with better approximate cumulative MAE and Brier.
 - No predictive code change. Official version remains **v0.2.0**.
+
+## 2026-11-12 CORE MARKET SLATE — CLEAN PREGAME LOCK
+Ten supplied games:
+- COL@OTT
+- WSH@NJD
+- TBL@CBJ
+- MIN@TOR
+- MTL@BOS
+- DET@FLA
+- BUF@CHI
+- WPG@DAL
+- STL@UTA
+- NYI@LAK
+
+Final model-card lock completed at approximately **4:49:52 PM ET**, before the 7:00 PM ET opener. No Nov. 12 outcomes/live data entered the model.
+
+Model version: **v0.2.0**.
+Official goalie component: **v0.2**.
+Top 10 expected wins sum: **7.0176**.
+Official Playable: **17 selections**.
+Playable Price shadow v0.3: **2 selections**.
+
+Top 10:
+1. Utah +1.5 — 75.795%
+2. Colorado +1.5 — 75.485%
+3. NY Islanders +1.5 — 73.965%
+4. Washington +1.5 — 70.205%
+5. John Gibson O24.5 saves — 69.382%
+6. Detroit +1.5 — 68.780%
+7. Spencer Knight O24.5 saves — 67.978%
+8. Toronto +1.5 — 67.190%
+9. Columbus +1.5 — 66.775%
+10. Montreal +1.5 — 66.210%
+
+Official Playable:
+- Matthew Poitras ATG +650
+- Teddy Blueger ATG +900
+- John Gibson O24.5 saves -108
+- Alex Ovechkin ATG +370
+- Nathan MacKinnon ATG +140
+- Spencer Knight O24.5 saves -114
+- Roman Kantserov ATG +240
+- Jacob Fowler O24.5 saves -106
+- Utah ML +105
+- Anthony Stolarz U25.5 saves -108
+- Toronto +1.5 -160
+- STL-UTA O5.5 -130
+- Detroit ML +142
+- Utah +1.5 -235
+- Connor Hellebuyck U22.5 saves -125
+- Tampa Bay ML -114
+- Detroit +1.5 -188
+
+Playable Price shadow v0.3:
+1. STL-UTA O5.5 -130
+2. Utah ML +105
+
+Official v0.2 goalie playable subset:
+- Gibson O24.5 — 69.38%, expected saves 28.78.
+- Knight O24.5 — 67.98%, expected saves 28.47.
+- Fowler O24.5 — 57.50%, expected saves 26.34.
+- Stolarz U25.5 — 57.62%, expected saves 24.64.
+- Hellebuyck U22.5 — 59.99%, expected saves 21.35.
+
+Important goalie disagreements to grade prospectively:
+- Hellebuyck: v0.1 Over 22.5 (64.06%) vs official v0.2 Under 22.5 (59.99%).
+- Gibson: v0.1 Under 24.5 (54.58%) vs official v0.2 Over 24.5 (69.38%).
+- Fowler: v0.1 Under 24.5 (58.47%) vs official v0.2 Over 24.5 (57.50%).
+- Wallstedt: v0.1 Over 24.5 vs v0.2 Under 24.5.
+- Swayman: v0.1 Over 24.5 vs v0.2 Under 24.5.
+
+Lineup validation:
+- Linus Ullmark confirmed to return/start for Ottawa.
+- MacKinnon and Makar confirmed available.
+- Emil Lilleberg excluded from ATG because NHL projected lineups list him scratched.
+- Logan Cooley and Dylan Guenther are out for Utah and were not on the submitted ATG board.
+- Kevin Fiala expected to return for Los Angeles.
+- Patrick Kane and Nick Schmaltz remained eligible because they were not ruled out at lock; grade VOID if they do not play.
+- Jack Roslovic remained eligible because NHL's projected lineup listed him despite an injury-list inconsistency; grade VOID if he does not play.
+
+Current-season ATG shadow top group at lock included Kaprizov, Kyle Connor, MacKinnon, Jason Robertson, Cole Caufield, Tage Thompson, Alex Tuch and Brandon Hagel. ATG consensus shadow produced no qualifying card.
 
