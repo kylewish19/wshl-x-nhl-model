@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-12",
+  "model_version": "v0.2.0",
+  "lock_type": "CLEAN_PREGAME",
+  "lock_time_et": "2026-11-12T16:49:52-05:00",
+  "first_puck_et": "2026-11-12T19:00:00-05:00",
+  "workflow_run_id": 43313573453,
+  "games": [
+    "COL@OTT",
+    "WSH@NJD",
+    "TBL@CBJ",
+    "MIN@TOR",
+    "MTL@BOS",
+    "DET@FLA",
+    "BUF@CHI",
+    "WPG@DAL",
+    "STL@UTA",
+    "NYI@LAK"
+  ],
+  "excluded_atg": [
+    "Emil Lilleberg"
+  ],
+  "provisional_atg": [
+    "Patrick Kane",
+    "Nick Schmaltz",
+    "Jack Roslovic"
+  ],
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 7.017648473084458
+  },
+  "official_playable": {
+    "count": 17,
+    "expected_wins_sum": 8.966517231800392
+  },
+  "playable_v0_3": {
+    "count": 2,
+    "selections": [
+      "STL@UTA Over 5.5 -130",
+      "Utah Mammoth ML +105"
+    ]
+  },
+  "official_goalie_model": "v0.2",
+  "notes": [
+    "No Nov. 12 game outcomes or live data were used.",
+    "Emil Lilleberg excluded because NHL projected lineups list him scratched.",
+    "Patrick Kane remained eligible because he was not ruled out; market grades VOID if he does not play.",
+    "Nick Schmaltz remained eligible as a game-time decision; market grades VOID if he does not play.",
+    "Jack Roslovic remained eligible because NHL projected lineup listed him despite an injury-list inconsistency; market grades VOID if he does not play."
+  ]
+}
