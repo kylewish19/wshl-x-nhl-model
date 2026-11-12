@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,model_basis,active,player_name,player_id,team,resolved_team,listed_team,goalie_name,v0_1_probability,v0_2_probability,v0_2_expected_saves,v0_1_expected_saves,cohort,rank
+2026-11-12,STL@UTA,spread,Utah Mammoth,1.5,-235,0.75795,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,1
+2026-11-12,COL@OTT,spread,Colorado Avalanche,1.5,-260,0.75485,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,2
+2026-11-12,NYI@LAK,spread,New York Islanders,1.5,-250,0.7396499999999999,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,3
+2026-11-12,WSH@NJD,spread,Washington Capitals,1.5,-205,0.7020500000000001,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,4
+2026-11-12,DET@FLA,goalie_saves,John Gibson Over,24.5,-108,0.6938199080243359,goalie_two_stage_v0.2_official,1,,,DET,,,John Gibson,0.45418039751055483,0.6938199080243359,28.784015290139155,24.10082619199641,TOP10_PROBABILITY,5
+2026-11-12,DET@FLA,spread,Detroit Red Wings,1.5,-188,0.6878,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,6
+2026-11-12,BUF@CHI,goalie_saves,Spencer Knight Over,24.5,-114,0.679778565060122,goalie_two_stage_v0.2_official,1,,,CHI,,,Spencer Knight,0.5392221917067388,0.679778565060122,28.46664397565154,25.159236307336784,TOP10_PROBABILITY,7
+2026-11-12,MIN@TOR,spread,Toronto Maple Leafs,1.5,-160,0.6719,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,8
+2026-11-12,TBL@CBJ,spread,Columbus Blue Jackets,1.5,-260,0.66775,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,9
+2026-11-12,MTL@BOS,spread,Montreal Canadiens,1.5,-260,0.6621,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,10
