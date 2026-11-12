@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-11,NSH@ANA,spread,Nashville Predators,1.5,-215,0.70925,WIN,"NSH 4-2 ANA","Nashville won outright"
+2026-11-11,NYR@CGY,spread,Calgary Flames,1.5,-210,0.70145,LOSS,"NYR 3-1 CGY","Calgary lost by 2"
+2026-11-11,TBL@BUF,spread,Buffalo Sabres,1.5,-220,0.69950,LOSS,"TBL 8-3 BUF","Buffalo lost by 5"
+2026-11-11,PIT@SJS,spread,San Jose Sharks,1.5,-192,0.69915,WIN,"PIT 3-2 SJS (SO)","San Jose lost by 1"
+2026-11-11,UTA@VGK,spread,Utah Mammoth,1.5,-225,0.68030,LOSS,"VGK 5-3 UTA","Utah lost by 2"
+2026-11-11,PHI@EDM,moneyline,Edmonton Oilers,,-188,0.63560,WIN,"EDM 3-2 PHI (OT)","Edmonton won in overtime"
+2026-11-11,NSH@ANA,goalie_saves,Laurent Brossoit Over,22.5,-130,0.6237474643,LOSS,"18 saves","Over 22.5 missed"
+2026-11-11,PHI@EDM,goalie_saves,Dan Vladar Under,24.5,-125,0.6182269288,WIN,"21 saves","Under 24.5"
+2026-11-11,PHI@EDM,goalie_saves,Tristan Jarry Over,20.5,-128,0.6062114655,WIN,"30 saves","Over 20.5"
+2026-11-11,PHI@EDM,spread,Philadelphia Flyers,1.5,-168,0.60550,WIN,"EDM 3-2 PHI (OT)","Philadelphia lost by 1"
