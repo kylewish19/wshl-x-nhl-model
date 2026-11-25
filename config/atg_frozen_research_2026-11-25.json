@@ -1,0 +1,26 @@
+{
+  "status": "SHADOW_ONLY",
+  "history": {
+    "run_id": 45713698148,
+    "artifact_id": 15067769899,
+    "sha256": "5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b",
+    "expires_at": "2026-12-25T22:32:38Z"
+  },
+  "bundle": {
+    "run_id": 45714769216,
+    "artifact_id": 15068418480,
+    "sha256": "3fe4d4e12e66494a81200362013992391c093d3bf4967cb487b217484fc3fd66",
+    "expires_at": "2027-02-23T22:37:07Z"
+  },
+  "training_source_commit": "441ccd9c6ee233816e2f1b76901ec74ddea56814",
+  "environment": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0",
+    "pyarrow": "26.0.1"
+  },
+  "note": "Public repository: preserve metadata, not publish binary research artifacts without explicit approval. Download original artifacts before expiry; refetching historical boxscores may produce changed data, so rebuild cannot be assumed hash-identical."
+}
