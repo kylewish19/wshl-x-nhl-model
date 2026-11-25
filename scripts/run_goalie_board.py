@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
+import unicodedata
 from pathlib import Path
 
 import joblib
@@ -112,14 +114,31 @@ def recent_goalie(starts: pd.DataFrame, goalie_id: str | None, target: pd.Timest
     }
 
 
+def _name_key(name: str) -> str:
+    raw = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().casefold()
+    return re.sub(r"[^a-z0-9]", "", raw)
+
+
 def resolve_goalie(starts: pd.DataFrame, name: str, team: str) -> str | None:
-    gid = roster_goalie_map(team).get(name.casefold())
-    if gid:
-        return gid
-    # Historical boxscores do not always expose names, but keep this fallback for rows that do.
-    names = starts["goalie_name"].fillna("").astype(str)
-    g = starts[names.str.casefold() == name.casefold()]
-    return None if g.empty else str(g.sort_values("date").iloc[-1]["goalie_id"])
+    # Prefer stable, unique historical full-name matches over a transient API lookup.
+    key = _name_key(name)
+    if not key:
+        return None
+    ids = starts["goalie_id"].fillna("").astype(str)
+    valid = ids.str.fullmatch(r"\d+")
+    names = starts["goalie_name"].fillna("").map(_name_key)
+    hits = set(ids[valid & names.eq(key)])
+    if len(hits) == 1:
+        return next(iter(hits))
+    roster = roster_goalie_map(team)
+    roster_hits = {str(v) for k, v in roster.items() if _name_key(k) == key and str(v).isdigit()}
+    if len(roster_hits) == 1:
+        gid = next(iter(roster_hits))
+        if not hits or gid in hits:
+            return gid
+    # NHL boxscores sometimes contain initial + surname only. Do not infer
+    # a player ID from an initial/surname match: different players can collide.
+    return None
 
 
 def current_feature_rows(board: pd.DataFrame, starts: pd.DataFrame, team_games: pd.DataFrame, target_date: str) -> pd.DataFrame:
@@ -127,7 +146,7 @@ def current_feature_rows(board: pd.DataFrame, starts: pd.DataFrame, team_games: 
     rows = []
     for _, r in board.iterrows():
         name = str(r["goalie_name"]); team = str(r["team"])
-        gid = resolve_goalie(starts, name, team)
+        gid = resolve_goalie(starts[pd.to_datetime(starts["date"]) < target], name, team)
         own = recent_team(team_games, team, target)
         opp = recent_team(team_games, str(r["opponent"]), target)
         gr = recent_goalie(starts, gid, target)
