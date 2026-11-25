@@ -1,0 +1,1 @@
+date,cohort,source_run_id,market,model,matched_rows,settled_rows,void_rows,rows,goalscorer_rate,mean_probability,brier,log_loss,auc,paper_count,paper_wins,paper_losses,paper_voids,paper_profit_units,paper_roi,saves_mae,top10_wins,top10_losses,top10_voids
