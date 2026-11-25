@@ -1,0 +1,13 @@
+{
+  "target_date": "2026-11-12",
+  "cohort": "RETROSPECTIVE_SMOKE_ONLY",
+  "source_run_id": 45715282170,
+  "artifact_id": 15068404105,
+  "source_artifact_created_at": "2026-11-25T22:41:31Z",
+  "manifest_sha256": "8c15c47e367a1a0fd758a459f7dde35687d7f6601bee9c7bd2381de70b4c85dc",
+  "summary_sha256": "56bf6335683ae2d99428953827c5e3df34a993a405580b19acd5d82652f7f7b0",
+  "games_graded": 10,
+  "official_records_changed": false,
+  "note": "DNP is paper void; no grading of excluded identities. Replay excluded from prospective records.",
+  "grading_workflow_run_id": 45715871716
+}
