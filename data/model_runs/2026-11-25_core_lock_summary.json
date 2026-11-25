@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-25",
+  "model_version": "v0.2.0",
+  "lock_type": "CLEAN_PREGAME",
+  "lock_time_et": "2026-11-25T18:40:24-05:00",
+  "first_puck_et": "2026-11-25T19:00:00-05:00",
+  "workflow_run_id": 45723015990,
+  "artifact_id": 15073700466,
+  "artifact_digest": "sha256:213a897bc2291518515df41885e9006ca4fed4deeba55b6fafa4f740689158b4",
+  "games": [
+    "NYR@BUF",
+    "CAR@TBL",
+    "NJD@CBJ",
+    "STL@NYI",
+    "WPG@BOS",
+    "PHI@WSH",
+    "OTT@FLA",
+    "CGY@PIT",
+    "VAN@DET",
+    "NSH@DAL",
+    "UTA@MIN",
+    "MTL@COL",
+    "CHI@SEA",
+    "SJS@ANA"
+  ],
+  "raw_candidates": 613,
+  "excluded_atg": [
+    "Taylor Raddysh",
+    "Mitchell Chaffee",
+    "Scott Mayfield",
+    "Ethen Frank"
+  ],
+  "unresolved_identities": 0,
+  "top10": {
+    "count": 10,
+    "expected_wins_sum": 6.918912275864344
+  },
+  "official_playable": {
+    "count": 20,
+    "expected_wins_sum": 9.665836960082965
+  },
+  "playable_v0_3": {
+    "count": 4,
+    "expected_wins_sum": 2.098210522153769
+  },
+  "official_goalie_model": "v0.2",
+  "atg_consensus_count": 0,
+  "notes": [
+    "Official artifact timestamp verified before first puck; source history through Nov24, pregame snapshot reused.",
+    "CSV copies above extracted from successful job stdout; original complete artifact remains authoritative.",
+    "ATG current shadow archived top30 printed rows, not full candidate universe.",
+    "No model promotion or historical grading changes.",
+    "Missing four goalie markets, no substitute prices. Qualitative context reviewed; no invented numerical adjustment."
+  ]
+}
