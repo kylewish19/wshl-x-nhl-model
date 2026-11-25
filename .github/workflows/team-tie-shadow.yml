@@ -1,0 +1,36 @@
+name: Team Tie Treatment Diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/team-tie-shadow.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: data/research/team_archive
+      - name: Compare final-score models on dated archive
+        run: |
+          INPUT=$(find data/research/team_archive -name '2026-11-24_team_games.parquet' -print -quit)
+          test -n "$INPUT"
+          python scripts/benchmark_team_tie_shadow.py --team-games "$INPUT" --out data/research/team_tie_shadow
+      - uses: actions/upload-artifact@v4
+        with:
+          name: team-tie-shadow-2026-11-25
+          path: data/research/team_tie_shadow/
+          retention-days: 90
