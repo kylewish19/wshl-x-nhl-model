@@ -1,0 +1,71 @@
+name: Nov 25 NHL Resume Refresh
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-25-resume-refresh.yml'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Rebuild league data through Nov 24
+        run: |
+          python scripts/build_goalie_features.py \
+            --target-date 2026-11-25 \
+            --output data/processed/2026-11-24_goalie_features.parquet \
+            --team-games data/processed/2026-11-24_team_games.parquet \
+            --max-workers 12
+      - name: Build current-season resume snapshot
+        run: |
+          python scripts/build_resume_snapshot.py \
+            --goalie-features data/processed/2026-11-24_goalie_features.parquet \
+            --team-games data/processed/2026-11-24_team_games.parquet \
+            --target-date 2026-11-25 \
+            --out-dir data/resume/2026-11-24
+      - name: Validate date cutoff and label snapshot files
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          import json
+          target = pd.Timestamp("2026-11-25")
+          t = pd.read_parquet("data/processed/2026-11-24_team_games.parquet")
+          g = pd.read_parquet("data/processed/2026-11-24_goalie_features.parquet")
+          for name, frame in [("team",t),("goalie",g)]:
+              assert not frame.empty
+              assert pd.to_datetime(frame["date"]).max() < target, name
+              assert not frame.duplicated(["game_id","team"]).any(), name
+          cur = t[t["season"].astype(str)=="20262027"]
+          assert cur["team"].nunique() == 32
+          assert cur.groupby("game_id").size().eq(2).all()
+          out = Path("data/resume/2026-11-24")
+          for path in out.glob("*2026-11-08.csv"):
+              path.rename(path.with_name(path.name.replace("2026-11-08","2026-11-24")))
+          summary = out / "resume_refresh_summary.json"
+          d = json.loads(summary.read_text())
+          d["snapshot_date"] = "2026-11-24"
+          d["team_goalie_max_game_date"] = str(pd.to_datetime(t["date"]).max().date())
+          d["skater_snapshot_note"] = "Live season aggregate at execution time, not certified historical as-of; no official picks generated."
+          summary.write_text(json.dumps(d,indent=2))
+          print(json.dumps(d,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          retention-days: 30
+          path: |
+            data/resume/2026-11-24/team_form_2026-11-24.csv
+            data/resume/2026-11-24/goalie_workload_2026-11-24.csv
+            data/resume/2026-11-24/skater_snapshot_2026-11-24.csv
+            data/resume/2026-11-24/resume_refresh_summary.json
+            data/processed/2026-11-24_goalie_features.parquet
+            data/processed/2026-11-24_team_games.parquet
