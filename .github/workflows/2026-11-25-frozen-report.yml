@@ -32,7 +32,7 @@ jobs:
               a=list(Path(root).rglob(name));assert len(a)==1,(name,a);return a[0]
           def read(root,name):
               with f(root,name).open() as s:return list(csv.DictReader(s))
-          manifest=json.loads(f("research","manifest.json").read_text())
+          manifest=json.loads(Path("research/manifest.json").read_text())
           for name,digest in manifest["output_hashes"].items():
               assert hashlib.sha256((Path("research")/name).read_bytes()).hexdigest()==digest
           c=read("core","2026-11-25_core_candidates.csv")
