@@ -1,0 +1,19 @@
+{
+  "status": "HISTORICAL_DIAGNOSTIC_ONLY",
+  "games": 6945,
+  "train_games": 3936,
+  "test_games": {
+    "20252026": 1312,
+    "20262027": 385
+  },
+  "last_date": "2026-11-24",
+  "limitations": [
+    "No archived prices, no lineup or starting goalie forecasts, zero context in reconstructed baseline",
+    "Shot counts derived from goalie shots faced, not guaranteed official team SOG",
+    "Previous holdout periods already observed in project; not promotion evidence",
+    "Final score includes OT/SO credit; direct classes avoid simulated final ties"
+  ],
+  "source_run_id": 45713367700,
+  "benchmark_run_id": 45716648252,
+  "tests_passed": 40
+}
