@@ -1,0 +1,213 @@
+name: Nov 25 Core NHL Slate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-25-core-slate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+
+      - name: Check pregame date and cutoff
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          from zoneinfo import ZoneInfo
+          import pandas as pd, requests
+          date="2026-11-25"
+          now=dt.datetime.now(dt.timezone.utc)
+          assert now.astimezone(ZoneInfo("America/New_York")).date().isoformat()==date
+          s=requests.get("https://api-web.nhle.com/v1/schedule/"+date,timeout=30);s.raise_for_status()
+          games=[g for day in s.json()["gameWeek"] if day["date"]==date for g in day["games"]]
+          keys={g["awayTeam"]["abbrev"]+"@"+g["homeTeam"]["abbrev"]:g for g in games}
+          board=pd.read_csv("data/inputs/2026-11-25_team_board.csv")
+          assert set(board.game)==set(keys), "schedule coverage mismatch"
+          first=min(dt.datetime.fromisoformat(g["startTimeUTC"].replace("Z","+00:00")) for g in keys.values())
+          assert now<first and all(g["gameState"] in ("FUT","PRE") for g in keys.values()), "Not a clean pregame slate"
+          print("PRELOCK",now.isoformat(),"first puck",first.isoformat())
+          PY
+      - name: Validate all four price boards
+        run: python scripts/preflight_slate.py --date 2026-11-25 --team data/inputs/2026-11-25_team_board.csv --core data/odds/2026-11-25_core_FanDuel.csv --atg data/inputs/2026-11-25_atg_board.csv --goalie data/odds/2026-11-25_goalie_saves_FanDuel.csv --out data/model_runs/2026-11-25_preflight.json
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: data/research/nov25_prior
+      - name: Verify original prior-game history and pregame snapshot
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, shutil
+          import pandas as pd
+          root=Path("data/research/nov25_prior")
+          for name,sha,dest in [
+            ("2026-11-24_team_games.parquet","8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16","2026-11-25_pregame_team_games.parquet"),
+            ("2026-11-24_goalie_features.parquet","b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c","2026-11-25_pregame_goalie_features.parquet")]:
+              hits=list(root.rglob(name)); assert len(hits)==1
+              assert hashlib.sha256(hits[0].read_bytes()).hexdigest()==sha
+              f=pd.read_parquet(hits[0]); assert pd.to_datetime(f.date).max()==pd.Timestamp("2026-11-24")
+              assert len(f)==13890 and not f.duplicated(["game_id","team"]).any()
+              p=Path("data/processed")/dest;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(hits[0],p)
+          s=list(root.rglob("skater_snapshot_2026-11-24.csv"));m=list(root.rglob("resume_refresh_summary.json"));assert len(s)==len(m)==1
+          meta=json.loads(m[0].read_text());assert meta["data_cutoff_target_date"]=="2026-11-25"
+          out=Path("data/model_runs/2026-11-25_resume");out.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(s[0],out/"skater_snapshot_2026-11-08.csv")
+          shutil.copyfile(m[0],out/"resume_refresh_summary.json")
+          print("Verified archived history through Nov24; pregame snapshot artifact 15069296241")
+          PY
+      - name: Run team/game markets
+        run: |
+          python scripts/run_team_goal_board.py \
+            --team-games data/processed/2026-11-25_pregame_team_games.parquet \
+            --board data/inputs/2026-11-25_team_board.csv \
+            --target-date 2026-11-25 \
+            --predictions data/model_runs/2026-11-25_team_predictions.csv \
+            --metrics data/model_runs/2026-11-25_team_metrics.json
+
+      - name: Run official goalie v0.2 with v0.1 control
+        run: |
+          python scripts/run_goalie_board.py \
+            --features data/processed/2026-11-25_pregame_goalie_features.parquet \
+            --team-games data/processed/2026-11-25_pregame_team_games.parquet \
+            --odds data/odds/2026-11-25_goalie_saves_FanDuel.csv \
+            --target-date 2026-11-25 \
+            --predictions data/model_runs/2026-11-25_goalie_predictions.csv \
+            --metrics data/model_runs/2026-11-25_goalie_metrics.json
+
+      - name: Run goalie v0.3 research shadow
+        continue-on-error: true
+        run: |
+          python scripts/run_goalie_v03_board.py \
+            --features data/processed/2026-11-25_pregame_goalie_features.parquet \
+            --team-games data/processed/2026-11-25_pregame_team_games.parquet \
+            --odds data/odds/2026-11-25_goalie_saves_FanDuel.csv \
+            --target-date 2026-11-25 \
+            --identity-board data/model_runs/2026-11-25_goalie_predictions.csv \
+            --predictions data/model_runs/2026-11-25_goalie_v03_research.csv \
+            --metrics data/model_runs/2026-11-25_goalie_v03_research_metrics.json
+
+      - name: Resolve official ATG board from same-day frozen official transition snapshot
+        run: |
+          python - <<'PY'
+          import pandas as pd, json, unicodedata,re
+          from pathlib import Path
+          def norm(n):
+              return re.sub(r"[^a-z0-9]+"," ",unicodedata.normalize("NFKD",str(n)).encode("ascii","ignore").decode().casefold()).strip()
+          # Snapshot stores the exact official v0.1 rates generated by build_resume_snapshot.py.
+          # No retraining or current game result access; matched ID and team required.
+          s=pd.read_csv("data/model_runs/2026-11-25_resume/skater_snapshot_2026-11-08.csv")
+          s["key"]=s.player_name.map(norm)
+          b=pd.read_csv("data/inputs/2026-11-25_atg_board.csv")
+          aliases={"Alex Wennberg":"Alexander Wennberg","Luke Glendening":"Lucas Glendening","Jake Middleton":"Jacob Middleton","Elias Nils Pettersson #25":"Elias Pettersson"}
+          out=[]; unresolved=[]; known=["Taylor Raddysh","Mitchell Chaffee","Scott Mayfield","Ethen Frank"]
+          for _,r in b.iterrows():
+              row=r.to_dict(); n=r.player_name; team="DET" if n=="Keegan Kolesar" else r.team
+              hits=s[(s.team==team)&(s.key==norm(aliases.get(n,n)))]
+              # Allow exact raw listed alias as a second attempt, never fuzzy surname matching.
+              if hits.empty: hits=s[(s.team==team)&(s.key==norm(n))]
+              if n=="Elias Nils Pettersson #25": hits=s[(s.team==team)&(s.player_id==8483678)&(s.position=="D")]
+              row.update(listed_team=r.team,resolved_team=team,team=team)
+              if len(hits)!=1:
+                  unresolved.append(n);row.update(player_id=None,expected_count=None,model_probability=None,model_basis="unresolved_identity")
+              else:
+                  p=hits.iloc[0];row.update(player_id=int(p.player_id),expected_count=float(p.official_goal_mu),model_probability=float(p.official_goal_prob),model_basis=p.official_goal_basis)
+              out.append(row)
+          frame=pd.DataFrame(out)
+          frame.to_csv("data/model_runs/2026-11-25_atg_predictions.csv",index=False)
+          Path("data/model_runs/2026-11-25_atg_metrics.json").write_text(json.dumps({"source_run_id":45713367700,"source_artifact_id":15069296241,"basis":"same-day archived official transition snapshot, exact ID/team resolution; unchanged official formula","rows_scored":int(frame.model_probability.notna().sum()),"unresolved_names":unresolved,"known_scratches":known,"alias_map":aliases,"team_correction":{"Keegan Kolesar":"DET"}},indent=2))
+          print("ATG unmatched:",unresolved)
+          PY
+      - name: Assemble official core universe
+        run: |
+          python scripts/assemble_core_slate.py \
+            --team-pred data/model_runs/2026-11-25_team_predictions.csv \
+            --core-odds data/odds/2026-11-25_core_FanDuel.csv \
+            --atg-pred data/model_runs/2026-11-25_atg_predictions.csv \
+            --goalie-pred data/model_runs/2026-11-25_goalie_predictions.csv \
+            --skater-snapshot data/model_runs/2026-11-25_resume/skater_snapshot_2026-11-08.csv \
+            --date 2026-11-25 \
+            --exclude-atg "Taylor Raddysh,Mitchell Chaffee,Scott Mayfield,Ethen Frank" \
+            --out data/model_runs/2026-11-25_core_candidates.csv \
+            --shadow-atg-out data/model_runs/2026-11-25_atg_current_shadow.csv
+
+      - name: Enforce unresolved identity exclusions without deleting source rows
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p="data/model_runs/2026-11-25_core_candidates.csv"
+          a=pd.read_csv(p)
+          invalid=a.market.eq("anytime_goal") & a.model_probability.isna()
+          a.loc[invalid,"active"]=0
+          # make_cards expects finite probabilities; keep unresolved original rows in ATG input/prediction audit.
+          # Exclude unscorable rows from eligible scored universe, without inventing probabilities.
+          a[invalid].to_csv("data/model_runs/2026-11-25_identity_excluded.csv",index=False)
+          a[~invalid].to_csv(p,index=False)
+          print("Unscorable identities excluded:",int(invalid.sum()))
+          PY
+      - name: Build ATG consensus shadow
+        run: |
+          python scripts/build_atg_consensus_shadow.py \
+            --official-atg data/model_runs/2026-11-25_atg_predictions.csv \
+            --skater-snapshot data/model_runs/2026-11-25_resume/skater_snapshot_2026-11-08.csv \
+            --output data/model_runs/2026-11-25_atg_consensus_shadow.csv
+
+      - name: Lock official and playable shadow cards
+        run: |
+          python scripts/make_cards.py \
+            --candidates data/model_runs/2026-11-25_core_candidates.csv \
+            --top10-out data/model_runs/2026-11-25_top10.csv \
+            --playable-out data/model_runs/2026-11-25_playable.csv \
+            --shadow-v03-out data/model_runs/2026-11-25_playable_shadow_v0.3.csv \
+            --shadow-target-date 2026-11-25
+
+      - name: Verify cutoff and write lock manifest
+        run: |
+          python - <<'PY'
+          import datetime as dt,hashlib,json
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          now=dt.datetime.now(dt.timezone.utc);first=dt.datetime.fromisoformat("2026-11-26T00:00:00+00:00")
+          assert now<first, "LATE_LOCK: no clean official upload"
+          paths=sorted(Path("data/model_runs").glob("2026-11-25_*.csv"))
+          data={"date":"2026-11-25","version":"v0.2.0","status":"PREGAME_PENDING_ARTIFACT_VERIFICATION","created_utc":now.isoformat(),"first_puck_utc":first.isoformat(),"history_cutoff":"2026-11-24","source_run":45713367700,"hashes":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}}
+          Path("data/model_runs/2026-11-25_lock_manifest.json").write_text(json.dumps(data,indent=2))
+          PY
+      - name: Print locked outputs
+        run: |
+          echo "=== TOP 10 ==="
+          cat data/model_runs/2026-11-25_top10.csv
+          echo "=== PLAYABLE ==="
+          cat data/model_runs/2026-11-25_playable.csv
+          echo "=== PLAYABLE SHADOW V0.3 ==="
+          cat data/model_runs/2026-11-25_playable_shadow_v0.3.csv
+          echo "=== GOALIE V0.1/V0.2 ==="
+          cat data/model_runs/2026-11-25_goalie_predictions.csv
+          echo "=== GOALIE V0.3 RESEARCH ==="
+          if [ -f data/model_runs/2026-11-25_goalie_v03_research.csv ]; then cat data/model_runs/2026-11-25_goalie_v03_research.csv; else echo 'Goalie v0.3 unavailable'; fi
+          echo "=== ATG CURRENT SHADOW TOP ==="
+          head -n 31 data/model_runs/2026-11-25_atg_current_shadow.csv
+          echo "=== ATG CONSENSUS SHADOW ==="
+          cat data/model_runs/2026-11-25_atg_consensus_shadow.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-25
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            data/model_runs/2026-11-25_*.csv
+            data/model_runs/2026-11-25_*.json
