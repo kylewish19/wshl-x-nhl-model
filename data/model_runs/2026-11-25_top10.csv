@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,model_basis,active,player_name,player_id,team,resolved_team,listed_team,goalie_name,v0_1_probability,v0_2_probability,v0_2_expected_saves,v0_1_expected_saves,cohort,rank
+2026-11-25,OTT@FLA,spread,Ottawa Senators,1.5,-260,0.7363999999999999,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,1
+2026-11-25,NYR@BUF,spread,New York Rangers,1.5,-230,0.72915,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,2
+2026-11-25,STL@NYI,spread,St. Louis Blues,1.5,-225,0.70475,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,3
+2026-11-25,NJD@CBJ,spread,Columbus Blue Jackets,1.5,-215,0.69155,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,4
+2026-11-25,CAR@TBL,spread,Tampa Bay Lightning,1.5,-260,0.68955,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,5
+2026-11-25,PHI@WSH,spread,Philadelphia Flyers,1.5,-192,0.6839500000000001,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,6
+2026-11-25,NSH@DAL,spread,Nashville Predators,1.5,-184,0.6836,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,7
+2026-11-25,CGY@PIT,spread,Calgary Flames,1.5,-188,0.6695,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,8
+2026-11-25,NSH@DAL,goalie_saves,Jake Oettinger Over,21.5,-106,0.6661622758643433,goalie_two_stage_v0.2_official,1,,,DAL,,,Jake Oettinger,0.6470629668856617,0.6661622758643433,24.84217588717788,23.46980979189005,TOP10_PROBABILITY,9
+2026-11-25,SJS@ANA,spread,San Jose Sharks,1.5,-230,0.6643,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,10
