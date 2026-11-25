@@ -1,0 +1,17 @@
+{
+  "status": "SUCCESS",
+  "source_workflow_run_id": 45713367700,
+  "team_goalie_data_through": "2026-11-24",
+  "target_date": "2026-11-25",
+  "discovered_games": 6945,
+  "goalie_starts": 13890,
+  "team_games": 13890,
+  "current_season_games": 385,
+  "current_season_team_games": 770,
+  "team_count": 32,
+  "current_season_goalies": 78,
+  "current_roster_skaters": 732,
+  "current_season_skater_stat_rows": 755,
+  "skater_snapshot_note": "Live aggregate at execution, not certified historical as-of",
+  "official_picks_generated": false
+}
