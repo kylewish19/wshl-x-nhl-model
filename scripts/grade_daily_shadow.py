@@ -77,7 +77,8 @@ def main():
     ats.insert(0,"market","anytime_goal")
     summary=pd.concat([ts,gs,ats],ignore_index=True)
     summary.insert(0,"date",m["date"]);summary.insert(1,"cohort",cohort);summary.insert(2,"source_run_id",artifact["workflow_run"]["id"])
-    ledger=pd.read_csv(a.ledger) if a.ledger else summary.iloc[:0].copy()
+    ledger_path=a.ledger or ("data/results/prospective_shadow_ledger.csv" if not a.replay else None)
+    ledger=pd.read_csv(ledger_path) if ledger_path else summary.iloc[:0].copy()
     # Replays never enter the prospective ledger.
     if not a.replay:ledger=pd.concat([ledger,summary],ignore_index=True)
     if not ledger.empty and not ledger.cohort.eq("CLEAN_SHADOW_PREGAME").all():raise ValueError("Nonprospective row in ledger")
