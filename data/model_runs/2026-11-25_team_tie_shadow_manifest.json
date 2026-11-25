@@ -1,0 +1,13 @@
+{
+  "status": "HISTORICAL_DIAGNOSTIC_ONLY",
+  "games": 6945,
+  "calibration_season": "2024-25",
+  "factor": 0.9934930586777828,
+  "limitations": [
+    "No regulation score labels in archive; tie resolution is mathematical assumption, not validated OT frequency",
+    "No odds or pregame goalie context",
+    "Already viewed evaluation seasons; not independent promotion evidence"
+  ],
+  "benchmark_run_id": 45717100136,
+  "tests_passed": 42
+}
