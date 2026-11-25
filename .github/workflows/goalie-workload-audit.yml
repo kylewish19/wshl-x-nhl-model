@@ -1,0 +1,38 @@
+name: Goalie Workload Diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/goalie-workload-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: data/research/team_archive
+      - name: Audit goalie workload on dated archive
+        run: |
+          INPUT=$(find data/research/team_archive -name '2026-11-24_team_games.parquet' -print -quit)
+          test -n "$INPUT"
+          FEATURES=$(find data/research/team_archive -name '2026-11-24_goalie_features.parquet' -print -quit)
+          test -n "$FEATURES"
+          python scripts/audit_goalie_workload.py --features "$FEATURES" --team-games "$INPUT" --out data/research/goalie_workload_audit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goalie-workload-audit-2026-11-25
+          path: data/research/goalie_workload_audit/
+          retention-days: 90
