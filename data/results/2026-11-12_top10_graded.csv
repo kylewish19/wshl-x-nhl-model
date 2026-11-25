@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-12,STL@UTA,spread,Utah Mammoth,1.5,-235,0.75795,WIN,STL 1-0 UTA,
+2026-11-12,COL@OTT,spread,Colorado Avalanche,1.5,-260,0.75485,WIN,COL 3-4 OTT,
+2026-11-12,NYI@LAK,spread,New York Islanders,1.5,-250,0.7396499999999999,WIN,NYI 5-2 LAK,
+2026-11-12,WSH@NJD,spread,Washington Capitals,1.5,-205,0.7020500000000001,LOSS,WSH 2-5 NJD,
+2026-11-12,DET@FLA,goalie_saves,John Gibson Over,24.5,-108,0.6938199080243359,LOSS,24 saves,
+2026-11-12,DET@FLA,spread,Detroit Red Wings,1.5,-188,0.6878,WIN,DET 4-5 FLA,
+2026-11-12,BUF@CHI,goalie_saves,Spencer Knight Over,24.5,-114,0.679778565060122,LOSS,21 saves,
+2026-11-12,MIN@TOR,spread,Toronto Maple Leafs,1.5,-160,0.6719,LOSS,MIN 5-2 TOR,
+2026-11-12,TBL@CBJ,spread,Columbus Blue Jackets,1.5,-260,0.66775,LOSS,TBL 3-1 CBJ,
+2026-11-12,MTL@BOS,spread,Montreal Canadiens,1.5,-260,0.6621,WIN,MTL 5-2 BOS,
