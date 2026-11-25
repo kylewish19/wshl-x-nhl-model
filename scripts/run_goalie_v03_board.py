@@ -12,12 +12,28 @@ from run_goalie_board import current_feature_rows, choose_side
 from wshlx_nhl.goalie_shadow import train_goalie_simulation_shadow
 
 
+def validate_identity_board(current: pd.DataFrame, official: pd.DataFrame) -> None:
+    keys = ["date", "game", "goalie_name", "team", "line"]
+    for frame in (current, official):
+        if frame.duplicated(keys).any():
+            raise ValueError("Duplicate goalie identity board rows")
+    matched = current[keys + ["goalie_id"]].merge(
+        official[keys + ["goalie_id"]], on=keys, how="outer",
+        suffixes=("_research","_official"), indicator=True, validate="one_to_one")
+    research = matched.goalie_id_research.astype(str)
+    official_ids = matched.goalie_id_official.astype(str)
+    bad = matched["_merge"].ne("both") | research.ne(official_ids) | ~research.str.fullmatch(r"\d+")
+    if bad.any():
+        raise ValueError("Goalie identity comparison invalid: " + matched.loc[bad, keys + ["goalie_id_research","goalie_id_official"]].to_json(orient="records"))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--features", required=True)
     ap.add_argument("--team-games", required=True)
     ap.add_argument("--odds", required=True)
     ap.add_argument("--target-date", required=True)
+    ap.add_argument("--identity-board", help="Official pregame goalie prediction CSV; require identical resolved player IDs")
     ap.add_argument("--config", default="config/goalie_shadow_v0.3.yaml")
     ap.add_argument("--predictions", required=True)
     ap.add_argument("--metrics", required=True)
@@ -51,6 +67,8 @@ def main():
     joblib.dump(model, args.model)
 
     current = current_feature_rows(board, starts, team_games, args.target_date).reset_index(drop=True)
+    if args.identity_board:
+        validate_identity_board(current, pd.read_csv(args.identity_board))
     exp_shots, exp_sv, exp_saves = model.predict_components(current)
     p_over, p_under, p_push = model.simulate_probabilities(current, current["line"].to_numpy())
 
@@ -99,6 +117,7 @@ def main():
         "simulation_draws": int(model.n_sims),
         "validation_metrics": model.validation_metrics,
         "rows": int(len(pred)),
+        "identity_board_validated": bool(args.identity_board),
     }
     Path(args.metrics).write_text(json.dumps(payload, indent=2))
     print(pred.to_string(index=False))
