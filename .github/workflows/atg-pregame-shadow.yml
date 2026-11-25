@@ -1,0 +1,76 @@
+name: ATG Pregame Shadow Integration
+on:
+  push:
+    paths:
+      - '.github/workflows/atg-pregame-shadow.yml'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'replay (smoke only) or live (requires full official candidate CSV on main)'
+        required: true
+        type: choice
+        options: [replay, live]
+        default: replay
+      target_date:
+        description: 'Eastern slate date for live mode'
+        required: false
+        type: string
+      candidate_path:
+        description: 'Full official candidate CSV path on main for live mode'
+        required: false
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: data/research/atg_archive_input
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-archive-audit-2026-11-25
+          run-id: 45714769216
+          github-token: ${{ github.token }}
+          path: data/research/atg_frozen_bundle
+      - name: Retrieve full archived Nov 12 board for replay
+        if: inputs.mode != 'live'
+        uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-12
+          run-id: 43313573453
+          github-token: ${{ github.token }}
+          path: data/research/atg_replay_input
+      - name: Run retrospective integration smoke test
+        if: inputs.mode != 'live'
+        run: |
+          BOARD=$(find data/research/atg_replay_input -name '2026-11-12_core_candidates.csv' -print -quit)
+          test -n "$BOARD"
+          python scripts/run_atg_pregame.py --history data/research/atg_archive_input/skater_games.parquet --bundle data/research/atg_frozen_bundle/atg_game_shadow.joblib --candidates "$BOARD" --target-date 2026-11-12 --out-dir data/research/atg_pregame_output --replay
+      - name: Run live pregame research comparison
+        if: inputs.mode == 'live'
+        env:
+          TARGET: ${{ inputs.target_date }}
+          BOARD: ${{ inputs.candidate_path }}
+        run: |
+          test -n "$TARGET" && test -n "$BOARD"
+          python scripts/run_atg_pregame.py --history data/research/atg_archive_input/skater_games.parquet --bundle data/research/atg_frozen_bundle/atg_game_shadow.joblib --candidates "$BOARD" --target-date "$TARGET" --out-dir data/research/atg_pregame_output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atg-pregame-shadow-output
+          path: data/research/atg_pregame_output/
+          retention-days: 90
+          if-no-files-found: error
