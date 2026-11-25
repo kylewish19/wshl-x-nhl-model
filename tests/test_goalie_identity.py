@@ -26,3 +26,12 @@ def test_ambiguous_identity_is_not_guessed(monkeypatch):
     starts = pd.DataFrame({"goalie_name": ["Same Name", "Same Name", "D. Kuemper"], "goalie_id": ["1", "2", "8475311"]})
     assert board.resolve_goalie(starts, "Same Name", "LAK") is None
     assert board.resolve_goalie(starts, "Darcy Kuemper", "LAK") is None
+
+def test_comparison_guard_rejects_mismatched_ids():
+    import pytest
+    from run_goalie_v03_board import validate_identity_board
+    base = pd.DataFrame([{"date":"2026-11-12","game":"NYI@LAK","goalie_name":"Darcy Kuemper","team":"LAK","line":22.5,"goalie_id":"8475311"}])
+    validate_identity_board(base, base.copy())
+    other = base.assign(goalie_id="UNKNOWN::Darcy Kuemper")
+    with pytest.raises(ValueError, match="identity comparison invalid"):
+        validate_identity_board(other, base)
