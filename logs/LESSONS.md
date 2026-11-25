@@ -266,3 +266,14 @@
 - Continue collecting clean prospective goalie v0.1/v0.2/v0.3 comparisons and official price-gated goalie results.
 - Continue Playable Price shadow v0.3 exactly as specified; a zero-play slate is informative, not a failure.
 
+## 2026-11-12 — grading completed 2026-11-25
+- Clean Top 10 **5-5**, expected wins 7.01765, Brier 0.27318.
+- Official Playable **5-12, -8.29604u, -48.80% ROI**, Brier 0.22903. ATG 0-5 (-5u), goalies 2-3 (-1.13068u), ML 1-2 (-1.12281u), spread 2-1 (-0.04255u), total 0-1 (-1u). All settled. MacKinnon played and exited injured, not a DNP.
+- Playable shadow v0.3 **0-2, -2u**, Brier 0.32366; both plays STL@UTA. Consensus ATG shadow PASS. Current-season ATG top eight 4-4, winners Kyle Connor, Caufield, Tage Thompson, Hagel. This is a rank diagnostic, not executable price card.
+- Goalie recorded picks v0.1 9-8, v0.2 10-7, v0.3 12-5; expected saves MAE 3.3981 / 3.5682 / 3.4034; over-event Brier 0.25396 / 0.25925 / 0.24636. Saved picks sometimes favor price rather than maximum probability; keep these distinct. Kuemper identity unresolved only in v0.3: keep locked fallback and flag; common 16 known-ID rows yield 9-7 / 9-7 / 11-5. Do not retroactively alter probabilities. Review identity resolver before next live run. Need compare maximum-probability directions and same price gates across versions.
+- Official v0.2 goalie playable since promotion 5-4, +0.28391u. Two slates not enough to reverse promotion. Continue v0.1 and v0.3 research.
+- Current clean cumulative Top 10 63-46; Official Playable 50-88, -41.8203u; Playable shadow 1-5, -4.1667u (six settled, not enough for promotion).
+- Full clean market diagnostics saved: ATG 2-22 +1 void (-19.65u), goalie 19-24 (-7.3240u), ML 7-10 (-0.7879u), spread 10-8 (-2.2542u), totals 6-3 (+2.1442u). Prioritize ATG role/TOI/shot-volume calibration and matched goalie workload audits. Keep official control unchanged; recommend paper testing given substantial observed losses.
+- Sources: https://www.nhl.com/news/st-louis-blues-utah-mammoth-game-recap-november-12-2026 ; https://www.nhl.com/news/nathan-mackinnon-cale-makar-exit-game-for-colorado-avalanche ; https://daily.hockey/starting-goalies/2026-11-12 ; https://www.agatetypes.com/hockey/november-12-2026 .
+- Nov 13–24 skipped for betting; no retroactive official picks. Refresh completed historical games and current context for next slate. No predictive code change in this grading.
+
