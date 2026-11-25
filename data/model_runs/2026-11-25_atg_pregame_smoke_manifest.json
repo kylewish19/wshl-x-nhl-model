@@ -1,0 +1,31 @@
+{
+  "target_date": "2026-11-12",
+  "status": "RETROSPECTIVE_SMOKE_ONLY",
+  "created_at_utc": "2026-11-25T22:41:29.844638+00:00",
+  "first_puck_utc": null,
+  "history_last_date": "2026-11-11",
+  "history_rows": 246818,
+  "matched_rows": 337,
+  "excluded_rows": 6,
+  "exclusion_counts": {
+    "UNRESOLVED_ID": 5,
+    "INACTIVE": 1
+  },
+  "candidate_file_sha256": "1d67224d565ea9d2fd9054bb835424fcc4b5723bfb6b5dadaee312751f4c15c4",
+  "archive_sha256": "5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b",
+  "bundle_sha256": "3fe4d4e12e66494a81200362013992391c093d3bf4967cb487b217484fc3fd66",
+  "probability_sha256": "32c4742932d549773f53ec52b0ab6cd1bdd408f22473d13170ebcd5222e1e1c3",
+  "prices_sha256": "a5c9daf25b60dc544cee8a19f6c1cd0804dbd4326412c589ec561378c9c90a30",
+  "paper_card_counts": {
+    "official_probability": 5,
+    "shot_probability": 2,
+    "boosting_calibrated": 3
+  },
+  "price_gate": {
+    "edge": 0.05,
+    "ev": 0.05
+  },
+  "official_model_changed": false,
+  "limits": "Matched subset only; historical position fallback; actual participation not guaranteed; verify external artifact timestamp before clean classification.",
+  "source_workflow_run_id": 45715282170
+}
