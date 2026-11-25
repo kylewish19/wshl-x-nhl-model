@@ -1,0 +1,61 @@
+name: Nov 25 Frozen Matchup Report
+on:
+  push:
+    paths:
+      - '.github/workflows/2026-11-25-frozen-report.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-25
+          run-id: 45723015990
+          github-token: ${{ github.token }}
+          path: core
+      - uses: actions/download-artifact@v4
+        with:
+          name: unified-daily-shadows-2026-11-25
+          run-id: 45723215283
+          github-token: ${{ github.token }}
+          path: research
+      - name: Read locked boards without rescoring
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          def f(root,name):
+              a=list(Path(root).rglob(name));assert len(a)==1,(name,a);return a[0]
+          def read(root,name):
+              with f(root,name).open() as s:return list(csv.DictReader(s))
+          manifest=json.loads(f("research","manifest.json").read_text())
+          for name,digest in manifest["output_hashes"].items():
+              assert hashlib.sha256((Path("research")/name).read_bytes()).hexdigest()==digest
+          c=read("core","2026-11-25_core_candidates.csv")
+          assert hashlib.sha256(f("core","2026-11-25_core_candidates.csv").read_bytes()).hexdigest()==manifest["source_hashes"]["candidates"]
+          p=read("research","matched_prices.csv")
+          t=read("research","totals_comparison.csv")
+          g=read("research","goalie_comparison.csv")
+          b=read("core","2026-11-25_atg_current_shadow.csv")
+          def top(rows,key,n=1):
+              rows=[r for r in rows if r.get(key) not in (None,"","nan")]
+              return [[r.get("player_name",r.get("selection")),round(100*float(r[key]),2)] for r in sorted(rows,key=lambda r:float(r[key]),reverse=True)[:n]]
+          games=list(dict.fromkeys(r["game"] for r in c))
+          for game in games:
+              atg=[r for r in c if r["game"]==game and r["market"]=="anytime_goal" and r["active"]=="1"]
+              m=[r for r in p if r["game"]==game]
+              blend=[r for r in b if r["game"]==game and r["active"]=="1"]
+              out={"game":game,"official_atg":top(atg,"model_probability",3),"blend":top(blend,"shadow_probability",1),"shot":top(m,"shot_probability",1),"boost":top(m,"boosting_calibrated",1)}
+              out["totals"]={model:[[r["selection"],r["line"],round(100*float(r["probability"]),2)] for r in t if r["game"]==game and r["model"]==model and float(r["probability"])>=.5] for model in ("analytic_control","tie_only")}
+              out["goalies"]={}
+              for r in g:
+                  if r["game"]!=game:continue
+                  q=float(r["over_probability"])
+                  out["goalies"].setdefault(r["goalie_name"],{"line":r["line"]})[r["model"]]=["O" if q>=.5 else "U",round(100*max(q,1-q),2)]
+              print("MATCHUP "+json.dumps(out,separators=(",",":")))
+          print("ATG_COUNTS "+json.dumps({k:sum(r[k+"_qualifies"].lower()=="true" for r in p) for k in ("official_probability","shot_probability","boosting_calibrated")}))
+          PY
