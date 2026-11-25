@@ -1,0 +1,18 @@
+date,game,market,selection,line,odds_american,model_probability,result,profit_units,actual,notes
+2026-11-12,MTL@BOS,anytime_goal,Matthew Poitras,0.5,650,0.2286517988564465,LOSS,-1,0 goals,
+2026-11-12,MIN@TOR,anytime_goal,Teddy Blueger,0.5,900,0.1506637103643219,LOSS,-1,0 goals,
+2026-11-12,DET@FLA,goalie_saves,John Gibson Over,24.5,-108,0.6938199080243359,LOSS,-1,24 saves,
+2026-11-12,WSH@NJD,anytime_goal,Alex Ovechkin,0.5,370,0.27702597086786773,LOSS,-1,0 goals,
+2026-11-12,COL@OTT,anytime_goal,Nathan MacKinnon,0.5,140,0.5403566204427953,LOSS,-1,0 goals,Played; left injured
+2026-11-12,BUF@CHI,goalie_saves,Spencer Knight Over,24.5,-114,0.679778565060122,LOSS,-1,21 saves,
+2026-11-12,BUF@CHI,anytime_goal,Roman Kantserov,0.5,240,0.3485813603423661,LOSS,-1,0 goals,
+2026-11-12,MTL@BOS,goalie_saves,Jacob Fowler Over,24.5,-106,0.5750338323952262,WIN,0.9433962264150944,30 saves,
+2026-11-12,STL@UTA,moneyline,Utah Mammoth,,105,0.541875,LOSS,-1,STL 1-0 UTA,
+2026-11-12,MIN@TOR,goalie_saves,Anthony Stolarz Under,25.5,-108,0.5762355458425572,WIN,0.9259259259259259,21 saves,
+2026-11-12,MIN@TOR,spread,Toronto Maple Leafs,1.5,-160,0.6719,LOSS,-1,MIN 5-2 TOR,
+2026-11-12,STL@UTA,total,Over,5.5,-130,0.61545,LOSS,-1,STL 1-0 UTA,
+2026-11-12,DET@FLA,moneyline,Detroit Red Wings,,142,0.449275,LOSS,-1,DET 4-5 FLA,
+2026-11-12,STL@UTA,spread,Utah Mammoth,1.5,-235,0.75795,WIN,0.425531914893617,STL 1-0 UTA,
+2026-11-12,WSH@NJD,goalie_saves,Connor Hellebuyck Under,22.5,-125,0.5998699196043533,LOSS,-1,26 saves,
+2026-11-12,TBL@CBJ,moneyline,Tampa Bay Lightning,,-114,0.5722499999999999,WIN,0.8771929824561403,TBL 3-1 CBJ,
+2026-11-12,DET@FLA,spread,Detroit Red Wings,1.5,-188,0.6878,WIN,0.5319148936170213,DET 4-5 FLA,
