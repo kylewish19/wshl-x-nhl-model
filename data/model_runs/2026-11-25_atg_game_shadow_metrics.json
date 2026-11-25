@@ -1,0 +1,103 @@
+{
+  "status": "SHADOW_ONLY",
+  "train_rows": 94423,
+  "calibration_rows": 47221,
+  "tests": {
+    "2025-26": {
+      "goal_rate_baseline": {
+        "rows": 47221,
+        "goalscorer_rate": 0.1516698079244404,
+        "mean_probability": 0.15368477126292893,
+        "brier": 0.12199850431216286,
+        "log_loss": 0.4005772431007416,
+        "auc": 0.6781939514809066
+      },
+      "shot_finish_baseline": {
+        "rows": 47221,
+        "goalscorer_rate": 0.1516698079244404,
+        "mean_probability": 0.14297810037885433,
+        "brier": 0.1206734125018726,
+        "log_loss": 0.3947764148647444,
+        "auc": 0.6959646138812049
+      },
+      "boosting": {
+        "rows": 47221,
+        "goalscorer_rate": 0.1516698079244404,
+        "mean_probability": 0.1194636464029714,
+        "brier": 0.12166481187268521,
+        "log_loss": 0.3985069662553081,
+        "auc": 0.698478139745272
+      },
+      "boosting_calibrated": {
+        "rows": 47221,
+        "goalscorer_rate": 0.1516698079244404,
+        "mean_probability": 0.14178074964431076,
+        "brier": 0.12047027582005088,
+        "log_loss": 0.3940574773263448,
+        "auc": 0.698478139745272
+      }
+    },
+    "2026-27": {
+      "goal_rate_baseline": {
+        "rows": 13857,
+        "goalscorer_rate": 0.15313559933607562,
+        "mean_probability": 0.15460063639481,
+        "brier": 0.12352678296740077,
+        "log_loss": 0.40483843113412926,
+        "auc": 0.670035262695233
+      },
+      "shot_finish_baseline": {
+        "rows": 13857,
+        "goalscorer_rate": 0.15313559933607562,
+        "mean_probability": 0.14043824789083634,
+        "brier": 0.12203433085161589,
+        "log_loss": 0.3991181761208258,
+        "auc": 0.6893892257025331
+      },
+      "boosting": {
+        "rows": 13857,
+        "goalscorer_rate": 0.15313559933607562,
+        "mean_probability": 0.11571307140407296,
+        "brier": 0.12355694422591347,
+        "log_loss": 0.4054769862392331,
+        "auc": 0.6893582840026392
+      },
+      "boosting_calibrated": {
+        "rows": 13857,
+        "goalscorer_rate": 0.15313559933607562,
+        "mean_probability": 0.1373886548323623,
+        "brier": 0.12219376530622457,
+        "log_loss": 0.3999403120741027,
+        "auc": 0.6893582840026392
+      }
+    }
+  },
+  "data_audit": {
+    "rows": 249950,
+    "games": 6945,
+    "by_season": {
+      "20212022": 1312,
+      "20222023": 1312,
+      "20232024": 1312,
+      "20242025": 1312,
+      "20252026": 1312,
+      "20262027": 385
+    },
+    "missing_counts": 0,
+    "negative_counts": 0,
+    "pp_goals_gt_goals": 0,
+    "goals_gt_shots": 23,
+    "goals_gt_shots_rate": 0.00009201840368073615,
+    "anomalies_by_season": {
+      "20212022": 3,
+      "20222023": 3,
+      "20232024": 3,
+      "20242025": 3,
+      "20252026": 9,
+      "20262027": 2
+    },
+    "policy": "Only rare goals>shots discrepancies get a lower-bound shot proxy; all such rows excluded from fit and held-out scoring."
+  },
+  "excluded_supervised_rows": 23,
+  "scope": "Actual participants; no historical prices or pregame roster reconstruction"
+}
