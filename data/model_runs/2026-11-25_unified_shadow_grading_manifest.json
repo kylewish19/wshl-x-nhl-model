@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-12",
+  "cohort": "RETROSPECTIVE_SMOKE_ONLY",
+  "source_run_id": 45718113354,
+  "source_artifact_id": 15070058891,
+  "lock_hash": "e7ee27b4b7fb855628a707584792640f5f50a26dbd3a5474c003bf6fb864339c",
+  "outcome_hashes": {
+    "team": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+    "goalie": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c",
+    "skater": "5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b"
+  },
+  "summary_sha256": "913205f5c2daa030f6062a916b97bef9f593580880380919ec4949fe317d39fe",
+  "games": 10,
+  "ledger_rows": 0,
+  "official_records_changed": false,
+  "grading_run_id": 45719012128,
+  "tests_passed": 49
+}
