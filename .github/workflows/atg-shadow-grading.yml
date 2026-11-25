@@ -1,0 +1,66 @@
+name: ATG Matched Shadow Grading
+on:
+  push:
+    paths:
+      - '.github/workflows/atg-shadow-grading.yml'
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Pregame integration workflow run ID'
+        required: true
+        type: string
+      mode:
+        description: 'live or replay'
+        required: true
+        type: choice
+        options: [live, replay]
+        default: live
+permissions:
+  contents: read
+  actions: read
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Verify source workflow and artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.source_run_id || '45715282170' }}
+        run: |
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > source_run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" > source_artifacts.json
+          python - <<'PY'
+          import json
+          r=json.load(open("source_run.json"))
+          assert r["conclusion"]=="success" and r["path"]==".github/workflows/atg-pregame-shadow.yml"
+          a=[a for a in json.load(open("source_artifacts.json"))["artifacts"] if a["name"]=="atg-pregame-shadow-output" and not a["expired"]]
+          assert len(a)==1 and a[0]["workflow_run"]["id"]==r["id"]
+          json.dump(a[0],open("source_artifact.json","w"))
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-pregame-shadow-output
+          run-id: ${{ inputs.source_run_id || '45715282170' }}
+          github-token: ${{ github.token }}
+          path: data/research/atg_grade_input
+      - name: Grade frozen selections and matched probabilities
+        env:
+          MODE: ${{ inputs.mode || 'replay' }}
+        run: |
+          FLAGS=()
+          if [ "$MODE" = replay ]; then FLAGS+=(--replay); fi
+          python scripts/grade_atg_pregame.py --lock-dir data/research/atg_grade_input --artifact-metadata source_artifact.json --out-dir data/research/atg_grade_output "${FLAGS[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atg-shadow-grading-output
+          path: data/research/atg_grade_output/
+          retention-days: 90
+          if-no-files-found: error
