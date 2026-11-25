@@ -1,0 +1,106 @@
+name: Unified NHL Shadow Grading
+on:
+  push:
+    paths:
+      - '.github/workflows/daily-shadow-grading.yml'
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Successful unified shadow run ID'
+        type: string
+        required: true
+      target_date:
+        description: 'Slate date'
+        type: string
+        required: true
+      mode:
+        type: choice
+        options: [live, replay]
+        default: live
+      team_games:
+        description: 'Authorized completed team-games parquet on main (live only)'
+        type: string
+      goalie_features:
+        description: 'Authorized completed starting-goalie parquet on main (live only)'
+        type: string
+      skater_games:
+        description: 'Authorized completed skater parquet on main (live only)'
+        type: string
+      ledger:
+        description: 'Prior clean research ledger on main, if any'
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Verify source workflow metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.source_run_id || '45718113354' }}
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
+        run: |
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" > artifacts.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open("run.json"))
+          assert r["conclusion"]=="success" and r["head_branch"]=="main" and r["path"]==".github/workflows/daily-shadows.yml"
+          a=[a for a in json.load(open("artifacts.json"))["artifacts"] if a["name"]=="unified-daily-shadows-"+os.environ["TARGET"] and not a["expired"]]
+          assert len(a)==1 and a[0]["workflow_run"]["id"]==r["id"]
+          json.dump(a[0],open("source_artifact.json","w"))
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: unified-daily-shadows-${{ inputs.target_date || '2026-11-12' }}
+          run-id: ${{ inputs.source_run_id || '45718113354' }}
+          github-token: ${{ github.token }}
+          path: data/research/unified_grade_input
+      - uses: actions/download-artifact@v4
+        if: inputs.mode != 'live'
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: data/research/team_archive
+      - uses: actions/download-artifact@v4
+        if: inputs.mode != 'live'
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: data/research/skater_archive
+      - name: Grade immutable research boards
+        env:
+          MODE: ${{ inputs.mode || 'replay' }}
+          TEAM: ${{ inputs.team_games }}
+          GOALIE: ${{ inputs.goalie_features }}
+          SKATER: ${{ inputs.skater_games }}
+          LEDGER: ${{ inputs.ledger }}
+        run: |
+          FLAGS=()
+          if [ "$MODE" = replay ]; then
+            TEAM=$(find data/research/team_archive -name '2026-11-24_team_games.parquet' -print -quit)
+            GOALIE=$(find data/research/team_archive -name '2026-11-24_goalie_features.parquet' -print -quit)
+            SKATER=data/research/skater_archive/skater_games.parquet
+            FLAGS+=(--replay)
+          fi
+          test -f "$TEAM" && test -f "$GOALIE" && test -f "$SKATER"
+          if [ -n "$LEDGER" ]; then FLAGS+=(--ledger "$LEDGER"); fi
+          python scripts/grade_daily_shadow.py --lock-dir data/research/unified_grade_input --artifact-metadata source_artifact.json --team-games "$TEAM" --goalie-features "$GOALIE" --skater-games "$SKATER" --out data/research/unified_grade_output "${FLAGS[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-shadow-grading-${{ inputs.target_date || '2026-11-12' }}
+          path: data/research/unified_grade_output/
+          retention-days: 90
+          if-no-files-found: error
