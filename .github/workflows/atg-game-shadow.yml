@@ -1,0 +1,27 @@
+name: ATG Game Shadow Research
+on:
+  push:
+    paths:
+      - '.github/workflows/atg-game-shadow.yml'
+  workflow_dispatch:
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - name: Test identity and pregame feature invariance
+        run: pytest -q tests/test_goalie_identity.py tests/test_atg_game_shadow.py
+      - name: Build chronological player-game dataset and benchmark
+        run: python scripts/train_atg_game_shadow.py --target-date 2026-11-25 --out-dir data/research/atg_game_shadow_2026-11-25 --workers 12
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atg-game-shadow-2026-11-25
+          path: data/research/atg_game_shadow_2026-11-25/
+          retention-days: 30
