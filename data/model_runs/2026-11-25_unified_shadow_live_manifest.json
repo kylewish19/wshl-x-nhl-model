@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-25",
+  "status": "PREGAME_PENDING_ARTIFACT_VERIFICATION",
+  "core_run_id": 45723015990,
+  "core_artifact_id": 15073700466,
+  "core_artifact_created_at": "2026-11-25T23:40:24Z",
+  "created_at_utc": "2026-11-25T23:41:32.641612+00:00",
+  "first_puck_utc": "2026-11-26 00:00:00+00:00",
+  "source_hashes": {
+    "candidates": "7dd5e67848d8e864ea5f397515bcc9e8d317934863578dcc3e689cacfb3029c3",
+    "team": "848d8a4beb95c9f223405f2f6020effcdac2c116a4e0a3a636995264f6cf279c",
+    "goalie": "09cba206e2e01b601d02f110aac6c1796cb2378a432a8407fe67b0baced0a5bf",
+    "research": "415004ba8ea50f5300c23658d9327f98707ed4337fed4f033409296bb9112c6f"
+  },
+  "output_hashes": {
+    "goalie_excluded.csv": "f579298b89f48f43e9d880bd5027ef6577960933b579244eb606f087bfe38fd3",
+    "totals_comparison.csv": "2132667709eebb9b70632f4e3d729601787d88add8b056afa09662e50073f1c4",
+    "goalie_comparison.csv": "ac8b87e65e67b7d4ba2dce7f572e7a0e3c1d614f6e1851441c45b8f76aa3fab1",
+    "atg/probabilities.csv": "4616c1efbdb557d3bddaf0d532942598032af4006e2e10816485e0a56afe3ac6",
+    "atg/boosting_calibrated_paper_card.csv": "5615eab5d65e0bebc221f001a92cfa79671eefa74473495ce2e0e4adb230a3e4",
+    "atg/matched_prices.csv": "49596ec82cb9af185aeb3fc78e62470be5c1bcc24d66ce96592199b31674fd16",
+    "atg/excluded.csv": "9c81f019ada82a74cf4325e498dcbf6281feafd5245bc6103c9707a30b459148",
+    "atg/official_probability_paper_card.csv": "5f27ab3bcfd6cf1cbb2895245ad844fdcb1bbf0454a686499034fc164ad581d8",
+    "atg/shot_probability_paper_card.csv": "71825816e99cc344e060c9a4dcb4ba9608415518a8c764b4ffd7bacae62b00c2",
+    "atg/manifest.json": "9a67ff0cf923ee8823d7069e88c9dc9d68d2c45aac68bfe0ed128a06d170419e",
+    "atg/audit/count_anomalies.csv": "7b8ee5e014ccd504637dabc3d29d629fd3d5121081bf7e74840ae16ace67c94b",
+    "atg/audit/audit.json": "a7b240455d0a68fb7c5bba135640fcebb43bc1c9a794e060dc7dcef94273dcb5"
+  },
+  "totals_pairs": 14,
+  "matched_goalie_rows": 24,
+  "excluded_goalie_rows": 0,
+  "totals_qualifying": {
+    "analytic_control": 2,
+    "official_locked": 3,
+    "tie_only": 1
+  },
+  "goalie_qualifying": {
+    "v0_1": 15,
+    "v0_2": 8,
+    "v0_3": 5
+  },
+  "official_records_changed": false,
+  "note": "No new official picks; totals 5.5/6.5 only; analytic control isolates tie effect from Monte Carlo noise; goalie half-lines matched only; ATG nested lock. Live requires independent final artifact timestamp.",
+  "verified_artifact_id": 15073920102,
+  "verified_artifact_created_at": "2026-11-25T23:41:33Z",
+  "verified_artifact_digest": "sha256:7ec1f662f2eea1370473e2c8b8838762e5d83ea98c67851a5cbcf4a9dcd5cff8",
+  "verified_cohort": "CLEAN_SHADOW_PREGAME",
+  "workflow_run_id": 45723215283
+}
