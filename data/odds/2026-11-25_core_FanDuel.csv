@@ -1,0 +1,85 @@
+date,game,market,selection,line,odds_american
+2026-11-25,NYR@BUF,spread,New York Rangers,1.5,-230
+2026-11-25,NYR@BUF,spread,Buffalo Sabres,-1.5,184
+2026-11-25,NYR@BUF,moneyline,New York Rangers,,112
+2026-11-25,NYR@BUF,moneyline,Buffalo Sabres,,-134
+2026-11-25,NYR@BUF,total,Over,6.5,-102
+2026-11-25,NYR@BUF,total,Under,6.5,-120
+2026-11-25,CAR@TBL,spread,Carolina Hurricanes,-1.5,205
+2026-11-25,CAR@TBL,spread,Tampa Bay Lightning,1.5,-260
+2026-11-25,CAR@TBL,moneyline,Carolina Hurricanes,,-122
+2026-11-25,CAR@TBL,moneyline,Tampa Bay Lightning,,102
+2026-11-25,CAR@TBL,total,Over,6.5,-102
+2026-11-25,CAR@TBL,total,Under,6.5,-120
+2026-11-25,NJD@CBJ,spread,New Jersey Devils,-1.5,172
+2026-11-25,NJD@CBJ,spread,Columbus Blue Jackets,1.5,-215
+2026-11-25,NJD@CBJ,moneyline,New Jersey Devils,,-142
+2026-11-25,NJD@CBJ,moneyline,Columbus Blue Jackets,,118
+2026-11-25,NJD@CBJ,total,Over,6.5,108
+2026-11-25,NJD@CBJ,total,Under,6.5,-132
+2026-11-25,STL@NYI,spread,St. Louis Blues,1.5,-225
+2026-11-25,STL@NYI,spread,New York Islanders,-1.5,180
+2026-11-25,STL@NYI,moneyline,St. Louis Blues,,116
+2026-11-25,STL@NYI,moneyline,New York Islanders,,-140
+2026-11-25,STL@NYI,total,Over,5.5,-134
+2026-11-25,STL@NYI,total,Under,5.5,110
+2026-11-25,WPG@BOS,spread,Winnipeg Jets,1.5,-184
+2026-11-25,WPG@BOS,spread,Boston Bruins,-1.5,148
+2026-11-25,WPG@BOS,moneyline,Winnipeg Jets,,136
+2026-11-25,WPG@BOS,moneyline,Boston Bruins,,-164
+2026-11-25,WPG@BOS,total,Over,6.5,-110
+2026-11-25,WPG@BOS,total,Under,6.5,-110
+2026-11-25,PHI@WSH,spread,Philadelphia Flyers,1.5,-192
+2026-11-25,PHI@WSH,spread,Washington Capitals,-1.5,154
+2026-11-25,PHI@WSH,moneyline,Philadelphia Flyers,,132
+2026-11-25,PHI@WSH,moneyline,Washington Capitals,,-160
+2026-11-25,PHI@WSH,total,Over,6.5,-105
+2026-11-25,PHI@WSH,total,Under,6.5,-115
+2026-11-25,OTT@FLA,spread,Ottawa Senators,1.5,-260
+2026-11-25,OTT@FLA,spread,Florida Panthers,-1.5,205
+2026-11-25,OTT@FLA,moneyline,Ottawa Senators,,105
+2026-11-25,OTT@FLA,moneyline,Florida Panthers,,-126
+2026-11-25,OTT@FLA,total,Over,5.5,-122
+2026-11-25,OTT@FLA,total,Under,5.5,100
+2026-11-25,CGY@PIT,spread,Calgary Flames,1.5,-188
+2026-11-25,CGY@PIT,spread,Pittsburgh Penguins,-1.5,152
+2026-11-25,CGY@PIT,moneyline,Calgary Flames,,142
+2026-11-25,CGY@PIT,moneyline,Pittsburgh Penguins,,-172
+2026-11-25,CGY@PIT,total,Over,6.5,112
+2026-11-25,CGY@PIT,total,Under,6.5,-138
+2026-11-25,VAN@DET,spread,Vancouver Canucks,1.5,-140
+2026-11-25,VAN@DET,spread,Detroit Red Wings,-1.5,114
+2026-11-25,VAN@DET,moneyline,Vancouver Canucks,,188
+2026-11-25,VAN@DET,moneyline,Detroit Red Wings,,-230
+2026-11-25,VAN@DET,total,Over,6.5,104
+2026-11-25,VAN@DET,total,Under,6.5,-128
+2026-11-25,NSH@DAL,spread,Nashville Predators,1.5,-184
+2026-11-25,NSH@DAL,spread,Dallas Stars,-1.5,148
+2026-11-25,NSH@DAL,moneyline,Nashville Predators,,140
+2026-11-25,NSH@DAL,moneyline,Dallas Stars,,-170
+2026-11-25,NSH@DAL,total,Over,5.5,-122
+2026-11-25,NSH@DAL,total,Under,5.5,100
+2026-11-25,UTA@MIN,spread,Utah Mammoth,1.5,-205
+2026-11-25,UTA@MIN,spread,Minnesota Wild,-1.5,164
+2026-11-25,UTA@MIN,moneyline,Utah Mammoth,,126
+2026-11-25,UTA@MIN,moneyline,Minnesota Wild,,-152
+2026-11-25,UTA@MIN,total,Over,6.5,104
+2026-11-25,UTA@MIN,total,Under,6.5,-128
+2026-11-25,MTL@COL,spread,Montreal Canadiens,1.5,-235
+2026-11-25,MTL@COL,spread,Colorado Avalanche,-1.5,186
+2026-11-25,MTL@COL,moneyline,Montreal Canadiens,,102
+2026-11-25,MTL@COL,moneyline,Colorado Avalanche,,-122
+2026-11-25,MTL@COL,total,Over,6.5,-104
+2026-11-25,MTL@COL,total,Under,6.5,-118
+2026-11-25,CHI@SEA,spread,Chicago Blackhawks,1.5,-200
+2026-11-25,CHI@SEA,spread,Seattle Kraken,-1.5,160
+2026-11-25,CHI@SEA,moneyline,Chicago Blackhawks,,126
+2026-11-25,CHI@SEA,moneyline,Seattle Kraken,,-152
+2026-11-25,CHI@SEA,total,Over,6.5,100
+2026-11-25,CHI@SEA,total,Under,6.5,-122
+2026-11-25,SJS@ANA,spread,San Jose Sharks,1.5,-230
+2026-11-25,SJS@ANA,spread,Anaheim Ducks,-1.5,184
+2026-11-25,SJS@ANA,moneyline,San Jose Sharks,,108
+2026-11-25,SJS@ANA,moneyline,Anaheim Ducks,,-130
+2026-11-25,SJS@ANA,total,Over,6.5,-122
+2026-11-25,SJS@ANA,total,Under,6.5,100
