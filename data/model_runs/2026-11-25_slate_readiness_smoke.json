@@ -1,0 +1,50 @@
+{
+  "preflight": {
+    "date": "2026-11-12",
+    "games": 10,
+    "core_rows": 60,
+    "atg_rows": 343,
+    "goalie_rows": 17,
+    "games_without_atg": [],
+    "games_without_goalie_prices": [],
+    "status": "INPUT_STRUCTURE_VERIFIED",
+    "limitations": [
+      "Does not independently verify source sportsbook, real schedule, roster availability or timestamp",
+      "Missing market coverage explicitly reported; no prices invented"
+    ],
+    "input_hashes": {
+      "team": "9877f541ce3b4e9b7a25bf3ac6a9389e8ab1481be957a87fd4d1c61a24bb0264",
+      "core": "bef10c298f90c1d1fdbed252130216ffd1b440a20eb195101d8cf6893ac056f0",
+      "atg": "b845fed04abdcecc3467aa211e8271197eb1ca49718407f4a9333c621991df6b",
+      "goalie": "bbea7d1822c5807adc1661e513ae313cfc339a6e22f1cfd2d2def99b00fc63c2"
+    }
+  },
+  "artifacts": [
+    {
+      "kind": "history",
+      "artifact_id": 15067769899,
+      "name": "atg-game-shadow-2026-11-25",
+      "expired": false,
+      "expires_at": "2026-12-25T22:32:38Z",
+      "days_remaining": 29
+    },
+    {
+      "kind": "bundle",
+      "artifact_id": 15068418480,
+      "name": "atg-archive-audit-2026-11-25",
+      "expired": false,
+      "expires_at": "2027-02-23T22:37:07Z",
+      "days_remaining": 89
+    },
+    {
+      "kind": "team_goalie",
+      "artifact_id": 15069296241,
+      "name": "nhl-resume-refresh-2026-11-24",
+      "expired": false,
+      "expires_at": "2026-12-25T22:31:56Z",
+      "days_remaining": 29
+    }
+  ],
+  "source_run_id": 45719463447,
+  "tests_passed": 52
+}
