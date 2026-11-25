@@ -1,0 +1,13 @@
+{
+  "status": "HISTORICAL_DIAGNOSTIC_ONLY",
+  "train_input_rows": 13120,
+  "test_rows": 770,
+  "test_last_date": "2026-11-24",
+  "limitations": [
+    "Conditional on actual starters; not archived FanDuel boards",
+    "Realized ice time groups are diagnostic only; short starts can include injury, pull or other reasons",
+    "Reconstructed official v0.2 components on archived features, not frozen daily forecasts"
+  ],
+  "benchmark_run_id": 45717165583,
+  "tests_passed": 42
+}
