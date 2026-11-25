@@ -1,0 +1,55 @@
+name: NHL Slate Readiness Check
+on:
+  push:
+    paths:
+      - '.github/workflows/slate-readiness.yml'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Date of the supplied FanDuel CSV boards on main'
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Validate board structure and archive hashes
+        env:
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$TARGET" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          python scripts/preflight_slate.py --date "$TARGET" --team "data/inputs/${TARGET}_team_board.csv" --core "data/odds/${TARGET}_core_FanDuel.csv" --atg "data/inputs/${TARGET}_atg_board.csv" --goalie "data/odds/${TARGET}_goalie_saves_FanDuel.csv" --out readiness/preflight.json
+          python - <<'PY'
+          import json,subprocess,os
+          from datetime import datetime,timezone
+          from pathlib import Path
+          config=json.loads(Path("config/atg_frozen_research_2026-11-25.json").read_text())
+          entries={k:v["artifact_id"] for k,v in config.items() if k in ("history","bundle")}
+          entries["team_goalie"]=15069296241
+          rows=[]
+          for k,i in entries.items():
+              x=json.loads(subprocess.check_output(["gh","api",f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{i}"]))
+              expires=datetime.fromisoformat(x["expires_at"].replace("Z","+00:00"))
+              rows.append({"kind":k,"artifact_id":i,"name":x["name"],"expired":x["expired"],"expires_at":x["expires_at"],"days_remaining":(expires-datetime.now(timezone.utc)).days})
+          Path("readiness/artifacts.json").write_text(json.dumps(rows,indent=2))
+          print("=== ARTIFACT READINESS ===")
+          print(json.dumps(rows,indent=2))
+          print("=== END ARTIFACT READINESS ===")
+          assert all(not x["expired"] and x["days_remaining"]>=0 for x in rows), "Required original research artifact expired"
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: slate-readiness
+          path: readiness/
+          retention-days: 30
