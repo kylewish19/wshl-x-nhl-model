@@ -1,0 +1,20 @@
+{
+  "calibration_short_rate": 0.04801829268292683,
+  "alphas": {
+    "single": 0.03744843728120341,
+    "short": 0.162788590412195,
+    "full": 0.02012605540421091
+  },
+  "train_rows": 5248,
+  "calibration_rows": 2624,
+  "status": "HISTORICAL_DIAGNOSTIC_ONLY",
+  "limitations": [
+    "Same simpler Poisson regression architecture for single and mixture; not official v0.2 comparison",
+    "Actual starters only, fixed synthetic save lines, no odds",
+    "Rest measures days between starts, not relief appearances or full recovery",
+    "Archive may misidentify starters when explicit flag absent",
+    "Evaluation seasons previously observed"
+  ],
+  "benchmark_run_id": 45717517239,
+  "tests_passed": 44
+}
