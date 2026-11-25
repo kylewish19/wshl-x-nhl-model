@@ -1,0 +1,86 @@
+name: Unified Daily NHL Shadows
+on:
+  push:
+    paths:
+      - '.github/workflows/daily-shadows.yml'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'live paper comparison or retrospective smoke test'
+        type: choice
+        options: [live, replay]
+        required: true
+        default: live
+      target_date:
+        description: 'Eastern slate date'
+        type: string
+        required: true
+      core_run_id:
+        description: 'Successful frozen official core workflow run ID'
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Validate source core run and artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.core_run_id || '43313573453' }}
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
+        run: |
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          [[ "$TARGET" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > core_run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" > core_artifacts.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open("core_run.json"))
+          assert r["conclusion"]=="success" and r["head_branch"]=="main"
+          assert re.fullmatch(r"\.github/workflows/(?:\d{4}-\d{2}-\d{2}-core-slate|core-slate)\.yml",r["path"])
+          a=[x for x in json.load(open("core_artifacts.json"))["artifacts"] if x["name"]=="nhl-core-slate-"+os.environ["TARGET"] and not x["expired"]]
+          assert len(a)==1 and a[0]["workflow_run"]["id"]==r["id"]
+          json.dump(a[0],open("core_artifact.json","w"))
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-${{ inputs.target_date || '2026-11-12' }}
+          run-id: ${{ inputs.core_run_id || '43313573453' }}
+          github-token: ${{ github.token }}
+          path: data/research/unified_core_input
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: data/research/atg_archive_input
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-archive-audit-2026-11-25
+          run-id: 45714769216
+          github-token: ${{ github.token }}
+          path: data/research/atg_frozen_bundle
+      - name: Build unified paper comparison
+        env:
+          MODE: ${{ inputs.mode || 'replay' }}
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
+        run: |
+          FLAGS=()
+          if [ "$MODE" = replay ]; then FLAGS+=(--replay); fi
+          python scripts/run_daily_shadow.py --target-date "$TARGET" --core-dir data/research/unified_core_input --source-metadata core_artifact.json --history data/research/atg_archive_input/skater_games.parquet --bundle data/research/atg_frozen_bundle/atg_game_shadow.joblib --out data/research/unified_shadow_output "${FLAGS[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-daily-shadows-${{ inputs.target_date || '2026-11-12' }}
+          path: data/research/unified_shadow_output/
+          retention-days: 90
+          if-no-files-found: error
