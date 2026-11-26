@@ -63,31 +63,41 @@
     "roi": null
   },
   "research_status": "VERIFIED_FROZEN_REVIEW",
+  "research_source": {
+    "run_id": 45723215283,
+    "artifact_id": 15073920102,
+    "lock_hash": "06d28fd693c26aafa253327169851bbf951d1266b8962ad0ce97c12da6297b52"
+  },
   "canonical_records_changed": false,
+  "prior_ledger_hashes": {
+    "data/results/season_summary.csv": "55ecce76246c15abfe899d486ced12a0e2444a68bd93d081cee220cda73f4da1",
+    "data/results/prospective_shadow_ledger.csv": "43158e796e3033958d9f13517e05e5ce1a7a8c30f1b610503e6185c330fe88de",
+    "data/results/goalie_consensus_ledger.csv": "3bf63f5ca4db879811e5a70e330fdae41bea0531c3238e0098f2bef8710a7212",
+    "data/results/atg_basis_ledger.csv": "9611b1a2ced2b4693db83397767fd33351b60501d3b565df8027807db8923ded"
+  },
   "prior_season_sha256": "55ecce76246c15abfe899d486ced12a0e2444a68bd93d081cee220cda73f4da1",
   "outcome_hashes": {
     "skaters.parquet": "8c929d1160433da59dd352674caeee90d978bc2b76ef68150caa78090bba3b52",
-    "teams.parquet": "d515f90234cca6242329b276e2b1554da03e6a5931450682bd3682f5d00ed919",
-    "goalies.parquet": "bca680ea65c3665e700ad7ff3ed8a7c8c38eb4c59f374ceaefd48c3671cf5887"
+    "goalies.parquet": "bca680ea65c3665e700ad7ff3ed8a7c8c38eb4c59f374ceaefd48c3671cf5887",
+    "teams.parquet": "d515f90234cca6242329b276e2b1554da03e6a5931450682bd3682f5d00ed919"
   },
   "output_hashes": {
-    "official/atg_consensus_graded.csv": "a50f477fe386f8cf68176ae114eb736dc53c48a1c58a263a53cd10e3ba3d5a3a",
-    "official/2026-11-25_top10_graded.csv": "996d4a584748d2cb43f3353898225e2989155f2657350ea67a6ea0f17d8a34a4",
-    "official/2026-11-25_playable_shadow_v0.3_graded.csv": "380e983a46239a4c845d163c1930e7cd9d0b24125fe37e5269108a520229c702",
-    "official/atg_blend_top10_graded.csv": "7e1b96e7f3528ae5f2bcaabed074c3b4a62f9b7b96bd31069c54569662fd8047",
-    "official/final_scores.csv": "61048cfea1684ce05064c5c90c9c81ad2f16f88bea964a267d069c4ef6c16e29",
-    "official/2026-11-25_playable_graded.csv": "1333b4c4c7a589808c216bba4c60b10b88c870616436b5f3633c285ce44e3fa3",
-    "research/atg_graded.csv": "09b9313fa15f2147f751035400aa40bf3971706f2f84889b5ad6ac2714d785ef",
-    "research/totals_graded.csv": "63f31fb1dc2f10f67d74d622533e97fb2107ec9f4e74a75b3ef1080ab1d47794",
     "research/goalies_graded.csv": "9ce0e569c9a9e54704bb29b31b08d26785491f0a36aa6e1a398b36d4f1a657e6",
     "research/cumulative.csv": "9dcd7869ff1d9ffc6dbc15568eec9d53e830f35dfb3d52be6c1ac1e221f592e1",
+    "research/atg_graded.csv": "09b9313fa15f2147f751035400aa40bf3971706f2f84889b5ad6ac2714d785ef",
+    "research/summary.csv": "43158e796e3033958d9f13517e05e5ce1a7a8c30f1b610503e6185c330fe88de",
+    "research/totals_graded.csv": "63f31fb1dc2f10f67d74d622533e97fb2107ec9f4e74a75b3ef1080ab1d47794",
     "research/manifest.json": "d1212598d6a21da246518852dd8a0847ebf9e5ee91076c23eba567fda264c1e7",
-    "research/summary.csv": "43158e796e3033958d9f13517e05e5ce1a7a8c30f1b610503e6185c330fe88de"
+    "official/atg_blend_top10_graded.csv": "7e1b96e7f3528ae5f2bcaabed074c3b4a62f9b7b96bd31069c54569662fd8047",
+    "official/atg_consensus_graded.csv": "a50f477fe386f8cf68176ae114eb736dc53c48a1c58a263a53cd10e3ba3d5a3a",
+    "official/final_scores.csv": "61048cfea1684ce05064c5c90c9c81ad2f16f88bea964a267d069c4ef6c16e29",
+    "official/2026-11-25_playable_shadow_v0.3_graded.csv": "380e983a46239a4c845d163c1930e7cd9d0b24125fe37e5269108a520229c702",
+    "official/2026-11-25_playable_graded.csv": "1333b4c4c7a589808c216bba4c60b10b88c870616436b5f3633c285ce44e3fa3",
+    "official/2026-11-25_top10_graded.csv": "996d4a584748d2cb43f3353898225e2989155f2657350ea67a6ea0f17d8a34a4"
   },
-  "verification_run_id": 45832841597,
-  "verification_artifact_id": 15122942468,
-  "verification_artifact_digest": "sha256:150102722180c230008fecd5b7ff5235d7e69ec84bb761d8a8a12bd5e0cc2e27",
-  "tests_passed_in_workflow": 65,
-  "subsequent_unit_test_run_id": 45832869469,
-  "subsequent_tests_passed": 68
+  "verification_run_id": 45833011900,
+  "verification_artifact_id": 15124370152,
+  "verification_artifact_digest": "sha256:5c67446445bd5811e5ef7fe8446f53ff24a11bcdfa9da875dd811e5546653616",
+  "tests_passed_in_workflow": 68,
+  "initial_verification_run_id": 45832841597
 }
