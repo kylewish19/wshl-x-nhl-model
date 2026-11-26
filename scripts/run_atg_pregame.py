@@ -19,6 +19,7 @@ from audit_atg_archive import audit_counts
 from build_goalie_features import BASE, get_json
 from train_atg_game_shadow import parse_game
 from wshlx_nhl.atg_pregame import predict, price_comparison, MODELS
+from wshlx_nhl.atg_basis_grading import classify_basis
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -122,7 +123,8 @@ def main():
     good,excluded=matched_board(candidates,repaired,target)
     bundle=joblib.load(args.bundle)
     f=predict(repaired,good,target,bundle)
-    keys=["date","game","player_id","player_name","team","opponent","position","official_probability"]
+    if "model_basis" not in good:raise ValueError("Missing frozen official basis")
+    keys=["date","game","player_id","player_name","team","opponent","position","official_probability","model_basis"]
     probs=pd.concat([good[keys],f.drop(columns=["is_home"])],axis=1)
     if not probs[MODELS].apply(lambda x:x.between(0,1)).all().all():
         raise ValueError("Invalid probability output")
@@ -142,6 +144,7 @@ def main():
         "created_at_utc":now.isoformat(),"first_puck_utc":str(first) if first is not None else None,
         "history_last_date":str(pd.to_datetime(raw.date).max().date()),"history_rows":len(raw),
         "matched_rows":len(good),"excluded_rows":len(excluded),
+        "basis_counts":classify_basis(good.model_basis).value_counts().to_dict(),
         "exclusion_counts":excluded.exclusion_reason.value_counts().to_dict(),
         "candidate_file_sha256":digest(args.candidates),"archive_sha256":digest(args.history),
         "bundle_sha256":digest(args.bundle),"probability_sha256":digest(out/"probabilities.csv"),
