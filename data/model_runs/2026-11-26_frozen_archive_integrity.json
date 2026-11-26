@@ -1,0 +1,88 @@
+{
+  "status": "EXACT_ARCHIVE_BYTES_VERIFIED",
+  "archives": [
+    {
+      "key": "team_goalie",
+      "artifact_id": 15069296241,
+      "zip_digest": "sha256:d48d006998d5ef84cef02a3fc7af6f43dc5b48fce51e959cff9e8758995cba70",
+      "bytes": 672539,
+      "verified_members": [
+        {
+          "file": "2026-11-24_team_games.parquet",
+          "sha256": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+          "bytes": 137606
+        },
+        {
+          "file": "2026-11-24_goalie_features.parquet",
+          "sha256": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c",
+          "bytes": 507741
+        }
+      ]
+    },
+    {
+      "key": "skater_history",
+      "artifact_id": 15067769899,
+      "zip_digest": "sha256:51593e755067d6a120e44f6b1683a358212839ec6a7dfd64f68cc20ecee9dd92",
+      "bytes": 779978,
+      "verified_members": [
+        {
+          "file": "skater_games.parquet",
+          "sha256": "5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b",
+          "bytes": 928102
+        }
+      ]
+    },
+    {
+      "key": "atg_bundle",
+      "artifact_id": 15068418480,
+      "zip_digest": "sha256:8c7511f0ac401b430ed8180899ffb0f39250c31d420f91e49b4ea719308351ee",
+      "bytes": 2230523,
+      "verified_members": [
+        {
+          "file": "atg_game_shadow.joblib",
+          "sha256": "3fe4d4e12e66494a81200362013992391c093d3bf4967cb487b217484fc3fd66",
+          "bytes": 294313
+        }
+      ]
+    },
+    {
+      "key": "margin_bundle",
+      "artifact_id": 15069647695,
+      "zip_digest": "sha256:bedab867403df16e10067290674065bd59a6e5e2faf4597d6b755594d3e59057",
+      "bytes": 145137,
+      "verified_members": [
+        {
+          "file": "models.joblib",
+          "sha256": "9c44fd3ac84779c38589495d6336a0d1a5233896c29b8555dbf388223dae0b80",
+          "bytes": 6699
+        }
+      ]
+    },
+    {
+      "key": "nov25_core",
+      "artifact_id": 15073700466,
+      "zip_digest": "sha256:213a897bc2291518515df41885e9006ca4fed4deeba55b6fafa4f740689158b4",
+      "bytes": 103465,
+      "verified_members": []
+    },
+    {
+      "key": "nov25_research",
+      "artifact_id": 15073920102,
+      "zip_digest": "sha256:7ec1f662f2eea1370473e2c8b8838762e5d83ea98c67851a5cbcf4a9dcd5cff8",
+      "bytes": 127426,
+      "verified_members": []
+    },
+    {
+      "key": "nov25_grading",
+      "artifact_id": 15122245729,
+      "zip_digest": "sha256:d771002104e392cd4c040563e9a1798aff73f452204468a37fdd9701e9d7a4a6",
+      "bytes": 86566,
+      "verified_members": []
+    }
+  ],
+  "verification_run_id": 45833447775,
+  "verification_artifact_id": 15123566078,
+  "tests_passed": 70,
+  "private_backup_confirmed": false,
+  "note": "Ephemeral original ZIP verification; temporary copies removed. No persistent raw archive storage created."
+}
