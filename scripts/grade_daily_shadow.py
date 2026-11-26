@@ -6,6 +6,7 @@ from run_atg_pregame import digest
 from grade_atg_pregame import load_lock
 from wshlx_nhl.atg_grading import grade_matched
 from wshlx_nhl.daily_shadow_grading import grade_totals,grade_goalies,cumulative
+from wshlx_nhl.margin_consensus_shadow import grade_spreads,grade_consensus
 
 def verify(root,artifact,replay):
     m=json.loads((root/"manifest.json").read_text())
@@ -44,7 +45,7 @@ def outcomes(team,goalie,skater,date,games):
     if set(p.game)!=set(games) or p.game.duplicated().any():raise ValueError("Missing final games")
     if not (p.team_a.eq(p.opponent_h)&p.team_h.eq(p.opponent_a)&p.goals_for_a.eq(p.goals_against_h)&p.goals_for_h.eq(p.goals_against_a)&p.goals_for_a.ne(p.goals_for_h)).all():
         raise ValueError("Invalid final scores")
-    finals=p[["game_id","game"]].assign(date=date,total_goals=p.goals_for_a+p.goals_for_h)
+    finals=p[["game_id","game"]].assign(date=date,total_goals=p.goals_for_a+p.goals_for_h,home_margin=p.goals_for_h-p.goals_for_a)
     g=g.merge(finals[["game_id","game"]],on="game_id",validate="many_to_one")
     s=s.merge(finals[["game_id","game"]],on="game_id",validate="many_to_one")
     if not g.groupby("game_id").size().reindex(p.game_id).eq(2).all() or not g.starter_flag.eq(True).all():
@@ -75,7 +76,27 @@ def main():
     td,ts=grade_totals(t,finals);gd,gs=grade_goalies(g,starts,finals)
     ad,ats=grade_matched(p,skaters,list(zip(finals.date,finals.game)))
     ats.insert(0,"market","anytime_goal")
-    summary=pd.concat([ts,gs,ats],ignore_index=True)
+    extras=[]
+    if "spread_pairs" in m:
+        b=pd.read_csv(root/"spread_comparison.csv")
+        if len(b)!=6*m["spread_pairs"] or not b.date.eq(m["date"]).all():raise ValueError("Spread lock coverage")
+        sd,ss=grade_spreads(b,finals)
+        extras.append(("spreads_graded",sd))
+    else:ss=ts.iloc[:0].copy()
+    if "goalie_consensus_counts" in m:
+        b=pd.read_csv(root/"goalie_consensus.csv",dtype={"goalie_id":str})
+        if not b.date.eq(m["date"]).all():raise ValueError("Consensus date mismatch")
+        for k,v in m["goalie_consensus_counts"].items():
+            if int(b[k].sum())!=v:raise ValueError("Consensus lock coverage")
+        cd,cs=grade_consensus(b,starts,finals)
+        cs.insert(0,"date",m["date"]);cs.insert(1,"cohort",cohort);cs.insert(2,"source_run_id",artifact["workflow_run"]["id"])
+        extras.extend([("goalie_consensus_graded",cd),("goalie_consensus_summary",cs)])
+        cp=Path("data/results/goalie_consensus_ledger.csv")
+        cl=pd.read_csv(cp) if cp.exists() else cs.iloc[:0].copy()
+        if not a.replay:cl=pd.concat([cl,cs],ignore_index=True)
+        if cl.duplicated(["date","model"]).any():raise ValueError("Duplicate consensus ledger")
+        extras.append(("goalie_consensus_ledger",cl))
+    summary=pd.concat([ts,gs,ats,ss],ignore_index=True)
     summary.insert(0,"date",m["date"]);summary.insert(1,"cohort",cohort);summary.insert(2,"source_run_id",artifact["workflow_run"]["id"])
     ledger_path=a.ledger or ("data/results/prospective_shadow_ledger.csv" if not a.replay else None)
     ledger=pd.read_csv(ledger_path) if ledger_path else summary.iloc[:0].copy()
@@ -84,9 +105,11 @@ def main():
     if not ledger.empty and not ledger.cohort.eq("CLEAN_SHADOW_PREGAME").all():raise ValueError("Nonprospective row in ledger")
     aggregate=cumulative(ledger)
     out.mkdir(parents=True,exist_ok=True)
-    for name,frame in [("totals_graded",td),("goalies_graded",gd),("atg_graded",ad),("summary",summary),("prospective_ledger",ledger),("cumulative",aggregate)]:
+    for name,frame in [("totals_graded",td),("goalies_graded",gd),("atg_graded",ad),("summary",summary),("prospective_ledger",ledger),("cumulative",aggregate)]+extras:
         frame.to_csv(out/(name+".csv"),index=False)
     meta={"date":m["date"],"cohort":cohort,"source_run_id":artifact["workflow_run"]["id"],"source_artifact_id":artifact["id"],"lock_hash":digest(root/"manifest.json"),"outcome_hashes":{k:digest(v) for k,v in [("team",a.team_games),("goalie",a.goalie_features),("skater",a.skater_games)]},"summary_sha256":digest(out/"summary.csv"),"games":len(finals),"ledger_rows":len(ledger),"official_records_changed":False}
     (out/"manifest.json").write_text(json.dumps(meta,indent=2))
     print("=== UNIFIED GRADE MANIFEST ===");print(json.dumps(meta,indent=2));print("=== UNIFIED GRADE SUMMARY ===");print(summary.to_csv(index=False));print("=== END UNIFIED GRADE ===")
+    if "goalie_consensus_counts" in m:
+        print("=== CONSENSUS SUMMARY ===");print(cs.to_csv(index=False));print("=== END CONSENSUS SUMMARY ===")
 if __name__=="__main__":main()
