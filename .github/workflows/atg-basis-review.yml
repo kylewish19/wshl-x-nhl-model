@@ -1,0 +1,85 @@
+name: Frozen ATG Basis Review
+on:
+  push:
+    paths:
+      - '.github/workflows/atg-basis-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-25
+          run-id: 45723015990
+          github-token: ${{ github.token }}
+          path: core
+      - uses: actions/download-artifact@v4
+        with:
+          name: unified-daily-shadows-2026-11-25
+          run-id: 45723215283
+          github-token: ${{ github.token }}
+          path: lock
+      - uses: actions/download-artifact@v4
+        with:
+          name: nov25-frozen-grading
+          run-id: 45828937854
+          github-token: ${{ github.token }}
+          path: grades
+      - name: Verify original lock and subgroup accounting
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/15073920102" > meta.json
+          PYTHONPATH=scripts python - <<'PY'
+          import json
+          from pathlib import Path
+          import pandas as pd
+          import numpy as np
+          from grade_daily_shadow import verify
+          from run_atg_pregame import digest
+          from wshlx_nhl.atg_grading import KEYS
+          from wshlx_nhl.atg_pregame import MODELS
+          from wshlx_nhl.atg_basis_grading import basis_summary,cumulative_basis
+          root=Path("lock")
+          m,p,cohort=verify(root,json.load(open("meta.json")),False)
+          assert cohort=="CLEAN_SHADOW_PREGAME"
+          core=next(Path("core").rglob("2026-11-25_core_candidates.csv"))
+          assert digest(core)==m["source_hashes"]["candidates"]
+          c=pd.read_csv(core)
+          c=c[c.market.eq("anytime_goal")&c.active.eq(1)][KEYS+["model_basis","model_probability"]]
+          d=pd.read_csv(next(Path("grades").rglob("atg_graded.csv")))
+          compare=KEYS+MODELS+["odds_american"]+[x+"_qualifies" for x in MODELS]
+          pd.testing.assert_frame_equal(p[compare].sort_values(KEYS).reset_index(drop=True),d[compare].sort_values(KEYS).reset_index(drop=True),check_dtype=False)
+          d=d.merge(c,on=KEYS,how="left",validate="one_to_one")
+          assert d.model_basis.notna().all() and np.allclose(d.official_probability,d.model_probability)
+          detail,s=basis_summary(d)
+          expected=pd.read_csv("data/results/2026-11-26_atg_fallback_nov25.csv")
+          for group,old in [("limited_history","fallback"),("established_anchor","anchor")]:
+              for model in MODELS:
+                  a=s[(s.basis_group==group)&(s.model==model)].iloc[0]
+                  b=expected[(expected.group==old)&(expected.model==model)].iloc[0]
+                  for k,l in [("matched_rows","matched"),("settled_rows","rows"),("brier","brier"),("paper_wins","wins"),("paper_losses","losses"),("paper_profit_units","profit")]:
+                      assert np.isclose(a[k],b[l]),(group,model,k,a[k],b[l])
+          s.insert(0,"date","2026-11-25");s.insert(1,"cohort","FROZEN_SOURCE_SUBGROUP_REVIEW");s.insert(2,"source_run_id",45723215283)
+          out=Path("review");out.mkdir()
+          s.to_csv(out/"atg_basis_ledger.csv",index=False)
+          cumulative_basis(s).to_csv(out/"atg_basis_cumulative.csv",index=False)
+          print("=== BASIS REVIEW ===");print(s.to_csv(index=False),end="");print("=== END BASIS REVIEW ===")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atg-basis-review-nov25
+          path: review/
+          retention-days: 90
+          if-no-files-found: error
