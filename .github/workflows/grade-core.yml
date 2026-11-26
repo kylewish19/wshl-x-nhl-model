@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/grade-core.yml'
+      - 'config/postgame_grade_request.json'
   workflow_dispatch:
     inputs:
       target_date:
@@ -48,11 +49,15 @@ jobs:
           CORE: ${{ inputs.core_run_id || '45723015990' }}
           RESEARCH: ${{ github.event_name == 'push' && '45723215283' || inputs.research_run_id }}
           MODE: ${{ inputs.mode || 'review' }}
+          EVENT: ${{ github.event_name }}
         run: |
           python - <<'PY'
           import json,os,re,subprocess
           from pathlib import Path
           target,core,research,mode=(os.environ[k] for k in ["TARGET","CORE","RESEARCH","MODE"])
+          request=Path("config/postgame_grade_request.json")
+          if os.environ["EVENT"]=="push" and request.exists():
+              q=json.loads(request.read_text());target=q["date"];core=str(q["core_run_id"]);research=str(q.get("research_run_id") or "");mode=q["mode"]
           assert re.fullmatch(r"\d{4}-\d{2}-\d{2}",target) and mode in ("live","review")
           if mode=="review":assert (target,core,research)==("2026-11-25","45723015990","45723215283")
           repo=os.environ["GITHUB_REPOSITORY"]
