@@ -31,6 +31,7 @@ def main():
     ap.add_argument("--shadow-atg-out",required=True)
     ap.add_argument("--date", required=True)
     ap.add_argument("--exclude-atg", default="")
+    ap.add_argument("--explicit-scratches-only",action="store_true",help="Use only reviewed slate-specific exclusions")
     args=ap.parse_args()
 
     team=pd.read_csv(args.team_pred)
@@ -48,7 +49,7 @@ def main():
     atg=pd.read_csv(args.atg_pred)
     atg["date"]=args.date
     atg["selection"]=atg["player_name"]
-    excluded = set(SCRATCHED_ATG)
+    excluded = set() if args.explicit_scratches_only else set(SCRATCHED_ATG)
     excluded.update(x.strip() for x in args.exclude_atg.split(",") if x.strip())
     atg["active"]=~atg["player_name"].isin(excluded)
     atg["active"]=atg["active"].astype(int)
