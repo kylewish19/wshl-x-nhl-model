@@ -118,6 +118,8 @@ def main():
     ap.add_argument("--review",action="store_true")
     a=ap.parse_args();date=a.date;root=Path(a.core_dir);out=Path(a.out)
     require(not out.exists() or not any(out.iterdir()),"Refuse overwrite")
+    ledger_paths=[Path("data/results")/n for n in ("season_summary.csv","prospective_shadow_ledger.csv","goalie_consensus_ledger.csv","atg_basis_ledger.csv")]
+    prior_hashes={str(p):digest(p) for p in ledger_paths if p.exists()}
     prior=pd.read_csv("data/results/season_summary.csv")
     require(prior.date.eq(date).any()==a.review,"Use review only for already graded dates")
     if a.review:require(date=="2026-11-25","Only original Nov25 verification supported")
@@ -160,10 +162,11 @@ def main():
     else:
         season_update(prior,date,stats).to_csv(official/"proposed_season_summary.csv",index=False,float_format="%.4f")
     f.to_csv(official/"final_scores.csv",index=False)
-    research_status="NOT_SUPPLIED"
+    research_status="NOT_SUPPLIED";research_source=None
     if a.research_dir:
         rm=json.loads(Path(a.research_metadata).read_text());rroot=Path(a.research_dir)
         r,_,_=verify(rroot,rm,False)
+        research_source={"run_id":rm["workflow_run"]["id"],"artifact_id":rm["id"],"lock_hash":digest(rroot/"manifest.json")}
         require(r["date"]==date and r["core_run_id"]==cm["workflow_run"]["id"] and r["core_artifact_id"]==cm["id"],"Research refers to a different core lock")
         require(pd.Timestamp(r["first_puck_utc"])==pd.Timestamp(m["first_puck_utc"]),"Research cutoff mismatch")
         for k,n in {"candidates":"core_candidates.csv","team":"team_metrics.json","goalie":"goalie_predictions.csv","research":"goalie_v03_research.csv"}.items():
@@ -181,7 +184,8 @@ def main():
             # No proposed ledger from a duplicate review may be promoted.
             for p in (out/"research").glob("*ledger.csv"):p.unlink()
         research_status="VERIFIED_FROZEN_REVIEW" if a.review else "PROPOSED_LEDGER_REVIEW"
-    meta=dict(date=date,status="FROZEN_SOURCE_REVIEW_ONLY" if a.review else "PENDING_LEDGER_REVIEW",source_core_run=cm["workflow_run"]["id"],source_core_artifact=cm["id"],core_lock_hash=digest(find(root,date+"_lock_manifest.json")),games=len(games),official=stats,blend_top10=bs,atg_consensus=qs,research_status=research_status,canonical_records_changed=False,prior_season_sha256=digest("data/results/season_summary.csv"),outcome_hashes={p.name:digest(p) for p in private.glob("*.parquet")},output_hashes={str(p.relative_to(out)):digest(p) for p in out.rglob("*") if p.is_file() and private not in p.parents})
+    meta=dict(date=date,status="FROZEN_SOURCE_REVIEW_ONLY" if a.review else "PENDING_LEDGER_REVIEW",source_core_run=cm["workflow_run"]["id"],source_core_artifact=cm["id"],core_lock_hash=digest(find(root,date+"_lock_manifest.json")),games=len(games),official=stats,blend_top10=bs,atg_consensus=qs,research_status=research_status,research_source=research_source,canonical_records_changed=False,prior_ledger_hashes=prior_hashes,prior_season_sha256=digest("data/results/season_summary.csv"),outcome_hashes={p.name:digest(p) for p in private.glob("*.parquet")},output_hashes={str(p.relative_to(out)):digest(p) for p in out.rglob("*") if p.is_file() and private not in p.parents})
+    require(all(digest(p)==h for p,h in prior_hashes.items()),"Ledger changed during grading")
     (out/"manifest.json").write_text(json.dumps(meta,indent=2,allow_nan=False))
     print("=== REUSABLE GRADING ===");print(json.dumps(meta,indent=2,allow_nan=False));print("=== END REUSABLE GRADING ===")
 if __name__=="__main__":main()
