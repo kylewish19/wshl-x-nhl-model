@@ -128,7 +128,8 @@ def grade_consensus(board,starts,finals):
     d.loc[win,"profit"]=d.loc[win,"odds_american"].map(lambda x:american_to_decimal(x)-1 if np.isfinite(x) else np.nan)
     reports=[]
     for name in GROUPS:
-        z=d[d[name]].copy()
+        if not d[name].isin([True,False]).all():raise ValueError("Invalid frozen consensus flag")
+        z=d[d[name].astype(bool)].copy()
         settled=z[z.result.ne("VOID")]
         w=int(settled.result.eq("WIN").sum());l=len(settled)-w
         # Agreement alone is a diagnostic, not a priced paper card.
