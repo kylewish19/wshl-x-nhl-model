@@ -1,0 +1,20 @@
+# Reusable official daily slate runner (2026-11-26)
+
+Official v0.2.0, original scoring functions and price gates unchanged. Use .github/workflows/core-slate.yml with explicit mode=live and target_date (Eastern YYYY-MM-DD), or commit config/daily_core_request.json with {"date":"YYYY-MM-DD","mode":"live"} after all boards and reviewed context are ready. Never use an old date as a live request. The workflow creation/push fallback without a request is Nov25 replay only. GitHub's live core workflow automatically triggers Unified Daily NHL Shadows after successful upload, provided a live-named artifact exists. The research workflow verifies timestamps and rejects late starts. Replay artifacts have a distinct name and are not eligible sources for clean comparisons. A failed or late research run does not alter the official record.
+
+## Required input
+Four dated FanDuel CSVs as documented in HANDOFF_CURRENT_STATE.md, plus data/context/YYYY-MM-DD_core_review.json:
+```json
+{"date":"YYYY-MM-DD","reviewed":true,"source_note":"Dated lineup/scratch/starter evidence and review limitations","scratches":[],"corrections":[]}
+```
+Corrections are keyed by game and exact player_name; optional team (same matchup), snapshot_name, player_id, position. Source note must describe actual pregame review. No global scratch list in reusable path. No odds fabricated. At least one row in each of four boards per existing preflight; missing individual markets reported. Missing all ATG or goalie prices requires an explicitly supported future partial-board procedure; never insert a fake row. Live context research and price transcription are still manual inputs; not automated sportsbook access or automated injury/lineup verification. Unknown ATG identities are preserved in exclusion output; unresolved goalie identity fails closed.
+
+## History and locks
+Original Nov24 team/goalie archive run 45713367700, artifact 15069296241; verify both SHA256 hashes and original 6,945-game coverage. Fetch all completed regular-season games after Nov24 and strictly before target, reject ambiguous incomplete dates/identities and verify starter flags. Recompute lagged features for appended goalie rows only, preserve original archive rows. Live skater snapshot uses existing current-season endpoint and prior-season transition model while slate is unstarted; no post-start aggregate retrieval. Raw refreshed data and fitted binary files are held in private_work, not uploaded in the derived core artifact. Long-term private backup still needed before original archive expires. Model is scoped to the 2026–27 season; do not assume next-season rollover is automated.
+
+Stage A writes exactly 10 highest eligible probabilities if enough exist; Stage B uses original full universe/gates. Keep official and research outputs separate. Live runs serialize; an existing same-date official artifact blocks duplicate lock. Verify actual GitHub artifact upload timestamp before puck drop; the internal manifest alone does not establish a clean lock. Only one successful original live artifact is eligible for grading. If goalie v0.3 fails, record research_error without inventing substitute predictions; downstream unified research may fail and must not be called clean.
+
+## Replay
+Only archived Nov25 replay supported by this runner. Use exact original skater snapshot and goalie IDs, no live lookups, same prior archive. Compare all candidate/card identities, prices, order, rank and active flags exactly. Non-goalie probabilities tolerance 1e-10; goalie probabilities tolerance 1e-4 absolute (0.01 percentage point) because solver refits on different runners can differ slightly even under matching dependencies. Any changed card identity or exceeding tolerance fails. Report actual differences; no retrospective changes to frozen original. Replay cannot be counted as live or added to official/prospective ledgers.
+
+Review artifact metadata and manifests, then grade after all games final using existing grading workflow; review and commit official and separate research ledgers. No scheduled automatic grading or autonomous wager execution is included in this change.
