@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "inventory_date": "2026-11-26",
+  "repository": "kylewish19/wshl-x-nhl-model",
+  "visibility": "public",
+  "status": "PRIVATE_BACKUP_NOT_CONFIRMED",
+  "archives": [
+    {
+      "key": "team_goalie",
+      "run_id": 45713367700,
+      "artifact_id": 15069296241,
+      "name": "nhl-resume-refresh-2026-11-24",
+      "size_bytes": 672539,
+      "expires_at": "2026-12-25T22:31:56Z",
+      "zip_digest": "sha256:d48d006998d5ef84cef02a3fc7af6f43dc5b48fce51e959cff9e8758995cba70",
+      "source_commit": "2610e4328d4a120815b0de592b728fdb82033336",
+      "members": {
+        "2026-11-24_team_games.parquet": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+        "2026-11-24_goalie_features.parquet": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c"
+      }
+    },
+    {
+      "key": "skater_history",
+      "run_id": 45713698148,
+      "artifact_id": 15067769899,
+      "name": "atg-game-shadow-2026-11-25",
+      "size_bytes": 779978,
+      "expires_at": "2026-12-25T22:32:38Z",
+      "zip_digest": "sha256:51593e755067d6a120e44f6b1683a358212839ec6a7dfd64f68cc20ecee9dd92",
+      "source_commit": "53f19c530755a31c06d4c35cbc188e5688a85685",
+      "members": {
+        "skater_games.parquet": "5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b"
+      }
+    },
+    {
+      "key": "atg_bundle",
+      "run_id": 45714769216,
+      "artifact_id": 15068418480,
+      "name": "atg-archive-audit-2026-11-25",
+      "size_bytes": 2230523,
+      "expires_at": "2027-02-23T22:37:07Z",
+      "zip_digest": "sha256:8c7511f0ac401b430ed8180899ffb0f39250c31d420f91e49b4ea719308351ee",
+      "source_commit": "441ccd9c6ee233816e2f1b76901ec74ddea56814",
+      "members": {
+        "atg_game_shadow.joblib": "3fe4d4e12e66494a81200362013992391c093d3bf4967cb487b217484fc3fd66"
+      }
+    },
+    {
+      "key": "margin_bundle",
+      "run_id": 45716648252,
+      "artifact_id": 15069647695,
+      "name": "team-market-shadow-2026-11-25",
+      "size_bytes": 145137,
+      "expires_at": "2027-02-23T22:50:52Z",
+      "zip_digest": "sha256:bedab867403df16e10067290674065bd59a6e5e2faf4597d6b755594d3e59057",
+      "source_commit": "3c174b73e13c1953d0acfd62519b7be01430c47c",
+      "members": {
+        "models.joblib": "9c44fd3ac84779c38589495d6336a0d1a5233896c29b8555dbf388223dae0b80"
+      }
+    },
+    {
+      "key": "nov25_core",
+      "run_id": 45723015990,
+      "artifact_id": 15073700466,
+      "name": "nhl-core-slate-2026-11-25",
+      "size_bytes": 103465,
+      "expires_at": "2027-02-23T23:39:18Z",
+      "zip_digest": "sha256:213a897bc2291518515df41885e9006ca4fed4deeba55b6fafa4f740689158b4",
+      "source_commit": "09518e6d858fd54b6cf39abe2b2da6208da4f89c",
+      "members": {}
+    },
+    {
+      "key": "nov25_research",
+      "run_id": 45723215283,
+      "artifact_id": 15073920102,
+      "name": "unified-daily-shadows-2026-11-25",
+      "size_bytes": 127426,
+      "expires_at": "2027-02-23T23:40:55Z",
+      "zip_digest": "sha256:7ec1f662f2eea1370473e2c8b8838762e5d83ea98c67851a5cbcf4a9dcd5cff8",
+      "source_commit": "804e1c843d64640914e5440854a6761135f42cc8",
+      "members": {}
+    },
+    {
+      "key": "nov25_grading",
+      "run_id": 45828937854,
+      "artifact_id": 15122245729,
+      "name": "nov25-frozen-grading",
+      "size_bytes": 86566,
+      "expires_at": "2027-02-24T13:25:04Z",
+      "zip_digest": "sha256:d771002104e392cd4c040563e9a1798aff73f452204468a37fdd9701e9d7a4a6",
+      "source_commit": "9d63689b3d3047e3417d5ad368b226ccdb8d87c2",
+      "members": {}
+    }
+  ]
+}
