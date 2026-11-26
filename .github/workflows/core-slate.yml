@@ -1,0 +1,92 @@
+name: Reusable Official NHL Core Slate
+on:
+  push:
+    paths:
+      - '.github/workflows/core-slate.yml'
+      - 'config/daily_core_request.json'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: Eastern slate date (YYYY-MM-DD)
+        required: true
+        type: string
+      mode:
+        description: Live official lock or archived Nov25 parity smoke
+        type: choice
+        options: [live, replay]
+        required: true
+        default: live
+permissions:
+  contents: read
+  actions: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Resolve explicit run request
+        id: request
+        env:
+          DISPATCH_DATE: ${{ inputs.target_date }}
+          DISPATCH_MODE: ${{ inputs.mode }}
+        run: |
+          python - <<'PY'
+          import os,json,re
+          from pathlib import Path
+          date=os.environ["DISPATCH_DATE"]
+          mode=os.environ["DISPATCH_MODE"]
+          if not date:
+              p=Path("config/daily_core_request.json")
+              r=json.loads(p.read_text()) if p.exists() else {"date":"2026-11-25","mode":"replay"}
+              date,mode=r["date"],r["mode"]
+          assert re.fullmatch(r"2026-\d{2}-\d{2}|2027-\d{2}-\d{2}",date)
+          assert mode in ("live","replay")
+          assert mode!="replay" or date=="2026-11-25"
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write(f"date={date}\nmode={mode}\n")
+          PY
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: private_archive
+      - uses: actions/download-artifact@v4
+        if: steps.request.outputs.mode == 'replay'
+        with:
+          name: nhl-core-slate-2026-11-25
+          run-id: 45723015990
+          github-token: ${{ github.token }}
+          path: frozen_core
+      - name: Execute reusable core
+        env:
+          TARGET: ${{ steps.request.outputs.date }}
+          MODE: ${{ steps.request.outputs.mode }}
+        run: |
+          FLAGS=()
+          if [ "$MODE" = replay ]; then FLAGS+=(--replay-core frozen_core); fi
+          python scripts/run_daily_core.py --date "$TARGET" --archive private_archive --out core_output "${FLAGS[@]}"
+      - uses: actions/upload-artifact@v4
+        if: steps.request.outputs.mode == 'live'
+        with:
+          name: nhl-core-slate-${{ steps.request.outputs.date }}
+          path: |
+            core_output/*.csv
+            core_output/*.json
+          retention-days: 90
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: steps.request.outputs.mode == 'replay'
+        with:
+          name: reusable-core-REPLAY-ONLY-${{ steps.request.outputs.date }}
+          path: |
+            core_output/*.csv
+            core_output/*.json
+          retention-days: 90
+          if-no-files-found: error
