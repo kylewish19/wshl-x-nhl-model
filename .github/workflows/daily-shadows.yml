@@ -36,8 +36,8 @@ jobs:
       - name: Validate source core run and artifact
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN_ID: ${{ inputs.core_run_id || '45723015990' }}
-          TARGET: ${{ inputs.target_date || '2026-11-25' }}
+          RUN_ID: ${{ inputs.core_run_id || '43313573453' }}
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
         run: |
           [[ "$RUN_ID" =~ ^[0-9]+$ ]]
           [[ "$TARGET" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
@@ -54,8 +54,8 @@ jobs:
           PY
       - uses: actions/download-artifact@v4
         with:
-          name: nhl-core-slate-${{ inputs.target_date || '2026-11-25' }}
-          run-id: ${{ inputs.core_run_id || '45723015990' }}
+          name: nhl-core-slate-${{ inputs.target_date || '2026-11-12' }}
+          run-id: ${{ inputs.core_run_id || '43313573453' }}
           github-token: ${{ github.token }}
           path: data/research/unified_core_input
       - uses: actions/download-artifact@v4
@@ -70,17 +70,32 @@ jobs:
           run-id: 45714769216
           github-token: ${{ github.token }}
           path: data/research/atg_frozen_bundle
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: data/research/margin_history
+      - uses: actions/download-artifact@v4
+        with:
+          name: team-market-shadow-2026-11-25
+          run-id: 45716648252
+          github-token: ${{ github.token }}
+          path: data/research/margin_bundle
       - name: Build unified paper comparison
         env:
-          MODE: ${{ inputs.mode || 'live' }}
-          TARGET: ${{ inputs.target_date || '2026-11-25' }}
+          MODE: ${{ inputs.mode || 'replay' }}
+          TARGET: ${{ inputs.target_date || '2026-11-12' }}
         run: |
           FLAGS=()
           if [ "$MODE" = replay ]; then FLAGS+=(--replay); fi
-          python scripts/run_daily_shadow.py --target-date "$TARGET" --core-dir data/research/unified_core_input --source-metadata core_artifact.json --history data/research/atg_archive_input/skater_games.parquet --bundle data/research/atg_frozen_bundle/atg_game_shadow.joblib --out data/research/unified_shadow_output "${FLAGS[@]}"
+          HISTORY=$(find data/research/margin_history -name "2026-11-24_team_games.parquet" -print -quit)
+          BUNDLE=$(find data/research/margin_bundle -name "models.joblib" -print -quit)
+          test -f "$HISTORY" && test -f "$BUNDLE"
+          python scripts/run_daily_shadow.py --target-date "$TARGET" --core-dir data/research/unified_core_input --source-metadata core_artifact.json --history data/research/atg_archive_input/skater_games.parquet --bundle data/research/atg_frozen_bundle/atg_game_shadow.joblib --team-history "$HISTORY" --margin-bundle "$BUNDLE" --out data/research/unified_shadow_output "${FLAGS[@]}"
       - uses: actions/upload-artifact@v4
         with:
-          name: unified-daily-shadows-${{ inputs.target_date || '2026-11-25' }}
+          name: unified-daily-shadows-${{ inputs.target_date || '2026-11-12' }}
           path: data/research/unified_shadow_output/
           retention-days: 90
           if-no-files-found: error
