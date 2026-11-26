@@ -15,7 +15,7 @@ def require(ok,msg):
     if not ok:raise ValueError(msg)
 
 def validate_shots(shots):
-    d=shots.copy()
+    d=shots.copy().reset_index(drop=True)
     fields={"date","game_id","event_id","player_id","team","goal","distance","angle","skater_advantage","shot_type","opponent_goalie_present","penalty_shot"}
     require(fields<=set(d),"Missing normalized shot fields")
     d["date"]=pd.to_datetime(d.date).dt.normalize()
@@ -60,7 +60,9 @@ def aggregate_usage(shots,participants,pp,complete_games):
     p["date"]=pd.to_datetime(p.date).dt.normalize()
     require(not p.duplicated(KEYS).any() and not p.duplicated(["date","player_id"]).any() and not u.duplicated(KEYS).any(),"Duplicate participant or PP row")
     require(p.date.notna().all() and p.toi_seconds.gt(0).all(),"Invalid participation")
+    complete_games=set(complete_games)
     p=p[p.game_id.isin(complete_games)].copy();u=u[u.game_id.isin(complete_games)]
+    require(set(p.game_id)==complete_games and complete_games<=set(s.game_id),"Missing completed game coverage")
     require(set(map(tuple,p[KEYS].to_numpy()))==set(map(tuple,u[KEYS].to_numpy())),"Incomplete or extra PP identities")
     p=p.merge(u[KEYS+["pp_toi_seconds"]],on=KEYS,validate="one_to_one")
     require(p.pp_toi_seconds.ge(0).all() and p.pp_toi_seconds.le(p.toi_seconds).all(),"Invalid PP time")
