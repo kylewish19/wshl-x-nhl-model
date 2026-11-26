@@ -90,3 +90,5 @@ jobs:
             core_output/*.json
           retention-days: 90
           if-no-files-found: error
+
+# Replay verification: exact identities and ranks, bounded goalie probability drift.
