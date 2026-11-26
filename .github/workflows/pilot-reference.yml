@@ -1,0 +1,38 @@
+name: Archived pilot reference checksum
+on:
+  push:
+    paths: ['.github/workflows/pilot-reference.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas pyarrow
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: archived
+      - name: Check original archive and emit only aggregate checksums
+        run: |
+          python - <<'PY'
+          import hashlib,json,pandas as pd
+          from pathlib import Path
+          p=next(Path("archived").rglob("skater_games.parquet"))
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=="5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b"
+          d=pd.read_parquet(p)
+          x=d[d.game_id.eq(2026020385)]
+          assert len(x)==36 and x.date.astype(str).str[:10].eq("2026-11-24").all()
+          assert not x.player_id.duplicated().any()
+          def hashrows(cols):
+              rows=[[int(v) if k!="team" else str(v) for k,v in zip(cols,row)] for row in x.sort_values("player_id")[cols].itertuples(index=False,name=None)]
+              return hashlib.sha256(json.dumps(rows,separators=(",",":")).encode()).hexdigest()
+          print("REFERENCE "+json.dumps({"game_id":2026020385,"players":len(x),"goals":int(x.goals.sum()),"sog":int(x.shots.sum()),"player_identity_hash":hashrows(["player_id","team"]),"counts_hash":hashrows(["player_id","team","goals","shots"]),"toi_hash":hashrows(["player_id","team","toi_seconds"])}))
+          PY
