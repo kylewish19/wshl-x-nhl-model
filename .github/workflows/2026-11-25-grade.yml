@@ -1,0 +1,147 @@
+name: Nov 25 Frozen NHL Grading
+on:
+  push:
+    paths: ['.github/workflows/2026-11-25-grade.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-25
+          run-id: 45723015990
+          github-token: ${{ github.token }}
+          path: core
+      - uses: actions/download-artifact@v4
+        with:
+          name: unified-daily-shadows-2026-11-25
+          run-id: 45723215283
+          github-token: ${{ github.token }}
+          path: research
+      - name: Verify immutable input artifacts and obtain finalized outcomes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/15073920102" > research_meta.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/15073700466" > core_meta.json
+          PYTHONPATH=scripts python - <<'PY'
+          import json,hashlib,concurrent.futures as cf
+          from pathlib import Path
+          import pandas as pd
+          from build_goalie_features import BASE,get_json,parse_boxscore
+          from train_atg_game_shadow import parse_game
+          from grade_daily_shadow import verify
+          date="2026-11-25"; out=Path("outcomes");out.mkdir()
+          cm=json.load(open("core_meta.json"));sm=json.load(open("research_meta.json"))
+          assert cm["id"]==15073700466 and cm["workflow_run"]["id"]==45723015990 and not cm["expired"]
+          assert sm["id"]==15073920102 and sm["workflow_run"]["id"]==45723215283
+          lock=json.loads(next(Path("core").rglob(date+"_lock_manifest.json")).read_text())
+          assert pd.Timestamp(cm["created_at"])<pd.Timestamp(lock["first_puck_utc"])
+          for name,h in lock["hashes"].items():
+              f=list(Path("core").rglob(name));assert len(f)==1,(name,f)
+              assert hashlib.sha256(f[0].read_bytes()).hexdigest()==h
+          verify(Path("research"),sm,False)
+          schedule=get_json(f"{BASE}/score/{date}")["games"]
+          games=[g for g in schedule if int(g["gameType"])==2]
+          expected=set(pd.read_csv("data/inputs/"+date+"_team_board.csv").game)
+          assert len(games)==14 and {g["awayTeam"]["abbrev"]+"@"+g["homeTeam"]["abbrev"] for g in games}==expected
+          assert all(g["gameState"] in ("OFF","FINAL") for g in games)
+          def fetch(g):
+              gid=int(g["id"]);season=str(g["season"])
+              starts,teams=parse_boxscore(gid,season);skaters=parse_game(gid,season)
+              assert len(starts)==len(teams)==2 and all(s["starter_flag"] for s in starts)
+              return starts,teams,skaters
+          with cf.ThreadPoolExecutor(max_workers=4) as ex: results=list(ex.map(fetch,games))
+          for i,n in enumerate(["goalies","teams","skaters"]):
+              df=pd.DataFrame([row for result in results for row in result[i]])
+              assert df.date.astype(str).eq(date).all()
+              df.to_parquet(out/(n+".parquet"),index=False)
+          PY
+      - name: Grade unified shadows
+        run: |
+          python scripts/grade_daily_shadow.py --lock-dir research --artifact-metadata research_meta.json --team-games outcomes/teams.parquet --goalie-features outcomes/goalies.parquet --skater-games outcomes/skaters.parquet --out shadow_grade
+      - name: Grade original cards and consensus diagnostics
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          import pandas as pd, numpy as np, json
+          from pathlib import Path
+          from assemble_core_slate import TEAM_NAMES
+          from grade_daily_shadow import outcomes
+          date="2026-11-25";out=Path("official_grade");out.mkdir()
+          def read(n):return pd.read_csv(next(Path("core").rglob(date+"_"+n+".csv")))
+          c=read("core_candidates");g=read("goalie_predictions")
+          team=pd.read_parquet("outcomes/teams.parquet");goalie=pd.read_parquet("outcomes/goalies.parquet");skater=pd.read_parquet("outcomes/skaters.parquet")
+          finals,starts,skaters=outcomes(team,goalie,skater,date,set(c.game))
+          score={(r.game_id,r.team):int(r.goals_for) for r in team.itertuples()}
+          gid=dict(zip(finals.game,finals.game_id))
+          goalie_ids={(r.game,r.goalie_name):str(int(r.goalie_id)) for r in g.itertuples()}
+          def settle(r):
+              game=r.game; a,h=game.split("@");i=gid[game];x,y=score[i,a],score[i,h];m=r.market
+              notes=""
+              if m=="anytime_goal":
+                  q=skaters[(skaters.game==game)&(skaters.player_id==int(r.player_id))]
+                  if q.empty:return "VOID","DNP",""
+                  assert len(q)==1 and q.iloc[0].team==r.team
+                  goals=int(q.iloc[0].goals);return ("WIN" if goals else "LOSS"),str(goals)+" goals",""
+              if m=="goalie_saves":
+                  id=goalie_ids[game,r.goalie_name];q=starts[(starts.game==game)&(starts.goalie_id==id)]
+                  if q.empty:return "VOID","Nonstarter",""
+                  assert len(q)==1 and q.iloc[0].team==r.team
+                  val=int(q.iloc[0].saves);over=r.selection.endswith(" Over")
+                  return ("WIN" if (val>r.line)==over else "LOSS"),str(val)+" saves",""
+              if m=="total":win=(x+y>r.line)==(r.selection=="Over")
+              else:
+                  assert r.selection in [TEAM_NAMES[a],TEAM_NAMES[h]]
+                  margin=x-y if r.selection==TEAM_NAMES[a] else y-x
+                  win=margin+(r.line if m=="spread" else 0)>0
+              return ("WIN" if win else "LOSS"),f"{a} {x}-{y} {h}",notes
+          summaries={}
+          for name in ["top10","playable","playable_shadow_v0.3"]:
+              df=read(name);pcol="calibrated_probability" if name.endswith("v0.3") else "model_probability"
+              df[["result","actual","notes"]]=[settle(r) for r in df.itertuples()]
+              df["profit_units"]=np.where(df.result.eq("WIN"),np.where(df.odds_american>0,df.odds_american/100,100/-df.odds_american),np.where(df.result.eq("LOSS"),-1,0))
+              d=df[df.result!="VOID"];w=int(d.result.eq("WIN").sum());l=len(d)-w;net=float(d.profit_units.sum())
+              summ=dict(wins=w,losses=l,voids=len(df)-len(d),hit_rate=w/len(d),expected_wins=float(d[pcol].sum()),brier=float(((d[pcol]-d.result.eq("WIN").astype(int))**2).mean()),profit_units=net,roi=net/len(d))
+              summaries[name]=summ
+              cols=["date","game","market","selection","line","odds_american","model_probability"]+([pcol] if pcol!="model_probability" else [])+["result"]+([] if name=="top10" else ["profit_units"])+["actual","notes"]
+              df[cols].to_csv(out/(name+"_graded.csv"),index=False)
+              print("CARD "+name+" "+json.dumps(summ))
+              print("BEGIN "+name);print(df[cols].to_csv(index=False),end="");print("END "+name)
+          for r in finals.itertuples(): 
+              a,h=r.game.split("@");print("FINAL "+r.game+" "+str(score[r.game_id,a])+"-"+str(score[r.game_id,h]))
+          z=pd.read_csv("shadow_grade/goalies_graded.csv",dtype={"goalie_id":str})
+          diag=[]
+          for (game,id,line),d in z.groupby(["game","goalie_id","line"]):
+              assert len(d)==3
+              if d.saves.isna().all():actual=None
+              else:actual=int(d.saves.iloc[0])
+              directions=["Over" if p>=.5 else "Under" for p in d.over_probability]
+              if len(set(directions))!=1:continue
+              side=directions[0];win=None if actual is None else (actual>line)==(side=="Over")
+              same=d.selection.eq(side)&d.qualifies
+              v3=bool(same[d.model.eq("v0_3")].iloc[0])
+              diag.append(dict(game=game,goalie=d.goalie_name.iloc[0],line=line,side=side,actual=actual,result="VOID" if win is None else "WIN" if win else "LOSS",all_gate=bool(same.all()),v3_gate=v3))
+          print("CONSENSUS "+json.dumps(diag))
+          pd.DataFrame(diag).to_csv(out/"goalie_consensus_diagnostic.csv",index=False)
+          b=read("atg_current_shadow");b=b[b.active.eq(1)].sort_values("shadow_probability",ascending=False).head(10)
+          b[["result","actual","notes"]]=[settle(r) for r in b.itertuples()]
+          print("BLEND_TOP10 "+json.dumps(b[["player_name","shadow_probability","result","actual"]].to_dict("records")))
+          (out/"summary.json").write_text(json.dumps(summaries,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nov25-frozen-grading
+          path: |
+            official_grade/
+            shadow_grade/
+          retention-days: 90
+          if-no-files-found: error
