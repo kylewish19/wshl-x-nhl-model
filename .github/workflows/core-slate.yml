@@ -16,6 +16,9 @@ on:
         options: [live, replay]
         required: true
         default: live
+concurrency:
+  group: nhl-reusable-official-core
+  cancel-in-progress: false
 permissions:
   contents: read
   actions: read
@@ -49,6 +52,14 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"],"a") as f:
               f.write(f"date={date}\nmode={mode}\n")
           PY
+      - name: Reject duplicate live slate artifacts
+        if: steps.request.outputs.mode == 'live'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ steps.request.outputs.date }}
+        run: |
+          gh api --method GET "repos/$GITHUB_REPOSITORY/actions/artifacts" -f name="nhl-core-slate-$TARGET" --paginate --jq '.artifacts[].id' > existing.txt
+          if [ -s existing.txt ]; then echo "An official artifact already exists; review instead of rerunning."; exit 1; fi
       - run: pip install -r requirements.txt && pip install -e .
       - run: pytest -q
       - uses: actions/download-artifact@v4
@@ -73,6 +84,7 @@ jobs:
           if [ "$MODE" = replay ]; then FLAGS+=(--replay-core frozen_core); fi
           python scripts/run_daily_core.py --date "$TARGET" --archive private_archive --out core_output "${FLAGS[@]}"
       - uses: actions/upload-artifact@v4
+        id: official_upload
         if: steps.request.outputs.mode == 'live'
         with:
           name: nhl-core-slate-${{ steps.request.outputs.date }}
@@ -81,6 +93,26 @@ jobs:
             core_output/*.json
           retention-days: 90
           if-no-files-found: error
+      - name: Verify independent official upload cutoff
+        if: steps.request.outputs.mode == 'live'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.official_upload.outputs.artifact-id }}
+          TARGET: ${{ steps.request.outputs.date }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID" > official_artifact.json
+          python - <<'PY'
+          import json,os,pandas as pd
+          from pathlib import Path
+          date=os.environ["TARGET"]
+          m=json.loads(Path(f"core_output/{date}_lock_manifest.json").read_text())
+          a=json.load(open("official_artifact.json"))
+          assert a["name"]=="nhl-core-slate-"+date and int(a["workflow_run"]["id"])==int(os.environ["GITHUB_RUN_ID"])
+          assert m["status"]=="PREGAME_PENDING_ARTIFACT_VERIFICATION"
+          created,uploaded,first=map(pd.Timestamp,[m["created_utc"],a["created_at"],m["first_puck_utc"]])
+          assert created<=uploaded<first, "LATE_LOCK; never count this artifact as clean"
+          print("CLEAN OFFICIAL UPLOAD",a["id"],a["created_at"])
+          PY
       - uses: actions/upload-artifact@v4
         if: steps.request.outputs.mode == 'replay'
         with:
