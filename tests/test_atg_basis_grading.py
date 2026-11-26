@@ -31,6 +31,7 @@ def test_empty_group_and_bad_flags():
     d,_=fixture()
     _,s=basis_summary(d[d.model_basis.eq("transition_ml_anchor")])
     assert s[s.basis_group.eq("limited_history")].settled_rows.eq(0).all()
+    d["official_probability_qualifies"]=d.official_probability_qualifies.astype(object)
     d.loc[0,"official_probability_qualifies"]="invalid"
     with pytest.raises(ValueError,match="Invalid frozen flag"):
         basis_summary(d)
