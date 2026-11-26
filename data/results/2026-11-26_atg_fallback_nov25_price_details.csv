@@ -1,0 +1,7 @@
+player_name,game,model_basis,odds_american,official_probability,shot_probability,boosting_calibrated,result
+Glenn Gawdin,NYR@BUF,limited_history_fallback_reconstruction,1200,0.26222414965645513,0.16343334127569165,0.10883577547969686,LOSS
+Mikael Pyyhtia,NJD@CBJ,limited_history_fallback_reconstruction,750,0.2708825129393828,0.08465999347018614,0.08803744010803186,LOSS
+Cole Knuble,PHI@WSH,limited_history_fallback_reconstruction,600,0.2400769733176603,0.18628027582417434,0.15467870246272872,WIN
+Brad Marchand,OTT@FLA,transition_ml_anchor,380,0.29978278339222175,0.23321508835420904,0.2017408102710659,LOSS
+Zac Jones,UTA@MIN,limited_history_fallback_reconstruction,1400,0.18280019752975252,0.062378981953994606,0.06440608519673613,LOSS
+Dmitri Simashev,UTA@MIN,limited_history_fallback_reconstruction,1500,0.15971957858979424,0.07236722609844223,0.06564354406222103,WIN
