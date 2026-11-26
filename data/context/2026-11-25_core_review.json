@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-25",
+  "reviewed": true,
+  "source_note": "Archived reviewed context in data/context/2026-11-25_pregame.md; retrospective parity only.",
+  "scratches": [
+    "Taylor Raddysh",
+    "Mitchell Chaffee",
+    "Scott Mayfield",
+    "Ethen Frank"
+  ],
+  "corrections": [
+    {
+      "game": "VAN@DET",
+      "player_name": "Keegan Kolesar",
+      "team": "DET"
+    },
+    {
+      "game": "SJS@ANA",
+      "player_name": "Alex Wennberg",
+      "snapshot_name": "Alexander Wennberg"
+    },
+    {
+      "game": "CHI@SEA",
+      "player_name": "Luke Glendening",
+      "snapshot_name": "Lucas Glendening"
+    },
+    {
+      "game": "CGY@PIT",
+      "player_name": "Jake Middleton",
+      "snapshot_name": "Jacob Middleton"
+    },
+    {
+      "game": "VAN@DET",
+      "player_name": "Elias Nils Pettersson #25",
+      "player_id": 8483678,
+      "position": "D"
+    }
+  ]
+}
