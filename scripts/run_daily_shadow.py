@@ -65,6 +65,8 @@ def main():
     if not g.date.eq(date).all():raise ValueError("Goalie date mismatch")
     history=margin_history(a.team_history,date)
     features=pregame_margin_features(history,c.game.unique(),date)
+    if digest(a.margin_bundle)!="9c44fd3ac84779c38589495d6336a0d1a5233896c29b8555dbf388223dae0b80":
+        raise ValueError("Frozen margin bundle hash mismatch")
     margin=joblib.load(a.margin_bundle)["margin_class"]
     spreads=spread_board(c,json.loads(files["team"].read_text())["team_goal_means"],features,margin,TEAM_NAMES)
     consensus=goalie_consensus(g)
