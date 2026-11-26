@@ -8,6 +8,7 @@ from run_atg_pregame import digest, schedule
 from train_atg_game_shadow import parse_game
 from wshlx_nhl.atg_grading import grade_matched, KEYS
 from wshlx_nhl.atg_pregame import MODELS
+from wshlx_nhl.atg_basis_grading import classify_basis
 
 def lock_status(manifest, artifact, replay):
     if artifact.get("expired") or artifact.get("workflow_run",{}).get("id") is None:
@@ -42,6 +43,9 @@ def load_lock(root,artifact,replay):
     if len(p)!=m["matched_rows"] or not p.date.eq(m["target_date"]).all():
         raise ValueError("Manifest coverage mismatch")
     pd.testing.assert_frame_equal(p[KEYS+MODELS],q[KEYS+MODELS],check_dtype=False)
+    if "basis_counts" in m:
+        pd.testing.assert_frame_equal(p[KEYS+["model_basis"]],q[KEYS+["model_basis"]],check_dtype=False)
+        if classify_basis(p.model_basis).value_counts().to_dict()!=m["basis_counts"]:raise ValueError("Frozen basis coverage mismatch")
     for model in MODELS:
         if int(p[model+"_qualifies"].sum())!=m["paper_card_counts"][model]:
             raise ValueError("Manifest card count mismatch")
