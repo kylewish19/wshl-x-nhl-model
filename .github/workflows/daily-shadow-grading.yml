@@ -43,10 +43,11 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt && pip install -e .
       - run: pytest -q
+      - run: python scripts/audit_puckline_calibration.py
       - name: Verify source workflow metadata
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN_ID: ${{ inputs.source_run_id || '45718113354' }}
+          RUN_ID: ${{ inputs.source_run_id || '45830267675' }}
           TARGET: ${{ inputs.target_date || '2026-11-12' }}
         run: |
           [[ "$RUN_ID" =~ ^[0-9]+$ ]]
@@ -63,7 +64,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: unified-daily-shadows-${{ inputs.target_date || '2026-11-12' }}
-          run-id: ${{ inputs.source_run_id || '45718113354' }}
+          run-id: ${{ inputs.source_run_id || '45830267675' }}
           github-token: ${{ github.token }}
           path: data/research/unified_grade_input
       - uses: actions/download-artifact@v4
