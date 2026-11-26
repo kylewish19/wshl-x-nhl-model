@@ -23,7 +23,7 @@ def pregame_margin_features(history,games,date):
     if raw.empty or raw.date.ge(day).any():raise ValueError("History must be strictly prior")
     season=str(day.year if day.month>=7 else day.year-1)
     season+=str(int(season)+1)
-    if set(raw.season.astype(str)) < {season}:raise ValueError("Missing current season")
+    if season not in set(raw.season.astype(str)):raise ValueError("Missing current season")
     teams=set();rows=[]
     for i,game in enumerate(sorted(set(games)),1):
         a,h=game.split("@")
@@ -139,5 +139,5 @@ def grade_consensus(board,starts,finals):
             void_rows=len(z)-len(settled),**(score(settled.target,settled.probability) if len(settled) else dict(rows=0,brier=None,log_loss=None,auc=None)),
             paper_count=len(z) if priced else 0,paper_wins=w if priced else 0,paper_losses=l if priced else 0,
             paper_voids=len(z)-len(settled) if priced else 0,paper_profit_units=net,paper_roi=net/(w+l) if priced and w+l else None,
-            top10_wins=w,top10_losses=l,top10_voids=len(z)-len(settled)))
+            direction_wins=w,direction_losses=l,direction_voids=len(z)-len(settled)))
     return d,pd.DataFrame(reports)
