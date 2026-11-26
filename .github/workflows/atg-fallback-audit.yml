@@ -1,0 +1,58 @@
+name: ATG Fallback Audit
+on:
+  push:
+    paths:
+      - '.github/workflows/atg-fallback-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: data/research/fallback_raw
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-archive-audit-2026-11-25
+          run-id: 45714769216
+          github-token: ${{ github.token }}
+          path: data/research/fallback_heldout
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-2026-11-25
+          run-id: 45723015990
+          github-token: ${{ github.token }}
+          path: data/research/fallback_core
+      - uses: actions/download-artifact@v4
+        with:
+          name: nov25-frozen-grading
+          run-id: 45828937854
+          github-token: ${{ github.token }}
+          path: data/research/fallback_graded
+      - name: Audit matched fallback history and frozen price results
+        run: |
+          RAW=$(find data/research/fallback_raw -name skater_games.parquet -print -quit)
+          HELD=$(find data/research/fallback_heldout -name heldout_predictions.parquet -print -quit)
+          CORE=$(find data/research/fallback_core -name 2026-11-25_core_candidates.csv -print -quit)
+          GRADED=$(find data/research/fallback_graded -name atg_graded.csv -print -quit)
+          test -f "$RAW" && test -f "$HELD" && test -f "$CORE" && test -f "$GRADED"
+          python scripts/audit_atg_fallback.py --raw "$RAW" --heldout "$HELD" --core "$CORE" --graded "$GRADED" --out data/research/fallback_audit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: atg-fallback-audit-2026-11-26
+          path: data/research/fallback_audit/
+          retention-days: 90
+          if-no-files-found: error
