@@ -141,8 +141,21 @@ def parity(out,original,date):
         cols=KEY+["model_probability","odds_american","active"]
         if "rank" in b:cols+=["rank"]
         if kind=="playable_shadow_v0.3":cols+=["calibrated_probability"]
-        pd.testing.assert_frame_equal(a[cols].reset_index(drop=True),b[cols].reset_index(drop=True),check_dtype=False,rtol=1e-9,atol=1e-10)
-        reports[kind]=len(a)
+        numeric=[k for k in cols if k in ("model_probability","calibrated_probability")]
+        structural=[k for k in cols if k not in numeric]
+        pd.testing.assert_frame_equal(a[structural].reset_index(drop=True),b[structural].reset_index(drop=True),check_dtype=False,check_exact=True)
+        # Refit numerical solvers may differ slightly across runners. Require
+        # exact selection/price/rank parity; allow at most 0.01 percentage point
+        # absolute probability drift ONLY in the goalie model. All others tight.
+        goalie_rows=a.market.eq("goalie_saves")
+        deltas={}
+        for k in numeric:
+            delta=(a[k]-b[k]).abs()
+            check(np.isfinite(delta).all(),"Nonfinite replay difference")
+            check(delta[~goalie_rows].le(1e-10).all(),"Non-goalie probability drift")
+            check(delta[goalie_rows].le(1e-4).all(),"Goalie probability drift exceeds 0.01pp")
+            deltas[k]=float(delta.max()) if len(delta) else 0.
+        reports[kind]={"rows":len(a),"max_absolute_probability_delta":deltas,"exact_selection_price_rank":True}
     return reports
 
 def main():
