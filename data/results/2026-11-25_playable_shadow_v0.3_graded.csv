@@ -1,0 +1,5 @@
+date,game,market,selection,line,odds_american,model_probability,calibrated_probability,result,profit_units,actual,notes
+2026-11-25,VAN@DET,moneyline,Vancouver Canucks,,188,0.411925,0.382760522153769,LOSS,-1.0,VAN 1-5 DET,
+2026-11-25,NYR@BUF,total,Under,6.5,-120,0.5798,0.5798,WIN,0.8333333333333334,NYR 1-5 BUF,
+2026-11-25,OTT@FLA,total,Over,5.5,-122,0.58145,0.58145,WIN,0.819672131147541,OTT 3-5 FLA,
+2026-11-25,WPG@BOS,total,Under,6.5,-110,0.5542,0.5542,WIN,0.9090909090909091,WPG 4-2 BOS,
