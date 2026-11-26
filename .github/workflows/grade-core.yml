@@ -1,0 +1,103 @@
+name: Reusable NHL Postgame Grading
+on:
+  push:
+    paths:
+      - '.github/workflows/grade-core.yml'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: Eastern slate date
+        required: true
+        type: string
+      core_run_id:
+        description: Original successful official run
+        required: true
+        type: string
+      research_run_id:
+        description: Original successful unified research run (optional)
+        required: false
+        type: string
+      mode:
+        description: New clean grading proposal or original Nov25 review
+        required: true
+        type: choice
+        options: [live, review]
+        default: live
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: nhl-postgame-grading
+  cancel-in-progress: false
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Resolve and verify original workflow artifacts
+        id: request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET: ${{ inputs.target_date || '2026-11-25' }}
+          CORE: ${{ inputs.core_run_id || '45723015990' }}
+          RESEARCH: ${{ github.event_name == 'push' && '45723215283' || inputs.research_run_id }}
+          MODE: ${{ inputs.mode || 'review' }}
+        run: |
+          python - <<'PY'
+          import json,os,re,subprocess
+          from pathlib import Path
+          target,core,research,mode=(os.environ[k] for k in ["TARGET","CORE","RESEARCH","MODE"])
+          assert re.fullmatch(r"\d{4}-\d{2}-\d{2}",target) and mode in ("live","review")
+          if mode=="review":assert (target,core,research)==("2026-11-25","45723015990","45723215283")
+          repo=os.environ["GITHUB_REPOSITORY"]
+          def api(s):return json.loads(subprocess.check_output(["gh","api",f"repos/{repo}/actions/{s}"]))
+          for kind,run,name,pattern in [
+              ("core",core,"nhl-core-slate-"+target,r"\.github/workflows/(?:\d{4}-\d{2}-\d{2}-core-slate|core-slate)\.yml"),
+              ("research",research,"unified-daily-shadows-"+target,r"\.github/workflows/daily-shadows\.yml")]:
+              if kind=="research" and not run:continue
+              assert re.fullmatch(r"\d+",run)
+              r=api("runs/"+run)
+              assert r["conclusion"]=="success" and r["head_branch"]=="main" and re.fullmatch(pattern,r["path"])
+              matches=[a for a in api("runs/"+run+"/artifacts")["artifacts"] if a["name"]==name and not a["expired"]]
+              assert len(matches)==1 and str(matches[0]["workflow_run"]["id"])==run
+              Path(kind+"_meta.json").write_text(json.dumps(matches[0]))
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:f.write(f"date={target}\ncore={core}\nresearch={research}\nmode={mode}\n")
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-core-slate-${{ steps.request.outputs.date }}
+          run-id: ${{ steps.request.outputs.core }}
+          github-token: ${{ github.token }}
+          path: core
+      - uses: actions/download-artifact@v4
+        if: steps.request.outputs.research != ''
+        with:
+          name: unified-daily-shadows-${{ steps.request.outputs.date }}
+          run-id: ${{ steps.request.outputs.research }}
+          github-token: ${{ github.token }}
+          path: research
+      - name: Grade original frozen boards
+        env:
+          TARGET: ${{ steps.request.outputs.date }}
+          MODE: ${{ steps.request.outputs.mode }}
+          RESEARCH: ${{ steps.request.outputs.research }}
+        run: |
+          FLAGS=()
+          if [ "$MODE" = review ]; then FLAGS+=(--review); fi
+          if [ -n "$RESEARCH" ]; then FLAGS+=(--research-dir research --research-metadata research_meta.json); fi
+          python scripts/grade_daily_core.py --date "$TARGET" --core-dir core --core-metadata core_meta.json --out grading "${FLAGS[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-postgame-${{ steps.request.outputs.mode }}-${{ steps.request.outputs.date }}
+          path: |
+            grading/official/
+            grading/research/
+            grading/manifest.json
+          retention-days: 90
+          if-no-files-found: error
