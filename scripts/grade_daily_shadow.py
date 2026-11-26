@@ -7,6 +7,7 @@ from grade_atg_pregame import load_lock
 from wshlx_nhl.atg_grading import grade_matched
 from wshlx_nhl.daily_shadow_grading import grade_totals,grade_goalies,cumulative
 from wshlx_nhl.margin_consensus_shadow import grade_spreads,grade_consensus
+from wshlx_nhl.atg_basis_grading import basis_summary,update_basis_ledger,cumulative_basis
 
 def verify(root,artifact,replay):
     m=json.loads((root/"manifest.json").read_text())
@@ -77,6 +78,13 @@ def main():
     ad,ats=grade_matched(p,skaters,list(zip(finals.date,finals.game)))
     ats.insert(0,"market","anytime_goal")
     extras=[]
+    if "model_basis" in ad:
+        bd,bs=basis_summary(ad)
+        bs.insert(0,"date",m["date"]);bs.insert(1,"cohort",cohort);bs.insert(2,"source_run_id",artifact["workflow_run"]["id"])
+        bp=Path("data/results/atg_basis_ledger.csv")
+        prior=pd.read_csv(bp) if bp.exists() else bs.iloc[:0].copy()
+        bl=update_basis_ledger(prior,bs,a.replay)
+        extras.extend([("atg_basis_graded",bd),("atg_basis_summary",bs),("atg_basis_ledger",bl),("atg_basis_cumulative",cumulative_basis(bl))])
     if "spread_pairs" in m:
         b=pd.read_csv(root/"spread_comparison.csv")
         if len(b)!=6*m["spread_pairs"] or not b.date.eq(m["date"]).all():raise ValueError("Spread lock coverage")
@@ -110,6 +118,8 @@ def main():
     meta={"date":m["date"],"cohort":cohort,"source_run_id":artifact["workflow_run"]["id"],"source_artifact_id":artifact["id"],"lock_hash":digest(root/"manifest.json"),"outcome_hashes":{k:digest(v) for k,v in [("team",a.team_games),("goalie",a.goalie_features),("skater",a.skater_games)]},"summary_sha256":digest(out/"summary.csv"),"games":len(finals),"ledger_rows":len(ledger),"official_records_changed":False}
     (out/"manifest.json").write_text(json.dumps(meta,indent=2))
     print("=== UNIFIED GRADE MANIFEST ===");print(json.dumps(meta,indent=2));print("=== UNIFIED GRADE SUMMARY ===");print(summary.to_csv(index=False));print("=== END UNIFIED GRADE ===")
+    if "model_basis" in ad:
+        print("=== ATG BASIS SUMMARY ===");print(bs.to_csv(index=False));print("=== END ATG BASIS SUMMARY ===")
     if "goalie_consensus_counts" in m:
         print("=== CONSENSUS SUMMARY ===");print(cs.to_csv(index=False));print("=== END CONSENSUS SUMMARY ===")
 if __name__=="__main__":main()
