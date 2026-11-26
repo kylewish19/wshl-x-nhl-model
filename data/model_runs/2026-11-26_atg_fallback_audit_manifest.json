@@ -1,0 +1,57 @@
+{
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "historical_rows": 6921,
+  "history_cutoff": "2026-11-24",
+  "nov25_matched_rows": 476,
+  "notes": [
+    "Proxy uses F/D medians, not exact NHL C/L/R/D position codes; prior season boxscore totals, not official season endpoint. Actual participant cohort only. No historical odds.",
+    "Previous-season GP<10, not career GP<10; current-season counts lagged per player.",
+    "Shot and boosting probabilities reused from frozen heldout artifact; no fitting or tuning.",
+    "Nov25 hybrids are retrospective what-if comparisons, not newly locked picks. Excluded identities and DNP handled on common matched board."
+  ],
+  "run_id": 45830831807,
+  "artifact_id": 15122162548,
+  "tests_passed": 58,
+  "season_card": {
+    "clean_dates": 12,
+    "settled": 30,
+    "wins": 4,
+    "losses": 26,
+    "voids": 1,
+    "expected_wins": 8.043680220154062,
+    "mean_probability": 0.2681226740051354,
+    "profit_units": -2.65,
+    "roi": -0.08833333333333333,
+    "brier": 0.12407421609177148,
+    "odds_bands": [
+      {
+        "band": "+100 to +299",
+        "n": 6,
+        "w": 2,
+        "expected": 2.837384533585161,
+        "profit": -1.65
+      },
+      {
+        "band": "+300 to +599",
+        "n": 6,
+        "w": 0,
+        "expected": 1.765293065535239,
+        "profit": -6
+      },
+      {
+        "band": "+600 to +999",
+        "n": 11,
+        "w": 1,
+        "expected": 2.2826597942007782,
+        "profit": -4
+      },
+      {
+        "band": "+1000 and longer",
+        "n": 7,
+        "w": 1,
+        "expected": 1.1583428268328835,
+        "profit": 9
+      }
+    ]
+  }
+}
