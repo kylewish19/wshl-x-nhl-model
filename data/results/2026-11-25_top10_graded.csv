@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,result,actual,notes
+2026-11-25,OTT@FLA,spread,Ottawa Senators,1.5,-260,0.7363999999999999,LOSS,OTT 3-5 FLA,
+2026-11-25,NYR@BUF,spread,New York Rangers,1.5,-230,0.72915,LOSS,NYR 1-5 BUF,
+2026-11-25,STL@NYI,spread,St. Louis Blues,1.5,-225,0.70475,WIN,STL 2-3 NYI,
+2026-11-25,NJD@CBJ,spread,Columbus Blue Jackets,1.5,-215,0.69155,WIN,NJD 3-2 CBJ,
+2026-11-25,CAR@TBL,spread,Tampa Bay Lightning,1.5,-260,0.68955,LOSS,CAR 3-1 TBL,
+2026-11-25,PHI@WSH,spread,Philadelphia Flyers,1.5,-192,0.6839500000000001,LOSS,PHI 3-7 WSH,
+2026-11-25,NSH@DAL,spread,Nashville Predators,1.5,-184,0.6836,WIN,NSH 3-1 DAL,
+2026-11-25,CGY@PIT,spread,Calgary Flames,1.5,-188,0.6695,WIN,CGY 6-3 PIT,
+2026-11-25,NSH@DAL,goalie_saves,Jake Oettinger Over,21.5,-106,0.6661622758643433,WIN,24 saves,
+2026-11-25,SJS@ANA,spread,San Jose Sharks,1.5,-230,0.6643,LOSS,SJS 0-7 ANA,
