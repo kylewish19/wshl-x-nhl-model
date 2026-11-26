@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-25",
+  "version": "v0.2.0",
+  "status": "RETROSPECTIVE_SMOKE_ONLY",
+  "created_utc": "2026-11-26T13:46:08.076406+00:00",
+  "first_puck_utc": null,
+  "history_cutoff": "2026-11-24",
+  "history": {
+    "archive_date": "2026-11-24",
+    "archive_hashes": {
+      "team": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+      "goalie": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c"
+    },
+    "additional_games": 0,
+    "games": 6945,
+    "last_date": "2026-11-24",
+    "prepared_hashes": {
+      "team": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+      "goalie": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c"
+    }
+  },
+  "source_run": 45713367700,
+  "input_hashes": {
+    "team": "26faa4cb5be02612214bfd51b86e4a19077992898f3f3cee06f24ee07f65c193",
+    "core": "de2b46a30cc651b4297815663125951037f3bba9567f2976008037cb5ca04230",
+    "atg": "7a2cf1167ab7d319bb3964574813ddae8c73d294826e3f54c4b01669c1ad1e1d",
+    "goalie": "e43a1361c212544fd0dc2e365e31778218fee842c6d593da2ed4791dde18bffb",
+    "review": "83bab031aea8e568a8114b3706afeb627daa9f083e9204a06c9951e6fe0675f9"
+  },
+  "hashes": {
+    "2026-11-25_team_predictions.csv": "80dc5fa9c2b376d95f06120b07af119aa07d33dcfdd96299a850a4faeadff8d0",
+    "2026-11-25_atg_predictions.csv": "80eab16c316772da53285d67d8612fbf025ab16517c57fca6da4a201587570ab",
+    "2026-11-25_playable.csv": "c2a816bc1ea33cf62246e721d90e9541fe7ddafd85772f46dbb6a6e03b84b753",
+    "2026-11-25_goalie_predictions.csv": "09cba206e2e01b601d02f110aac6c1796cb2378a432a8407fe67b0baced0a5bf",
+    "2026-11-25_goalie_v03_research.csv": "415004ba8ea50f5300c23658d9327f98707ed4337fed4f033409296bb9112c6f",
+    "2026-11-25_atg_consensus_shadow.csv": "7744fa6ef8f0442ab5a0086ddec7e4f909e983b76e8fec814cbe25bda1a674c1",
+    "2026-11-25_top10.csv": "e6e566b95da5a583ed76464a4796ba525c5484bc11ecfb761806e0e464696164",
+    "2026-11-25_atg_current_shadow.csv": "4bbfcd4aef4d63711934342cc0c81b142278afa9703a4762fc091a951822fdc1",
+    "2026-11-25_core_candidates.csv": "7dd5e67848d8e864ea5f397515bcc9e8d317934863578dcc3e689cacfb3029c3",
+    "2026-11-25_identity_excluded.csv": "18329a77a8c6d10cb25039f1ba3477947c4a577ec36da93a597289f2d34df5a2",
+    "2026-11-25_playable_shadow_v0.3.csv": "2f1f9e9fc81d5e0d48d08a1efe9d928d44c8c7f8fefb30940a4750097d5cfed9"
+  },
+  "research_error": null,
+  "replay_parity": {
+    "core_candidates": {
+      "rows": 613,
+      "max_absolute_probability_delta": {
+        "model_probability": 0
+      },
+      "exact_selection_price_rank": true
+    },
+    "top10": {
+      "rows": 10,
+      "max_absolute_probability_delta": {
+        "model_probability": 0
+      },
+      "exact_selection_price_rank": true
+    },
+    "playable": {
+      "rows": 20,
+      "max_absolute_probability_delta": {
+        "model_probability": 0
+      },
+      "exact_selection_price_rank": true
+    },
+    "playable_shadow_v0.3": {
+      "rows": 4,
+      "max_absolute_probability_delta": {
+        "model_probability": 0,
+        "calibrated_probability": 0
+      },
+      "exact_selection_price_rank": true
+    }
+  },
+  "replay_run_id": 45832211357,
+  "replay_artifact_id": 15122129759,
+  "replay_artifact_digest": "sha256:079f69bb696035179d056468d8ec19b9d4e2dd00876200f63a6d9e8c554dc494",
+  "original_run_id": 45723015990,
+  "original_artifact_id": 15073700466,
+  "tests_passed": 65
+}
