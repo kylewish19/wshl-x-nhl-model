@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-26",
+  "cutoff": "2026-11-25",
+  "status": "DIAGNOSTIC_ONLY",
+  "cohort": "CLEAN_PREGAME",
+  "top10": {
+    "n": 50,
+    "wins": 28,
+    "losses": 22,
+    "expected_wins": 35.27096,
+    "mean_probability": 0.7054192,
+    "hit_rate": 0.56,
+    "brier": 0.269412587632
+  },
+  "top10_before_nov25": {
+    "n": 41,
+    "wins": 24,
+    "expected_wins": 29.01821
+  },
+  "top10_sep_oct": {
+    "n": 19,
+    "wins": 13,
+    "expected_wins": 13.65036
+  },
+  "top10_nov": {
+    "n": 31,
+    "wins": 15,
+    "expected_wins": 21.6206
+  },
+  "top10_nov25": {
+    "n": 9,
+    "wins": 4,
+    "expected_wins": 6.25275
+  },
+  "bands": [
+    {
+      "lo": 0.6,
+      "hi": 0.65,
+      "n": 3,
+      "wins": 3,
+      "expected": 1.8827
+    },
+    {
+      "lo": 0.65,
+      "hi": 0.7,
+      "n": 19,
+      "wins": 10,
+      "expected": 12.94835
+    },
+    {
+      "lo": 0.7,
+      "hi": 0.75,
+      "n": 22,
+      "wins": 11,
+      "expected": 15.8526
+    },
+    {
+      "lo": 0.75,
+      "hi": 1.01,
+      "n": 6,
+      "wins": 4,
+      "expected": 4.58731
+    }
+  ],
+  "playable": {
+    "n": 20,
+    "wins": 11,
+    "losses": 9,
+    "expected_wins": 13.854315,
+    "mean_probability": 0.69271575,
+    "hit_rate": 0.55,
+    "profit_units": -2.710741930619796,
+    "roi": -0.1355370965309898,
+    "brier": 0.26316969915625005
+  },
+  "historical": [
+    {
+      "season": "20242025",
+      "games": 1312,
+      "actual_multi": 0.6173780487804879,
+      "pred_multi": 0.5390983802948063
+    },
+    {
+      "season": "20252026",
+      "games": 1312,
+      "actual_multi": 0.5678353658536586,
+      "pred_multi": 0.5385570432207349
+    },
+    {
+      "season": "20262027",
+      "games": 385,
+      "actual_multi": 0.5844155844155844,
+      "pred_multi": 0.5448345328038826
+    }
+  ],
+  "notes": [
+    "All actual tracked spread picks in these two cohorts were +1.5; cohorts overlap, never pool them as independent bets.",
+    "Historical multi-goal rates sum the home and away -1.5 event rates from existing zero-context analytic baseline benchmark; full schedule differs from selected card population.",
+    "2026-27 historical rows through Nov24; prior seasons already viewed; not independent promotion evidence.",
+    "No new fit, probability haircut, or official gate change. Need evaluate margin calibration on matched pregame boards prospectively, not fit on the 50 selected picks. Script added for reproducibility; not yet executed in GitHub CI."
+  ]
+}
