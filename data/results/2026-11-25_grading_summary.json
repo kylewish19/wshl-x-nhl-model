@@ -1,0 +1,216 @@
+{
+  "date": "2026-11-25",
+  "grading_run_id": 45828937854,
+  "grading_artifact_id": 15122245729,
+  "official": {
+    "top10": {
+      "wins": 5,
+      "losses": 5,
+      "voids": 0,
+      "hit_rate": 0.5,
+      "expected_wins": 6.918912275864343,
+      "brier": 0.29616067785560746,
+      "profit_units": -2.071649895584107,
+      "roi": -0.20716498955841073
+    },
+    "playable": {
+      "wins": 10,
+      "losses": 10,
+      "voids": 0,
+      "hit_rate": 0.5,
+      "expected_wins": 9.665836960082965,
+      "brier": 0.2422156093901131,
+      "profit_units": 17.78055944770819,
+      "roi": 0.8890279723854094
+    },
+    "playable_shadow_v0.3": {
+      "wins": 3,
+      "losses": 1,
+      "voids": 0,
+      "hit_rate": 0.75,
+      "expected_wins": 2.098210522153769,
+      "brier": 0.17424884995485646,
+      "profit_units": 1.5620963735717834,
+      "roi": 0.39052409339294586
+    }
+  },
+  "goalie_consensus_diagnostic": [
+    {
+      "game": "CAR@TBL",
+      "goalie": "Brandon Bussi",
+      "line": 21.5,
+      "side": "Over",
+      "actual": 32,
+      "result": "WIN",
+      "all_gate": false,
+      "v3_gate": true
+    },
+    {
+      "game": "CGY@PIT",
+      "goalie": "Arturs Silovs",
+      "line": 23.5,
+      "side": "Over",
+      "actual": 21,
+      "result": "LOSS",
+      "all_gate": false,
+      "v3_gate": true
+    },
+    {
+      "game": "CGY@PIT",
+      "goalie": "Dustin Wolf",
+      "line": 26.5,
+      "side": "Under",
+      "actual": 25,
+      "result": "WIN",
+      "all_gate": false,
+      "v3_gate": false
+    },
+    {
+      "game": "MTL@COL",
+      "goalie": "Mackenzie Blackwood",
+      "line": 23.5,
+      "side": "Under",
+      "actual": 28,
+      "result": "LOSS",
+      "all_gate": false,
+      "v3_gate": false
+    },
+    {
+      "game": "MTL@COL",
+      "goalie": "Jacob Fowler",
+      "line": 26.5,
+      "side": "Under",
+      "actual": 32,
+      "result": "LOSS",
+      "all_gate": false,
+      "v3_gate": false
+    },
+    {
+      "game": "NSH@DAL",
+      "goalie": "Jake Oettinger",
+      "line": 21.5,
+      "side": "Over",
+      "actual": 24,
+      "result": "WIN",
+      "all_gate": true,
+      "v3_gate": true
+    },
+    {
+      "game": "NYR@BUF",
+      "goalie": "Ukko-Pekka Luukkonen",
+      "line": 22.5,
+      "side": "Over",
+      "actual": 29,
+      "result": "WIN",
+      "all_gate": false,
+      "v3_gate": false
+    },
+    {
+      "game": "SJS@ANA",
+      "goalie": "Laurent Brossoit",
+      "line": 21.5,
+      "side": "Over",
+      "actual": 23,
+      "result": "WIN",
+      "all_gate": false,
+      "v3_gate": false
+    },
+    {
+      "game": "VAN@DET",
+      "goalie": "Daniil Tarasov",
+      "line": 20.5,
+      "side": "Over",
+      "actual": 25,
+      "result": "WIN",
+      "all_gate": true,
+      "v3_gate": true
+    },
+    {
+      "game": "VAN@DET",
+      "goalie": "Leevi Merilainen",
+      "line": 25.5,
+      "side": "Under",
+      "actual": 21,
+      "result": "WIN",
+      "all_gate": true,
+      "v3_gate": true
+    },
+    {
+      "game": "WPG@BOS",
+      "goalie": "Nico Daws",
+      "line": 23.5,
+      "side": "Over",
+      "actual": 21,
+      "result": "LOSS",
+      "all_gate": false,
+      "v3_gate": false
+    }
+  ],
+  "blend_top10": [
+    {
+      "player_name": "Cutter Gauthier",
+      "shadow_probability": 0.5316664538379265,
+      "result": "WIN",
+      "actual": "1 goals"
+    },
+    {
+      "player_name": "Kirill Kaprizov",
+      "shadow_probability": 0.4991910717618967,
+      "result": "LOSS",
+      "actual": "0 goals"
+    },
+    {
+      "player_name": "Kyle Connor",
+      "shadow_probability": 0.48595871178484107,
+      "result": "WIN",
+      "actual": "1 goals"
+    },
+    {
+      "player_name": "Tage Thompson",
+      "shadow_probability": 0.45600972439489085,
+      "result": "LOSS",
+      "actual": "0 goals"
+    },
+    {
+      "player_name": "Brandon Hagel",
+      "shadow_probability": 0.4230994737471636,
+      "result": "LOSS",
+      "actual": "0 goals"
+    },
+    {
+      "player_name": "Alex Tuch",
+      "shadow_probability": 0.4137191657127848,
+      "result": "WIN",
+      "actual": "1 goals"
+    },
+    {
+      "player_name": "Matt Boldy",
+      "shadow_probability": 0.41052162807116843,
+      "result": "LOSS",
+      "actual": "0 goals"
+    },
+    {
+      "player_name": "Roman Kantserov",
+      "shadow_probability": 0.4062876758441154,
+      "result": "WIN",
+      "actual": "2 goals"
+    },
+    {
+      "player_name": "Artturi Lehkonen",
+      "shadow_probability": 0.3986794764532293,
+      "result": "WIN",
+      "actual": "1 goals"
+    },
+    {
+      "player_name": "Jake Guentzel",
+      "shadow_probability": 0.3955696728750149,
+      "result": "LOSS",
+      "actual": "0 goals"
+    }
+  ],
+  "notes": [
+    "Graded from original pregame artifacts and 14 finalized box scores; no predictions changed.",
+    "Consensus groups were visible pregame but are diagnostic only; not extra official bets.",
+    "Cumulative Brier updated using prior stored rounded aggregate; precision limited by prior rounding."
+  ]
+}
