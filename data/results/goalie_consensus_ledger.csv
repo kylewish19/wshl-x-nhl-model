@@ -1,0 +1,4 @@
+date,cohort,source_run_id,market,model,matched_rows,settled_rows,void_rows,rows,goalscorer_rate,mean_probability,brier,log_loss,auc,paper_count,paper_wins,paper_losses,paper_voids,paper_profit_units,paper_roi,direction_wins,direction_losses,direction_voids
+2026-11-25,PREGAME_DISPLAYED_DIAGNOSTIC,45723215283,goalie_consensus,unanimous_direction,11,11,0,11,0.6363636363636364,0.5932250911898375,0.22633891496037536,0.6445203728619229,0.5357142857142857,0,0,0,0,0,,7,4,0
+2026-11-25,PREGAME_DISPLAYED_DIAGNOSTIC,45723215283,goalie_consensus,unanimous_v03_gate,5,5,0,5,0.8,0.6130252565691923,0.18177097951025947,0.5528114798296933,0.75,5,4,1,0,2.725523896824791,0.5451047793649582,4,1,0
+2026-11-25,PREGAME_DISPLAYED_DIAGNOSTIC,45723215283,goalie_consensus,unanimous_all_gates,3,3,0,3,1,0.6419729945735432,0.1286902770849291,0.44382621472798983,,3,3,0,0,2.782127670409696,0.9273758901365654,3,0,0
