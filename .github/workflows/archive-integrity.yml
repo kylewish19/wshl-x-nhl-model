@@ -1,0 +1,46 @@
+name: Frozen NHL Archive Integrity
+on:
+  push:
+    paths:
+      - '.github/workflows/archive-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: pytest -q
+      - name: Verify original GitHub archive metadata and exact ZIP bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,subprocess,os
+          from pathlib import Path
+          inv=json.loads(Path("config/frozen_archive_inventory.json").read_text())
+          for e in inv["archives"]:
+              a=json.loads(subprocess.check_output(["gh","api",f"repos/{inv['repository']}/actions/artifacts/{e['artifact_id']}"]))
+              assert not a["expired"] and a["name"]==e["name"] and a["workflow_run"]["id"]==e["run_id"]
+              assert a["digest"]==e["zip_digest"] and a["workflow_run"]["head_sha"]==e["source_commit"]
+              print("VERIFIED METADATA",e["key"],a["expires_at"])
+          PY
+          mkdir -p report
+          python scripts/backup_frozen_archives.py --directory "$RUNNER_TEMP/frozen-archive-audit" --download > report/integrity.json
+          cat report/integrity.json
+      - name: Delete transient verification copies
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/frozen-archive-audit"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frozen-archive-integrity-report
+          path: report/integrity.json
+          retention-days: 90
+          if-no-files-found: error
