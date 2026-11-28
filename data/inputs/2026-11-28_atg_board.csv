@@ -237,7 +237,7 @@ date,game,market,player_name,selection,team,line,odds_american
 2026-11-28,WSH@STL,anytime_goal,Logan Mailloux,Logan Mailloux,STL,0.5,850
 2026-11-28,WSH@STL,anytime_goal,Adam Jiricek,Adam Jiricek,STL,0.5,1100
 2026-11-28,WSH@STL,anytime_goal,Cam Fowler,Cam Fowler,STL,0.5,1200
-2026-11-28,WSH@STL,anytime_goal,Vincent Desharnais,Vincent Desharnais,STL,0.5,1300
+2026-11-28,WSH@STL,anytime_goal,Vincent Desharnais,Vincent Desharnais,WSH,0.5,1300
 2026-11-28,WSH@STL,anytime_goal,Colton Parayko,Colton Parayko,STL,0.5,1300
 2026-11-28,NSH@DET,anytime_goal,Steven Stamkos,Steven Stamkos,NSH,0.5,190
 2026-11-28,NSH@DET,anytime_goal,Filip Forsberg,Filip Forsberg,NSH,0.5,200
@@ -384,7 +384,7 @@ date,game,market,player_name,selection,team,line,odds_american
 2026-11-28,ANA@LAK,anytime_goal,Mikael Granlund,Mikael Granlund,ANA,0.5,260
 2026-11-28,ANA@LAK,anytime_goal,Alex Killorn,Alex Killorn,ANA,0.5,400
 2026-11-28,ANA@LAK,anytime_goal,Troy Terry,Troy Terry,ANA,0.5,400
-2026-11-28,ANA@LAK,anytime_goal,Erik Haula,Erik Haula,ANA,0.5,440
+2026-11-28,ANA@LAK,anytime_goal,Erik Haula,Erik Haula,LAK,0.5,440
 2026-11-28,ANA@LAK,anytime_goal,Judd Caulfield,Judd Caulfield,ANA,0.5,440
 2026-11-28,ANA@LAK,anytime_goal,Roger McQueen,Roger McQueen,ANA,0.5,460
 2026-11-28,ANA@LAK,anytime_goal,Nico Myatovic,Nico Myatovic,ANA,0.5,525
@@ -445,7 +445,7 @@ date,game,market,player_name,selection,team,line,odds_american
 2026-11-28,EDM@SEA,anytime_goal,Ryan Winterton,Ryan Winterton,SEA,0.5,700
 2026-11-28,EDM@SEA,anytime_goal,Ben Meyers,Ben Meyers,SEA,0.5,800
 2026-11-28,EDM@SEA,anytime_goal,Jacob Melanson,Jacob Melanson,SEA,0.5,900
-2026-11-28,EDM@SEA,anytime_goal,Ryan Shea,Ryan Shea,SEA,0.5,1100
+2026-11-28,EDM@SEA,anytime_goal,Ryan Shea,Ryan Shea,EDM,0.5,1100
 2026-11-28,EDM@SEA,anytime_goal,Ryker Evans,Ryker Evans,SEA,0.5,1100
 2026-11-28,EDM@SEA,anytime_goal,Josh Mahura,Josh Mahura,SEA,0.5,1500
 2026-11-28,EDM@SEA,anytime_goal,Adam Larsson,Adam Larsson,SEA,0.5,1500
