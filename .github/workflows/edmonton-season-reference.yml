@@ -1,0 +1,39 @@
+name: Frozen Edmonton season coverage reference
+on:
+  push:
+    paths: ['.github/workflows/edmonton-season-reference.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas pyarrow
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: archived
+      - name: Generate frozen aggregate counts and hashes only
+        run: |
+          python - <<'PY'
+          import hashlib,json,pandas as pd
+          from pathlib import Path
+          p=next(Path("archived").rglob("skater_games.parquet"))
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=="5a782b58ddd7922c7820de4dc20262b348f2547a891e431441dddf5d6734ff2b"
+          d=pd.read_parquet(p)
+          x=d[(d.season.astype(str)=="20252026")&(d.team=="EDM")]
+          assert not x.duplicated(["game_id","player_id"]).any() and len(x)>0
+          def h(rows):return hashlib.sha256(json.dumps(rows,separators=(",",":")).encode()).hexdigest()
+          ids=sorted(map(int,x.game_id.unique()))
+          pos=x[x.shots.gt(0)|x.goals.gt(0)].sort_values(["game_id","player_id"])
+          counts=[[int(v) for v in row] for row in pos[["game_id","player_id","goals","shots"]].itertuples(index=False,name=None)]
+          by_game=x.groupby("game_id")[["goals","shots"]].sum().reset_index()
+          print("REFERENCE "+json.dumps({"games":len(ids),"games_hash":h(ids),"positive_player_game_rows":len(counts),"positive_counts_hash":h(counts),"game_counts_hash":h([[int(v) for v in row] for row in by_game.itertuples(index=False,name=None)]),"goals":int(x.goals.sum()),"sog":int(x.shots.sum())}))
+          PY
