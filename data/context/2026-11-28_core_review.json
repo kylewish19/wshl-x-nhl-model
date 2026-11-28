@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-28",
+  "reviewed": true,
+  "source_note": "FanDuel screenshots provided by user. Nov28 9:31am ET projected lineup and injury report https://fantasyteamadvice.com/nhl/starting-lineups and https://www.dailyfaceoff.com/starting-goalies/2026-11-28 reviewed, most goalies unconfirmed; all supplied goalie identities consistent with projections, Seattle line absent. No listed player definitively out in reviewed same-matchup report; projected omissions not treated as confirmed scratches. Matvei Michkov return reported https://www.reuters.com/sports/nhl/matvei-michkov-return-ascending-flyers-host-islanders--flm-2026-11-28/. Neutral context adjustments: no unvalidated subjective adjustment. Name aliases and conflicting listed teams checked against lineup source; exact snapshot match required; unresolved excluded. Late changes remain possible.",
+  "scratches": [],
+  "corrections": [
+    {
+      "game": "MTL@VGK",
+      "player_name": "Mitchell Marner",
+      "snapshot_name": "Mitch Marner"
+    },
+    {
+      "game": "CGY@NYR",
+      "player_name": "Jake Middleton",
+      "snapshot_name": "Jacob Middleton"
+    },
+    {
+      "game": "CGY@NYR",
+      "player_name": "Matt Coronato",
+      "snapshot_name": "Matthew Coronato"
+    },
+    {
+      "game": "CGY@NYR",
+      "player_name": "Will Cuylle",
+      "snapshot_name": "William Cuylle"
+    },
+    {
+      "game": "SJS@COL",
+      "player_name": "Alex Wennberg",
+      "snapshot_name": "Alexander Wennberg"
+    },
+    {
+      "game": "NYI@PHI",
+      "player_name": "Cam York",
+      "snapshot_name": "Cameron York"
+    },
+    {
+      "game": "ANA@LAK",
+      "player_name": "Mikey Anderson",
+      "snapshot_name": "Michael Anderson"
+    },
+    {
+      "game": "UTA@DAL",
+      "player_name": "Daniil But",
+      "snapshot_name": "Danil But"
+    },
+    {
+      "game": "NYI@PHI",
+      "player_name": "Brayden Schenn",
+      "team": "NYI"
+    },
+    {
+      "game": "NYI@PHI",
+      "player_name": "Noel Acciari",
+      "team": "PHI"
+    },
+    {
+      "game": "ANA@LAK",
+      "player_name": "Jeff Malott",
+      "team": "ANA"
+    }
+  ]
+}
