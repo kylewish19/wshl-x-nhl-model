@@ -1,0 +1,37 @@
+name: Incremental NHL history readiness
+on:
+  push:
+    paths: ['.github/workflows/incremental-readiness.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt && pip install -e .
+      - uses: actions/download-artifact@v4
+        with:
+          name: nhl-resume-refresh-2026-11-24
+          run-id: 45713367700
+          github-token: ${{ github.token }}
+          path: private_archive
+      - uses: actions/download-artifact@v4
+        with:
+          name: atg-game-shadow-2026-11-25
+          run-id: 45713698148
+          github-token: ${{ github.token }}
+          path: skater_archive
+      - name: Backfill and verify before today's first puck
+        run: python scripts/check_incremental_readiness.py --date 2026-11-28 --archive private_archive --skater-archive skater_archive --out readiness_output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhl-history-readiness-2026-11-28
+          path: readiness_output/readiness.json
+          retention-days: 90
+          if-no-files-found: error
