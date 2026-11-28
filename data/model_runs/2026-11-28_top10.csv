@@ -1,0 +1,11 @@
+date,game,market,selection,line,odds_american,model_probability,model_basis,active,player_name,player_id,team,resolved_team,listed_team,goalie_name,v0_1_probability,v0_2_probability,v0_2_expected_saves,v0_1_expected_saves,cohort,rank
+2026-11-28,TBL@FLA,spread,Florida Panthers,1.5,-280,0.7318,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,1
+2026-11-28,NSH@DET,spread,Nashville Predators,1.5,-290,0.7303,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,2
+2026-11-28,ANA@LAK,spread,Anaheim Ducks,1.5,-196,0.7292000000000001,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,3
+2026-11-28,TBL@FLA,goalie_saves,Andrei Vasilevskiy Over,24.5,-114,0.7087707125479153,goalie_two_stage_v0.2_official,1,,,TBL,,,Andrei Vasilevskiy,0.3984995825181882,0.7087707125479153,29.133159593189095,23.41326798740922,TOP10_PROBABILITY,4
+2026-11-28,NYI@PHI,spread,Philadelphia Flyers,1.5,-265,0.70485,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,5
+2026-11-28,TOR@PIT,spread,Toronto Maple Leafs,1.5,-230,0.70285,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,6
+2026-11-28,MTL@VGK,spread,Montreal Canadiens,1.5,-280,0.6954,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,7
+2026-11-28,EDM@SEA,spread,Seattle Kraken,1.5,-176,0.69405,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,8
+2026-11-28,UTA@DAL,spread,Utah Mammoth,1.5,-215,0.6931,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,9
+2026-11-28,WSH@STL,spread,Washington Capitals,1.5,-265,0.6878,team_goal_hybrid_v0.1_reconstruction,1,,,,,,,,,,,TOP10_PROBABILITY,10
