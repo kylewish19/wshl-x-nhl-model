@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-28",
+  "status": "CLEAN_PREGAME_ARTIFACTS_VERIFIED",
+  "core_run_id": 46158907536,
+  "core_artifact_id": 15268253295,
+  "core_upload_utc": "2026-11-28T15:16:45Z",
+  "research_run_id": 46159025076,
+  "research_artifact_id": 15268692187,
+  "research_upload_utc": "2026-11-28T15:17:42Z",
+  "first_puck_utc": "2026-11-28T21:00:00Z",
+  "submitted_candidates": 579,
+  "scored_candidates": 574,
+  "unresolved_atg": [
+    "Nicholas Paul",
+    "Anton Silayev",
+    "Nicolas Deslauriers",
+    "Tyler Myers",
+    "Adam Beckman"
+  ],
+  "matched_atg_research": 443,
+  "team_mismatch_research_exclusions": 3,
+  "top10": 10,
+  "playable": 31,
+  "playable_shadow": 2,
+  "history_cutoff": "2026-11-27",
+  "historical_games": 6974,
+  "tests_passed": 81,
+  "core_manifest": {
+    "date": "2026-11-28",
+    "version": "v0.2.0",
+    "status": "PREGAME_PENDING_ARTIFACT_VERIFICATION",
+    "created_utc": "2026-11-28T15:16:44.430061+00:00",
+    "first_puck_utc": "2026-11-28 21:00:00+00:00",
+    "history_cutoff": "2026-11-27",
+    "history": {
+      "archive_date": "2026-11-24",
+      "archive_hashes": {
+        "team": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+        "goalie": "b660defbe324f39cfc17868636ab95bcfbe962157f7d28deee2e1684b2e54a6c"
+      },
+      "additional_games": 29,
+      "games": 6974,
+      "last_date": "2026-11-27",
+      "prepared_hashes": {
+        "team": "eaa02f38812ad4d26b5ef3be2a598dce19a9846428a0a045743db6b5e8a957f6",
+        "goalie": "bd96a31dfba54639d3be76e7947ea469b21074f8c0f237c0d63b9298b0a4b290"
+      }
+    },
+    "source_run": 45713367700,
+    "input_hashes": {
+      "team": "a011322772821e23f608bf4f6240efcedf5cac6884e369203d077020a8abe2c1",
+      "core": "68da4df759a4cb420194f6659a400a445dc30ac0c701a2895b6685624624d0cb",
+      "atg": "dbadb522a3b29b6b5052ae630f7bb481005b8ebc24c4c35ff21f53e6aa2908f7",
+      "goalie": "bfc1a02fc5bbc3ec42ad2c1df59571c045bed4f0aaa766e7edd3b9cf3305cde6",
+      "review": "61ebc7289fa8b85b40c26cd05c0d705ab1b29aa6f1c2533e7f3d68f63facec43"
+    },
+    "hashes": {
+      "2026-11-28_atg_current_shadow.csv": "7d23453c5349819135500fe0f9b17c5927939fdb86014193c64f0bc3baac387a",
+      "2026-11-28_core_candidates.csv": "95ec5dd186f3f82c9700ac9f9fce40bee071287112e32ad85a3542f0a6bebe2e",
+      "2026-11-28_atg_consensus_shadow.csv": "7744fa6ef8f0442ab5a0086ddec7e4f909e983b76e8fec814cbe25bda1a674c1",
+      "2026-11-28_playable_shadow_v0.3.csv": "9e18d475045d975264be0d5569bf8647b24bc82738748b1093df23a152f127ca",
+      "2026-11-28_atg_predictions.csv": "d8a2a5d060d6dfd086a2ad2a63d44da9d3a21b3eb7802755e0b09c79fb11890c",
+      "2026-11-28_top10.csv": "76a7c1539f8616c227b78c924dc9bd25ba3bf2250e1392b3e5b7275ccbbcb965",
+      "2026-11-28_team_predictions.csv": "31da9a9992d9c0bad30158f996c49b1479eeae1b2422dacecf51f171f81c648a",
+      "2026-11-28_goalie_v03_research.csv": "e53bb217b0affafa6b70323c2e7b93620ed3cbf96142388dce1bd13cf52c3752",
+      "2026-11-28_identity_excluded.csv": "f659271788361bb5907562e59dc00395563b2eba42c2df576b2e79582459fa79",
+      "2026-11-28_playable.csv": "caef464aed9bb0a7c1b34ca0a2d29577c5f29356b1480c893cea87342e2fbf6a",
+      "2026-11-28_goalie_predictions.csv": "0672b6616ad58566644d240234cee1e43d673ac56ff8f5cf6644479b36bad0cc"
+    },
+    "research_error": null,
+    "replay_parity": null
+  },
+  "research_manifest": {
+    "date": "2026-11-28",
+    "status": "PREGAME_PENDING_ARTIFACT_VERIFICATION",
+    "core_run_id": 46158907536,
+    "core_artifact_id": 15268253295,
+    "core_artifact_created_at": "2026-11-28T15:16:45Z",
+    "created_at_utc": "2026-11-28T15:17:41.591876+00:00",
+    "first_puck_utc": "2026-11-28 21:00:00+00:00",
+    "source_hashes": {
+      "candidates": "95ec5dd186f3f82c9700ac9f9fce40bee071287112e32ad85a3542f0a6bebe2e",
+      "team": "a4b1468b0c7ae99ea4bea9ff7ec67ff92e5442ad64d1ddee8e36c97247af1075",
+      "goalie": "0672b6616ad58566644d240234cee1e43d673ac56ff8f5cf6644479b36bad0cc",
+      "research": "e53bb217b0affafa6b70323c2e7b93620ed3cbf96142388dce1bd13cf52c3752"
+    },
+    "output_hashes": {
+      "goalie_excluded.csv": "f579298b89f48f43e9d880bd5027ef6577960933b579244eb606f087bfe38fd3",
+      "totals_comparison.csv": "e9876b6f27070e039a448794b88d610b537eb355257e41c79cd88996da0738b5",
+      "spread_comparison.csv": "5b27b118adc65acae36e835c6837622b7a8bd7cdc11a62390007ba28bb9c8c51",
+      "goalie_consensus.csv": "23a80cc99cb8d7ea2da5058590c82d82668a226c0f6ca0e12fdb3ecccac395ad",
+      "goalie_comparison.csv": "06d4e59e97b64b8ef3f56f754f28467e7a0952f8464146f7292aaa1e8e5220d0",
+      "atg/probabilities.csv": "3207cf0f93898b661f871aa0537ed74cfae171c81cd220801c6b12f2be7d7361",
+      "atg/boosting_calibrated_paper_card.csv": "a28ca84262acb0a142f0edcb5183471c3dfac9bc54eaf51eb4653b4309adcbe3",
+      "atg/matched_prices.csv": "6b663f2231fe822d6724625458175ead0b09f749c6874a6d012ba2c65a3213a9",
+      "atg/excluded.csv": "411987bfa43b25952d6fff21b736d483c4c0f2a8251dc57bfc62e362ab48e142",
+      "atg/official_probability_paper_card.csv": "7a896a54f5588a2090f2f393008a0c09ef61318a796ba151ed8a4570fdb35cbc",
+      "atg/shot_probability_paper_card.csv": "9c34094fd6b528f6b741d400d40e50c1b6963bfd8e59005c66cece66d5747c87",
+      "atg/manifest.json": "781c4898ee9777738f4dc135db49c395529dea19713542882903bf6eb8efe2e6",
+      "atg/audit/count_anomalies.csv": "7b8ee5e014ccd504637dabc3d29d629fd3d5121081bf7e74840ae16ace67c94b",
+      "atg/audit/audit.json": "2c69878b6ea245dba16ae20268299e1234c2b6ba3506a5357bca794f5ae18610"
+    },
+    "totals_pairs": 13,
+    "matched_goalie_rows": 25,
+    "excluded_goalie_rows": 0,
+    "totals_qualifying": {
+      "analytic_control": 2,
+      "official_locked": 2,
+      "tie_only": 0
+    },
+    "goalie_qualifying": {
+      "v0_1": 19,
+      "v0_2": 12,
+      "v0_3": 9
+    },
+    "spread_pairs": 13,
+    "spread_qualifying": {
+      "analytic_control": 4,
+      "direct_final_score_classes": 9,
+      "official_locked": 4
+    },
+    "goalie_consensus_counts": {
+      "unanimous_direction": 15,
+      "unanimous_v03_gate": 6,
+      "unanimous_all_gates": 3
+    },
+    "margin_history_sha256": "8a64b279789ed438ee42df1f9ee2f43936405b5113c3ba5c2422eef6498e6a16",
+    "margin_bundle_sha256": "9c44fd3ac84779c38589495d6336a0d1a5233896c29b8555dbf388223dae0b80",
+    "margin_history_last_date": "2026-11-27",
+    "official_records_changed": false,
+    "note": "No new official picks; totals 5.5/6.5 only; analytic control isolates tie effect from Monte Carlo noise; goalie half-lines matched only; ATG nested lock. Live requires independent final artifact timestamp."
+  },
+  "notes": [
+    "Raw history rebuilt from original archive, no permanent copy. No Seattle goalie odds supplied. User-supplied FanDuel prices only. Lineups projected; no subjective context adjustment. Three explicit team corrections in official review; matched research excludes these. No grades yet; no official model changes."
+  ]
+}
